@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.3 · Ciclo 3 · Português — Fonética e Fonologia (parte 1/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.3</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa B (3.3) · Português</h1>
+        <div class="sub">EsPCEx 2026 · Fonética e Fonologia (parte 1/2): letras e fonemas, encontros vocálicos e consonantais, dígrafos e sílaba</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Treino de classificação</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.3</h2>
+  <p class="lead">Tarefa B da trilha: <i>"Estude os seguintes temas: Introdução; Fonética - Letras e fonemas; Fonética - Encontros vocálicos; Fonética - Encontro consonantal; Fonética - Dígrafos vocálicos e consonantais; Fonética - Sílaba: separação silábica"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os seis trechos do livro digital de Português indicados pela tarefa (itens 2.1 a 2.6). Tema de alta incidência (🔥🔥🔥). Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• <b>Letra ≠ fonema</b>: conte sons, não letras. "Ficha" tem 5 letras e 4 fonemas.<br>• Encontros vocálicos: <b>ditongo</b> e <b>tritongo</b> ficam na mesma sílaba; <b>hiato</b> se separa.<br>• No dígrafo <b>qu/gu</b> o u não soa; se soar (água, equestre), é ditongo.<br>• Dígrafos <b>rr, ss, sc, sç, xc, xs</b> se separam na divisão silábica; ch, lh, nh, qu, gu não.<br>• Prefixo terminado em consoante + vogal: a consoante passa para a sílaba seguinte (bi-sa-vô, su-bo-fi-ci-al).</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (25 min).</b> Leia a aba <b>Resumo</b> falando as palavras em voz alta: fonética se aprende ouvindo.</li><li><b>Mapa e Esquemas (10 min).</b> Clique em cada item do mapa e veja os exemplos.</li><li><b>Treino de classificação (5 min).</b> Classifique as palavras antes de abrir a resposta.</li><li><b>Questões (40 min).</b> 45 questões. Leia o comentário de cada uma, inclusive das que acertar.</li><li><b>Rendimento (5 min).</b> Anote os temas abaixo de 80% e refaça as erradas na revisão do ciclo.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: múltipla escolha. Fonologia aparece em itens curtos de classificação.</span></div><div class="card"><b>Questões</b><br><span class="muted">45 de múltipla escolha.</span></div><div class="card"><b>Próxima parte</b><br><span class="muted">Fonologia continua na parte 2/2 (tonicidade, acentuação e ortografia).</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: Fonética e Fonologia (parte 1/2)</h2>
+  <p class="lead">Na ordem do livro digital. Termos-chave <span class="k">em destaque</span>; diga as palavras em voz alta.</p>
+
+  <h3>1. Fonética × fonologia</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Fonética</span>: estuda os sons da fala no aspecto material (físico, acústico, aparelho fonador).</li>
+      <li><span class="k">Fonologia</span>: estuda a função dos fonemas na língua, ou seja, como os sons distinguem significados.</li>
+      <li>O ideal seria uma letra para cada som, mas não é o que acontece: daí a diferença entre letra e fonema.</li>
+    </ul>
+  </div>
+
+  <h3>2. Vogais, consoantes e semivogais</h3>
+  <div class="card">
+    <ul>
+      <li><b>Vogal</b>: o ar passa livre pela boca; é sempre o <b>centro da sílaba</b> (toda sílaba tem uma, e só uma, vogal).</li>
+      <li><b>Consoante</b>: há obstáculo à passagem do ar; é fonema marginal, só aparece na sílaba junto a uma vogal.</li>
+      <li><span class="k">Semivogal</span>: os sons /i/ e /u/ quando se apoiam numa vogal na mesma sílaba (transcritos [j] e [w]). Em <i>riso</i> e <i>viu</i> o i é vogal; em <i>rei</i> e <i>vário</i> é semivogal. Em <i>muro</i> o u é vogal; em <i>meu</i> e <i>quatro</i> é semivogal.</li>
+      <li>No fim de palavras como <i>bem</i>, <i>amam</i>, <i>mão</i>, as letras <b>m</b> e <b>n</b> (e o til) indicam semivogal nasal: ditongos /ãw/ e /ẽj/.</li>
+    </ul>
+  </div>
+
+  <h3>3. Letra × fonema</h3>
+  <div class="card">
+    <p><span class="k">Fonema</span> é a menor unidade sonora que distingue palavras (<i>lar</i> × <i>mar</i>). <span class="k">Letra</span> (grafema) é a sua representação escrita. <i>Ficha</i>: 5 letras (f-i-c-h-a) e 4 fonemas /f/ /i/ /x/ /a/.</p>
+    <div class="tbl"><table>
+      <tr><th>Situação</th><th>Exemplos</th></tr>
+      <tr><td>Uma letra, fonemas diferentes</td><td>eXato, Xale, aproXimação, táXi; Coração × Cebola</td></tr>
+      <tr><td>Um fonema, letras diferentes</td><td>caSa, eXórdio, Zinco (som de z); Gente, loJa (som de j)</td></tr>
+      <tr><td>Duas letras, um fonema (dígrafo)</td><td>CHácara, foLHa, moiNHo, maSSa, naSCer</td></tr>
+      <tr><td>Uma letra, dois fonemas (<b>dífono</b>: x = /ks/)</td><td>taXímetro, tóraX, seXualidade</td></tr>
+      <tr><td>Letra que só marca nasalidade ou leitura</td><td>taMpa, tiNta (vogal nasal); regUe (u não soa)</td></tr>
+      <tr><td>Letra sem som</td><td>Herói (h), creScer, eXcelente, aqUi</td></tr>
+      <tr><td>Fonema sem letra própria</td><td>trem (/ẽj/), cantam (/ãw/)</td></tr>
+    </table></div>
+    <p>Fonemas podem ser sonoros, surdos, orais ou nasais. O mais cobrado é identificar os <b>nasais</b> (som pela boca e pelo nariz), porque isso afeta a acentuação.</p>
+    <div class="call bad"><b>Pegadinha</b>"Táxi tem 4 letras e 4 fonemas": <b>ERRADO</b>.<br><b>O erro:</b> o x de táxi soa /ks/.<br><b>O certo:</b> táxi tem 4 letras e 5 fonemas /t/ /a/ /k/ /s/ /i/.</div>
+    <details><summary>Pergunte-se: quantos fonemas tem "chuva"? E "hoje"?</summary><div>Chuva: 5 letras, 4 fonemas (/x/ /u/ /v/ /a/). Hoje: 4 letras, 3 fonemas (o h não soa: /o/ /j/ /e/).</div></details>
+  </div>
+
+  <h3>4. Encontros vocálicos</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Encontro</th><th>Formação</th><th>Sílaba</th><th>Exemplos</th></tr>
+      <tr><td><b>Ditongo decrescente</b></td><td>vogal + semivogal</td><td>mesma</td><td>pai, sei, mau, meu, boi, herói, coisa, mãe, não, tem, muito</td></tr>
+      <tr><td><b>Ditongo crescente</b></td><td>semivogal + vogal</td><td>mesma</td><td>qual, quase, frequente, tranquilo, quota, armário, linguiça</td></tr>
+      <tr><td><b>Tritongo</b></td><td>semivogal + vogal + semivogal</td><td>mesma</td><td>orais: Uruguai, iguais, averiguei, enxaguei; nasais: saguão, quão, averiguam, enxáguam, delinquem</td></tr>
+      <tr><td><b>Hiato</b></td><td>vogal + vogal</td><td>separadas</td><td>cru-el, a-or-ta, ci-ú-me, ve-em, per-do-o, pa-ís</td></tr>
+    </table></div>
+    <ul>
+      <li>Ditongo <b>oral</b> ou <b>nasal</b> conforme a vogal (deixo, régua × mamão, limões). <b>Aberto</b> ou <b>fechado</b> conforme o timbre (céu, papéis, chapéu × ouro, boi, Europa).</li>
+      <li><b>Ditongos nasais decrescentes</b>: mãe, cãibra; vem, bem, benzinho; mão, vejam, amam; põe, sermões; e <b>muito</b>, único com som nasal sem til, m ou n.</li>
+      <li>Na derivação, o n continua semivogal: <i>trem</i> e <i>trenzinho</i> têm o ditongo /ẽj/.</li>
+      <li><b>Pais × país</b>: em <i>pais</i> o ai fica numa sílaba (ditongo); em <i>pa-ís</i> se separa (hiato).</li>
+      <li>Finais átonos <b>-ia, -ie, -io, -oa, -ua, -ue, -uo</b> (gló-ria, cá-rie, á-gua, tê-nue) são normalmente ditongos crescentes, mas podem ser pronunciados como hiato. Na escrita, nunca se separam no fim da linha.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Em <i>guerra</i> há ditongo crescente": <b>ERRADO</b>.<br><b>O erro:</b> o u de guerra não é pronunciado.<br><b>O certo:</b> gu em guerra é dígrafo; ditongo crescente há em <i>água</i>, <i>equestre</i>, onde o u soa.</div>
+    <details><summary>Pergunte-se: gratuito, vácuo, frear e minguam têm o quê, respectivamente?</summary><div>gra-<b>tui</b>-to: ditongo decrescente; vá-<b>cuo</b>: ditongo crescente; fr<b>e-a</b>r: hiato; min-<b>guam</b>: tritongo nasal.</div></details>
+  </div>
+
+  <h3>5. Encontros consonantais</h3>
+  <div class="card">
+    <ul>
+      <li>Duas ou mais consoantes <b>sem vogal no meio</b>, cada uma com o seu som.</li>
+      <li><b>Perfeitos</b> (inseparáveis): segunda consoante <b>l</b> ou <b>r</b> (blo-co, te-cla, a-glu-ti-nar, so-pro, a-trás) e grupos iniciais gn, mn, pn, ps, pt, tm (gno-mo, pneu-má-ti-co, psi-có-lo-go, mne-mô-ni-co).</li>
+      <li><b>Imperfeitos</b> (separáveis): af-ta, ad-ven-to, ét-ni-co, ad-je-ti-vo.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"<i>Chave</i> tem encontro consonantal": <b>ERRADO</b>.<br><b>O erro:</b> ch forma um único som.<br><b>O certo:</b> ch é dígrafo; encontro consonantal exige dois sons de consoante (como bl em bloco).</div>
+  </div>
+
+  <h3>6. Dígrafos</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Dígrafo</span>: duas letras, <b>um só som</b>.</li>
+      <li><b>Vocálicos</b> (vogal nasal): am/an, em/en, im/in, om/on, um/un, como em samba, canta, empate, encanto, importância, bombom, onda, mundo.</li>
+      <li><b>Consonantais inseparáveis</b>: ch, lh, nh, qu, gu (chave, calha, barganha, quitanda, guirlanda).</li>
+      <li><b>Consonantais separáveis</b> (nunca iniciam palavra): rr, ss, sc, sç, xc, xs, como em car-ro, as-sa-do, cres-ci-men-to, des-ça, ex-ces-so, ex-su-dar.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Nas palavras <i>campo</i> e <i>tampa</i> há encontro consonantal mp": <b>ERRADO</b>.<br><b>O erro:</b> o m não soa como consoante; ele nasaliza a vogal.<br><b>O certo:</b> am é dígrafo vocálico; o p é consoante isolada.</div>
+  </div>
+
+  <h3>7. Sílaba e separação silábica</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Sílaba</span>: sons emitidos numa só expiração (a-le-grou). Pode ser uma vogal, um ditongo ou um tritongo, sozinhos ou com consoantes (é, eu, uai; a-plau-dir, trans-por, U-ru-guai).</li>
+      <li>Número de sílabas = número de <b>vogais</b> (semivogais não contam).</li>
+      <li><b>Monossílaba</b> (pão, quais), <b>dissílaba</b> (á-gua, he-rói, sa-guão), <b>trissílaba</b> (ba-lei-a, en-xa-guou, cri-an-ça), <b>polissílaba</b> (so-ci-e-da-de, em-pre-en-di-men-to).</li>
+    </ul>
+    <div class="grid2">
+      <div class="call ok"><b>Não se separam</b>ditongo e tritongo · dígrafos ch, lh, nh, qu, gu · encontros consonantais perfeitos (com l ou r)</div>
+      <div class="call bad"><b>Separam-se</b>hiato · dígrafos rr, ss, sc, sç, xc · encontros consonantais imperfeitos</div>
+    </div>
+    <p><b>Prefixos:</b> (1) prefixo terminado em consoante + palavra iniciada por <b>vogal</b>: a consoante vai para a sílaba seguinte (bi-sa-vô, in-te-res-ta-du-al, su-bo-fi-ci-al). (2) + palavra iniciada por <b>l</b> ou <b>r</b>: o prefixo fica inteiro (sub-lo-car, sub-ro-gar).</p>
+    <div class="call bad"><b>Pegadinha</b>"A separação correta é <i>sub-o-fi-ci-al</i>": <b>ERRADO</b>.<br><b>O erro:</b> o b do prefixo se junta à vogal seguinte.<br><b>O certo:</b> su-bo-fi-ci-al. Já <i>sub-lo-car</i> mantém o prefixo inteiro.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: fonética e fonologia</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/2 (esta)</b><br><span class="muted">Letras e fonemas · encontros vocálicos e consonantais · dígrafos · sílaba.</span></div>
+    <div><b>Parte 2/2</b><br><span class="muted">Tonicidade (oxítona, paroxítona, proparoxítona) · acentuação gráfica · ortografia.</span></div>
+    <div><b>Ligação</b><br><span class="muted">Hiato, ditongo e sílaba tônica são a base das regras de acentuação.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Encontros: como reconhecer</h3>
+  <div class="tbl"><table>
+    <tr><th>Pergunta</th><th>Se sim…</th></tr>
+    <tr><td>Duas letras com um som só?</td><td><b>Dígrafo</b> (ch, lh, nh, qu, gu, rr, ss, sc, sç, xc, xs, am, en…)</td></tr>
+    <tr><td>Duas consoantes, cada uma soando?</td><td><b>Encontro consonantal</b> (bl, cr, pn, ps, ft…)</td></tr>
+    <tr><td>Vogal + semivogal na mesma sílaba?</td><td><b>Ditongo decrescente</b> (pai, céu)</td></tr>
+    <tr><td>Semivogal + vogal na mesma sílaba?</td><td><b>Ditongo crescente</b> (qual, água)</td></tr>
+    <tr><td>Semivogal + vogal + semivogal?</td><td><b>Tritongo</b> (Uruguai, saguão)</td></tr>
+    <tr><td>Duas vogais em sílabas diferentes?</td><td><b>Hiato</b> (sa-ú-de, pa-ís)</td></tr>
+  </table></div>
+
+  <h3>Separa ou não separa</h3>
+  <div class="tbl"><table>
+    <tr><th>Não separa</th><th>Separa</th></tr>
+    <tr><td>ditongo (au-la), tritongo (U-ru-guai)</td><td>hiato (sa-ú-de)</td></tr>
+    <tr><td>ch, lh, nh, qu, gu (ma-cha-do)</td><td>rr, ss, sc, sç, xc, xs (pas-sa-do, nas-cer)</td></tr>
+    <tr><td>consoante + l ou r (a-tle-ta, li-vro)</td><td>encontro imperfeito (ap-to, ad-vo-ga-do)</td></tr>
+  </table></div>
+
+  <h3>Contagem rápida de fonemas</h3>
+  <div class="tbl"><table>
+    <tr><th>Palavra</th><th>Letras</th><th>Fonemas</th><th>Por quê</th></tr>
+    <tr><td>ficha</td><td>5</td><td>4</td><td>ch = 1 som</td></tr>
+    <tr><td>táxi</td><td>4</td><td>5</td><td>x = /ks/</td></tr>
+    <tr><td>hora</td><td>4</td><td>3</td><td>h não soa</td></tr>
+    <tr><td>campo</td><td>5</td><td>4</td><td>am = vogal nasal</td></tr>
+    <tr><td>guerra</td><td>6</td><td>4</td><td>gu e rr = 1 som cada</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Treino de classificação</h2>
+  <p class="lead">Diga a resposta em voz alta antes de abrir. Todas as palavras saíram dos exemplos do livro digital.</p>
+  <div class="card">
+    <details><summary>1. Separe: subumano, sublinhar, transatlântico, interestadual</summary><div>su-bu-ma-no · sub-li-nhar · tran-sa-tlân-ti-co · in-te-res-ta-du-al. Prefixo + vogal: a consoante passa adiante; prefixo + l/r: o prefixo fica inteiro.</div></details>
+    <details><summary>2. Classifique o encontro destacado: pAIs, pAÍs, qUAl, UrugUAI, sAÚde</summary><div>ditongo decrescente · hiato · ditongo crescente · tritongo · hiato.</div></details>
+    <details><summary>3. Dígrafo ou encontro consonantal? CHuva, BRaço, naSCer, PSicólogo, camPO (am)</summary><div>dígrafo · encontro consonantal · dígrafo · encontro consonantal · dígrafo vocálico (am).</div></details>
+    <details><summary>4. Quantas letras e quantos fonemas? exame, guitarra, nhoque</summary><div>exame: 5 letras, 5 fonemas (x = /z/). guitarra: 8 letras, 6 fonemas (gu e rr). nhoque: 6 letras, 4 fonemas (nh e qu).</div></details>
+    <details><summary>5. Separe: excesso, desça, carro, ritmo, pneu</summary><div>ex-ces-so · des-ça · car-ro · rit-mo · pneu.</div></details>
+    <details><summary>6. Quantas sílabas: enxaguou, baleia, saguão, empreendimento</summary><div>en-xa-guou (3) · ba-lei-a (3) · sa-guão (2) · em-pre-en-di-men-to (6).</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos do livro digital)</h2>
+  <p class="lead">São as <b>45 questões</b> dos cadernos de cinco trechos do livro digital (letras e fonemas, encontros vocálicos, encontro consonantal, dígrafos e sílaba): 45 de múltipla escolha. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.3 · Fonemas, encontros e sílaba</option>
+      <option value="ref">Separação silábica e prefixos</option>
+      <option value="pan">Panorama de Fonologia (partes 1 e 2)</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "Assinale a opção em que todas as palavras apresentam o mesmo número de fonemas.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> incorreta, pois tem “amor” 4 fonemas enquanto “livro” e “queijo” têm 5 fonemas.", "<b>Alternativa B:<\/b> incorreta, pois “táxi” tem 5 fonemas (x com som de ks) enquanto “guerra” e “carro” têm 4 fonemas.", "<b>Alternativa C:<\/b> incorreta, pois “ele” tem 3 fonemas enquanto “que” e “bem” têm 2 fonemas.", "<b>Alternativa D:<\/b> correta, pois todos os termos aqui apresentam sete fonemas.", "<b>Alternativa E:<\/b> incorreta, pois “humanos” tem 6 fonemas enquanto “vermelho” e “chuveiro” têm 7 fonemas."], "alts": [["a", "livro – queijo – amor."], ["b", "táxi – guerra – carro."], ["c", "que – bem – ele."], ["d", "tóxico – refúgio – chaveiro."], ["e", "vermelho – chuveiro – humanos."]], "resp": "d"}, {"n": 2, "fonte": "Simulado EsPCEx · 2022", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "A palavra “ninguém” contém o mesmo número de fonemas que a palavra:", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>A palavra ‘ninguém’ contém 7 letras e, por apresentar dois dígrafos (’in’ e ‘gu’) , possui 5 fonemas. lembrando que o ‘em’ final é um ditongo decrescente nasal.<\/div>", "<b>Alternativa A:<\/b> A alternativa A está incorreta, pois a palavra “galinha” possui 6 fonemas.", "<b>Alternativa B:<\/b> A alternativa B está incorreta, pois a palavra “fala” possui 4 fonemas.", "<b>Alternativa C:<\/b> A alternativa C está incorreta, pois a palavra “lombriga” possui 7 fonemas.", "<b>Alternativa D:<\/b> A alternativa D está incorreta, pois a palavra “xavante” possui 6 fonemas.", "<b>Alternativa E:<\/b> A alternativa E está correta, pois a palavra “índios” possui 5 fonemas."], "alts": [["a", "galinha"], ["b", "fala"], ["c", "lombriga"], ["d", "xavante"], ["e", "índios"]], "resp": "e"}, {"n": 3, "fonte": "Simulado EsPCEx · 2022", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "A letra destacada na palavra “pró<u><b>x<\/b><\/u>imo” possui o mesmo fonema que a letra destacada em:", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Na palavra pró<u><b>x<\/b><\/u>imo, a letra x possui fonema /s/.", "<b>Alternativa A:<\/b> <b>INCORRETA<\/b>, pois a letra ‘s’ possui fonema /z/.", "<b>Alternativa B:<\/b> <b>INCORRETA<\/b>, pois a letra ‘x’ possui fonema /x/.", "<b>Alternativa C:<\/b> <b>CORRETA<\/b>, pois tanto próximo, palavra em destaque no enunciado, quanto coerência, apesar de apresentarem letras diferentes, possuem o mesmo fonema /s/.", "<b>Alternativa D:<\/b> <b>INCORRETA<\/b>, pois a letra ‘z’ possui fonema /z/.", "<b>Alternativa E:<\/b> <b>INCORRETA<\/b>, pois a letra ‘x’ possui fonema /z/."], "alts": [["a", "preci<u><b>s<\/b><\/u>am"], ["b", "bai<u><b>x<\/b><\/u>o"], ["c", "coerên<u><b>c<\/b><\/u>ia"], ["d", "precari<u><b>z<\/b><\/u>ados"], ["e", "e<u><b>x<\/b><\/u>emplo"]], "resp": "c"}, {"n": 4, "fonte": "Simulado ESA · 2022", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "Assinale, dentre as palavras a seguir, aquela em que há correspondência entre o número de fonemas e o de letras.", "com": ["<b>GABARITO: ALTERNATIVA C<\/b>", "<b>Alternativa A:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>porque, como a letra “x” apresenta dois sons “ks”, fazendo com que tenhamos quatro letras e cinco fonemas. Dessa forma, essa não é a resposta correta para a questão.<\/div>", "<b>Alternativa B:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>porque o dígrafo “SC”, nesse caso, é pronunciado como um só fonema e, por isso, não temos a correspondência entre fonemas e letras. Além de haver um dígrafo vocálico \"EN\", portanto havia 12 letras e 10 fonemas.<br><\/div>", "<b>Alternativa C:<\/b> <b>CORRETO<\/b><div><b><br><\/b><\/div><div> porque o C, ainda que nem sempre pronunciado, nesse caso, apresenta-se como som “seco”. Assim, há, nessa palavra, todas as letras representantes de um só fonema, fazendo com que tenhamos uma construção de 7 letras e 7 fonemas.<\/div>", "<b>Alternativa D:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>porque, como a letra “x” apresenta dois sons “ks”, fazendo com que tenhamos quatro letras e cinco fonemas. Dessa forma, essa não é a resposta correta para a questão.<\/div>", "<b>Alternativa E:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>porque, nesse caso, temos dois dígrafos vocálicos com um só som: “im” e “an”, dessa forma, há dois fonemas a menos do que o número de letras. Portanto, 10 letras e 8 fonemas.<br><\/div>"], "alts": [["a", "Táxi"], ["b", "Adolescência"], ["c", "Técnico"], ["d", "Fixa"], ["e", "Importante"]], "resp": "c"}, {"n": 5, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2021", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "<div>Sobre a importância da ciência<\/div><br><div>Parece paradoxal que, no início deste milênio, durante o que chamamos com orgulho de “era da ciência”, tantos ainda acreditem em profecias de fim de mundo. Quem não se lembra do bug do milênio ou da enxurrada de absurdos ditos todos os dias sobre a previsão maia de fim de mundo no ano 2012? Existe um cinismo cada vez maior com relação à ciência, um senso de que fomos traídos, de que promessas não foram cumpridas. Afinal, lutamos para curar doenças apenas para descobrir outras novas. Criamos tecnologias que pretendem simplificar nossas vidas, mas passamos cada vez mais tempo no trabalho. Pior ainda: tem sempre tanta coisa nova e tentadora no mercado que fica impossível acompanhar<\/div><div>o passo da tecnologia.<\/div><br><div>Os mais jovens se comunicam de modo quase que incompreensível aos mais velhos, com Facebook, Twitter e textos em celulares. Podemos ir à Lua, mas a maior parte da população continua mal nutrida. Consumimos o planeta com um apetite insaciável, criando uma devastação ecológica sem precedentes. Isso tudo graças à ciência? Ao menos, é assim que pensam os descontentes, mas não é nada disso. Primeiro, a ciência não promete a redenção humana. Ela simplesmente se ocupa de compreender como funciona a natureza, ela é um corpo de conhecimento sobre o Universo e seus habitantes, vivos ou não, acumulado através de um processo constante de refinamento e testes conhecido como método científico.<\/div><br><div>A prática da ciência provê um modo de interagir com o mundo, expondo a essência criativa da natureza. Disso, aprendemos que a natureza é transformação, que a vida e a morte são parte de uma cadeia de criação e destruição perpetuada por todo o cosmo, dos átomos às estrelas e à vida. Nossa existência é parte desta transformação constante da matéria, onde todo elo é igualmente importante, do que é criado ao que é destruído.<\/div><br><div>A ciência pode não oferecer a salvação eterna, mas oferece a possibilidade de vivermos livres do medo irracional do desconhecido. Ao dar ao indivíduo a autonomia de pensar por si mesmo, ela oferece a liberdade da escolha informada. Ao transformar mistério em desafio, a ciência adiciona uma nova dimensão à vida, abrindo a porta para um novo tipo de espiritualidade, livre do dogmatismo das religiões organizadas. A ciência não diz o que devemos fazer com o conhecimento que acumulamos. Essa decisão é nossa, em geral tomada pelos políticos que elegemos, ao menos numa sociedade democrática. A culpa dos usos mais nefastos da ciência deve ser dividida por toda a sociedade. Inclusive, mas não exclusivamente, pelos cientistas. Afinal, devemos culpar o inventor da pólvora pelas mortes por tiros e explosivos ao longo da história? Ou o inventor do microscópio pelas armas biológicas?<\/div><br><div>A ciência não contrariou nossas expectativas. Imagine um mundo sem antibióticos, TVs, aviões, carros. As pessoas vivendo no mato, sem os confortos tecnológicos modernos, caçando para comer. Quantos optariam por isso?<\/div><br><div>A culpa do que fazemos com o planeta é nossa, não da ciência. Apenas uma sociedade versada na ciência pode escolher o seu destino responsavelmente. Nosso futuro depende disso.<\/div><br><div>As palavras “paradoxal” e “orgulho” contêm, respectivamente, o mesmo número de fonemas de<\/div>", "com": ["<div>Na palavra \"paradoxal\" (/p/a/r/a/d/o/k/s/a/l), há 10 fonemas, tendo em vista que a letra \"x\" representa o som /ks/.<\/div><div>Na palavra \"orgulho\" (/o/r/g/u/§/o), há 6 fonemas, tendo em vista que o dígrafo \"lh\" representa um único som.<br><\/div>", "<b>Alternativa A:<\/b> <div>A palavra inexorável contém 10 fonemas assim como a palavra paradoxal. Lembrem-se de que o \"x\" nessa palavra possui som de /z/.<\/div><div>A palavra início contém 6 fonemas, assim como a palavra orgulho.<\/div><div>Portanto, esta é a alternativa correta.<br><\/div>", "<b>Alternativa B:<\/b> <div>A palavra promessas possui 8 fonemas, pois /ss/ é um dígrafo. Portanto, já não poderia ser o gabarito.<\/div><div>A palavra jovens possui um ditongo final, assim como a palavra jovem, portanto havia 6 fonemas nela, pois o \"n\" conta comum uma semivogal, portanto será pronunciada<br><\/div>", "<b>Alternativa C:<\/b> <div>A palavra habitantes possui 8 fonemas (o \"h\" não é pronunciado e há dígrafo vocálico /an/). Já não possuía o mesmo número de fonemas.<\/div><div>A palavra cinismo conta com 7 fonemas.<br><\/div>", "<b>Alternativa D:<\/b> A palavra compreender possui 9 fonemas, com a presença de dois dígrafos vocálicos \"om\" e \"en\" e a palavra através conta com 7 fonemas.", "<b>Alternativa E:<\/b> A palavra liberdade possui 9 fonemas, portanto não podia também ser o gabarito e, na palavra \"prática\", há 7 fonemas."], "alts": [["a", "inexorável e início"], ["b", "promessas e jovens"], ["c", "habitantes e cinismo"], ["d", "compreender e através"], ["e", "liberdade e prática"]], "resp": "a"}, {"n": 6, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2018", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "Noruega como Modelo de Reabilitação de Criminosos&nbsp;<br><div>O Brasil é responsável por uma das mais altas taxas de reincidência criminal em todo o mundo. No país, a taxa média de reincidência (amplamente admitida mas nunca comprovada empiricamente) é de mais ou menos 70%, ou seja, 7 em cada 10 criminosos voltam a cometer algum tipo de crime após saírem da cadeia.&nbsp;<\/div><br><div>Alguns perguntariam “Por quê?”. E eu pergunto: “Por que não?” O que esperar de um sistema que propõe reabilitar e reinserir aqueles que cometerem algum tipo de crime, mas nada oferece, para que essa situação realmente aconteça? Presídios em estado de depredação total, pouquíssimos programas educacionais e laborais para os detentos, praticamente nenhum incentivo cultural, e, ainda, uma sinistra cultura (mas que diverte muitas pessoas) de que bandido bom é bandido morto (a vingança é uma festa, dizia Nietzsche).&nbsp;<\/div><br><div>Situação contrária é encontrada na Noruega. Considerada pela ONU, em 2012, o melhor país para se viver (1º no ranking do IDH) e, de acordo com levantamento feito pelo Instituto Avante Brasil, o 8º país com a menor taxa de homicídios no mundo, lá o sistema carcerário chega a reabilitar 80% dos criminosos, ou seja, apenas 2 em cada 10 presos voltam a cometer crimes; é uma das menores taxas de reincidência do mundo. Em uma prisão em Bastoy, chamada de ilha paradisíaca, essa reincidência é de cerca de 16% entre os homicidas, estupradores e traficantes que por ali passaram. Os EUA chegam a registrar 60% de reincidência e o Reino Unido, 50%. A média europeia é 50%.&nbsp;<\/div><br><div>A Noruega associa as baixas taxas de reincidência ao fato de ter seu sistema penal pautado na reabilitação e não na punição por vingança ou retaliação do criminoso. A reabilitação, nesse caso, não é uma opção, ela é obrigatória. Dessa forma, qualquer criminoso poderá ser condenado à pena máxima prevista pela legislação do país (21 anos), e, se o indivíduo não comprovar estar totalmente reabilitado para o convívio social, a pena será prorrogada, em mais 5 anos, até que sua reintegração seja comprovada.&nbsp;<\/div><br><div>O presídio é um prédio, em meio a uma floresta, decorado com grafites e quadros nos corredores, e no qual as celas não possuem grades, mas sim uma boa cama, banheiro com vaso sanitário, chuveiro, toalhas brancas e porta, televisão de tela plana, mesa, cadeira e armário, quadro para afixar papéis e fotos, além de geladeiras. Encontra-se lá uma ampla biblioteca, ginásio de esportes, campo de futebol, chalés para os presos receberem os familiares, estúdio de gravação de música e oficinas de trabalho. Nessas oficinas são oferecidos cursos de formação profissional, cursos educacionais, e o trabalhador recebe uma pequena remuneração. Para controlar o ócio, oferecer muitas atividades, de educação, de trabalho e de lazer, é a estratégia.&nbsp;<\/div><br><div>A prisão é construída em blocos de oito celas cada (alguns dos presos, como estupradores e pedófilos, ficam em blocos separados). Cada bloco tem sua cozinha. A comida é fornecida pela prisão, mas é preparada pelos próprios detentos, que podem comprar alimentos no mercado interno para abastecer seus refrigeradores.&nbsp;<\/div><br><div>Todos os responsáveis pelo cuidado dos detentos devem passar por no mínimo dois anos de preparação para o cargo, em um curso superior, tendo como obrigação fundamental mostrar respeito a todos que ali estão. Partem do pressuposto que, ao mostrarem respeito, os outros também aprenderão a respeitar.&nbsp;<\/div><br><div>A diferença do sistema de execução penal norueguês em relação ao sistema da maioria dos países, como o brasileiro, americano, inglês, é que ele é fundamentado na ideia de que a prisão é a privação da liberdade, e pautado na reabilitação e não no tratamento cruel e na vingança.&nbsp;<\/div><br><div>O detento, nesse modelo, é obrigado a mostrar progressos educacionais, laborais e comportamentais, e, dessa forma, provar que pode ter o direito de exercer sua liberdade novamente junto à sociedade. A diferença entre os dois países (Noruega e Brasil) é a seguinte: enquanto lá os presos saem e praticamente não cometem crimes, respeitando a população, aqui os presos saem roubando e matando pessoas. Mas essas são consequências aparentemente colaterais, porque a população manifesta muito mais prazer no massacre contra o preso produzido dentro dos presídios (a vingança é uma festa, dizia Nietzsche).&nbsp;<\/div><br><div>LUIZ FLÁVIO GOMES, jurista, diretor-presidente do Instituto Avante Brasil e coeditor do Portal atualidadesdodireito.com.br. Estou no blogdolfg.com.br. ** Colaborou Flávia Mestriner Botelho, socióloga e pesquisadora do Instituto Avante&nbsp;<\/div><div>Brasil. FONTE: Adaptado de http://institutoavantebrasil.com.br/noruega-como-modelo-de reabilitacao-de-criminosos/ Acessado em 17 de março de 2017.&nbsp;<\/div><br><div>Um mesmo fonema pode ser representado por letras diferentes. A sequência de palavras que ilustra esse conceito é:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b>", "<b>Alternativa A:<\/b> Incorreta. Nesse caso, a letra “x” apresenta <b>FONEMAS DIFERENTES<\/b>. Sendo assim, pode-se dizer que em ta<b>x<\/b>a, a letra “x” representa o fonema /X/; em “má<b>x<\/b>ima”, a letra “x” representa o fonema /S/; em “afi<b>x<\/b>ar”, a letra “x” representa o fonema /KS/.", "<b>Alternativa B:<\/b> Incorreta. Nas palavras “ofi<b>c<\/b>ina” e “<b>c<\/b>ela”, a letra “c” representa o fonema /<b>S<\/b>/, em “pra<b>ç<\/b>a”, “<b>ç<\/b>” também representa o mesmo fonema. Dessa forma, têm-se <b>LETRAS e FONEMAS IGUAIS<\/b> nos dois primeiros termos (oficina e cela) e <b>LETRA DIFERENTE e FONEMA IGUAL<\/b> (praça) no último caso, o que torna a assertiva incorreta.", "<b>Alternativa C:<\/b> Correta. Nos termos “pre<b>s<\/b>ídio”, “la<b>z<\/b>er” e “e<b>x<\/b>ecução” as letras “s”, “z” e “x” representam o mesmo fonema /Z/. Sendo assim, a assertiva está correta, visto que se têm <b>LETRAS DIFERENTES e FONEMAS IGUAIS<\/b> como determinado no enunciado da questão.", "<b>Alternativa D:<\/b> Incorreta. Nesse caso, a letra “<b>x<\/b>” representa o mesmo fonema /<b>Z<\/b>/, uma vez que, de acordo com as regras gramaticais, na pronúncia de “ine<b>x<\/b>orável” a letra “<b>x<\/b>” não é pronunciada por /<b>KS<\/b>/, mas sim por /<b>Z<\/b>/. Portanto, gabarito incorreto.", "<b>Alternativa E:<\/b> Incorreta. Em “pre<b>s<\/b>o” e “a<b>s<\/b>a”, a letra “<b>s<\/b>” representa o fonema /<b>Z<\/b>/. Por outro lado, em “<b>s<\/b>angue”, representa /<b>S<\/b>/. Portanto, questão incorreta."], "alts": [["a", "taxa – máxima – afixar"], ["b", "oficina – praça – cela"], ["c", "presídio – lazer – execução"], ["d", "exercício – inexorável – exórdio"], ["e", "preso – sangue – asa"]], "resp": "c"}, {"n": 7, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2010", "tema": "Fonética - Letras e fonemas", "tipo": "mc", "html": true, "enun": "<div>TEXTO I <\/div><br><div>Pôr-do-sol da freira<\/div><br><img src=\"img/ba18522183a8c19c.png\" alt=\"\"><div><img src=\"img/a12eaf860d263695.png\" alt=\"\"><br><\/div><div><img src=\"img/4f9e09118e035082.png\" alt=\"\"><br><\/div><br><div> CONY, Carlos H. Pôr-do-sol da freira. In: CONY, Carlos H. Quinze anos. São Paulo: Ediouro, 2003, pp. 30-32.<\/div><br><div>Assinale a opção em que todas as palavras apresentam o mesmo número de fonemas. <\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "preto “ chefe - limpou"], ["b", "quebrou - cozinha - atingia"], ["c", "caminho - vergonha - orgulho"], ["d", "composição - redimisse - Renascença"], ["e", "estrangeiro — cientifico - literárias"]], "resp": "b"}, {"n": 8, "fonte": "EAGS - Eletrônica · 2023", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Considere as afirmações seguintes sobre os encontros vocálicos em palavras do trecho: <i>Quando eu passei a porta ela acordou. O primeiro som que lhe saiu da boca foi um grito de medo..<\/i>. (Álvares de Azevedo)<br><div>I- Sete palavras contêm ditongo.<\/div><br><div>II - Em <b>saiu<\/b> existem hiato e ditongo.<\/div><br><div>III - Não há ditongo oral crescente.<\/div><br><div>IV - Em <b>quando<\/b> e <b>primeiro<\/b> há ditongo nasal. <\/div><br><div>Está correto o que se afirma em<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "I, II III e IV."], ["b", "I e II apenas."], ["c", "II, III e IV."], ["d", "I, II e III."]], "resp": "d"}, {"n": 9, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cuja palavra destacada apresente um hiato.", "com": ["<b>GABARITO: ALTERNATIVA C<\/b>", "<b>Alternativa A:<\/b> incorreta, pois aqui há um ditongo na palavra em destaque.", "<b>Alternativa B:<\/b> incorreta, pois aqui há um ditongo na palavra em destaque.", "<b>Alternativa C:<\/b> correta, pois “ciúme” apresenta um hiato. Perceba que na separação silábica teríamos: ci-ú-me.", "<b>Alternativa D:<\/b> incorreta, pois aqui há um tritongo na palavra em destaque.", "<b>Alternativa E:<\/b> incorreta, pois aqui há um tritongo na palavra em destaque."], "alts": [["a", "Foi um encontro muito <u><b>fortuito<\/b><\/u> o nosso."], ["b", "O evento seria <u><b>gratuito<\/b><\/u> para estudantes."], ["c", "Eu morria de <u><b>ciúme<\/b><\/u> do meu namorado."], ["d", "Ele <u><b>averiguou<\/b><\/u> tudo com muito cuidado."], ["e", "Tinha só um <u><b>radiouvinte<\/b><\/u> fiel ao seu programa."]], "resp": "c"}, {"n": 10, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cuja palavra destacada apresente um tritongo.", "com": ["<b>GABARITO: ALTERNATIVA B<\/b>", "<b>Alternativa A:<\/b> incorreta, pois aqui há um ditongo na palavra em destaque ou também, pode-se considerar um hiato, se assim separássemos \"or-quí-de-a\"..", "<b>Alternativa B:<\/b> correta, pois a palavra Paraguai é um tritongo. Na separação silábica, ela fica: Pa-ra-guai.", "<b>Alternativa C:<\/b> incorreta, pois aqui há um hiato na palavra em destaque.", "<b>Alternativa D:<\/b> incorreta, pois aqui há um ditongo na palavra em destaque.", "<b>Alternativa E:<\/b> incorreta, pois aqui há um ditongo na palavra em destaque."], "alts": [["a", "Sua flor favorita era a <u><b>orquídea<\/b><\/u>."], ["b", "Viajamos para o <u><b>Paraguai<\/b><\/u> nas férias."], ["c", "Havia algo de <u><b>poético<\/b><\/u> naquela situação."], ["d", "Eles não se <u><b>propõe<\/b><\/u> a serem mais gentis."], ["e", "Ele praticava esportes <u><b>aquáticos<\/b><\/u>."]], "resp": "b"}, {"n": 11, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cuja palavra destacada apresente um ditongo.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> incorreta, pois aqui há um tritongo na palavra em destaque.", "<b>Alternativa B:<\/b> incorreta, pois aqui há um hiato na palavra em destaque.", "<b>Alternativa C:<\/b> incorreta, pois aqui há um hiato na palavra em destaque.", "<b>Alternativa D:<\/b> correta, pois a palavra em destaque apresenta um ditongo (ei). A separação é: re-e-lei-to.", "<b>Alternativa E:<\/b> incorreta, pois aqui há um tritongo na palavra em destaque."], "alts": [["a", "Esperarei no <u><b>saguão<\/b><\/u> do hotel até a meia-noite."], ["b", "Você é minha <u><b>pessoa<\/b><\/u> favorita no mundo."], ["c", "Não se deve <u><b>reagir<\/b><\/u> a nenhum assalto."], ["d", "O político corrupto não conseguiu ser <u><b>reeleito<\/b><\/u>."], ["e", "<b><u>Quaisquer<\/u><\/b> outras dúvidas, encaminhe para mim."]], "resp": "d"}, {"n": 12, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Assinale a alternativa que apresenta palavra em destaque que seja ditongo oral crescente", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> correta, pois “ia” é um ditongo oral e a semivogal “i” vem antes da vogal “a”.", "<b>Alternativa B:<\/b> incorreta, pois “ou” é um ditongo oral decrescente, já que a vogal “o” vem antes da semivogal “u”.", "<b>Alternativa C:<\/b> incorreta, pois “ei” é um ditongo oral decrescente, já que a vogal “e” vem antes da semivogal “i”.", "<b>Alternativa D:<\/b> incorreta, pois “ão” é um ditongo nasal e decrescente.", "<b>Alternativa E:<\/b> incorreta, pois “ui” é ditongo nasal, ainda que não tenha sinais de nasalização concretos, pois se trata de uma exceção, e decrescente, visto que o \"u\" é vogal e o \"i\" é semivogal."], "alts": [["a", "A <u><b>múmia<\/b><\/u> era a grande atração do museu."], ["b", "O parafuso da cadeira estava <u><b>frouxo<\/b><\/u>."], ["c", "Eu nunca gostei de comer <u><b>peixe<\/b><\/u>."], ["d", "Você pode comprar <u><b>sabão<\/b><\/u> no mercado?"], ["e", "Eu fiquei <u><b>muito<\/b><\/u> feliz que você voltou."]], "resp": "a"}, {"n": 13, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cujas palavras todas apresentem hiato.", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> correta, pois as palavras nesse enunciado se separam la-go-a; po-ei-ra; e vo-o.", "<b>Alternativa B:<\/b> incorreta, pois “herói” não é um hiato, mas um ditongo. A palavra se separa he-rói.", "<b>Alternativa C:<\/b> incorreta, pois “mágoa” não é um hiato, mas um ditongo. A palavra se separa má-goa.", "<b>Alternativa D:<\/b> incorreta, pois “série” não é um hiato, mas um ditongo. A palavra se separa sé-rie.", "<b>Alternativa E:<\/b> incorreta, pois “caixa” não é um hiato, mas um ditongo. A palavra se separa cai-xa."], "alts": [["a", "lagoa – poeira – voo."], ["b", "podia – herói – moeda."], ["c", "baú – mágoa – fuinha."], ["d", "cruel – juízo – série."], ["e", "caixa – doer – geleia."]], "resp": "a"}, {"n": 14, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Em “Graças à <u><b>margem<\/b><\/u> de manobra conferida pela chegada tardia da <u><b>pandemia<\/b><\/u>, muitos Governos foram rápidos na adoção de medidas que buscavam evitar o <b><u>colapso<\/u><\/b> de suas redes hospitalares.”, as palavras sublinhadas apresentam, respectivamente,", "com": ["<b>GABARITO: ALTERNATIVA B<\/b>", "<b>Alternativa A:<\/b> incorreta, pois em “margem” há um ditongo nasal, não crescente; em “pandemia” há um hiato, não um ditongo decrescente; e em “colapso” não há um hiato.", "<b>Alternativa B:<\/b> correta, pois em “margem” “em” e um ditongo nasal; em “pandemia” há um hiato no final da palavra (pan-de-mi-a); e “colapso” apresenta um dígrafo “ps”.", "<b>Alternativa C:<\/b> incorreta, pois em “pandemia” há um hiato, não um ditongo decrescente; e em “colapso” não há um hiato.", "<b>Alternativa D:<\/b> incorreta, pois pandemia apresenta um hiato, não um ditongo, pois se separa “pan-de-mi-a”.", "<b>Alternativa E:<\/b> incorreta, pois em “margem” há um ditongo nasal, não crescente."], "alts": [["a", "ditongo crescente – ditongo decrescente – hiato."], ["b", "ditongo nasal – hiato – encontro consonantal."], ["c", "ditongo nasal – ditongo decrescente – hiato."], ["d", "ditongo nasal – ditongo decrescente – encontro consonantal."], ["e", "ditongo crescente – hiato – encontro consonantal."]], "resp": "b"}, {"n": 15, "fonte": "Simulado EsPCEx · 2022", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Há um caso de ditongo decrescente nasal na palavra:", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> A alternativa A está correta, pois a palavra ‘saírem’ apresenta um ditongo decrescente nasal ‘em’ no final da palavra e equivale a /~ey/.", "<b>Alternativa B:<\/b> A alternativa B está incorreta, pois a palavra ‘aconteceu’ apresenta ditongo decrescente ‘eu’, mas é oral.", "<b>Alternativa C:<\/b> A alternativa C está incorreta, pois a palavra ‘desemprego’ não apresenta encontro vocálico apenas um dígrafo ‘em’ que não deve ser confundido com ‘em’ em finais de palavras que constitui ditongo decrescente.", "<b>Alternativa D:<\/b> A alternativa D está incorreta, pois a palavra ‘pátio’ apresenta ditongo crescente oral no final da palavra ‘io’.", "<b>Alternativa E:<\/b> A alternativa E está incorreta, pois a palavra ‘experiência’ apresenta ditongo crescente oral no final da palavra ‘ia’."], "alts": [["a", "saírem"], ["b", "aconteceu"], ["c", "desemprego"], ["d", "Pátio"], ["e", "experiência"]], "resp": "a"}, {"n": 16, "fonte": "Simulado EEAR · 2021", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Leia o trecho abaixo:<br><div>As  operárias  concorreram  ao  chamado  da abelha <b><u><i>rainha<\/i><\/u><\/b>.<\/div><br><div>Na palavra em destaque acima, há um hiato. Em  qual  das  palavras  abaixo  há  um  exemplo  desse mesmo tipo de encontro vocálico?<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Ao analisar os termos apresentados nas assertivas, percebe-se que a única alternativa que corresponde a um encontro vocálico do mesmo tipo do enunciado é a letra C, uma vez que possui um hiato em sua estrutura (c<b>o-e<\/b>-lho). As demais são classificadas como ditongos (r<b>ei<\/b>zinho; histór<b>ia<\/b>; p<b>ai<\/b>sagem). Portanto, gabarito letra C.<\/div>"], "alts": [["a", "reizinho"], ["b", "história"], ["c", "coelho"], ["d", "paisagem"]], "resp": "c"}, {"n": 17, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2015", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Nas palavras gratuito, vácuo, frear e minguam, há, respectivamente,", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Ao analisar os termos apresentados na assertiva, percebe-se que a palavra “grat<b>ui<\/b>to” apresenta <b>DITONGO DECRESCENTE<\/b>, por haver a vogal “<b>u<\/b>” e a semivogal “<b>i<\/b>”. Já o termo “vác<b>uo<\/b>” apresenta <b>DITONGO CRESCENTE<\/b>, por haver a semivogal “<b>u<\/b>” e a vogal “<b>o<\/b>”. Por outro lado, a palavra “fr<b>ea<\/b>r”  apresenta o <b>HIATO <\/b>”<b>e-a<\/b>”. Por fim, o termo “min-g<b>uam<\/b>” apresenta <b>TRITONGO <\/b>nasal, por haver a  semivogal “<b>u<\/b>”, a vogal “<b>a<\/b>” e a semivogal “<b>m<\/b>”. Portanto, gabarito letra D. <\/div>"], "alts": [["a", "ditongo crescente, ditongo decrescente, hiato e tritongo."], ["b", "hiato, ditongo crescente, hiato e tritongo."], ["c", "hiato, ditongo decrescente, hiato e ditongo crescente."], ["d", "ditongo decrescente, ditongo crescente, hiato e tritongo."], ["e", "ditongo decrescente, ditongo crescente, hiato e ditongo crescente."]], "resp": "d"}, {"n": 18, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 2013", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "<div>Qual das alternativas abaixo é formada por ditongos decrescentes?<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "pouco, loteria, contrário, estratégia."], ["b", "inquietação, pouco, aumenta, grau."], ["c", "cair, compreensível, beijar, treino."], ["d", "imponderáveis, atuar, psicologia, seu."], ["e", "colégio, não, imediatamente, história."]], "resp": "b"}, {"n": 19, "fonte": "EAGS - Música · 2012", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Observe:<div><br><div><i>A vida é o dia de hoje,<\/i><\/div><div><i>A vida é o <b>ai <\/b>que mal soa,<\/i><\/div><div><i>A vida é sombra que foge,<\/i><\/div><div><i>A vida é nuvem que <b>voa<\/b>.<\/i><\/div><br><div>Quanto aos encontros vocálicos, os termos acima destacados apresentam, respectivamente,&nbsp;<\/div><\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "ditongo crescente e hiato."], ["b", "hiato e ditongo crescente."], ["c", "ditongo decrescente e hiato."], ["d", "hiato e ditongo decrescente."]], "resp": "c"}, {"n": 20, "fonte": "CFS - BCT · 2011", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "Leia:<br><div>Fui à Janela indagar da <b>noite <\/b>por que razão os sonhos hão de ser assim tão <b>tênues <\/b>que se esgarçam ao menor abrir de olhos. Nesse momento os morros palejavam de <b>luar<\/b> e o espaço morria de silêncio.<\/div><br><div>Os encontros vocálicos dos termos destacados no texto acima recebem, respectivamente, os nomes de\n<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "tritongo, ditongo crescente e ditongo decrescente."], ["b", "ditongo crescente, ditongo decrescente e hiato."], ["c", "ditongo decrescente, ditongo crescente e hiato."], ["d", "hiato, tritongo e ditongo crescente."]], "resp": "c"}, {"n": 21, "fonte": "CFS - Demais Especialidades · 2006", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "&nbsp;Assinale  a  alternativa  em  que  os  encontros  vocálicos  das palavras classificam-se como ditongos.&nbsp;", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "pedreiro – coordenador – moita"], ["b", "hiato – caixote – oficial"], ["c", "jeitosa – gratuito – judeu"], ["d", "higiene – graciosa – veneziana"]], "resp": "c"}, {"n": 22, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 1985", "tema": "Fonética - Encontros vocálicos", "tipo": "mc", "html": true, "enun": "TEXTO<br><div>UM SÃO JOÃO QUE VAI LONGE<\/div><br><div>(Ciro dos Anjos)<\/div><br><div><img src=\"img/3890dec2b2ca9f1f.png\" alt=\"\"><br><\/div><br><div>Assinale o item que apresenta os encontros vocálicos na seguinte ordem: ditongo oral crescente / ditongo nasal decrescente / hiato / tritongo.<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "igual-muito-nua-enxáguem"], ["b", "língua-comunhão-lei-cachoeira"], ["c", "pau-missão-vôo-crioula"], ["d", "roupa-quando-prejuízo-desiguais"]], "resp": "a"}, {"n": 23, "fonte": "Simulado EEAR · 2023", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "As palavras “guerreiro, sublinhar,  trem” têm, respectivamente:", "com": ["<b>GABARITO: ALTERNATIVA C.<\/b><div><b><br><\/b><\/div><div>A palavra “guerreiro” possui dois dígrafos consonantais que são “gu” e “rr”.<\/div><div>A palavra “sublinhar” possui um encontro consonantal imperfeito entre “b” e “l”.<\/div><div>A palavra “trem” possui um ditongo decrescente nasal em “em”.<\/div>"], "alts": [["a", "Um encontro consonantal, um encontro consonantal, um ditongo nasal."], ["b", "Dois encontros consonantais, um dígrafo, um ditongo crescente oral."], ["c", "Dois dígrafos, um encontro consonantal, um ditongo decrescente nasal."], ["d", "Dois dígrafos, um encontro consonantal, um dígrafo vocálico."]], "resp": "c"}, {"n": 24, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cujas palavras todas apresentem encontros consonantais.", "com": ["<b>GABARITO: ALTERNATIVA E<\/b>", "<b>Alternativa A:<\/b> incorreta, pois “leque” apresenta um dígrafo, não um encontro consonantal; e “tempo” apresenta um dígrafo com vogal nasal.", "<b>Alternativa B:<\/b> incorreta, pois “chapéu” apresenta um dígrafo, não um encontro consonantal.", "<b>Alternativa C:<\/b> incorreta, pois “exceção” e “guerra” apresentam dígrafos, não encontros consonantais.", "<b>Alternativa D:<\/b> incorreta, pois “galho” apresenta um dígrafo, não um encontro consonantal.", "<b>Alternativa E:<\/b> correta, pois “fl”, “bl”, “rc” e “ps” são encontros consonantais."], "alts": [["a", "brado – leque – tempo."], ["b", "psicose – chapéu – corrupção."], ["c", "pacto – exceção – guerra."], ["d", "clima – obstáculo – galho."], ["e", "flores – sublocar – fórceps."]], "resp": "e"}, {"n": 25, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 2020", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em que todas as palavras possuam encontros consonantais.", "com": ["<p><strong>GABARITO: ALTERNATIVA C<\/strong><\/p>", "<b>Alternativa A:<\/b> <p>A<span> <\/span>alternativa<span> <\/span>A<span> <\/span>está<span> <\/span>incorreta,<span> <\/span>pois embora<span> <\/span><em>apto<span> <\/span><\/em>(pt)<span> <\/span>e<span> <\/span><em>clima<span> <\/span><\/em>(cl)<span> <\/span>apresentem<span> <\/span>encontros<span> consonantais, <\/span><em>samba<span> <\/span><\/em>não<span> <\/span>possui<span> <\/span>encontro<span> <\/span>consonantal,<span> <\/span>mas<span> <\/span>sim<span> <\/span>dígrafo<span> <\/span>vocálico<span> (am).<\/span><\/p>", "<b>Alternativa B:<\/b> <p>A alternativa B está incorreta, pois todas as palavras possuem dígrafos. Exceção (dígrafo consonantal xc), mundo (dígrafo vocálico un) e sonda (dígrafo vocálico on).<\/p>", "<b>Alternativa C:<\/b> <p>A alternativa C está correta, pois todas as palavras apresentam encontros consonantais: <em>mnemônico <\/em>(mn), <em>obturar <\/em>(bt) e <em>subdelegado <\/em>(bd) mantêm consoantes juntas na mesma palavra, caracterizando encontro consonantal, seja na mesma sílaba ou em sílabas diferentes.<\/p>", "<b>Alternativa D:<\/b> <p>A alternativa D está incorreta, pois nenhuma das palavras (<em>jejum<\/em>, <em>aquilo<\/em>, <em>chave<\/em>) apresenta encontro consonantal; em jejum, “um” é dígrafo vocálico; em <em>chave<\/em>, a sequência “ch” é dígrafo consonantal; em aquilo “qu” é dígrafo consonantal.<\/p>", "<b>Alternativa E:<\/b> <p>A alternativa E está incorreta, pois <em>sucção <\/em>apresenta encontro consonantal imperfeito (cç), <em>istmo <\/em>(stm) também apresenta, mas <em>chave <\/em>possui apenas dígrafo “ch”, não configurando encontro consonantal.<\/p>"], "alts": [["a", "samba, clima, apto."], ["b", "exceção, mundo, sonda."], ["c", "mnemônico, obturar, subdelegado."], ["d", "jejum, aquilo, chave"], ["e", "sucção, istmo, chave."]], "resp": "c"}, {"n": 26, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2008", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em que todas as palavras apresentam encontros consonantais.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> Incorreta. A<b>tr<\/b>ás (encontro consonantal) – <b>cl<\/b>ima (encontro consonantal) – du<b>pl<\/b>o (encontro consonantal) – <b>cl<\/b>ave (encontro consonantal)  – s<b>om<\/b>bra (dígrafo) – pi<b>sc<\/b>ina (dígrafo)&nbsp;", "<b>Alternativa B:<\/b> Incorreta.  En<b>ch<\/b>ente (dígrafo) – e<b>xc<\/b>eção (dígrafo) – co<b>rr<\/b>eio (dígrafo) – <b>ps<\/b>iquia<b>tr<\/b>a (encontro consonantal) – <b>gu<\/b>e<b>rr<\/b>ear (dígrafo)", "<b>Alternativa C:<\/b> Incorreta. ca<b>rr<\/b>o<b>ss<\/b>el  (dígrafo) – monta<b>nh<\/b>a (dígrafo) – ca<b>ch<\/b>o<b>rr<\/b>o (dígrafo) – <b>pn<\/b>eu (encontro consonantal)  – di<b>gn<\/b>o (encontro consonantal)", "<b>Alternativa D:<\/b> Correta. <b>Cl<\/b>ima (encontro consonantal) – <b>cz<\/b>ar (encontro consonantal) – to<b>rn<\/b>o (encontro consonantal) – pa<b>ct<\/b>o (encontro consonantal) – tcheco (encontro consonantal) – con<b>st<\/b>ar (encontro consonantal)&nbsp;", "<b>Alternativa E:<\/b> Incorreta. Ca<b>rt<\/b>a (encontro consonantal)  – le<b>tr<\/b>a (encontro consonantal) – a<b>dv<\/b>ento (encontro consonantal)  – o<b>bs<\/b>táculo (encontro consonantal)  – cre<b>sç<\/b>a (dígrafo) – e<b>xc<\/b>itar (dígrafo)&nbsp;"], "alts": [["a", "atrás – clima – duplo – clave – sombra – piscina&nbsp;<div>&nbsp;<\/div>"], ["b", "enchente – exceção – correio – psiquiatra – guerrear&nbsp;<div>&nbsp;<\/div>"], ["c", "carrossel – montanha – cachorro – pneu – digno&nbsp;<div>&nbsp;<\/div>"], ["d", "clima – czar – torno – pacto – tcheco – constar&nbsp;"], ["e", "carta – letra – advento – obstáculo – cresça – excitar&nbsp;"]], "resp": "d"}, {"n": 27, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 1997", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "Assinale o vocábulo que apresenta encontro consonantal:", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "onde;"], ["b", "chafariz;"], ["c", "sentir;"], ["d", "arruda;"], ["e", "fixo;"]], "resp": "e"}, {"n": 28, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 1984", "tema": "Fonética - Encontro consonantal", "tipo": "mc", "html": true, "enun": "TEXTO <br><div>MINHA ADOLESCÊNCIA <\/div><br><div>(Manuel Bandeira)<\/div><br><div><img src=\"img/6bb017abb2f1a92b.png\" alt=\"\"><br><\/div><br><div>Assinale a opção em que todas as palavras contêm encontro consonantal:<\/div>", "com": ["GABARITO: LETRA B.", "<b>Alternativa A:<\/b> <div>Não há encontro consonantal nas palavras \"durante\" (há dígrafo vocálico \"an\") e tosse (há dígrafo consonantal \"ss\").<\/div><div>Há encontro consonantal nas palavras curso (entre \"r\" e \"s\"), arquiteto (entre \"r\" e \"q\" e dígrafo consonantal \"qu\") e abismo (entre \"s\" e \"m\").<br><\/div>", "<b>Alternativa B:<\/b> Há encontro consonantal em todas as palavras da alternativa: br em Brucutu; gr em emagrecimento; br em febrinha; pr em sempre e pl em simples.", "<b>Alternativa C:<\/b> <div>Não há encontro consonantal na palavra cinza, somente dígrafo vocálico \"in\"; lembrando que o encontro entre \"n\" e \"z\" não pode ser visto como um encontro consonantal, visto que o \"n\" faz parte do dígrafo vocálico.<\/div><div>Há encontro consonantal \"st\" na palavra moléstia, \"pr\" em primeiro, \"tr\" na palavra entre e trinta.<br><\/div>", "<b>Alternativa D:<\/b> <div>Não há encontro consonantal nas palavras: engenheiro (somente os dígrafos \"en\" e \"nh\"); carreira (somente o dígrafo \"rr\").<\/div><div>Há encontro consonantal \"gr\" em milagre, \"pr\" em praticamente e \"gr\" em grande.<br><\/div>"], "alts": [["a", "durante, curso, arquiteto, tosse, abismo"], ["b", "Brucutu, emagrecimento, febrinha, sempre, simples"], ["c", "Cinza, moléstia, primeiro, entre, trinta"], ["d", "Milagre, engenheiro, carreira, praticamente, grande"]], "resp": "b"}, {"n": 29, "fonte": "Simulado ESA · 2023", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em <span>que ambas as palavras possuam dígrafos.<\/span>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> correta, pois há dígrafo vocálico ‘an’ na palavra mansidão e dígrafos ‘em’ e ‘na’ na palavra lembrança.", "<b>Alternativa B:<\/b> Incorreta. Em “mnemônico”, não há dígrafo, apenas o encontro consonantal ‘mn’ e, na palavra “psicologia”, também não há dígrafo, apenas o encontro consonantal ‘ps’.", "<b>Alternativa C:<\/b> Incorreta. Em “tranquilo”, há apenas o dígrafo vocálico ‘an’, mas não há dígrafo na palavra “sublocação”, apenas o encontro consonantal ‘bl’.", "<b>Alternativa D:<\/b> Incorreta. Em “vinhedo”, há dígrafo consonantal ‘nh’, mas, na palavra “clima”, há apenas encontro consonantal ‘cl’.", "<b>Alternativa E:<\/b> Incorreta. Em “aguei” não há dígrafo, pois o ‘u’ que acompanha o ‘g’ é pronunciado e, na palavra “amém”, também não há dígrafo, pois o ‘em’ final é ditongo nasal decrescente."], "alts": [["a", "Mansidão, lembrança."], ["b", "Mnemônico, psicologia."], ["c", "Tranquilo, sublocação."], ["d", "Vinhedo, clima."], ["e", "Aguei, amém."]], "resp": "a"}, {"n": 30, "fonte": "Sprint EEAR · 2022", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Leia:<div><br><div><i>Talvez dance no <b>cassino<\/b><\/i><\/div><div><i>Ou, e será <b>mais <\/b>provável<\/i><\/div><div><i>Talvez <b>beije <\/b>no Leblon<\/i><\/div><div><i>Talvez se banhe na <b>Cólquida <\/b>(Carlos Drummond de Andrade)<\/i><\/div><br><div>As palavras em destaque apresentam, respectivamente, <\/div><\/div>", "com": ["<b>ALTERNATIVA CORRETA: A<\/b>", "<b>Alternativa A:<\/b> CORRETA, pois a classificação de todos os termos está correta", "<b>Alternativa B:<\/b> INCORRETA, pois \"cassino\" apresenta um dígrafo consonantal, \"ss\" e \"mais\" apresenta um ditongo \"ai\".", "<b>Alternativa C:<\/b> INCORRETA, pois \"Cólquida\" apresenta um dígrafo consonantal, \"qu\".", "<b>Alternativa D:<\/b> INCORRETA, pois \"beije\" apresenta um ditongo \"ei\" e \"Cólquida\" apresenta um dígrafo consonantal, \"qu\"."], "alts": [["a", "dígrafo consonantal – ditongo – ditongo – dígrafo consonantal"], ["b", "dígrafo vocálico – hiato – ditongo – dígrafo consonantal"], ["c", "dígrafo consonantal – ditongo – ditongo – dígrafo vocálico"], ["d", "dígrafo consonantal – ditongo – hiato – dígrafo vocálico"]], "resp": "a"}, {"n": 31, "fonte": "Sprint EEAR · 2022", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Leia:<br><div><i>“O histórico da produção de lã no Brasil e no mundo: Total produzido em 2019 é mais de 80% menor que os recordes históricos da década de 1970. Rio Grande do Sul concentra cerca de 90% do rebanho de ovinos tos<b>qu<\/b>iado”<\/i><\/div><br><div>As consoantes destacadas na palavra acima pertencem a uma mesma sílaba pela mesma razão que das consoantes destacadas em<\/div>", "com": ["<b>ALTERNATIVA CORRETA: A<\/b>", "<b>Alternativa A:<\/b> CORRETA, pois a palavra \"tosquiado\", assim como \"choro\" são dígrafos consonantais que não podem ser separados na divisão silábica.", "<b>Alternativa B:<\/b> INCORRETA, pois \"terra\" conta com um dígrafo consonantal que deve ser separado na divisão silábica.", "<b>Alternativa C:<\/b> INCORRETA, pois \"depressa\" conta com um dígrafo consonantal que deve ser separado na divisão silábica.", "<b>Alternativa D:<\/b> INCORRETA, pois \"escolhendo\" não conta com dígrafo, já que as letras \"s\" e \"c\" não são pronunciadas juntas."], "alts": [["a", "O que pude oferecer sem mácula foi meu <b>ch<\/b>oro por beleza ou cansaço (Adélia Prado)"], ["b", "O céu bordado d&#39;estrelas, A te<b>rr<\/b>a de aromas cheia (Casimiro de Abreu)"], ["c", "Tomara Que você volte depre<b>ss<\/b>a Que você não se despeça (Vinícius de Moraes)"], ["d", "Ou isto ou aquilo: ou isto ou aquilo… e vivo e<b>sc<\/b>olhendo o dia inteiro! (Cecília Meireles)"]], "resp": "a"}, {"n": 32, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em que há palavra com presença de dígrafo consonantal.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> incorreta, pois a palavra “sanguento” apresenta o dígrafo vocálico.", "<b>Alternativa B:<\/b> incorreta, pois a palavra “tinta” apresenta o dígrafo vocálico.", "<b>Alternativa C:<\/b> incorreta, pois a palavra “entrada” apresenta o dígrafo vocálico.", "<b>Alternativa D:<\/b> correta, pois a palavra “agulha” apresenta dígrafo consonantal “lh”.", "<b>Alternativa E:<\/b> incorreta, pois a palavra “denúncia” apresenta o dígrafo vocálico."], "alts": [["a", "O filme era muito <u><b>sanguento<\/b><\/u>."], ["b", "Comprei <u><b>tinta<\/b><\/u> para pintar o cabelo."], ["c", "A <u><b>entrada<\/b><\/u> do prédio estava fechada."], ["d", "A <u><b>agulha<\/b><\/u> estava enferrujada."], ["e", "A <u><b>denúncia<\/b><\/u> foi aceita com sucesso."]], "resp": "d"}, {"n": 33, "fonte": "Simulado ESA · 2022", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em que todas as palavras apresentam dígrafo.", "com": ["<b>GABARITO: ALTERNATIVA E<\/b>", "<b>Alternativa A:<\/b> A alternativa A está incorreta, porque em todas as palavras temos encontros consonantais e não dígrafos, dado que em  todas elas os fonemas são pronunciados. Perceba os encontros em questão nas palavras: iGNorar, GLicose e viSTa.&nbsp;", "<b>Alternativa B:<\/b> A alternativa B está incorreta, porque somente em CHapéu temos um dígrafo, dado que se forma somente um fonema. Por outro lado, GRavidade e gaRFo são encontros consonantais, dado que temos a pronúncia dos dois fonemas.&nbsp;", "<b>Alternativa C:<\/b> A alternativa C está incorreta, porque há somente dois dígrafos nesse caso: suNGa (em que ocorre nasalização da vogal “u”, sem que o “n” seja pronunciado) e QUilo, dado que o U não é pronunciado. Contudo, em pedra, temos um encontro consonantal e não um dígrafo, dado que o D e o R são pronunciados.&nbsp;", "<b>Alternativa D:<\/b> A alternativa D está incorreta, porque somente as palavras deSCendente e eXCeção apresentam dígrafos. Como “água” apresenta “gu” seguido de “a” não representa dígrafo, mas encontro vocálico.&nbsp;", "<b>Alternativa E:<\/b> A alternativa E está correta, porque todas as palavras apresentam dígrafos: aRRoz, naSCer e preGUiça. Perceba que, diferente de “água”, o “u” de preguiça não é pronunciado e acaba por formar um dígrafo.&nbsp;<br><div><b>GABARITO: E&nbsp;<\/b><\/div>"], "alts": [["a", "Ignorar, glicose, vista."], ["b", "Gravidade, chapéu, garfo."], ["c", "Sunga, quilo, pedra."], ["d", "Água, descendente, exceção."], ["e", "Arroz, nascer, preguiça."]], "resp": "e"}, {"n": 34, "fonte": "Simulado EPCAR · 2021", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Em   relação   às   letras   e   aos   fonemas,   analise   as afirmações  que  seguem  e  assinale  V,  se  verdadeiras, ou F, se falsas.<br><div>(  ) O vocábulo “impressão” apresenta dois dígrafos, um vocálico e um consonantal. <br><div>(  ) A palavra “pontinha” tem 8 letras e 6 fonemas. <\/div><br><div>(  ) Na palavra “desesperada”, o primeiro ‘S’ tem o som de Z. <\/div><br><div>A ordem correta de preenchimento dos parênteses, de cima para baixo, é: <\/div><\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "V –V –F."], ["b", "V –F –F."], ["c", "F –V –V."], ["d", "V –V –V."]], "resp": "d"}, {"n": 35, "fonte": "Provão de Bolsas EEAR · 2020", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Assinale a alternativa em que há apenas um dígrafo.", "com": ["GABARITO: LETRA D", "<b>Alternativa A:<\/b> Na palavra \"apenas\", não há dígrafo algum.", "<b>Alternativa B:<\/b> Na palavra \"frouxo\", há o encontro consonantal \"fr\" e o ditongo decrescente \"ou\", mas não há dígrafo.", "<b>Alternativa C:<\/b> Na palavra \"adolescente\",  há dois dígrafos: o dígrafo consonantal \"sc\" e o dígrafo vocálico \"en\". Como a questão exige apenas um dígrafo, esta alternativa não pode ser a correta.", "<b>Alternativa D:<\/b> A palavra \"quilo\" apresenta um único dígrafo consonantal, o \"qu\". Portanto, é a alternativa correta.", "<b>Alternativa E:<\/b> A palavra \"recobrir\" apresenta apenas um encontro consonantal (br) e não um dígrafo."], "alts": [["a", "apenas."], ["b", "frouxo."], ["c", "adolescente."], ["d", "quilo."], ["e", "recobrir."]], "resp": "d"}, {"n": 36, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2017", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Dígrafo é o grupo de duas letras formando um só fonema. Ditongo é a combinação de uma vogal com uma semivogal, ou vice-versa, na mesma sílaba. Nas palavras “também” e “ontem”, observa-se que há, para cada palavra, respectivamente,&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Nesse caso, os termos “t<b>am<\/b>b<b>ém<\/b>” e “<b>on<\/b>t<b>em<\/b>” são classificados como <b>DITONGOS NASAIS,<\/b> uma vez que são formados por vogal e semivogal respectivamente, as quais se encontram na mesma sílaba. Além disso, outra característica que confirma esse gabarito é o fato de ambos os termos apresentarem sons fechados, ou seja, a pronúncia é nasal. Portanto, gabarito letra E.&nbsp;<\/div>"], "alts": [["a", "dígrafo – dígrafo / dígrafo – dígrafo."], ["b", "ditongo nasal – ditongo nasal / ditongo nasal – ditongo nasal."], ["c", "dígrafo – ditongo nasal / ditongo nasal – dígrafo."], ["d", "ditongo nasal – dígrafo / dígrafo – ditongo nasal."], ["e", "dígrafo – ditongo nasal / dígrafo – ditongo nasal."]], "resp": "e"}, {"n": 37, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2009", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Observe a tirinha abaixo:\n<br><div><img src=\"img/06601c2e8aee529e.png\" alt=\"\"><br><\/div><br><div>Quantos dígrafos há no primeiro quadrinho da tirinha?\n<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "1"], ["b", "2"], ["c", "3"], ["d", "4"], ["e", "5"]], "resp": "d"}, {"n": 38, "fonte": "Escola de Sargento das Armas - ESA - Geral/Aviação · 1987", "tema": "Fonética - Dígrafos vocálicos e consonantais", "tipo": "mc", "html": true, "enun": "Um dígrafo se caracteriza por:", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "um grupo de vogais que representa um só fonema."], ["b", "um grupo de duas letras que representa dois fonemas."], ["c", "um grupo de semivogais que representa um só fonema."], ["d", "um grupo de duas letras que representa um só fonema."], ["e", "um grupo de consoantes que representam fonemas"]], "resp": "d"}, {"n": 39, "fonte": "Sprint EEAR · 2022", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Marque a alternativa correta quanto à separação silábica.", "com": ["<b>ALTERNATIVA CORRETA: B<\/b>", "<b>Alternativa A:<\/b> INCORRETA, pois a palavra \"rapto\" está separada incorretamente. a divisão correta seria: rap-to.", "<b>Alternativa B:<\/b> CORRETA, pois todas as palavras aqui estão divididas corretamente.", "<b>Alternativa C:<\/b> INCORRETA, pois a palavra \"ânsia\" está separada incorretamente. a divisão correta seria: ân-sia.", "<b>Alternativa D:<\/b> INCORRETA, pois a palavra \"zoológico\" está separada incorretamente. a divisão correta seria: zo-o-ló-gi-co."], "alts": [["a", "U-ru-guai; ra-pto; des-çam; gai-o-la."], ["b", "a-ve-ri-guou; ap-ti-dão; ex-cur-são; tran-sa-tlân-ti-co"], ["c", "ad-je-ti-vo; fric-ção; ân-si-a."], ["d", "ré-guas; im-bui-a; zoo-ló-gi-co; sols-tí-cio."]], "resp": "b"}, {"n": 40, "fonte": "Sprint EsPCEx · 2022", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cujas palavras estejam todas separadas corretamente.", "com": ["<b>GABARITO: ALTERNATIVA E<\/b>", "<b>Alternativa A:<\/b> incorreta, pois “substância” está separada incorretamente: subs-tân-cia.", "<b>Alternativa B:<\/b> incorreta, pois “abstrato” está separada incorretamente: abs-tra-to.", "<b>Alternativa C:<\/b> incorreta, pois “radiouvinte” está separada incorretamente: ra-diou-vin-te.", "<b>Alternativa D:<\/b> incorreta, pois “gnomo” está separada incorretamente: gno-mo.", "<b>Alternativa E:<\/b> correta, pois todas as palavras aqui foram corretamente separadas, respeitando-se os ditongos nas duas primeiras palavras e o tritongo na terceira."], "alts": [["a", "subs-tân-ci-a; bí-ceps; Pa-ra-guai."], ["b", "trans-tor-no; e-nig-ma; a-bs-tra-to."], ["c", "ra-di-ou-vin-te; du-e-lo; af-ta."], ["d", "g-no-mo; te-a-tro; trei-no."], ["e", "cau-le; ân-sia; a-ve-ri-guou."]], "resp": "e"}, {"n": 41, "fonte": "Colégio Militar - CM - 6º Ano · 2021", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "<div><b>\"BULLYING\" É ARMA PARA GANHAR POPULARIDADE<\/b><\/div><br><div>Jairo Bouer<\/div><br><div>Você já parou para pensar que jovens que praticam bullying, causando violência física ou psicológica em seus colegas, podem estar, no fundo, tentando se tornar mais populares ou ganhar um status especial na escola? Pois é!<\/div><br><div>Uma pesquisa da Universidade da Califórnia entrevistou mais de 3.000 alunos do ensino médio americano e concluiu que os jovens que querem chegar ao <b>topo <\/b>da liderança de suas turmas recorrem, muitas vezes, a <b>brigas<\/b>, ofensas e <b>boatos <\/b>maldosos para chegar lá. E como se a humilhação fosse uma estratégia de poder.<\/div><br><div>O interessante da pesquisa é que ela mostra um lado diferente do bullying. Ele não surge apenas como resultado de questões pessoais dos agressores (problemas em casa, transtornos de personalidade etc.), mas como consequência de uma complexa rede de interações sociais do grupo. E o que você tem a ver com isso? Por questões pessoais ou por processos sociais, o bullying pode provocar muitas cicatrizes em quem sofre esse tipo de experiência. Fenômeno muito comum no Brasil, ele faz com que jovens sofram em silêncio e não queiram nem passar perto da escola. Quem pratica, muitas vezes, não consegue perceber o impacto que essas agressões e violências podem ter na vida dos seus colegas. E é fundamental que o grupo mostre para esse agressor que não é nada legal humilhar colegas. Na verdade, isso é covardia das feias!<\/div><br><div>Que tal trocar valores como poder, competição e mando (que poderiam incitar práticas violentas) por outros que tornem as pessoas e os grupos mais unidos? Quer palpites? Companheirismo, amizade, solidariedade, cooperação e ajuda, entre outros tantos! [...]<\/div><br><div><i>Disponível em: http://www1..folha.uol.com.br/fsp(folhatee/f)n2802201113./1tm. Acesso em: 10 de ago. 2020<\/i><\/div><br>Leia o fragmento a seguir retirado do texto:<br><div>\"[...] Quer palpites? Companheirismo, amizade, solidariedade, cooperação e ajuda, entre outros tantos! [...]\" (texto, linhas 15 e 16)<\/div><div>Assinale a alternativa em que a separação silábica das palavras destacadas está correta.<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "com-panhe-i-ris-mo; so-li-da-rie-da-de; co-o-pe-ra-çã-o."], ["b", "com-pa-nhe-i-ris-mo; so-li-da-ri-e-da-de; co-o-pe-ra-ção."], ["c", "com-pa-nhei-ris-mo; so-li-da-ri-e-da-de; co-o-pe-ra-ção."], ["d", "com-pa-nhe-i-ris-mo; so-li-da-rie-da-de; coo-pe-ra-ção."], ["e", "com-pa-nhei-ris-mo; so-li-da-rie-da-de; coo-pe-ra-ção."]], "resp": "c"}, {"n": 42, "fonte": "Simulado ESA · 2021", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Quanto à separação silábica, assinale a alternativa correta.", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "su-bes-ti-mar; tran-sa-tlân-ti-co; in-te-rur-ba-no"], ["b", "ri-tmo; ap-ti-dão; felds-pa-to&nbsp;"], ["c", "a-fta; su-blin-gual; sols-tí-cio"], ["d", "e-clip-se; trans-tor-no; de-ce-pção"], ["e", "bis-a-vô; pers-pi-caz; o-ftal-mo-lo-gis-ta&nbsp;"]], "resp": "a"}, {"n": 43, "fonte": "Simulado EPCAR · 2021", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Quanto  à  separação  silábica,  assinale  a  alternativa correta.", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "pers-pi-caz; su-bes-ti-mar;tran-sa-tlân-ti-co;  in-te-rur-ba-no"], ["b", "o-ftal-mo-lo-gis-ta;ri-tmo; ap-ti-dão; felds-pa-to&nbsp;"], ["c", "bis-a-vô; a-fta; su-blin-gual; sols-tí-cio"], ["d", "felds-pa-to;e-clip-se; trans-tor-no; de-ce-pção"]], "resp": "a"}, {"n": 44, "fonte": "Colégio Militar - CM - 6º Ano · 2010", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Assinale a alternativa cujas palavras apresentam separação silábica correta.", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "Ca — cho — rro / de — sis — ti — do / as — sun — to"], ["b", "Ca — bis — bai — xo / so — zi — nho / pe — sso — as"], ["c", "Prai — a / dis — tra — í — do / ri — co — che — te — ei"], ["d", "Ri — co — che — teei / ig — no — rem / a — guen — tar"]], "resp": "c"}, {"n": 45, "fonte": "EAGS - Música · 2008", "tema": "Fonética - Sílaba: separação silábica", "tipo": "mc", "html": true, "enun": "Assinale a alternativa que apresenta uma <b>inadequação<\/b> com relação às regras de separação silábica.", "com": ["GABARITO: LETRA B.", "<b>Alternativa A:<\/b> Todas as palavras estão corretamente separadas de acordo com as regras gramaticais da língua.", "<b>Alternativa B:<\/b> Duas palavras estão corretamente separadas de acordo com as regras gramaticais da língua, são elas: faísca e isqueiro. Mas a palavra \"gratuito\" deveria estar separada desta forma: gra-tui-to.", "<b>Alternativa C:<\/b> Todas as palavras estão corretamente separadas de acordo com as regras gramaticais da língua.", "<b>Alternativa D:<\/b> Todas as palavras estão corretamente separadas de acordo com as regras gramaticais da língua."], "alts": [["a", "as-sun-to; nas-cen-ça; ba-lões"], ["b", "fa-ís-ca; is-quei-ro; gra-tu-i-to"], ["c", "pa-pa-gai-o; la-ran-jei-ra; gno-mo"], ["d", "fu-zi-la-ri-a; in-cóg-ni-ta; ma-qui-a-vé-li-co"]], "resp": "b"}];
+
+const FLASH = [
+ ["a00","Fonética × fonologia","Fonética: sons da fala no aspecto físico. Fonologia: função dos fonemas para distinguir palavras.<br><b>Exemplo:</b> /l/ e /m/ distinguem lar de mar (fonologia)."],
+ ["a00","O que é semivogal?","O som de i ou u apoiado numa vogal, na mesma sílaba.<br><b>Exemplo:</b> em rei o i é semivogal; em riso o i é vogal."],
+ ["a00","Quantas letras e fonemas tem \"ficha\"?","5 letras, <b>4 fonemas</b>: ch representa um som.<br><b>Exemplo:</b> \"chuva\" também: 5 letras, 4 fonemas."],
+ ["a00","O que é dífono?","Uma letra que representa dois fonemas: o x com som de /ks/.<br><b>Exemplo:</b> táxi = /t/ /a/ /k/ /s/ /i/."],
+ ["a00","Ditongo decrescente × crescente","Decrescente: vogal + semivogal (pai, céu). Crescente: semivogal + vogal (qual, água).<br><b>Exemplo:</b> em \"quadro\" há ditongo crescente (ua)."],
+ ["a00","O que é tritongo? Dê um oral e um nasal.","Semivogal + vogal + semivogal na mesma sílaba.<br><b>Exemplo:</b> Uruguai (oral) e saguão (nasal)."],
+ ["a00","O que é hiato?","Duas vogais em sílabas diferentes.<br><b>Exemplo:</b> sa-ú-de, pa-ís, cru-el."],
+ ["a00","Por que \"muito\" é especial?","É o único ditongo nasal sem til, m ou n: o som é nasal.<br><b>Exemplo:</b> mui-to soa /mũjtu/."],
+ ["a00","Dígrafo × encontro consonantal","Dígrafo: duas letras, um som (ch). Encontro: duas consoantes, dois sons (bl).<br><b>Exemplo:</b> \"chave\" tem dígrafo; \"bloco\" tem encontro consonantal."],
+ ["a00","Quais dígrafos se separam na divisão silábica?","rr, ss, sc, sç, xc, xs.<br><b>Exemplo:</b> car-ro, nas-cer, ex-ces-so."],
+ ["a00","Quais são os dígrafos vocálicos?","Vogal + m ou n formando vogal nasal: am, an, em, en, im, in, om, on, um, un.<br><b>Exemplo:</b> samba, encanto, mundo."],
+ ["a00","Quando o u de qu/gu é pronunciado, o que temos?","Ditongo (ou tritongo), e não dígrafo.<br><b>Exemplo:</b> água, equestre (ditongo) × guerra, quilo (dígrafo)."],
+ ["a00","Encontro consonantal perfeito","Inseparável: segunda consoante l ou r, ou grupos iniciais pn, ps, gn, mn.<br><b>Exemplo:</b> a-tle-ta, pneu, psi-có-lo-go."],
+ ["ref","Quantas sílabas tem uma palavra?","Tantas quantas forem as vogais (semivogais não contam).<br><b>Exemplo:</b> sa-guão tem 2; ba-lei-a tem 3."],
+ ["ref","O que não se separa na divisão silábica?","Ditongo, tritongo, ch/lh/nh/qu/gu e encontros consonantais perfeitos.<br><b>Exemplo:</b> U-ru-guai, ma-lha, li-vro."],
+ ["ref","O que se separa?","Hiato, rr/ss/sc/sç/xc/xs e encontros imperfeitos.<br><b>Exemplo:</b> sa-ú-de, as-sa-do, rit-mo."],
+ ["ref","Separe \"subumano\" e \"sublinhar\"","su-bu-ma-no (prefixo + vogal) · sub-li-nhar (prefixo + l).<br><b>Exemplo:</b> o mesmo vale para su-bo-fi-ci-al e sub-ro-gar."],
+ ["ref","Separe \"interestadual\" e \"bisavô\"","in-te-res-ta-du-al · bi-sa-vô.<br><b>Exemplo:</b> a consoante final do prefixo forma sílaba com a vogal seguinte."],
+ ["ref","Final átono -ia, -io, -ua (glória, água): ditongo ou hiato?","Normalmente <b>ditongo crescente</b>, mas pode ser pronunciado como hiato; nunca se separa no fim da linha.<br><b>Exemplo:</b> gló-ria (ou gló-ri-a na pronúncia)."],
+ ["pan","O que são palavras oxítonas, paroxítonas e proparoxítonas? (parte 2)","Tônica na última, na penúltima e na antepenúltima sílaba.<br><b>Exemplo:</b> café · livro · lâmpada."],
+ ["pan","Por que hiato importa na acentuação? (parte 2)","Há regras próprias para i e u tônicos em hiato.<br><b>Exemplo:</b> sa-ú-de e pa-ís levam acento por formarem hiato."],
+ ["pan","Monossílabos tônicos terminados em -a, -e, -o são acentuados? (parte 2)","Sim: pá, pé, pó, más, nós.<br><b>Exemplo:</b> \"pé\" leva acento; \"pe\" não existe como palavra tônica."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "FONÉTICA E FONOLOGIA (1/2)", s: "Sons da língua · letra × fonema<br><small>Encontros vocálicos e consonantais · dígrafos · sílaba</small>",
+  e: "Fonética estuda os sons da fala; fonologia, a função desses sons para distinguir palavras. A parte 1 ensina a contar fonemas, reconhecer encontros e separar sílabas.",
+  x: "\"Ficha\" tem 5 letras e 4 fonemas, porque ch representa um único som.",
+  l: "Toda sílaba tem uma vogal; semivogais são i e u apoiados numa vogal.",
+  p: "Confundir letra com fonema é o erro número um das questões de contagem."};
+const MM = [
+ {k: "fon", c: "#2f5bd3", t: "Letra × fonema", s: "som não é escrita",
+  e: "Fonema é a unidade sonora que distingue palavras; letra é a representação gráfica. Nem sempre há correspondência um para um.",
+  x: "lar × mar: só um fonema muda e muda o sentido.", l: "Conte sons, não letras.",
+  p: "\"Hoje tem 4 fonemas\": ERRADO, o h não soa (3 fonemas).",
+  f: [
+   {k: "fon1", t: "Vogal, consoante e semivogal", e: "Vogal: ar livre, centro da sílaba. Consoante: obstáculo ao ar. Semivogal: i ou u apoiados numa vogal na mesma sílaba.",
+    x: "rei: e é vogal, i é semivogal. riso: i é vogal.", l: "Semivogais: [j] e [w].", p: "Em \"muito\" o u é a vogal e o i é a semivogal: mui é ditongo decrescente (nasal)."},
+   {k: "fon2", t: "x pode valer dois fonemas (dífono)", e: "Em palavras como táxi, tórax e sexo, o x representa /ks/.",
+    x: "táxi: 4 letras, 5 fonemas.", l: "x = /ks/ em taxímetro, tórax, sexualidade.", p: "Em \"exame\" o x vale /z/ (um fonema só)."},
+   {k: "fon3", t: "Letras sem som (h, u de que/gui)", e: "O h inicial não tem som; o u de que, qui, gue, gui não é pronunciado.",
+    x: "herói = /eroj/; aqui = /aki/.", l: "h e u mudos não contam como fonema.", p: "Contar o h como fonema."},
+   {k: "fon4", t: "Fonema sem letra (ditongo nasal final)", e: "Em trem e cantam, a semivogal nasal existe na fala, mas não tem letra própria.",
+    x: "cantam soa /cantãw/.", l: "-am, -em finais = ditongos nasais.", p: "\"Cantam termina em vogal oral\": ERRADO."}
+  ]},
+ {k: "voc", c: "#1f8a4c", t: "Encontros vocálicos", s: "ditongo · tritongo · hiato",
+  e: "Ditongo e tritongo ficam na mesma sílaba; hiato separa as vogais.",
+  x: "pais (ditongo) × pa-ís (hiato).", l: "Decrescente: V+SV · crescente: SV+V · tritongo: SV+V+SV.",
+  p: "\"Muito\" tem ditongo nasal, mesmo sem til, m ou n.",
+  f: [
+   {k: "voc1", t: "Ditongo decrescente (V + SV)", e: "A vogal vem antes da semivogal; o som diminui.", x: "pai, céu, mãe, não, tem, herói.", l: "vogal + semivogal.", p: "Ditongo aberto ou fechado depende só da vogal: céu (aberto), boi (fechado)."},
+   {k: "voc2", t: "Ditongo crescente (SV + V)", e: "A semivogal vem antes; o som cresce. Finais átonos -ia, -io, -ua… são normalmente crescentes.", x: "qual, água, tênue, glória.", l: "semivogal + vogal.", p: "Em guerra o u não soa: é dígrafo, não ditongo."},
+   {k: "voc3", t: "Tritongo (SV + V + SV)", e: "Três sons na mesma sílaba. Pode ser oral ou nasal.", x: "Uruguai, iguais (orais); saguão, quão, enxáguam (nasais).", l: "semivogal + vogal + semivogal.", p: "Enxáguam tem tritongo nasal: o -am final soa /ãw/."},
+   {k: "voc4", t: "Hiato (V + V)", e: "Duas vogais em sílabas diferentes.", x: "sa-ú-de, cru-el, ve-em, per-do-o.", l: "vogal + vogal, separadas.", p: "Dois \"i\" em xi-i-ta são hiato, não ditongo."}
+  ]},
+ {k: "con", c: "#b07400", t: "Consoantes juntas", s: "encontro consonantal × dígrafo",
+  e: "Encontro consonantal: duas consoantes, dois sons. Dígrafo: duas letras, um som.",
+  x: "bloco (bl: dois sons) × chave (ch: um som).", l: "Dígrafo = 1 som; encontro = 2 sons.",
+  p: "Confundir mp de campo com encontro: am é dígrafo vocálico.",
+  f: [
+   {k: "con1", t: "Encontro perfeito (l ou r; gn, pn, ps…)", e: "Não se separa: a segunda consoante é l ou r, ou é grupo inicial como pn, ps, gn.", x: "blo-co, li-vro, pneu, psi-có-lo-go.", l: "inseparável.", p: "Separar a-t-le-ta é errado: a-tle-ta."},
+   {k: "con2", t: "Encontro imperfeito", e: "As consoantes ficam em sílabas diferentes.", x: "af-ta, ad-ven-to, rit-mo.", l: "separável.", p: "\"ad-vo-ga-do\" separa o d do v."},
+   {k: "con3", t: "Dígrafos ch, lh, nh, qu, gu", e: "Não se separam e representam um som só.", x: "ma-cha-do, fo-lha, qui-tan-da.", l: "inseparáveis.", p: "No qu/gu dígrafo, o u não soa."},
+   {k: "con4", t: "Dígrafos rr, ss, sc, sç, xc, xs", e: "Nunca iniciam palavra e se separam na divisão silábica.", x: "car-ro, nas-cer, des-ça, ex-ces-so.", l: "separáveis.", p: "\"na-scer\" está errado."},
+   {k: "con5", t: "Dígrafos vocálicos (am, en, im, om, un)", e: "Vogal + m/n antes de consoante formam uma vogal nasal.", x: "samba, encanto, bombom, mundo.", l: "vogal nasal.", p: "O m de samba não é consoante pronunciada."}
+  ]},
+ {k: "sil", c: "#8a3ac2", t: "Sílaba", s: "contagem e separação",
+  e: "Sílaba é o grupo de sons emitidos numa só expiração; toda sílaba tem uma vogal.",
+  x: "a-le-grou: 3 sílabas.", l: "Nº de sílabas = nº de vogais.",
+  p: "Semivogal não conta como sílaba: sa-guão tem 2.",
+  f: [
+   {k: "sil1", t: "Classificação pelo número de sílabas", e: "Monossílaba, dissílaba, trissílaba, polissílaba.", x: "pão · á-gua · ba-lei-a · u-ni-ver-si-da-de.", l: "1 · 2 · 3 · 4 ou mais.", p: "Á-gua tem 2 sílabas (ditongo crescente final)."},
+   {k: "sil2", t: "O que não separa", e: "Ditongo, tritongo, ch/lh/nh/qu/gu, encontros com l ou r.", x: "U-ru-guai, ca-chor-ro, a-tlas.", l: "inseparáveis.", p: "Separar o ditongo de fei-ra é erro."},
+   {k: "sil3", t: "O que separa", e: "Hiato, rr/ss/sc/sç/xc, encontros imperfeitos.", x: "sa-ú-de, as-sa-do, ap-to.", l: "separáveis.", p: "\"ca-rro\" está errado."},
+   {k: "sil4", t: "Prefixos: bi-sa-vô × sub-lo-car", e: "Prefixo em consoante + vogal: a consoante se junta à vogal. + l ou r: o prefixo fica inteiro.", x: "su-bo-fi-ci-al; in-te-res-ta-du-al; sub-ro-gar.", l: "consoante do prefixo + vogal = nova sílaba.", p: "\"sub-o-fi-ci-al\" está errado."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Regra</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.3_port_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

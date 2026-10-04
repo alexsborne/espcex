@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.16 · Ciclo 3 · Química — Substâncias e suas propriedades (parte 3/3) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.16</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa O (3.16) · Química</h1>
+        <div class="sub">EsPCEx 2026 · Substâncias e suas propriedades (parte 3/3): substâncias simples e compostas, alotropia, misturas e separação de misturas</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Qual método usar?</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.16</h2>
+  <p class="lead">Tarefa O da trilha: <i>"Estude os seguintes temas: Substâncias puras; Classificação das substâncias puras; Misturas; Separação de Misturas; Separação de misturas Heterogêneas; Separação de Misturas Homogêneas; Minissimulado; Considerações Finais"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os oito trechos do livro digital de Química (itens 2.4.2 a 2.7). O minissimulado cronometrado é um link externo; a lista de questões dele entra aqui. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Substância <b>simples</b>: um só elemento (O₂, O₃). <b>Composta</b>: dois ou mais (H₂O).<br>• <b>Alotropia</b>: o mesmo elemento forma substâncias simples diferentes (C, O, P, S).<br>• Mistura de gases é sempre <b>homogênea</b>; n sólidos formam n fases.<br>• A separação de misturas usa processos <b>físicos</b>: a composição das substâncias não muda.<br>• Escolha o método pela propriedade que difere: tamanho, densidade, magnetismo, solubilidade, ponto de ebulição.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (30 min).</b> Leia a aba <b>Resumo</b>.</li><li><b>Mapa e Esquemas (10 min).</b> Decore a tabela de métodos.</li><li><b>Qual método usar? (10 min).</b> Resolva os casos antes de abrir.</li><li><b>Questões (30 min).</b> 18 questões; leia o comentário.</li><li><b>Rendimento (5 min).</b> Anote os métodos que confundiu.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: separação de misturas e alotropia são clássicos (🔥🔥🔥).</span></div><div class="card"><b>Questões</b><br><span class="muted">18 de múltipla escolha.</span></div><div class="card"><b>Fecha o capítulo</b><br><span class="muted">Esta é a última parte de Substâncias e suas propriedades.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: substâncias, misturas e separação</h2>
+  <p class="lead">Na ordem do livro digital.</p>
+
+  <h3>1. Substâncias puras</h3>
+  <div class="card">
+    <p>Propriedades <b>constantes e bem definidas</b> (PF, PE, densidade, composição) a dada pressão. Duas substâncias podem coincidir em algumas propriedades, nunca em todas.</p>
+    <div class="tbl"><table>
+      <tr><th>Tipo</th><th>Formação</th><th>Exemplos</th></tr>
+      <tr><td><b>Simples</b></td><td>um só elemento</td><td>He, Ag, Cu, H₂, O₂, O₃, S₈</td></tr>
+      <tr><td><b>Composta</b></td><td>dois ou mais elementos</td><td>binária: H₂O, HCl, CO₂ · ternária: H₂SO₄, C₁₂H₂₂O₁₁ · quaternária: (NH₄)₂SO₄</td></tr>
+    </table></div>
+    <p><span class="k">Atomicidade</span>: nº de átomos na molécula de substância simples: monoatômica (He), diatômica (O₂), triatômica (O₃), tetratômica (P₄), poliatômica (S₈, C<sub>n</sub>).</p>
+  </div>
+
+  <h3>2. Alotropia</h3>
+  <div class="card">
+    <p>O mesmo elemento forma <b>substâncias simples diferentes</b>, por atomicidade diferente ou por arranjo cristalino diferente.</p>
+    <div class="tbl"><table>
+      <tr><th>Elemento</th><th>Alótropos</th><th>Diferem por</th></tr>
+      <tr><td><b>Carbono</b></td><td>grafite (camadas de hexágonos, conduz eletricidade, macio), diamante (tetraedros, duríssimo, isolante), fulereno (C₆₀, "bola")</td><td>arranjo</td></tr>
+      <tr><td><b>Oxigênio</b></td><td>O₂ (gás oxigênio) e O₃ (ozônio)</td><td>atomicidade</td></tr>
+      <tr><td><b>Fósforo</b></td><td>branco (P₄, muito reativo) e vermelho (P<sub>n</sub>, mais estável)</td><td>atomicidade</td></tr>
+      <tr><td><b>Enxofre</b></td><td>rômbico e monoclínico (ambos S₈)</td><td>arranjo cristalino</td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"O₂ e O₃ são isótopos": <b>ERRADO</b>.<br><b>O erro:</b> isótopos são átomos do mesmo elemento com nº de massa diferente.<br><b>O certo:</b> O₂ e O₃ são <b>alótropos</b> (substâncias simples diferentes do mesmo elemento).</div>
+  </div>
+
+  <h3>3. Misturas</h3>
+  <div class="card">
+    <p>Fusão e ebulição em <b>faixas</b>; propriedades variam com a proporção (o Mar Morto tem cerca de 300 g de sal por litro e por isso as pessoas boiam; o oceano, cerca de 35 g/L).</p>
+    <div class="grid2">
+      <div class="call"><b>Homogêneas (soluções)</b>uma fase: água com açúcar, água e álcool, ar filtrado, vinagre, ligas metálicas, soro, gasolina.</div>
+      <div class="call"><b>Heterogêneas</b>duas ou mais fases: água e óleo, areia e sal, granito (quartzo, feldspato e mica), gasolina e água, água com gás.</div>
+    </div>
+    <ul>
+      <li>Mistura de <b>gases</b> é sempre homogênea. Mistura de <b>n sólidos</b> tem n fases (açúcar e sal: 2 fases).</li>
+      <li>Hierarquia: matéria → misturas (separadas por processos <b>físicos</b>) ou substâncias → compostos (separados em elementos por processos <b>químicos</b>).</li>
+    </ul>
+  </div>
+
+  <h3>4. Separação de misturas heterogêneas</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Mistura</th><th>Método</th><th>Princípio · exemplo</th></tr>
+      <tr><td rowspan="7">sólido + sólido</td><td><b>Catação</b></td><td>com as mãos ou pinça · feijão; lixo reciclável</td></tr>
+      <tr><td><b>Peneiração (tamisação)</b></td><td>tamanho das partículas · areia grossa e fina</td></tr>
+      <tr><td><b>Ventilação</b></td><td>corrente de ar leva o menos denso · palha e arroz</td></tr>
+      <tr><td><b>Levigação</b></td><td>corrente de água leva o menos denso · ouro na bateia</td></tr>
+      <tr><td><b>Separação magnética</b></td><td>ímã atrai ferromagnéticos (Fe, Ni, Co) · limalha de ferro e areia</td></tr>
+      <tr><td><b>Flotação</b></td><td>líquido em que um sólido flutua · serragem e areia em água</td></tr>
+      <tr><td><b>Dissolução fracionada</b></td><td>um sólido dissolve, o outro não · sal e areia + água</td></tr>
+      <tr><td rowspan="4">sólido + líquido</td><td><b>Decantação</b></td><td>gravidade · enxofre em água</td></tr>
+      <tr><td><b>Centrifugação</b></td><td>decantação acelerada · separar o plasma do sangue</td></tr>
+      <tr><td><b>Filtração</b> (comum ou a vácuo, funil de Büchner)</td><td>sólido retido no filtro · café; a vácuo para grãos finos</td></tr>
+      <tr><td><b>Sifonação</b></td><td>transferir o líquido por mangueira (sifão)</td></tr>
+      <tr><td>líquido + líquido imiscíveis</td><td><b>Funil de decantação</b> (de bromo)</td><td>o mais denso sai por baixo · água e óleo</td></tr>
+      <tr><td>sólido + gás</td><td><b>Filtração</b>, <b>câmara de poeira</b></td><td>aspirador de pó, máscara; obstáculos fazem o pó depositar</td></tr>
+    </table></div>
+    <p><b>Magnetismo</b>: ferromagnéticos (Fe, Ni, Co) são fortemente atraídos; paramagnéticos (Al, Mg) fracamente; diamagnéticos (Au, Ag, Zn, Pb) não são atraídos. Imantação (o material vira ímã temporário) ≠ atração.</p>
+    <p><b>Teste da gasolina</b> (ANP): 50 mL de gasolina + água até 100 mL; agita-se; o etanol passa para a fase aquosa. O aumento da fase aquosa indica o teor de etanol (cerca de 25%).</p>
+  </div>
+
+  <h3>5. Separação de misturas homogêneas</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Mistura</th><th>Método</th><th>Princípio · exemplo</th></tr>
+      <tr><td rowspan="2">sólido dissolvido em líquido</td><td><b>Evaporação</b></td><td>o líquido se perde · sal marinho nas salinas</td></tr>
+      <tr><td><b>Destilação simples</b></td><td>vaporiza e condensa o líquido, que é recuperado · água destilada</td></tr>
+      <tr><td>líquidos miscíveis</td><td><b>Destilação fracionada</b></td><td>coluna de fracionamento; pontos de ebulição próximos · petróleo, água e álcool</td></tr>
+      <tr><td>sólidos</td><td><b>Fusão fracionada</b></td><td>pontos de fusão diferentes · ligas</td></tr>
+      <tr><td>gases</td><td><b>Liquefação fracionada</b></td><td>liquefaz e destila · N₂ e O₂ do ar</td></tr>
+      <tr><td>componente sensível ao calor</td><td><b>Arraste a vapor</b></td><td>vapor d’água arrasta o volátil abaixo de 100 °C · óleos essenciais (cravo)</td></tr>
+      <tr><td>vários</td><td><b>Extração por solvente</b></td><td>solvente dissolve só um componente · cafeína; iodo da água com clorofórmio</td></tr>
+      <tr><td>gás/líquido</td><td><b>Adsorção</b></td><td>retenção na superfície do carvão ativado · filtros e máscaras</td></tr>
+      <tr><td>vários</td><td><b>Cromatografia</b></td><td>afinidade pelas fases estacionária e móvel · tinta de caneta no papel; identificação por padrões</td></tr>
+    </table></div>
+    <ul>
+      <li>Na destilação o líquido é <b>recuperado</b>; na evaporação, não.</li>
+      <li>Álcool 96% é <b>azeótropo</b>: a destilação não passa disso. Para obter álcool anidro, usa-se <b>cal virgem</b> (CaO + H₂O → Ca(OH)₂), que retira a água.</li>
+      <li><b>Tratamento de água (ETA)</b>: pré-cloração e pré-alcalinização → <b>coagulação</b> (sulfato de alumínio + cal) → <b>floculação</b> → <b>decantação</b> → <b>filtração</b> (areia, cascalho, carvão ativado) → <b>desinfecção</b> (cloro ou ozônio) → <b>fluoretação</b> → correção de pH.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a pontos do material</b>(1) O livro chama a destilação de "processo químico"; ela é <b>física</b>, como todos os métodos de separação. (2) A coluna de fracionamento serve sobretudo para separar <b>melhor</b> líquidos de pontos de ebulição próximos, mais do que para ser "mais rápida". (3) O álcool combustível vendido nos postos é o <b>hidratado</b> (cerca de 95%); o anidro (quase puro) é o misturado à gasolina.</div>
+    <div class="call bad"><b>Pegadinha</b>"Água e álcool podem ser separados por decantação": <b>ERRADO</b>.<br><b>O erro:</b> são miscíveis (uma fase só).<br><b>O certo:</b> destilação fracionada (e só até 96% de álcool, por causa do azeótropo).</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: substâncias, misturas e separação</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/3</b><br><span class="muted">Matéria, energia, propriedades, densidade.</span></div>
+    <div><b>Parte 2/3 (tarefa 3.14)</b><br><span class="muted">Estados físicos, mudanças, curvas, sistemas.</span></div>
+    <div><b>Parte 3/3 (esta)</b><br><span class="muted">Substâncias simples e compostas, alotropia, misturas e separação.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Qual propriedade cada método usa?</h3>
+  <div class="tbl"><table>
+    <tr><th>Propriedade</th><th>Métodos</th></tr>
+    <tr><td>Tamanho</td><td>peneiração, filtração</td></tr>
+    <tr><td>Densidade</td><td>levigação, ventilação, flotação, decantação, centrifugação, funil de separação</td></tr>
+    <tr><td>Magnetismo</td><td>separação magnética</td></tr>
+    <tr><td>Solubilidade</td><td>dissolução fracionada, extração por solvente</td></tr>
+    <tr><td>Ponto de ebulição</td><td>evaporação, destilação simples e fracionada, liquefação fracionada</td></tr>
+    <tr><td>Ponto de fusão</td><td>fusão fracionada</td></tr>
+    <tr><td>Afinidade/superfície</td><td>cromatografia, adsorção</td></tr>
+  </table></div>
+  <h3>Simples, composta ou alótropo?</h3>
+  <div class="tbl"><table>
+    <tr><th>Fórmula</th><th>Classificação</th></tr>
+    <tr><td>O₂, O₃</td><td>simples; alótropos entre si</td></tr>
+    <tr><td>C (grafite), C (diamante)</td><td>simples; alótropos</td></tr>
+    <tr><td>H₂O, CO₂</td><td>compostas binárias</td></tr>
+    <tr><td>H₂SO₄</td><td>composta ternária</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Qual método usar?</h2>
+  <p class="lead">Diga o método (ou a sequência) antes de abrir.</p>
+  <div class="card">
+    <details><summary>1. Arroz, cascas de arroz e pedrinhas.</summary><div><b>Ventilação</b> (tira as cascas) + <b>catação</b> ou peneiração (tira as pedras).</div></details>
+    <details><summary>2. Areia, sal e limalha de ferro.</summary><div><b>Separação magnética</b> (ferro) → <b>dissolução</b> em água (sal) → <b>filtração</b> (areia) → <b>evaporação</b> ou destilação (sal).</div></details>
+    <details><summary>3. Água, óleo e areia.</summary><div><b>Filtração</b> ou decantação da areia → <b>funil de decantação</b> para água e óleo.</div></details>
+    <details><summary>4. Obter água doce da água do mar.</summary><div><b>Destilação simples</b> (a água evapora e condensa; o sal fica).</div></details>
+    <details><summary>5. Separar os componentes do petróleo.</summary><div><b>Destilação fracionada</b>.</div></details>
+    <details><summary>6. Obter O₂ e N₂ do ar.</summary><div><b>Liquefação fracionada</b> (liquefazer e destilar).</div></details>
+    <details><summary>7. Extrair o óleo essencial de folhas sensíveis ao calor.</summary><div><b>Arraste a vapor</b>, depois funil de decantação.</div></details>
+    <details><summary>8. Identificar os pigmentos de uma tinta.</summary><div><b>Cromatografia</b> em papel, comparando com padrões.</div></details>
+    <details><summary>9. Quantas fases e quantos componentes: água, gelo, sal dissolvido e areia?</summary><div>Fases: <b>3</b> (solução, gelo, areia). Componentes: <b>3</b> (água, sal, areia).</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos e lista do minissimulado)</h2>
+  <p class="lead">São as <b>18 questões</b> dos cadernos de substâncias puras, misturas e separação de misturas do livro digital: 18 de múltipla escolha. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.16 · Substâncias, alotropia e misturas</option>
+      <option value="ref">Métodos de separação</option>
+      <option value="pan">Panorama: matéria (partes 1 a 3)</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Provão de Bolsas FN/EAM · 2022", "tema": "Classificação das substâncias puras", "tipo": "mc", "html": true, "enun": "De maneira geral, as variedades alotrópicas de um elemento:", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>As variedades alotrópicas são substâncias simples diferentes do mesmo elemento químico formador. Portanto, a única alternativa que se encaixa é a letra B.<\/div>", "<b>Alternativa A:<\/b> as substâncias iônicas geralmente são compostos. Portanto, jamais poderiam se encaixar no conceito de variedades alotrópicas.", "<b>Alternativa B:<\/b> É exatamente isso.", "<b>Alternativa C:<\/b> As variedades alotrópicas são substâncias simples, e os ácidos são sempre compostos.", "<b>Alternativa D:<\/b> O que importa é ser substância simples, e não o tipo de interação intermolecular formada.", "<b>Alternativa E:<\/b> Esse é o conceito de óxido, e não de variedade alotrópica."], "alts": [["a", "são formadas por ligações iônicas."], ["b", "são substâncias simples."], ["c", "possuem caráter ácido."], ["d", "formam ligações de hidrogênio."], ["e", "são diferentes compostos binários do elemento com o oxigênio."]], "resp": "b"}, {"n": 2, "fonte": "Colégio Naval - CN · 2021", "tema": "Classificação das substâncias puras", "tipo": "mc", "html": true, "enun": "O modelo de Dalton foi de suma importância para o conceito de átomos, moléculas e substâncias (simples e compostas). Assinale a opção que apresenta apenas substâncias simples.", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Uma substância simples é aquela formada por átomos de um único elemento. Com base nisso, vamos analisar as afirmações.<\/div>", "<b>Alternativa A:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>HClO₄ é formada por hidrogênio, cloro e oxigênio; H₂O é formada por átomos de hidrogênio e oxigênio. Logo, as duas são substâncias compostas.<\/div>", "<b>Alternativa B:<\/b> <b>CORRETO<\/b><div><b><br><\/b><\/div><div>Todas são substâncias simples. O₃ tem apenas átomos de oxigênio; I₂ tem apenas átomos de iodo e N₂ tem apenas átomos de nitrogênio.<\/div>", "<b>Alternativa C:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>H₂O é formada por dois elementos químicos: dois átomos de hidrogênio e um de oxigênio, logo, é uma substância composta.<\/div>", "<b>Alternativa D:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>K₂Cr₂O₇ é uma substância composta, pois é formada por três elementos químicos diferentes: potássio, cromo e oxigênio.<\/div>", "<b>Alternativa E:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>Todas são substâncias compostas. H₂O é formada por dois elementos: hidrogênio e oxigênio; HNO₃ é formada por três elementos: hidrogênio, nitrogênio e oxigênio; KMnO₄ é formada por três elementos: potássio, manganês e oxigênio.<\/div>"], "alts": [["a", "<img src=\"img/793fd74bf350e3be.png\" alt=\"\">"], ["b", "<img src=\"img/fd65ff2542c5811e.png\" alt=\"\">"], ["c", "<img src=\"img/e0ed575ae3b25c81.png\" alt=\"\">"], ["d", "<img src=\"img/6789756e1fb039fa.png\" alt=\"\">"], ["e", "<img src=\"img/c7c7835324d4a44d.png\" alt=\"\">"]], "resp": "b"}, {"n": 3, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2020", "tema": "Classificação das substâncias puras", "tipo": "mc", "html": true, "enun": "<div>Assinale a opção que apresenta, na sequência, os termos corretos que preenchem as lacunas da seguinte afirmativa.<br><\/div><br><div>“Uma substância______ é formada por_________, contendo apenas__________ de um mesmo__________.’’<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA B<\/b><\/div><br>Vamos relembrar os conceitos de substância simples e composta.<div><br><div>Uma substância simples é formada por átomos de um mesmo elemento.<\/div><br><div>Uma substância composta é formada por átomos de mais de um elemento.<\/div><br><div>Portanto, deveríamos completar a frase da seguinte forma:<\/div><br><div>“Uma substância SIMPLES é formada por __________, contendo apenas ÁTOMOS de um mesmo ELEMENTO”<\/div><br><div>O enunciado colocou uma palavra adicional, que é desnecessária à definição (moléculas). Eu entendo que a palavra molécula prejudica o sentido da frase, tendo em vista que nem toda substância simples é formada por moléculas. Porém, não vamos brigar com a questão.<\/div><br><div>A melhor forma de completar a frase é a seguinte:<\/div><br><div>“Uma substância SIMPLES é formada por MOLÉCULAS contendo apenas ÁTOMOS de um mesmo ELEMENTO”<\/div><br><div>Perceba que outras propostas estariam erradas. Vejamos:<\/div><\/div>", "<b>Alternativa A:<\/b> “Uma substância SIMPLES é formada por ÁTOMOS contendo apenas ELEMENTOS de um mesmo ÍON”. O erro da letra A é que os átomos devem ser do mesmo elemento, e não do mesmo íon.", "<b>Alternativa B:<\/b> Gabarito.", "<b>Alternativa C:<\/b> “Uma substância COMPOSTA é formada por MOLÉCULAS, contendo apenas ÁTOMOS de um mesmo ELEMENTO”. O erro da letra C é que, em uma substância composta, devem aparecer átomos de mais de um elemento químico. Não podem ser todos os átomos do mesmo elemento.", "<b>Alternativa D:<\/b> “Uma substância COMPOSTA é formada por ÁTOMOS, contendo apenas ELEMENTOS de um mesmo ÍON”. A letra D está bastante inconsistente. Uma substância composta deve ter átomos de mais de um elemento químico, e não de um mesmo íon.", "<b>Alternativa E:<\/b> “Uma substância COMPOSTA é formada por ELEMENTOS, contendo apenas MOLÉCULAS de um mesmo ÁTOMOS”. A letra E está invertida. Não existem moléculas de um mesmo átomo."], "alts": [["a", "simples / átomos / elementos / fon."], ["b", "simples / moléculas / átomos /elemento."], ["c", "composta / moléculas / átomos /elemento."], ["d", "composta / átomos / elementos / fon."], ["e", "composta / elementos / moléculas /átomo."]], "resp": "b"}, {"n": 4, "fonte": "Corpo de Bombeiros Militar do Estado do Rio de Janeiro - CFO-CBMERJ · 2019", "tema": "Classificação das substâncias puras", "tipo": "mc", "html": true, "enun": "Novas tecnologias de embalagens visam a aumentar o prazo de validade dos alimentos, reduzindo sua deterioração e mantendo a qualidade do produto comercializado. Essas embalagens podem ser classificadas em Embalagens de Atmosfera Modificada Tradicionais (MAP) e Embalagens de Atmosfera Modificada em Equilíbrio (EMAP). As MAP são embalagens fechadas que podem utilizar em seu interior tanto gases como He, Ne, Ar e Kr, quanto composições de CO₂ e O₂ em proporções adequadas. As EMAP também podem utilizar uma atmosfera modificada formada por CO₂ e O₂ e apresentam microperfurações na sua superfície, conforme ilustrado abaixo.<br><div><img src=\"img/bc59e7ded887c764.png\" alt=\"\"><br><\/div><br><div>Dentre os gases citados no texto, aquele que corresponde a uma substância composta é simbolizado por :<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "Kr"], ["b", "O₂"], ["c", "He"], ["d", "CO₂"]], "resp": "d"}, {"n": 5, "fonte": "Colégio Naval - CN · 2018", "tema": "Classificação das substâncias puras", "tipo": "mc", "html": true, "enun": "Marque a opção que apresenta apenas substâncias compostas.", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Uma substância composta deve apresentar átomos de mais de um elemento químico. São exemplos: H₂O, CO, Cl₂, NO₂, H₂O e NaCl.<\/div>", "<b>Alternativa A:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>Essa opção traz apenas substâncias simples<\/div>", "<b>Alternativa B:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>A água (H₂O) realmente é uma substância composta. Porém, o iodo (I₂) e o ozônio (O₃) são substâncias simples, pois são formadas por um único elemento.<\/div>", "<b>Alternativa C:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>O hélio (He) é uma substância simples monoatômica.<\/div>", "<b>Alternativa D:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>O nitrogênio (N₂) e o cloro (Cl₂) são substâncias simples diatômicas.<\/div>", "<b>Alternativa E:<\/b> <b>CORRETO<\/b><div><b><br><\/b><\/div><div>De fato, são três substâncias compostas. Todas as três apresentam mais de um elemento.<\/div>"], "alts": [["a", "H₂, O₂, S₈"], ["b", "I₂, O₃, H₂O"], ["c", "CO, He, NH₃"], ["d", "H₂O, N₂, Cl₂"], ["e", "NO₂, H₂O, NaCl"]], "resp": "e"}, {"n": 6, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2020", "tema": "Misturas", "tipo": "mc", "html": true, "enun": "Observe a figura abaixo,\r<br><div><img src=\"img/7c0c14cbea9e2ce4.png\" alt=\"\"><br><\/div><br><div>O sistema representado acima corresponde a uma: \r<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Embora a foto tenha ficado realmente muito ruim, o aluno deve ser forçado a entender que se trata de um sistema com água líquida e cubos de gelo.<\/div><br><div>A água e o gelo são a mesma substância, porém, em estados físicos diferentes. Portanto, tem-se uma substância pura ou um único componente, não uma mistura. Esse é o erro das letras A, B e E.<\/div><br><div>Esse sistema apresenta duas fases: a fase líquida e a fase sólida. Portanto, trata-se de um sistema heterogêneo. Estão erradas todas as afirmações que falam em “mistura homogênea”, tendo em vista as duas fases.<\/div><br><div>É exatamente o que diz a letra C: “substância pura com um componente e duas fase.”<\/div><br><div>A letra D erra duas vezes. O sistema não tem dois componentes, mas apenas um: a água pura. Também não tem uma única fase, mas duas: a fase líquida e a fase sólida.<\/div>"], "alts": [["a", "mistura homogénea com um componente e uma fase."], ["b", "mistura heterogênea com dois componentes e duas fases."], ["c", "substância pura com um componente e duas fases."], ["d", "substância pura com dois componentes e uma fase."], ["e", "mistura heterogénea com um componente e duas fases."]], "resp": "c"}, {"n": 7, "fonte": "Colégio Naval - CN · 2019", "tema": "Misturas", "tipo": "mc", "html": true, "enun": "Considere os seguintes sistemas abaixo:<br><div><img src=\"img/483ac982aed86db6.png\" alt=\"\"><br><\/div><br><div>Os sistemas l e Il correspondem, respectivamente, a:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>As fotos foram realmente horríveis. Porém, elas foram extraídas da prova. Infelizmente, é algo que o candidato a provas militares deve se habituar.<\/div><br><div>No sistema I, água e gelo são uma única substância. Logo, não é uma mistura, mas uma substância pura.<\/div><br><div>No sistema II, água e óleo são líquidos imiscíveis, logo, trata-se de uma mistura heterogênea.<\/div>"], "alts": [["a", "mistura homogénea e mistura heterogénea."], ["b", "mistura heterogénea e mistura heterogénea."], ["c", "substancia pura e mistura heterogénea."], ["d", "mistura homogénea e mistura homogénea."], ["e", "substancia pura e mistura homogénea."]], "resp": "c"}, {"n": 8, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2018", "tema": "Misturas", "tipo": "mc", "html": true, "enun": "Considere os sistemas abaixo.<br><div><img src=\"img/9888d4d0e6d02769.png\" alt=\"\"><br><\/div><br><div>Os sistemas I, Il e Ill correspondem, respectivamente,a substância&nbsp;<\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>O sistema I é formado pelo CO₂, que é uma substância composta, pois é formada por dois elementos químicos.<\/div><br><div>A areia não se dissolve na água, portanto, o sistema II é uma mistura heterogênea.<\/div><br><div>No sistema III, tem-se água e álcool. Como o álcool se mistura facilmente na água, os dois formam uma mistura homogênea.<\/div><br><div>Tem-se, portanto: composta, mistura heterogênea e mistura homogênea.<\/div>"], "alts": [["a", "simples, mistura homogênea e mistura homogênea.&nbsp;"], ["b", "composta, mistura heterogênea e mistura heterogênea.&nbsp;"], ["c", "composta, mistura homogênea e mistura heterogênea.&nbsp;"], ["d", "composta, mistura heterogênea e mistura homogênea."], ["e", "simples, mistura homogênea e mistura heterogênea."]], "resp": "d"}, {"n": 9, "fonte": "Colégio Naval - CN · 2010", "tema": "Misturas", "tipo": "mc", "html": true, "enun": "Analise as afirmativas abaixo em relação a alguns conceitos fundamentais da Química.<br><div>I - Todos os átomos são iguais em qualquer substância pura.<\/div><br><div>II - Mistura é a união sem reação de mais de duas substâncias.<\/div><br><div>III - Em quaisquer condições os gases são sempre miscíveis entre si.<\/div><br><div>IV - Um sistema heterogêneo é sempre uma mistura.<\/div><br><div>Assinale a opção correta.<\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Vamos analisar as afirmações:<\/div><br><div>I – Não é isso que acontece. Uma substância pode ser composta – nesse caso, ela é formada por átomos de elementos químicos diferentes. Pode também ser simples, mas todo elemento químico tem isótopos, de modo que existem átomos diferentes, mas que pertencem ao mesmo elemento. Afirmação incorreta.<\/div><br><div>II – É isso mesmo. A mistura é apenas um processo físico, não há qualquer interação química, como uma reação. Afirmação correta.<\/div><br><div>III – Uma das características que estudamos sobre o estado gasoso é que os gases sempre formam misturas homogêneas entre si. Afirmação correta.<\/div><br><div>IV – Nem sempre. Existem sistemas heterogêneos que são compostos por uma substância pura. Por exemplo, pense em um sistema formado por água e gelo. Trata-se de uma substância pura em dois estados físicos. É um sistema heterogêneo, mas não é uma mistura. Afirmação incorreta.<\/div>"], "alts": [["a", "Apenas as afirmativas I e II são verdadeiras."], ["b", "Apenas as afirmativas I e III são verdadeiras."], ["c", "Apenas as afirmativas I e IV são verdadeiras."], ["d", "Apenas as afirmativas II e III são verdadeiras."], ["e", "Apenas as afirmativas III e IV são verdadeiras."]], "resp": "d"}, {"n": 10, "fonte": "Colégio Naval - CN · 2025", "tema": "Separação de misturas Heterogêneas", "tipo": "mc", "html": true, "enun": "<p><img src=\"img/5cf2d4c40ff97cd6.png\" alt=\"\"><\/p><p>Um cientista misturou água e cloreto de prata em um&nbsp;recipiente. Após algum tempo em repouso, ele percebeu&nbsp;que a mistura resultante era heterogênea: uma fase&nbsp;líquida, predominantemente de água, e uma fase sólida,&nbsp;predominantemente de cloreto de prata. Para a separação&nbsp;dessa mistura, qual é o processo mais indicado?<\/p>", "com": ["<p><strong><span>GABARITO: ALTERNATIVA D<\/span><\/strong><\/p><p>A descrição é de uma mistura heterogênea com uma fase líquida (água) e uma fase sólida (cloreto de prata) que se deposita, e o método de separação de sólido insolúvel em líquido é a filtração. Ao passar a mistura por um meio filtrante, o líquido atravessa e o sólido fica retido, separando as duas fases de forma simples e direta.<\/p>", "<b>Alternativa A:<\/b> <p>A alternativa A está incorreta porque a dissolução fracionada serve para separar sólidos misturados quando um deles é solúvel em certo solvente e o outro não. Aqui já existe uma fase sólida e uma líquida bem definidas, sem necessidade de dissolver seletivamente nada.<\/p>", "<b>Alternativa B:<\/b> <p>A alternativa B está incorreta porque a atração magnética só funciona quando um dos componentes é atraído por ímã, o que não é o caso do cloreto de prata.<\/p>", "<b>Alternativa C:<\/b> <p>A alternativa C está incorreta porque a destilação simples separaria a água por evaporação e condensação, um processo desnecessariamente trabalhoso quando basta reter o sólido em um filtro.<\/p>", "<b>Alternativa D:<\/b> <p>A alternativa D está correta porque a filtração simples separa de imediato o sólido insolúvel (AgCl) retido no filtro da fase líquida (água) que o atravessa.<\/p>", "<b>Alternativa E:<\/b> <p>A alternativa E está incorreta porque a destilação fracionada se aplica a misturas de líquidos com pontos de ebulição diferentes, e não a uma mistura de sólido com líquido como a descrita.<\/p>"], "alts": [["a", "Dissolução fracionada."], ["b", "Atração magnética."], ["c", "Destilação simples."], ["d", "Filtração simples."], ["e", "Destilação fracionada."]], "resp": "d"}, {"n": 11, "fonte": "Corpo de Bombeiros Militar do Estado do Rio de Janeiro - CFO-CBMERJ · 2024", "tema": "Separação de misturas Heterogêneas", "tipo": "mc", "html": true, "enun": "<img src=\"img/a2b4c8f9be4b65d3.png\" alt=\"\"><br><div>O processo de mineração de metais envolve uma série de etapas. <span>Na mineração de cobre, por exemplo, em uma determinada <\/span><span>etapa de separação, o minério triturado é adicionado a um <\/span><span>tanque contendo uma mistura de água, óleo e detergentes. <\/span><span>Neste ambiente, bolhas de ar são injetadas na mistura, aderindo-se preferencialmente às partículas de minério de cobre, que são <\/span><span>levadas à superfície. Por sua vez, a parte não desejada é retirada <\/span><span>na parte inferior do tanque.<\/span><\/div><br><div>O processo de separação descrito é denominado<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "destilação."], ["b", "centrifugação."], ["c", "flotação."], ["d", "precipitação."], ["e", "filtração."]], "resp": "c"}, {"n": 12, "fonte": "Corpo de Bombeiros Militar do Estado do Rio de Janeiro - CFO-CBMERJ · 2023", "tema": "Separação de misturas Heterogêneas", "tipo": "mc", "html": true, "enun": "Na tentativa de promover a separação de componentes de uma mistura heterogênea, um técnico a deixou em repouso, observando a sedimentação do componente sólido de maior densidade. Após um longo tempo, foi possível verter o componente líquido, sobrenadante, para outro frasco, separando-o do componente sólido, depositado ao fundo. <br><div>A técnica de separação adotada é chamada<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "separação magnética."], ["b", "destilação simples."], ["c", "tamisação."], ["d", "filtração simples."], ["e", "decantação."]], "resp": "e"}, {"n": 13, "fonte": "Colégio Naval - CN · 2022", "tema": "Separação de misturas Heterogêneas", "tipo": "mc", "html": true, "enun": "Certa quantidade de areia foi adicionada, acidentalmente, em uma amostra de sal. A melhor sequência para separar os compostos dessa mistura é:", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>A areia é insolúvel em água, mas o sal se dissolve. Portanto, é possível separá-los por meio da adição de água. Assim, o sal se dissolve, mas a areia não. Assim, a primeira etapa é o processo de dissolução.<div><br><div>Assim, basta esperar a areia decantar ou realizar um processo de filtração. Esses processos são úteis para separar misturas heterogêneas.<\/div><br><div>A filtração separa a areia da mistura de água e sal. Por fim, a água e o sal podem ser separados por destilação simples, já que o sal não é volátil.<\/div><br><div>A filtração não pode separar a mistura de água e sal, porque essa é uma mistura homogênea. Ela somente seria útil para retirar a areia.<\/div><\/div>"], "alts": [["a", "filtração, dissolução e destilação simples."], ["b", "dissolução, decantação e filtração."], ["c", "dissolução, filtração e destilação simples."], ["d", "filtração, destilação simples e centrifugação."], ["e", "dissolução, centrifugação e destilação simples."]], "resp": "c"}, {"n": 14, "fonte": "Colégio Naval - CN · 2021", "tema": "Separação de misturas Heterogêneas", "tipo": "mc", "html": true, "enun": "Considere as seguintes misturas:&nbsp;<br><div>I - Enxofre em pó e lascas de ferro.&nbsp;<\/div><br><div>Il - Água e sal de cozinha.&nbsp;<\/div><br><div>Ill - Sangue humano (glóbulos vermelhos e plasma).&nbsp;<\/div><br><div>Assinale a opção que permite, respectivamente, a separação das misturas acima.&nbsp; &nbsp;<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "Separação magnética,  destilação fracionada e decantação.&nbsp;<div>&nbsp;<\/div>"], ["b", "Separação magnética, destilação simples e destilação fracionada.&nbsp;<div>&nbsp;<\/div>"], ["c", "Catação, destilação fracionada e decantação&nbsp;<div>&nbsp;<\/div>"], ["d", "Peneiração, filtração e centrifugação.&nbsp;<div>&nbsp;<\/div>"], ["e", "Separação magnética, destilação simples e centrifugação.&nbsp;"]], "resp": "e"}, {"n": 15, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2021", "tema": "Separação de Misturas Homogêneas", "tipo": "mc", "html": true, "enun": "O esquema a seguir mostra o tradicional alambique usado para preparar bebidas alcoólicas provenientes da fermentação de açúcares e cereais.<br><div><img src=\"img/1b9408941e63f8e1.png\" alt=\"\"><br><\/div><br><div>O processo de separação no qual se baseia o funcionamento do alambique &amp; chamado de:&nbsp;<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "filtração.&nbsp;"], ["b", "sifonação.&nbsp;"], ["c", "centrifugação.&nbsp;"], ["d", "flotação."], ["e", "destilação."]], "resp": "e"}, {"n": 16, "fonte": "Colégio Naval - CN · 2018", "tema": "Separação de Misturas Homogêneas", "tipo": "mc", "html": true, "enun": "Observe a figura a seguir que apresenta a aparelhagem utilizada comumente em laboratórios para a realização da destilação simples.<br><div><img src=\"img/e2329b83e7b6f50c.png\" alt=\"\"><br><\/div><br><div>Marque a opção que apresenta a mistura que pode ser separada por essa aparelhagem.<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>A destilação é um método de separação de misturas homogêneas. Portanto, as misturas heterogêneas não devem ser separadas por esse método. É o caso das letras A, B, D e E.<br><div>A mistura homogênea de água e sal pode sim ser separada por destilação fracionada. Nesse caso, a água destilada será coletada após o condensador. O sal ficará no frasco em destilação.&nbsp;<\/div>"], "alts": [["a", "Água de areia."], ["b", "Água e óleo.&nbsp;"], ["c", "Água sal dissolvido."], ["d", "Água e gasolina.&nbsp;<div>&nbsp;<\/div>"], ["e", "Água e limalha de ferro."]], "resp": "c"}, {"n": 17, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2018", "tema": "Separação de Misturas Homogêneas", "tipo": "mc", "html": true, "enun": "Observe a figura a seguir.&nbsp;<br><div><img src=\"img/ae08a3461d535c74.png\" alt=\"\"><br><\/div><br><div>Disponível em &lt;http://brasilescola.uol.com.br/quimica<\/div><br><div>O petróleo bruto é uma complexa mistura líquida de compostos orgânicos, denominados hidrocarbonetos, que vão desde os alcanos mais simples até aos aromáticos mais complexos, dando origem a gasolina, ao querosene, ao óleo combustível, ao óleo diesel, ao óleo lubrificante e também a substâncias que serão posteriormente transformadas pela indústria petroquímica em plásticos, fertilizantes, vernizes e fios para tecelagem, conforme a figura acima.&nbsp;<\/div><br><div>O processo que permite a separação dessas substâncias a partir do petróleo bruto é conhecido como<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "filtragem.&nbsp;"], ["b", "decantação.&nbsp;"], ["c", "destilação fracionada."], ["d", "dissolução fracionada.&nbsp;"], ["e", "fusão fracionada."]], "resp": "c"}, {"n": 18, "fonte": "Colégio Naval - CN · 2014", "tema": "Separação de Misturas Homogêneas", "tipo": "mc", "html": true, "enun": "Considere as modalidades de fracionamento de misturas baseadas nas características físicas da matéria.<br><div>I - Método de separação com base na diferença da temperatura de ebulição.<\/div><br><div>II - Método de separação com base na diferença de densidade.<\/div><br><div>III - Método de separação com base na variação de tamanho das partículas.<\/div><br><div>Estas definições se referem, respectivamente, aos métodos de<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "evaporação, floculação, filtração."], ["b", "condensação, tamização, decantação."], ["c", "destilação, filtração, destilação."], ["d", "decantação, peneiração, filtração."], ["e", "destilação, decantação, peneiração."]], "resp": "e"}];
+
+const FLASH = [
+ ["a00","Substância simples × composta","Simples: um elemento (O₂). Composta: dois ou mais (H₂O).<br><b>Exemplo:</b> O₃ é simples."],
+ ["a00","O que é atomicidade?","Nº de átomos numa molécula de substância simples.<br><b>Exemplo:</b> S₈ tem atomicidade 8."],
+ ["a00","O que é alotropia?","Mesmo elemento formando substâncias simples diferentes.<br><b>Exemplo:</b> grafite e diamante."],
+ ["a00","Alótropos do oxigênio","O₂ e O₃ (diferem na atomicidade).<br><b>Exemplo:</b> ozônio protege da radiação ultravioleta."],
+ ["a00","Alótropos do fósforo","Branco (P₄) e vermelho (Pn).<br><b>Exemplo:</b> o vermelho é usado na lixa da caixa de fósforos."],
+ ["a00","Alótropos do enxofre","Rômbico e monoclínico (ambos S₈, diferem no arranjo).<br><b>Exemplo:</b> o rômbico é o mais estável à temperatura ambiente."],
+ ["a00","Grafite × diamante","Grafite: camadas, macio, conduz. Diamante: tetraedros, duríssimo, isolante.<br><b>Exemplo:</b> grafite no lápis."],
+ ["a00","Mistura de gases é…","Sempre homogênea.<br><b>Exemplo:</b> ar filtrado."],
+ ["a00","Quantas fases tem açúcar + sal (sólidos)?","Duas (n sólidos, n fases).<br><b>Exemplo:</b> granito tem 3 (quartzo, feldspato, mica)."],
+ ["a00","Separação de misturas é processo…","Físico (não muda as substâncias).<br><b>Exemplo:</b> destilar água salgada dá água e sal inalterados."],
+ ["ref","Levigação × ventilação","Levigação: corrente de água. Ventilação: corrente de ar.<br><b>Exemplo:</b> bateia (levigação); palha do arroz (ventilação)."],
+ ["ref","Flotação","Líquido em que um dos sólidos flutua.<br><b>Exemplo:</b> serragem e areia em água."],
+ ["ref","Dissolução fracionada","Dissolve só um dos sólidos.<br><b>Exemplo:</b> sal e areia + água."],
+ ["ref","Centrifugação","Decantação acelerada.<br><b>Exemplo:</b> separar as células do plasma."],
+ ["ref","Funil de decantação","Separa líquidos imiscíveis; o mais denso sai por baixo.<br><b>Exemplo:</b> água e óleo."],
+ ["ref","Evaporação × destilação simples","Evaporação perde o líquido; destilação recupera.<br><b>Exemplo:</b> salina × água destilada."],
+ ["ref","Destilação fracionada","Líquidos miscíveis; coluna de fracionamento.<br><b>Exemplo:</b> petróleo."],
+ ["ref","Liquefação fracionada","Liquefaz gases e destila.<br><b>Exemplo:</b> N₂ e O₂ do ar."],
+ ["ref","Arraste a vapor","Vapor d’água arrasta compostos sensíveis ao calor.<br><b>Exemplo:</b> óleos essenciais."],
+ ["ref","Cromatografia","Separa por afinidade às fases estacionária e móvel; identifica por padrões.<br><b>Exemplo:</b> tinta de caneta em papel."],
+ ["ref","Adsorção","Retenção na superfície de um sólido poroso.<br><b>Exemplo:</b> carvão ativado do filtro de água."],
+ ["ref","Por que não se passa de 96% de álcool por destilação?","É azeótropo; usa-se cal virgem para retirar a água.<br><b>Exemplo:</b> CaO + H₂O → Ca(OH)₂."],
+ ["pan","Etapas da ETA","Coagulação, floculação, decantação, filtração, desinfecção, fluoretação, correção de pH.<br><b>Exemplo:</b> sulfato de alumínio na coagulação."],
+ ["pan","Materiais atraídos por ímã","Ferromagnéticos: ferro, níquel e cobalto.<br><b>Exemplo:</b> separar minério de ferro."],
+ ["pan","Isótopos × alótropos","Isótopos: átomos (mesmo Z, massas diferentes). Alótropos: substâncias simples.<br><b>Exemplo:</b> C-12 e C-14 (isótopos); grafite e diamante (alótropos)."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "SUBSTÂNCIAS E MISTURAS", s: "Simples · compostas · alótropos<br><small>Misturas homogêneas e heterogêneas · métodos de separação</small>",
+  e: "A matéria é feita de substâncias puras ou de misturas; misturas se separam por processos físicos, escolhidos pela propriedade que difere entre os componentes.",
+  x: "Água do mar (mistura) → destilação → água pura (substância composta).", l: "separação = processo físico",
+  p: "Fase ≠ componente; alótropo ≠ isótopo."};
+const MM = [
+ {k: "sub", c: "#2f5bd3", t: "Substâncias", s: "simples e compostas",
+  e: "Pura: propriedades fixas. Simples: um elemento. Composta: vários.", x: "O₃ (simples), H₂SO₄ (composta ternária).", l: "atomicidade",
+  p: "He é molécula monoatômica: átomo = molécula.",
+  f: [
+   {k: "sub1", t: "Atomicidade", e: "Nº de átomos na molécula de substância simples.", x: "He 1; O₂ 2; O₃ 3; P₄ 4; S₈ 8.", l: "mono, di, tri…", p: "Atomicidade se aplica a substâncias simples."},
+   {k: "sub2", t: "Binária, ternária, quaternária", e: "Nº de elementos diferentes na composta.", x: "CO₂ binária; HNO₃ ternária; (NH₄)₂SO₄ quaternária.", l: "conte os elementos", p: "C₂H₆ é binária (só C e H)."}
+  ]},
+ {k: "alo", c: "#1f8a4c", t: "Alotropia", s: "C, O, P, S",
+  e: "Mesmo elemento, substâncias simples diferentes.", x: "Grafite × diamante.", l: "atomicidade ou arranjo",
+  p: "Alótropos têm propriedades diferentes.",
+  f: [
+   {k: "alo1", t: "Carbono", e: "Grafite (camadas, conduz), diamante (tetraedros, duro), fulereno (C₆₀).", x: "Lápis × joia.", l: "arranjo", p: "Grafite conduz eletricidade; diamante não."},
+   {k: "alo2", t: "Oxigênio", e: "O₂ e O₃.", x: "Camada de ozônio.", l: "atomicidade 2 × 3", p: "Não são isótopos."},
+   {k: "alo3", t: "Fósforo e enxofre", e: "P branco (P₄) × vermelho (Pn); S rômbico × monoclínico (S₈).", x: "Fósforo vermelho na caixa de fósforos.", l: "P: atomicidade · S: arranjo", p: "Os dois enxofres têm atomicidade 8."}
+  ]},
+ {k: "het", c: "#b07400", t: "Separar heterogêneas", s: "fases visíveis",
+  e: "Métodos mecânicos: tamanho, densidade, magnetismo, solubilidade.", x: "Bateia do garimpeiro (levigação).", l: "catação · peneira · ventilação · levigação · ímã · decantação · filtração",
+  p: "Levigação usa água; ventilação usa ar.",
+  f: [
+   {k: "het1", t: "Sólido + sólido", e: "Catação, peneiração, ventilação, levigação, ímã, flotação, dissolução fracionada.", x: "Sal e areia: dissolver e filtrar.", l: "propriedade diferente", p: "Ouro não é atraído por ímã."},
+   {k: "het2", t: "Sólido + líquido", e: "Decantação, centrifugação, filtração, sifonação.", x: "Centrífuga separa o plasma.", l: "gravidade ou filtro", p: "Centrifugação é decantação acelerada."},
+   {k: "het3", t: "Líquidos imiscíveis", e: "Funil de decantação: o mais denso sai primeiro.", x: "Água e óleo.", l: "densidade", p: "Água e álcool são miscíveis."}
+  ]},
+ {k: "hom", c: "#8a3ac2", t: "Separar homogêneas", s: "uma fase só",
+  e: "Métodos baseados em mudança de estado, solubilidade ou afinidade.", x: "Destilação de água do mar.", l: "evaporação · destilação · liquefação · cromatografia",
+  p: "Azeótropo (álcool 96%) não se separa por destilação.",
+  f: [
+   {k: "hom1", t: "Evaporação × destilação simples", e: "Evaporação perde o líquido; destilação o recupera.", x: "Salinas × água destilada.", l: "condensador", p: "Na evaporação só se quer o sólido."},
+   {k: "hom2", t: "Destilação fracionada", e: "Líquidos miscíveis com PE diferentes; coluna de fracionamento.", x: "Petróleo.", l: "PE diferentes", p: "É processo físico, não químico."},
+   {k: "hom3", t: "Arraste a vapor e extração", e: "Arraste: compostos sensíveis ao calor. Extração: solvente seletivo.", x: "Óleo de cravo; cafeína.", l: "abaixo de 100 °C", p: "O óleo fica em cima da água."},
+   {k: "hom4", t: "Cromatografia e adsorção", e: "Afinidade por fases estacionária e móvel; retenção em superfície.", x: "Tinta de caneta no papel; carvão ativado.", l: "fase fixa × móvel", p: "Cromatografia também identifica substâncias."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Princípio</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"ETA": "estação de tratamento de água",
+"ANP": "Agência Nacional do Petróleo, Gás Natural e Biocombustíveis",
+"CG": "cromatografia gasosa",
+"PF": "ponto de fusão",
+"PE": "ponto de ebulição"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.16_quim_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.14 · Ciclo 3 · Química — Substâncias e suas propriedades (parte 2/3) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.14</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa M (3.14) · Química</h1>
+        <div class="sub">EsPCEx 2026 · Substâncias e suas propriedades (parte 2/3): unidades, estados físicos, mudanças de fase, curvas de aquecimento e sistemas</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Exercícios resolvidos</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.14</h2>
+  <p class="lead">Tarefa M da trilha: <i>"Estude os seguintes temas: Unidades de Medida; Os Estados Físicos e Mudanças de Fase; Sólido; Líquido; Gasoso; Mudanças de estados físicos; Curvas de aquecimento; Classificação da Matéria; Sistema"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os nove trechos do livro digital de Química (itens 2.2.4 a 2.4.1). O minissimulado é um link externo do Estratégia e não entra aqui. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Grandeza <b>extensiva</b> depende da quantidade (massa, volume); <b>intensiva</b> não (densidade, temperatura de fusão).<br>• T(K) = T(°C) + 273. 1 atm = 101.325 Pa = 760 mmHg.<br>• Fusão, vaporização e sublimação: <b>endotérmicas</b>. Solidificação, condensação e ressublimação: <b>exotérmicas</b>.<br>• Substância pura: <b>dois patamares</b>. Mistura: faixas. <b>Eutética</b>: fusão constante. <b>Azeotrópica</b>: ebulição constante.<br>• Fase = porção homogênea; sistema homogêneo tem uma fase, heterogêneo tem várias.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (30 min).</b> Leia a aba <b>Resumo</b> e desenhe as quatro curvas (pura, mistura, eutética, azeotrópica).</li><li><b>Mapa e Esquemas (10 min).</b> Decore o diagrama das mudanças de estado.</li><li><b>Exercícios resolvidos (20 min).</b> Faça a tabela do exercício 7 antes de abrir.</li><li><b>Questões (20 min).</b> 7 questões; leia o comentário.</li><li><b>Rendimento (5 min).</b> Anote o que errou.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: química geral é muito cobrada (🔥🔥🔥).</span></div><div class="card"><b>Questões</b><br><span class="muted">7 de múltipla escolha.</span></div><div class="card"><b>Próxima parte</b><br><span class="muted">Parte 3/3 (tarefa 3.16): substâncias simples e compostas, misturas homogêneas e heterogêneas.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: substâncias e suas propriedades (parte 2/3)</h2>
+  <p class="lead">Na ordem do livro digital.</p>
+
+  <h3>1. Unidades de medida</h3>
+  <div class="card">
+    <ul>
+      <li>Medida = número + unidade (17,5 sozinho não diz nada; 17,5 cm diz). O <b>SI</b> (1960) tem 7 unidades básicas: metro, quilograma, segundo, ampere, <b>kelvin</b>, mol e candela.</li>
+      <li>Prefixos: quilo (10³), centi (10⁻²), mili (10⁻³), micro (10⁻⁶), nano (10⁻⁹).</li>
+      <li><span class="k">Extensivas</span>: dependem da quantidade de matéria (massa, volume). <span class="k">Intensivas</span>: não dependem (densidade, temperatura, pontos de fusão e ebulição). Água: 1 L ou 2 L, densidade sempre 1 kg/L.</li>
+      <li><b>Temperatura</b> indica o sentido do fluxo de calor (do mais quente para o mais frio). <b>T(K) = T(°C) + 273,15</b>; °C/5 = (°F − 32)/9 (77 °F = 25 °C).</li>
+      <li><b>Pressão</b> = força perpendicular ÷ área; diminui com a altitude. <b>1 atm = 101.325 Pa ≈ 101 kPa = 760 mmHg = 760 torr</b>.</li>
+      <li>Volume: 1 m³ = 1000 L; 1 L = 1000 mL = 1 dm³; 1 mL = 1 cm³.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um ponto do material</b>O livro escreve "1 atm = 101325 Pa = 100 kPa". 101.325 Pa são <b>101,3 kPa</b>; 100 kPa é só um arredondamento (que corresponde a 1 bar).</div>
+  </div>
+
+  <h3>2. Estados físicos</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th></th><th>Sólido</th><th>Líquido</th><th>Gasoso</th></tr>
+      <tr><td>Partículas</td><td>muito próximas e organizadas</td><td>próximas, desordenadas</td><td>muito afastadas</td></tr>
+      <tr><td>Movimento</td><td>só vibração</td><td>vibração, rotação, translação curta</td><td>livre em todas as direções</td></tr>
+      <tr><td>Forma</td><td>definida</td><td>variável (do recipiente)</td><td>variável</td></tr>
+      <tr><td>Volume</td><td>definido</td><td>definido</td><td>variável (ocupa todo o recipiente)</td></tr>
+      <tr><td>Compressibilidade</td><td>quase nula</td><td>muito baixa</td><td>alta</td></tr>
+      <tr><td>Energia</td><td>menor</td><td>intermediária</td><td>maior</td></tr>
+    </table></div>
+    <p>Mudar de estado altera arranjo e distância das partículas, mas <b>não a composição</b>: é fenômeno <b>físico</b>.</p>
+    <p><b>Gás × vapor</b>: gás é gasoso nas condições ambientes (O₂, CO₂); vapor é a fase gasosa de algo normalmente líquido (vapor-d’água).</p>
+  </div>
+
+  <h3>3. Mudanças de estado</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Endotérmicas (absorvem energia)</th><th>Exotérmicas (liberam energia)</th></tr>
+      <tr><td><b>Fusão</b> (sólido → líquido)</td><td><b>Solidificação</b> (líquido → sólido)</td></tr>
+      <tr><td><b>Vaporização</b> (líquido → gás)</td><td><b>Condensação</b> (vapor → líquido) / <b>liquefação</b> (gás → líquido)</td></tr>
+      <tr><td><b>Sublimação</b> (sólido → gás)</td><td><b>Ressublimação</b> (gás → sólido), também chamada de sublimação</td></tr>
+    </table></div>
+    <p><b>Vaporização</b>: <b>evaporação</b> (lenta, na superfície, em qualquer temperatura, como a roupa secando); <b>ebulição</b> (rápida, em toda a massa, com bolhas, na temperatura de ebulição); <b>calefação</b> (acima da ebulição, como a gota na chapa quente).</p>
+    <p>Sublimação: gelo-seco (CO₂ sólido), naftalina, iodo.</p>
+    <div class="call warn"><b>Atenção a um erro do material</b>Na lista de processos exotérmicos, o livro escreve "sublimação"; o correto é <b>ressublimação</b> (gás → sólido). A sublimação (sólido → gás) é endotérmica.</div>
+    <div class="call bad"><b>Pegadinha</b>"Durante a fusão do gelo, a energia fornecida aumenta a temperatura": <b>ERRADO</b>.<br><b>O erro:</b> ignora o patamar.<br><b>O certo:</b> a energia rompe interações; a temperatura fica constante (0 °C) até tudo fundir.</div>
+  </div>
+
+  <h3>4. Curvas de aquecimento</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Material</th><th>Fusão</th><th>Ebulição</th><th>Exemplo</th></tr>
+      <tr><td><b>Substância pura</b></td><td>patamar (PF constante)</td><td>patamar (PE constante)</td><td>água: 0 °C e 100 °C</td></tr>
+      <tr><td><b>Mistura comum</b></td><td>faixa</td><td>faixa</td><td>água com açúcar</td></tr>
+      <tr><td><b>Eutética</b></td><td>patamar</td><td>faixa</td><td>solda: 62% estanho + 38% chumbo, funde a 183 °C</td></tr>
+      <tr><td><b>Azeotrópica</b></td><td>faixa</td><td>patamar</td><td>álcool 96% + água 4%, ferve a 78,1 °C</td></tr>
+    </table></div>
+    <ul>
+      <li>Trechos <b>inclinados</b>: aquecimento de uma fase (a energia cinética média aumenta). Trechos <b>horizontais</b>: mudança de estado, com duas fases coexistindo.</li>
+      <li>Para saber o estado numa temperatura T: T &lt; PF ⇒ sólido; PF &lt; T &lt; PE ⇒ líquido; T &gt; PE ⇒ gasoso.</li>
+      <li>No <b>azeótropo</b>, o vapor tem a <b>mesma composição</b> do líquido: a destilação simples não separa. Continua sendo mistura (não há reação).</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Material com ponto de ebulição constante é sempre substância pura": <b>ERRADO</b>.<br><b>O erro:</b> esquece os azeótropos.<br><b>O certo:</b> só é pura se tiver <b>os dois</b> patamares (fusão e ebulição).</div>
+  </div>
+
+  <h3>5. Sistemas e fases</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Sistema</span>: porção do universo isolada para estudo; o resto é a vizinhança.</li>
+      <li>Pelo nº de substâncias: <b>substância pura</b> (uma só) ou <b>mistura</b> (duas ou mais).</li>
+      <li><span class="k">Fase</span>: porção com as mesmas propriedades e aspecto uniforme, mesmo ao microscópio comum. <b>Homogêneo</b>: uma fase. <b>Heterogêneo</b>: duas ou mais.</li>
+      <li>Leite e sangue parecem homogêneos a olho nu, mas são <b>heterogêneos</b> ao microscópio (gotículas de gordura; células no plasma).</li>
+      <li>Água + gelo é sistema <b>heterogêneo</b> (2 fases) formado por <b>uma substância</b>.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Todo sistema homogêneo é substância pura": <b>ERRADO</b>.<br><b>O erro:</b> confunde fases com substâncias.<br><b>O certo:</b> água com sal dissolvido é homogênea e é <b>mistura</b>; água com gelo é heterogênea e é <b>substância pura</b>.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: estados físicos e sistemas</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/3</b><br><span class="muted">Matéria, energia, propriedades gerais e específicas, densidade.</span></div>
+    <div><b>Parte 2/3 (esta)</b><br><span class="muted">Unidades, estados físicos, mudanças, curvas de aquecimento, sistemas.</span></div>
+    <div><b>Parte 3/3 (tarefa 3.16)</b><br><span class="muted">Substâncias simples e compostas, alotropia, misturas.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Mudanças de estado</h3>
+  <div class="tbl"><table>
+    <tr><th>De → para</th><th>Sólido</th><th>Líquido</th><th>Gasoso</th></tr>
+    <tr><td>Sólido</td><td>—</td><td>fusão ↑</td><td>sublimação ↑</td></tr>
+    <tr><td>Líquido</td><td>solidificação ↓</td><td>—</td><td>vaporização ↑</td></tr>
+    <tr><td>Gasoso</td><td>ressublimação ↓</td><td>condensação/liquefação ↓</td><td>—</td></tr>
+  </table></div>
+  <p class="muted">↑ endotérmica · ↓ exotérmica</p>
+  <h3>Curvas: patamar em quê?</h3>
+  <div class="tbl"><table>
+    <tr><th></th><th>Pura</th><th>Mistura</th><th>Eutética</th><th>Azeotrópica</th></tr>
+    <tr><td>Fusão</td><td>✔</td><td>✘</td><td>✔</td><td>✘</td></tr>
+    <tr><td>Ebulição</td><td>✔</td><td>✘</td><td>✘</td><td>✔</td></tr>
+  </table></div>
+  <h3>Unidades</h3>
+  <div class="tbl"><table>
+    <tr><th>Conversão</th><th>Valor</th></tr>
+    <tr><td>K</td><td>°C + 273</td></tr><tr><td>1 atm</td><td>101.325 Pa = 760 mmHg</td></tr>
+    <tr><td>1 m³</td><td>1000 L</td></tr><tr><td>1 L</td><td>1000 mL = 1 dm³</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Exercícios resolvidos</h2>
+  <p class="lead">Os do livro, conferidos, e mais alguns de conversão.</p>
+  <div class="card">
+    <details><summary>1. 1,5 m³ de xarope em frascos de 250 mL: quantos frascos?</summary><div>1,5 m³ = 1500 L = 1.500.000 mL ÷ 250 = <b>6.000 frascos</b>.</div></details>
+    <details><summary>2. 77 °F em °C e em K.</summary><div>C/5 = 45/9 ⇒ <b>25 °C</b> = <b>298 K</b>.</div></details>
+    <details><summary>3. Mergulhador a 4 atm de pressão total: pressão só da água?</summary><div>4 − 1 = <b>3 atm</b> ≈ 303.975 Pa.</div></details>
+    <details><summary>4. Tabela: A (fusão 31–33 °C; ebulição 325–327 °C), B (310; 1256), C (−180; −74), D (−68; 0 a 3), E (0; 100). Classifique e diga os estados a 25 °C.</summary><div>
+      A 25 °C: sólidos <b>A e B</b> (fundem acima de 25 °C); líquido só <b>E</b> (funde a 0 °C e ferve a 100 °C); gasosos <b>C e D</b> (fervem abaixo de 25 °C). A 273 K (0 °C), gasoso só <b>C</b>.<br>
+      Classificação: <b>A</b> mistura comum (faixas na fusão e na ebulição); <b>B, C e E</b> substâncias (patamares); <b>D</b> mistura <b>eutética</b> (fusão constante, ebulição em faixa).<br>
+      <span class="muted">No item g, o livro escreve "o material A" como eutético; pelo enunciado, o item pede o material <b>D</b>.</span></div></details>
+    <details><summary>5. Por que a mistura não tem patamar?</summary><div>Os componentes mudam de estado em temperaturas diferentes, e a composição da parte que resta vai mudando.</div></details>
+    <details><summary>6. Quantas fases e substâncias há em: água + gelo + óleo + sal dissolvido?</summary><div>Fases: <b>3</b> (água salgada, gelo, óleo). Substâncias: <b>3</b> (água, óleo, sal), considerando o óleo como uma substância.</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos do livro digital)</h2>
+  <p class="lead">São as <b>7 questões</b> dos cadernos de mudanças de estado e curvas de aquecimento do livro digital: 7 de múltipla escolha. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.14 · Estados, mudanças e curvas</option>
+      <option value="ref">Unidades e sistemas</option>
+      <option value="pan">Panorama: matéria e misturas</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2023", "tema": "Mudanças de estados físicos", "tipo": "mc", "html": true, "enun": "O derretimento de um pedaço de ferro seria um exemplo de um fenômeno denominado:", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "solidificação."], ["b", "fusão."], ["c", "vaporização."], ["d", "sublimação."], ["e", "condensação."]], "resp": "b"}, {"n": 2, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2020", "tema": "Mudanças de estados físicos", "tipo": "mc", "html": true, "enun": "Observe a sequência de quadrinhos abaixo.\n<br><div><img src=\"img/11f261c771c62192.png\" alt=\"\"><br><\/div><br><div>De acordo com os quadrinhos acima, é correto afirmar que as mudanças de estados físicos apresentados na sequência A → B e B → C são, respectivamente<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA E<\/b><\/div><br>É uma questão que trata as mudanças de estado físico de uma substância. Vamos relembrar o diagrama.<br><div><img src=\"img/a7098d3a7efda121.png\" alt=\"\"><br><\/div><br><div>Do quadrinho A para o quadrinho B, a água passa do estado sólido para o estado líquido. Portanto, ela sofreu uma fusão.<\/div><br><div>Do quadrinho B para o quadrinho C, a água passou do estado líquido para o estado de vapor. Portanto, ela sofreu vaporização.<\/div>"], "alts": [["a", "fusão e condensação."], ["b", "sublimação e liquefação."], ["c", "liquefação e vaporização."], ["d", "solidificação e condensação."], ["e", "fusão e vaporização."]], "resp": "e"}, {"n": 3, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2016", "tema": "Mudanças de estados físicos", "tipo": "mc", "html": true, "enun": "Considere uma certa quantidade de água, inicialmente no estado sólido. Aquecendo gradativamente de forma homogênea toda essa quantidade de água, ela passa para o estado líquido mantendo-se o mesmo regime de aquecimento, a mesma passa estado líquido para o gasoso. Sobre as propriedades da água nos referidos estados físicos e sobre os processos de mudanças de estado físico pode-se afirmar que:", "com": ["<div><b>GABARITO: ALTERNATIVA A<\/b><\/div><br>Sabendo as mudanças de estados físicos:<br><div><img src=\"img/c266be903845e7d2.png\" alt=\"\"><br><\/div><br><div>Dessa forma, temos que as alternativas b, d estão erradas.<\/div><br><div>Como as forças de interação no líquido são mais fracas do que nos sólidos, há uma redução das forças interativas o que ocorre devido à absorção de calor. Com isso, a alternativa e está errada.<\/div><br><div>Por fim, por um conhecimento prévio de que o gelo boia quando num copo de água, sabemos que a densidade do gelo é menor do que a da água <img src=\"img/b03edfc2bd0eb4a6.png\" alt=\"\">. E por isso, a alternativa c está errada.<\/div><br><div>Portanto, o gabarito é a letra A. Isso é inferido a partir da tabela de mudanças de estados físicos.<\/div>"], "alts": [["a", "o processo de mudança do estado sólido para o estado líquido chama-se fusão."], ["b", "o processo de mudança do estado sólido para o estado líquido chama-se liquefação."], ["c", "a densidade da água no estado sólido é maior que no estado líquido."], ["d", "o processo de mudança do estado líquido para o estado gasoso chama-se condensação."], ["e", "no processo de mudança do estado sólido para o estado líquido, a água perde calor."]], "resp": "a"}, {"n": 4, "fonte": "Colégio Naval - CN · 2022", "tema": "Curvas de aquecimento", "tipo": "mc", "html": true, "enun": "Observe o gráfico (temperatura x tempo) de aquecimento e analise as afirmativas abaixo. <br><div><img src=\"img/ce2688210a763a34.png\" alt=\"\"><br><\/div><br><div>I - Trata-se de um sólido a 40ºC.<\/div><br><div>II - O gráfico representa uma mistura eutética.<\/div><br><div>III - Entre 10 e 20 minutos de aquecimento, é possível observar sólido e líquido.<\/div><br><div>IV- Entre 20 e 30 minutos de aquecimento, há um equilíbrio das fases líquida e gasosa.<\/div><br><div>V- A temperatura de fusão é 60ºC.<\/div><br><div>VI- A ebulição ocorre a 100ºC e dura 10 minutos.<\/div><br><div>Assinale a opção correta. <\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA B<\/b><\/div><br>Vamos marcar os estados físicos da matéria observados durante o aquecimento.<br><div><img src=\"img/80d8d38aa19fd143.png\" alt=\"\"><br><\/div><br><div>Com base nisso, vamos analisar as afirmações.<\/div><br><div> I – Observe que o material somente deixa de ser sólido em 60 °C. Portanto, na temperatura de 40 °C, o material realmente se encontra no estado sólido. Afirmação correta.<\/div><br><div> II – Em uma mistura eutética, a temperatura de fusão é constante, mas a ebulição é variável. Portanto, o material não pode ser uma mistura, mas sim uma substância pura, que é o único tipo de material que tanto a temperatura de fusão e de ebulição constantes. Afirmação incorreta.<\/div><br><div>III – Nesse período, observa-se a fusão, como mostrado acima. Durante a fusão, o material sólido se transforma em líquido, portanto, realmente se encontram os dois estados físicos. Afirmação correta.<\/div><br><div> IV – Nesse período, o material encontra-se somente no estado líquido. Afirmação incorreta.<\/div><br><div> V – A temperatura de fusão é realmente igual a 60 °C, como mostrado no diagrama. Afirmação correta.<\/div><br><div> VI – A ebulição dura 15 minutos, pois se estende 30 a 45 minutos. Afirmação incorreta.<\/div>"], "alts": [["a", "Apenas as afirmativas I, III, V e VI são verdadeiras."], ["b", "Apenas as afirmativas I, III e V são verdadeiras."], ["c", "Apenas as afirmativas I, III e VI são verdadeiras."], ["d", "Apenas as afirmativas I, V e VI são verdadeiras."], ["e", "Apenas as afirmativas III e V são verdadeiras."]], "resp": "b"}, {"n": 5, "fonte": "Escola de Aprendizes-Marinheiros - EAM · 2022", "tema": "Curvas de aquecimento", "tipo": "mc", "html": true, "enun": "A tabela abaixo apresenta as temperaturas de fusão e ebulição das substâncias Mercúrio, Fenol, Cobalto, Alumínio e Ácido Acético.<br><div><img src=\"img/d6efeb93644aa9cd.png\" alt=\"\"><br><\/div><br><div>Em relação aos estados físicos das substâncias, marque a opção correta.<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA B.<\/b><\/div><div><b><br><\/b><\/div>Essa questão cobrou as mudanças de estado. Devemos nos lembrar que a substância se encontrará no estado:<br><div>•\tsólido, se estiver abaixo da temperatura de fusão;<\/div><br><div>•\tlíquido, se estiver entre a temperatura de fusão e a de ebulição&nbsp;<\/div><br><div>•\tgasoso, se estiver acima da temperatura de ebulição.&nbsp;<\/div><br><div>&nbsp;Com base nisso, vamos avaliar os itens.<\/div>", "<b>Alternativa A:<\/b> <b>INCORRETA<\/b>, o mercúrio em 208 °C está acima da temperatura de fusão, porém abaixo da temperatura de ebulição.", "<b>Alternativa B:<\/b> <b>CORRETA<\/b>. O fenol a 128 °C se encontra acima da temperatura de fusão e abaixo da temperatura de ebulição.&nbsp;", "<b>Alternativa C:<\/b> <b>INCORRETA<\/b>. O cobalto se encontra abaixo da temperatura de fusão, portanto, está no estado sólido.", "<b>Alternativa D:<\/b> <b>INCORRETA<\/b>. O alumínio se encontra abaixo da temperatura de fusão, portanto, está no estado sólido.", "<b>Alternativa E:<\/b> <b>INCORRETA<\/b>. O ácido acético está bem acima da sua temperatura de ebulição (118 °C), portanto, ele se encontra no estado gasoso.&nbsp;"], "alts": [["a", "Mercúrio é sólido a 206°C."], ["b", "Fenol é líquido a 128°C."], ["c", "Cobalto é gasoso a 120°C."], ["d", "Alumínio é gasoso a 120°C."], ["e", "Ácido Acético é líquido a 304°C."]], "resp": "b"}, {"n": 6, "fonte": "Colégio Naval - CN · 2020", "tema": "Curvas de aquecimento", "tipo": "mc", "html": true, "enun": "Analise o gráfico abaixo, que representa o aquecimento e 0 resfriamento de uma substância.<br><div><img src=\"img/97f9c21a85eaec22.png\" alt=\"\"><br><\/div><br><div>Sobre esse gráfico, é correto afirmar que:<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "em A e J, há sistemas bifásicos."], ["b", "em  E e F, coexistem substâncias nos estados sólido e líquido."], ["c", "em B a liquefação da substância."], ["d", "se trata de uma substância pura."], ["e", "entre t₁ e t₂ coexistem três estados físicos."]], "resp": "d"}, {"n": 7, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2004", "tema": "Curvas de aquecimento", "tipo": "mc", "html": true, "enun": "Considere os gráficos abaixo e a pressão de 1 atm.<br><div>(Dados: S=sólido; L=líqüido; V=vapor)<\/div><br><div><img src=\"img/0dc3fbb7afd14195.png\" alt=\"\"><br><\/div><br><div>É correto afirmar que os gráficos 1, 2 e 3 podem representar, respectivamente, as mudanças de estado dos sistemas contendo:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA E<\/b><\/div><br>Analisando os gráficos, temos:<div><br><div>1) Vemos que o ponto de fusão é crescente, ou seja, enquanto uma espécie está em fase sólida a outra está na fase líquida e elas estão caminhando em direção a uma temperatura em que ambas estarão líquidas. Além disso, é conhecido que uma mistura azeotrópica é caracterizada por ter a fusão variável e a ebulição constante; e o exemplo clássico de uma mistura desse tipo é a água com etanol. Portanto, a única mistura possível apresentada nas alternativas é <b>álcool + água<\/b>.<\/div><br><div>2) Vemos que isso se trata de uma mistura eutética, já que o ponto de ebulição é variável e a fusão constante. Conhecendo que água + NaCl formam esse tipo de mistura ou analisando pelas alternativas ou lembrando da propriedade que a adição de um sal a uma solução aumenta a temperatura de ebulição desta; conseguiríamos identificar que esse gráfico se trata de <b>água + NaCl<\/b>.<\/div><\/div><br><div>3) O gráfico de uma mistura substância pura tem a fase de fusão e ebulição constantes e é exatamente o que esse gráfico nos apresenta, logo, só pode ser o gráfico da <b>água<\/b>.<\/div>"], "alts": [["a", "água; água + álcool etílico (etanol); água + NaCI"], ["b", "água + NaCI; água + álcool etílico (etanol); água"], ["c", "água; água + NaCI; água + álcool etílico (etanol)"], ["d", "água + álcool etílico (etanol); água; água + NaCI"], ["e", "água + álcool etílico (etanol); água + NaCI; água"]], "resp": "e"}];
+
+const FLASH = [
+ ["a00","Extensiva × intensiva","Extensiva depende da quantidade (massa); intensiva não (densidade).<br><b>Exemplo:</b> 1 kg ou 10 kg de ferro têm a mesma densidade."],
+ ["a00","Converter 27 °C em K","27 + 273 = 300 K.<br><b>Exemplo:</b> 0 °C = 273 K."],
+ ["a00","1 atm em Pa e mmHg","101.325 Pa e 760 mmHg.<br><b>Exemplo:</b> no alto de montanhas, a pressão é menor."],
+ ["a00","Estado com forma e volume definidos","Sólido.<br><b>Exemplo:</b> um cubo de gelo."],
+ ["a00","Estado com volume definido e forma variável","Líquido.<br><b>Exemplo:</b> água num copo."],
+ ["a00","Gás × vapor","Gás: gasoso no ambiente (O₂). Vapor: fase gasosa de algo líquido no ambiente.<br><b>Exemplo:</b> vapor-d’água da chaleira."],
+ ["a00","Processos endotérmicos","Fusão, vaporização, sublimação.<br><b>Exemplo:</b> o gelo derrete absorvendo calor da bebida."],
+ ["a00","Processos exotérmicos","Solidificação, condensação/liquefação, ressublimação.<br><b>Exemplo:</b> formação de geada."],
+ ["a00","Evaporação × ebulição","Evaporação: lenta, superfície, qualquer temperatura. Ebulição: rápida, toda a massa, no PE.<br><b>Exemplo:</b> roupa secando × água fervendo."],
+ ["a00","O que é calefação?","Vaporização acima do ponto de ebulição.<br><b>Exemplo:</b> gota d’água pulando na chapa quente."],
+ ["a00","Exemplo de sublimação","Gelo-seco (CO₂) e naftalina.<br><b>Exemplo:</b> fumaça do gelo-seco em shows."],
+ ["a00","Curva de substância pura","Dois patamares (fusão e ebulição).<br><b>Exemplo:</b> água a 0 °C e 100 °C."],
+ ["a00","Mistura eutética","Patamar na fusão, faixa na ebulição.<br><b>Exemplo:</b> solda estanho-chumbo (183 °C)."],
+ ["a00","Mistura azeotrópica","Patamar na ebulição, faixa na fusão.<br><b>Exemplo:</b> álcool 96% (78,1 °C)."],
+ ["a00","O que acontece no patamar?","Mudança de estado, com duas fases coexistindo e temperatura constante.<br><b>Exemplo:</b> gelo e água a 0 °C."],
+ ["ref","Sistema homogêneo","Uma fase.<br><b>Exemplo:</b> água com sal dissolvido."],
+ ["ref","Sistema heterogêneo","Duas ou mais fases.<br><b>Exemplo:</b> água e óleo."],
+ ["ref","Leite é homogêneo?","Não: ao microscópio, tem gotículas de gordura (heterogêneo).<br><b>Exemplo:</b> o sangue também é heterogêneo."],
+ ["ref","Água + gelo","Heterogêneo (2 fases) e substância pura.<br><b>Exemplo:</b> fases ≠ substâncias."],
+ ["ref","Estado a uma temperatura T","T &lt; PF: sólido; PF &lt; T &lt; PE: líquido; T &gt; PE: gás.<br><b>Exemplo:</b> mercúrio (PF −39, PE 357) é líquido a 25 °C."],
+ ["pan","Densidade","massa ÷ volume; propriedade específica.<br><b>Exemplo:</b> água ≈ 1 g/cm³."],
+ ["pan","Substância simples × composta (parte 3)","Simples: um elemento (O₂). Composta: dois ou mais (H₂O).<br><b>Exemplo:</b> O₃ também é simples."],
+ ["pan","Fenômeno físico × químico","Físico não muda a substância; químico forma novas.<br><b>Exemplo:</b> fusão (físico) × queima (químico)."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "MATÉRIA EM ESTADOS", s: "Sólido · líquido · gasoso<br><small>Mudanças de fase · curvas · sistemas</small>",
+  e: "A agregação das partículas define o estado físico; fornecer ou retirar energia muda o estado sem mudar a substância.",
+  x: "Gelo, água e vapor são a mesma substância (H₂O) em estados diferentes.", l: "mudança de estado = fenômeno físico",
+  p: "Mudança de estado não rompe ligações dentro das moléculas."};
+const MM = [
+ {k: "uni", c: "#2f5bd3", t: "Unidades", s: "SI e conversões",
+  e: "Medidas precisam de unidade; o SI define as básicas.", x: "17,5 cm.", l: "K = °C + 273",
+  p: "Densidade é intensiva; massa é extensiva.",
+  f: [
+   {k: "uni1", t: "Extensiva × intensiva", e: "Depende ou não da quantidade.", x: "1 L e 2 L de água: densidade igual.", l: "massa, volume × densidade, PF", p: "Temperatura é intensiva."},
+   {k: "uni2", t: "Temperatura e pressão", e: "Kelvin no SI; pressão em pascal.", x: "25 °C = 298 K.", l: "1 atm = 101.325 Pa", p: "100 kPa é aproximação."}
+  ]},
+ {k: "est", c: "#1f8a4c", t: "Estados", s: "agregação",
+  e: "Sólido (forma e volume definidos), líquido (volume definido), gás (nada definido).", x: "Gás ocupa todo o recipiente.", l: "energia: S &lt; L &lt; G",
+  p: "Líquido é pouco compressível.",
+  f: [
+   {k: "est1", t: "Sólido", e: "Partículas vibrando em posições fixas.", x: "Gelo.", l: "forma e volume fixos", p: "Ainda há movimento (vibração)."},
+   {k: "est2", t: "Líquido", e: "Partículas próximas, mas móveis.", x: "Água no copo toma a forma do copo.", l: "volume fixo", p: "Não tem forma própria."},
+   {k: "est3", t: "Gás × vapor", e: "Gás: gasoso nas condições ambientes. Vapor: fase gasosa de algo líquido no ambiente.", x: "O₂ (gás) × vapor-d’água.", l: "25 °C, 1 atm", p: "Os dois estão no estado gasoso."}
+  ]},
+ {k: "mud", c: "#b07400", t: "Mudanças", s: "endo e exotérmicas",
+  e: "Aquecer separa partículas; resfriar aproxima.", x: "Suor que evapora resfria a pele (endotérmico).", l: "↑ fusão, vaporização, sublimação",
+  p: "Ressublimação (não sublimação) é exotérmica.",
+  f: [
+   {k: "mud1", t: "Evaporação × ebulição × calefação", e: "Lenta na superfície; rápida em toda a massa; acima da ebulição.", x: "Roupa no varal; água fervendo; gota na chapa.", l: "3 tipos de vaporização", p: "Evaporação ocorre abaixo do PE."},
+   {k: "mud2", t: "Sublimação", e: "Sólido direto a gás.", x: "Gelo-seco, naftalina.", l: "S → G", p: "Não passa pelo líquido."},
+   {k: "mud3", t: "Condensação × liquefação", e: "Vapor → líquido × gás → líquido.", x: "Gotas no espelho do banheiro.", l: "ambas exotérmicas", p: "Muitas questões tratam as duas como sinônimos."}
+  ]},
+ {k: "cur", c: "#8a3ac2", t: "Curvas e sistemas", s: "patamares e fases",
+  e: "Patamares identificam substâncias e misturas especiais; fases classificam sistemas.", x: "Água pura: patamares a 0 °C e 100 °C.", l: "2 patamares = pura",
+  p: "Um só patamar pode ser eutético ou azeotrópico.",
+  f: [
+   {k: "cur1", t: "Eutética", e: "Funde a temperatura constante.", x: "Solda estanho-chumbo a 183 °C.", l: "patamar na fusão", p: "Continua sendo mistura."},
+   {k: "cur2", t: "Azeotrópica", e: "Ferve a temperatura constante; vapor com a composição do líquido.", x: "Álcool 96% a 78,1 °C.", l: "patamar na ebulição", p: "Destilação simples não separa."},
+   {k: "cur3", t: "Homogêneo × heterogêneo", e: "Uma fase × duas ou mais.", x: "Leite: heterogêneo ao microscópio.", l: "nº de fases", p: "Fases ≠ substâncias."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Regra</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"SI": "Sistema Internacional de Unidades",
+"PF": "ponto de fusão",
+"PE": "ponto de ebulição",
+"P.F.": "ponto de fusão",
+"P.E.": "ponto de ebulição"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.14_quim_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.9 · Ciclo 3 · Física I — Vetores (parte 2/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.9</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa H (3.9) · Física I</h1>
+        <div class="sub">EsPCEx 2026 · Vetores (parte 2/2): decomposição, versores, notação i e j e lista de questões</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Exemplos resolvidos</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.9</h2>
+  <p class="lead">Tarefa H da trilha: <i>"Estude os seguintes temas: Vetores 05 - Decomposição de vetores; Vetores 06 - Exercícios resolvidos; 07 - Lista de questões de vetores. Faça os exercícios e minissimulados disponíveis nesta sessão"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os três trechos do livro digital de Física I (itens 2.5 a 2.7). Os exercícios resolvidos do livro são em vídeo; no lugar deles, a aba <b>Exemplos resolvidos</b> traz contas por escrito. O PDF de decomposição foi baixado para consulta. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Decompor = trocar o vetor por dois <b>perpendiculares</b> que somados o reproduzem.<br>• Componentes: <b>x = a·cos θ</b> e <b>y = a·sen θ</b> (θ medido a partir do eixo x).<br>• <b>Versor</b> = vetor ÷ módulo: mesma direção e sentido, módulo 1.<br>• Lista em níveis: comece pelo iniciante; deixe o avançado para as revisões.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (20 min).</b> Leia a aba <b>Resumo</b> e refaça o exemplo do versor (3, 4).</li><li><b>Mapa e Esquemas (10 min).</b> Memorize a tabela de senos e cossenos.</li><li><b>Exemplos resolvidos (10 min).</b> Tente cada um antes de abrir.</li><li><b>Questões (40 min).</b> 70 questões: nível iniciante primeiro.</li><li><b>Rendimento (5 min).</b> Anote os tipos de questão que errou.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: vetores aparecem em cinemática, dinâmica e estática.</span></div><div class="card"><b>Questões</b><br><span class="muted">63 de múltipla escolha e 7 discursivas.</span></div><div class="card"><b>Ligação</b><br><span class="muted">A decomposição é usada no lançamento oblíquo e no plano inclinado.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: vetores (parte 2/2)</h2>
+  <p class="lead">Decomposição, versores e a notação com î e ĵ. No fim, uma revisão da soma de vetores (parte 1), usada na lista.</p>
+
+  <h3>1. Decomposição de um vetor</h3>
+  <div class="card">
+    <p><span class="k">Decompor</span> é trocar um vetor por dois vetores <b>perpendiculares</b> (paralelos aos eixos x e y) cuja soma é o vetor original.</p>
+    <ol>
+      <li>Adote eixos cartesianos.</li>
+      <li>Coloque a origem do vetor na origem dos eixos.</li>
+      <li>Projete o vetor nos eixos: as projeções são as componentes.</li>
+    </ol>
+    <p>Pelo triângulo retângulo formado (a regra da poligonal dá a = x + y), sendo θ o ângulo com o eixo x:</p>
+    <div class="call"><b>Componentes</b>|x| = |a| · cos θ &nbsp;&nbsp; e &nbsp;&nbsp; |y| = |a| · sen θ &nbsp;&nbsp; e &nbsp;&nbsp; |a| = √(x² + y²)</div>
+    <div class="call bad"><b>Pegadinha</b>"A componente horizontal é sempre a·sen θ": <b>ERRADO</b>.<br><b>O erro:</b> depende de onde θ é medido.<br><b>O certo:</b> o cosseno vai para o eixo <b>junto ao ângulo</b>; se θ for medido a partir da vertical, a horizontal é a·sen θ.</div>
+  </div>
+
+  <h3>2. Versor</h3>
+  <div class="card">
+    <p><span class="k">Versor</span> é um vetor de <b>módulo 1</b> com a mesma direção e sentido do vetor original. Notação: a letra com acento circunflexo (v̂).</p>
+    <div class="call"><b>Como obter</b>v̂ = v / |v| &nbsp;⇒&nbsp; para v = (x, y): v̂ = ( x/√(x²+y²) , y/√(x²+y²) )</div>
+    <p>Exemplo do material: v = (3, 4), |v| = 5, v̂ = (3/5, 4/5). Confira: (3/5)² + (4/5)² = 1.</p>
+    <p>Versores dos eixos: <b>î</b> (eixo x) e <b>ĵ</b> (eixo y). Todo vetor do plano se escreve como v = x·î + y·ĵ = (x, y). Ex.: duas forças de 20 N (horizontal) e 30 N (vertical): F = 20î + 30ĵ = (20, 30).</p>
+  </div>
+
+  <h3>3. Revisão: soma de vetores (parte 1)</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Situação</th><th>Resultante</th></tr>
+      <tr><td>Mesma direção e sentido</td><td>R = a + b (máxima)</td></tr>
+      <tr><td>Mesma direção, sentidos opostos</td><td>R = |a − b| (mínima)</td></tr>
+      <tr><td>Perpendiculares</td><td>R² = a² + b² (Pitágoras)</td></tr>
+      <tr><td>Ângulo θ entre eles (paralelogramo)</td><td>R² = a² + b² + 2ab·cos θ</td></tr>
+      <tr><td>Por componentes</td><td>Rx = soma dos x; Ry = soma dos y; R = √(Rx² + Ry²)</td></tr>
+    </table></div>
+    <p>Sempre: |a − b| ≤ R ≤ a + b.</p>
+    <div class="call bad"><b>Pegadinha</b>"Dois vetores de 3 N e 4 N têm resultante 7 N": <b>ERRADO</b> em geral.<br><b>O erro:</b> só vale se tiverem mesma direção e sentido.<br><b>O certo:</b> a resultante fica entre 1 N e 7 N; perpendiculares dão 5 N.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: vetores</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Vetores 1/2</b><br><span class="muted">Grandezas escalares e vetoriais, soma (poligonal, paralelogramo), subtração.</span></div>
+    <div><b>Vetores 2/2 (esta)</b><br><span class="muted">Decomposição, versores, î e ĵ, lista.</span></div>
+    <div><b>Próximo</b><br><span class="muted">Cinemática (tarefa 3.12): velocidade e aceleração são vetores.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Senos e cossenos notáveis</h3>
+  <div class="tbl"><table>
+    <tr><th>θ</th><th>0°</th><th>30°</th><th>37°</th><th>45°</th><th>53°</th><th>60°</th><th>90°</th></tr>
+    <tr><td>sen θ</td><td>0</td><td>1/2</td><td>0,6</td><td>√2/2</td><td>0,8</td><td>√3/2</td><td>1</td></tr>
+    <tr><td>cos θ</td><td>1</td><td>√3/2</td><td>0,8</td><td>√2/2</td><td>0,6</td><td>1/2</td><td>0</td></tr>
+  </table></div>
+  <p class="muted">37° e 53° são aproximações usadas em provas (triângulo 3-4-5).</p>
+  <h3>Fórmulas</h3>
+  <div class="tbl"><table>
+    <tr><th>Grandeza</th><th>Fórmula</th></tr>
+    <tr><td>Componente no eixo do ângulo</td><td>a·cos θ</td></tr>
+    <tr><td>Componente no outro eixo</td><td>a·sen θ</td></tr>
+    <tr><td>Módulo</td><td>√(x² + y²)</td></tr>
+    <tr><td>Versor</td><td>v / |v|</td></tr>
+    <tr><td>Resultante com ângulo θ</td><td>√(a² + b² + 2ab cos θ)</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Exemplos resolvidos</h2>
+  <p class="lead">Substituem os vídeos de exercícios resolvidos. Tente antes de abrir.</p>
+  <div class="card">
+    <details><summary>1. Decomponha um vetor de 10 N a 30° com a horizontal.</summary><div>x = 10·cos 30° = <b>5√3 N</b> ≈ 8,66 N; y = 10·sen 30° = <b>5 N</b>.</div></details>
+    <details><summary>2. Decomponha 20 m/s a 53° com a horizontal.</summary><div>x = 20·0,6 = <b>12 m/s</b>; y = 20·0,8 = <b>16 m/s</b>.</div></details>
+    <details><summary>3. Versor de v = (−6, 8).</summary><div>|v| = 10; v̂ = <b>(−0,6; 0,8)</b>.</div></details>
+    <details><summary>4. a = 3î + 2ĵ e b = −1î + 4ĵ. Calcule a + b e o seu módulo.</summary><div>a + b = 2î + 6ĵ; módulo = √(4 + 36) = <b>√40 = 2√10</b>.</div></details>
+    <details><summary>5. Dois vetores de 6 N formam 60°. Resultante?</summary><div>R² = 36 + 36 + 2·36·(1/2) = 108 ⇒ <b>R = 6√3 N</b>.</div></details>
+    <details><summary>6. Forças de 5 N (0°), 5 N (90°) e 5√2 N (225°). Resultante?</summary><div>Componentes de 5√2 a 225°: (−5, −5). Soma: (5 − 5, 5 − 5) = <b>(0, 0)</b>: equilíbrio.</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (exercícios e lista de vetores)</h2>
+  <p class="lead">São as <b>70 questões</b> dos cadernos de decomposição de vetores e da lista de questões (níveis iniciante, intermediário e avançado): 63 de múltipla escolha e 7 discursivas. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Nas discursivas, escreva a resolução no campo e abra a resolução do material; elas ficam fora do rendimento (a correção é com o professor). Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.9 · Decomposição e versores</option>
+      <option value="ref">Soma de vetores (revisão da parte 1)</option>
+      <option value="pan">Panorama: vetores na Física</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "O vetor representativo de uma grandeza física tem módulo 2. As componentes retangulares desse vetor têm módulo √3 e 1. Ache o ângulo que o vetor forma com a sua componente de maior intensidade.", "com": []}, {"n": 2, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "(Física completa – Bonjorno) O vetor 𝑎 das figuras tem módulo 20 cm. Calcule o módulo das componentes retangulares de 𝑎 em cada caso.<div>a)<\/div><div><img src=\"img/0000190cd63747ad.png\" alt=\"\"><br><\/div><div>b)<\/div><div><img src=\"img/4c19daabc251d8a8.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 3, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "(Física completa – Bonjorno) Um vetor 𝑎  tem componentes retangulares de módulos 𝑎𝑥=6 m e 𝑎𝑦=8 m. Calcule o módulo do vetor 𝑎 .", "com": []}, {"n": 4, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "(Física completa – Bonjorno) Em cada caso calcule o módulo das componentes retangulares do vetor 𝑎, de módulo 10 metros.<div>a)<\/div><div><img src=\"img/712f414ef1478c0a.png\" alt=\"\"><br><\/div><div>b)<\/div><div><img src=\"img/75d24ce8d34bfcc9.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 5, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "Uma lancha se desloca numa direçåo que faz um āngulo de 60^∘ com a direção leste-oeste, com velocidade de 50&#34; &#34; m/s, conforme a figura. Determine as componentes da velocidade da lancha nas direções norte-sul (eixo 𝑦 ) e leste-oeste (eixo 𝑥 ).São dados: sen⁡60∘=0,866 e cos⁡60∘=0,500.<div><img src=\"img/d4fb4de80f532b3b.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 6, "fonte": "Questões Inéditas · 2025", "tema": "Decomposição de vetores", "tipo": "disc", "html": true, "enun": "Um avião sobe com velocidade de 200 m/s e com 30∘ de inclinação em relação à horizontal, conforme a figura. Determine as componentes da velocidade na horizontal (eixo 𝑥 ) e na vertical (eixo y).São dados: sen⁡30∘=0,500 e cos⁡30∘=0,866.<div><img src=\"img/736642b4083e20cf.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 7, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Decomposição de vetores", "tipo": "mc", "html": true, "enun": "O  vetor  representativo  de  uma certa  grandeza  física  possuía  a  intensidade  igual  a  2.  As  componentes  ortogonais  desse  vetor  medem √3 e 1.  Qual  é  o ângulo que o vetor forma com a sua componente de maior intensidade?", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Considere esse vetor posicionado em um sistema de coordenadas:<\/div><br><div><img src=\"img/c365a3a90e3c6923.png\" alt=\"\"><br><\/div><br><div>O ângulo que o vetor faz com a maior componente é o ângulo 𝛼.<\/div><br><div><img src=\"img/397eeb2421420b40.png\" alt=\"\"><br><\/div>"], "alts": [["a", "30°"], ["b", "45°"], ["c", "15°"], ["d", "90°"]], "resp": "a"}, {"n": 8, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Decomposição de vetores", "tipo": "mc", "html": true, "enun": "Determine o módulo da resultante dos vetores representados abaixo, sabendo que&nbsp;<img src=\"img/5886c1c00647534a.png\" alt=\"\"><br><div><img src=\"img/1135115d52aeaacd.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>A resultante entre dois vetores é soma deles:<\/div><br><div><img src=\"img/3167ad0ab6367596.png\" alt=\"\"><br><\/div><br><div><img src=\"img/8e1f1f8143d01e22.png\" alt=\"\"><br><\/div><br><div>Aplicando a lei dos cossenos, temos:<\/div><br><div><img src=\"img/f42c6b7596c28280.png\" alt=\"\"><br><\/div><br><div>Note que o ângulo entre os vetores é de 90°<\/div><br><div><img src=\"img/a60c5bba80da935c.png\" alt=\"\"><br><\/div><br><div>Mas, cos90°=0:<\/div><br><div><img src=\"img/15f0b353774eaf9e.png\" alt=\"\"><br><\/div><br><div>Veja  que  chegamos  no  teorema  de  Pitágoras.  Faz sentido!  Sempre  que  o  ângulo  entre  os  vetores  for  de  90°,  podemos formar um triângulo retângulo e, portanto, aplicar o teorema de Pitágoras.<\/div><br><div><img src=\"img/fa61449a7b7cafe4.png\" alt=\"\"><br><\/div>"], "alts": [["a", "13"], ["b", "14"], ["c", "8"], ["d", "10"]], "resp": "d"}, {"n": 9, "fonte": "CFS - Demais Especialidades · 2018", "tema": "Decomposição de vetores", "tipo": "mc", "html": true, "enun": "A  adição  de  dois  vetores  de  mesma  direção  e  mesmo  sentido  resulta  num  vetor  cujo  módulo  vale  8.  Quando  estes  vetores são colocados perpendicularmente, entre si, o módulo do vetor  resultante  vale 4√2. Portanto,  os  valores  dos  módulos  destes vetores são&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div><img src=\"img/2e8356291835fc39.png\" alt=\"\"><b><br><\/b><\/div><br><div>Resolvendo o sistema, temos:<\/div><br><div>𝑣₁ = 𝑣₂ = 4<\/div><br><div><b>Gabarito: D<\/b><\/div>"], "alts": [["a", "1 e 7.&nbsp;"], ["b", "2 e 6.&nbsp;"], ["c", "3 e 5.&nbsp;"], ["d", "4 e 4.&nbsp;"]], "resp": "d"}, {"n": 10, "fonte": "CFS - Demais Especialidades · 2022", "tema": "Cinemática", "tipo": "mc", "html": true, "enun": "Um aeromodelo desloca-se horizontalmente em linha reta de sul (S) para norte (N) a uma velocidade constante de módulo igual a 3 m/s. A partir de um determinado instante, um vento horizontal constante de leste (L) para oeste (O) e de módulo igual a √3 m/s passa  a  incidir  sobre  esse  aeromodelo  durante  todo  restante  do  trajeto.  Assinale  a  alternativa  que  indica  corretamente  a  direção  para a qual a força produzida pelo motor do aeromodelo deve estar de maneira que o aeromodelo mantenha o deslocamento horizontal de sul para norte e com a mesma velocidade. <br><div>Considere o referencial a seguir<\/div><br><div><img src=\"img/2cf67a843be2a844.png\" alt=\"\"><br><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Ao somarmos a velocidade do avião em relação ao vento com a velocidade do vento, a direção da velocidade do avião em relação à terra deve estar na vertical.<br><div><img src=\"img/9ced1fa9557e5647.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/bb91952e6b4d6ccf.png\" alt=\"\">"], ["b", "<img src=\"img/dcae59b7f9275677.png\" alt=\"\">"], ["c", "<img src=\"img/296de000d480ec8b.png\" alt=\"\">"], ["d", "<img src=\"img/de6c9ae1b89fd7e5.png\" alt=\"\">"]], "resp": "c"}, {"n": 11, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2021", "tema": "Mecânica", "tipo": "mc", "html": true, "enun": "Quais das grandezas abaixo não é vetorial?", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>A única grandeza que não é vetorial é a pressão. Basta a unidade e módulo para definirmos de forma satisfatória essa grandeza.<\/div>"], "alts": [["a", "𝑣𝑒𝑙𝑜𝑐𝑖𝑑𝑎𝑑𝑒"], ["b", "𝑎𝑐𝑒𝑙𝑒𝑟𝑎çã𝑜"], ["c", "𝑝𝑟𝑒𝑠𝑠ã𝑜"], ["d", "𝑞𝑢𝑎𝑛𝑡𝑖𝑑𝑎𝑑𝑒 𝑑𝑒 𝑚𝑜𝑣𝑖𝑚𝑒𝑛𝑡𝑜"], ["e", "𝑖𝑚𝑝𝑢𝑙𝑠𝑜"]], "resp": "c"}, {"n": 12, "fonte": "Sprint CN Inéditas · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "São grandezas físicas vetoriais:", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Grandezas vetoriais são aquelas que precisam de uma magnitude, uma direção e um sentido, além da unidade de medida, para serem representadas. Exemplo: deslocamento, força, velocidade, aceleração, quantidade de movimento e torque.&nbsp;<\/div><br><div>Grandes escalares precisam apenas da sua magnitude e sua unidade de medida para estarem representadas, como é o caso de corrente elétrica, temperatura, trabalho, potência, energia e tempo.<\/div><br><div><b>Gabarito: B<\/b><\/div>"], "alts": [["a", "força, deslocamento, corrente elétrica."], ["b", "deslocamento, velocidade, força magnética."], ["c", "aceleração, temperatura, trabalho."], ["d", "trabalho, energia, potência."], ["e", "tempo, quantidade de movimento, torque."]], "resp": "b"}, {"n": 13, "fonte": "Provão de Bolsas EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Qual das grandezas abaixo não é vetorial?", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Apenas a pressão não é uma grandeza vetorial. A pressão é um escalar.<\/div>"], "alts": [["a", "Velocidade."], ["b", "Aceleração."], ["c", "Pressão."], ["d", "Momento Linear de uma força."], ["e", "Torque."]], "resp": "c"}, {"n": 14, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Qual das grandezas abaixo não é vetorial?", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>A única grandeza que não é vetorial é a pressão.\r<\/div>"], "alts": [["a", "Quantidade de movimento."], ["b", "Torque."], ["c", "Pressão."], ["d", "Velocidade."]], "resp": "c"}, {"n": 15, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Qual  das  grandezas  abaixo  não  é vetorial?", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Uma grandeza vetorial é definida por 4 características:<\/div><br><div>• Módulo.<\/div><br><div>• Direção.<\/div><br><div>• Sentido.<\/div><br><div>• Unidade.<\/div><br><div>A grandeza Pressão é uma grandeza escalar. Ela pode ser definida apenas por duas características.<\/div><br><div>• Módulo.<\/div><br><div>• Unidade.<\/div>"], "alts": [["a", "Quantidade de movimento"], ["b", "Força"], ["c", "Pressão"], ["d", "Campo elétrico"]], "resp": "c"}, {"n": 16, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Qual das grandezas abaixo não é vetorial?", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>A única grandeza que não é vetorial é a grandeza pressão.<\/div>"], "alts": [["a", "velocidade."], ["b", "torque.&nbsp;"], ["c", "quantidade de movimento."], ["d", "pressão."]], "resp": "d"}, {"n": 17, "fonte": "Simulado CN · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Com base em seus conhecimentos em Física, assinale a opção incorreta.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> <b>INCORRETA<\/b><br><div>Se os valores nominais das lâmpadas idênticas é 110 V e 20 W, então, podemos afirmar que a resistência interna da a) CORRETA. De fato, aceleração e velocidade são grandezas vetoriais distintas e não faz sentido somar grandezas vetoriais de naturezas diferentes.<\/div>", "<b>Alternativa B:<\/b> <b>INCORRETA<\/b><br><div>CORRETA. Apenas o enunciado do princípio da inércia, conhecido como primeira lei de Newton.<\/div>", "<b>Alternativa C:<\/b> <b>INCORRETA<\/b><br><div>CORRETA. A força de atrito e normal definem a força de contato entre os corpos.<\/div>", "<b>Alternativa D:<\/b> <b>CORRETA<\/b><br><div>INCORRETA. A definição de grandeza vetorial está correta, mas pressão é uma grandeza escalar.<\/div>", "<b>Alternativa E:<\/b> <b>INCORRETA<\/b><br><div>CORRETA. Apenas enuncia a atração entre os corpos conforme mostra a lei da gravitação universal de Newton.<\/div>"], "alts": [["a", "não podemos somar vetorialmente velocidade e aceleração."], ["b", "pelo princípio da inércia, um corpo tende a permanecer no estado em que ele se encontra se a resultante das forças que atuam nele é nula."], ["c", "a força de atrito em um corpo juntamente com a normal formam uma única força de contato entre superfície e corpo."], ["d", "as grandezas físicas vetoriais são aquelas que precisam de módulo, de direção e de sentido, além da unidade de medida, para serem bem definidas, como é o caso de pressão."], ["e", "os satélites orbitam em torno da Terra devido à atração gravitacional, conforme previsto pela lei da gravitação universal de Newton."]], "resp": "d"}, {"n": 18, "fonte": "CFS - BCT · 2020", "tema": "Introdução à física", "tipo": "mc", "html": true, "enun": "O conceito de grandezas vetoriais e escalares é fundamental no estudo da Física para garantir uma correta compreensão dos fenômenos e a precisa determinação das intensidades destas grandezas. Dentre as alternativas a seguir, assinale aquela que contém, do ponto de vista da Física, apenas grandezas escalares.", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Grandezas escalares: Massa, tempo, potência, comprimento, corrente e temperatura.<\/div><br><div>Grandezas vetoriais: Peso, força e velocidade.<\/div><br><div><b>Gabarito: D<\/b><\/div>"], "alts": [["a", "Massa, peso e tempo."], ["b", "Potência mecânica, comprimento e força."], ["c", "Intensidade da corrente elétrica, temperatura e velocidade."], ["d", "Intensidade da corrente elétrica, potência mecânica e tempo."]], "resp": "d"}, {"n": 19, "fonte": "Provão de Bolsas EEAR · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Sobre  análise  vetorial,  analise  as  afirmativas  a seguir:<br><div>A soma de dois vetores é sempre maior que a diferença deles.<\/div><br><div>Um vetor é bem definido quando sabemos o módulo e a direção dele.<\/div><br><div>Vetor unitário é o vetor que possui módulo igual a 1.<\/div><br><div>Assinale a alternativa correta<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Analisando as afirmativas:<\/div><br><div>I.\tFalsa, pois a soma de dois vetores opostos será menor que a diferença entre eles.<\/div><br><div>II.\tFalsa, pois embora o módulo e a direção sejam importantes para a definição do vetor, também é necessário definir seu sentido.<\/div><br><div>III.\tVerdadeira.<\/div><br><div>Com isso, temos que a alternativa correta é a letra B.<\/div>"], "alts": [["a", "Todas estão corretas."], ["b", "Apenas III está correta"], ["c", "Apenas I e II estão corretas"], ["d", "Apenas I e III estão corretas"], ["e", "Nenhuma está correta."]], "resp": "b"}, {"n": 20, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "No gráfico abaixo estão três vetores&nbsp;<img src=\"img/3451177a5bfdf303.png\" alt=\"\">. Os vetores&nbsp;<img src=\"img/576785d3f60f67e4.png\" alt=\"\">são unitários. Analise as expressões:<br><div><img src=\"img/0bea802bcc9820be.png\" alt=\"\"><br><\/div><br><div><img src=\"img/4b3495404fd37500.png\" alt=\"\"><br><\/div><br><div>Podemos afirmar que:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Os vetores podem ser decompostos de acordo com a figura. Os vetores em laranja representam a quantidade de vetores <img src=\"img/2c4536343e0c0755.png\" alt=\"\"> utilizados.<\/div><br><div><img src=\"img/4a1cd9cb5dd542e8.png\" alt=\"\"><br><\/div><br><div>Desta maneira, temos:<\/div><br><div><img src=\"img/2f7e037c46ab8300.png\" alt=\"\"><br><\/div><br><div>Assim, temos a soma:<\/div><br><div><img src=\"img/49cb3dbebdb5104d.png\" alt=\"\"><br><\/div>"], "alts": [["a", "Apenas I e II são corretas."], ["b", "Apenas II e III são corretas."], ["c", "Apenas I e III são corretas."], ["d", "Todas são corretas."]], "resp": "d"}, {"n": 21, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "A  resultante  dos  três  vetores&nbsp;<img src=\"img/908717a4bdce96c3.png\" alt=\"\">&nbsp;mostradas na figura é:<br><div><img src=\"img/969f71fb2e893cc9.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>A soma entre os vetores verde e azul é dada pelo vetor em roxo.<\/div><br><div><img src=\"img/a77b5546ad8b19ff.png\" alt=\"\"><br><\/div><br><div>A soma entre o vetor&nbsp;<img src=\"img/3c612765af691e05.png\" alt=\"\">&nbsp;e o vetor&nbsp;<img src=\"img/d78d9a49ce131dba.png\" alt=\"\">&nbsp;é dado pelo vetor em laranja:<\/div><br><div><img src=\"img/af3d0ade9ae4b1c4.png\" alt=\"\"><br><\/div><br><div>O vetor que mais se aproxima é o vetor&nbsp;<img src=\"img/dcafa8e99235dfde.png\" alt=\"\"><\/div>"], "alts": [["a", "<img src=\"img/5f47012162794b03.png\" alt=\"\">"], ["b", "<img src=\"img/fc48af61864e0976.png\" alt=\"\">"], ["c", "<img src=\"img/0dc20ef93dfd63bd.png\" alt=\"\">"], ["d", "<img src=\"img/90b38dde6c181225.png\" alt=\"\">"]], "resp": "b"}, {"n": 22, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "São dados os vetores&nbsp;<img src=\"img/b07b7e2af5f3f396.png\" alt=\"\">. Qual dos diagramas a seguir representa o vetor&nbsp;<img src=\"img/c2462114aac61db4.png\" alt=\"\"><br><div><img src=\"img/64c29bb695d8648a.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Podemos utilizar o método do paralelogramo. Primeiramente, devemos colocar os vetores com a origem em comum.<\/div><br><div><img src=\"img/47031e8bb6e87e75.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/369f94c12c132ea1.png\" alt=\"\">"], ["b", "<img src=\"img/1d68365125cdd81c.png\" alt=\"\">"], ["c", "<img src=\"img/ade9bd1e0c0d08b2.png\" alt=\"\">"], ["d", "<img src=\"img/efef4d3ea64ea96d.png\" alt=\"\">"]], "resp": "a"}, {"n": 23, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Na figura abaixo considere que cada divisão  do  quadriculado  tem  medida  1  e  que  os  vetores&nbsp;<img src=\"img/93e482c7942f6736.png\" alt=\"\">são  perpendiculares  entre  si.  Após  representar  os  vetores&nbsp;<img src=\"img/5fb79545c2db7938.png\" alt=\"\">, em função de&nbsp;<img src=\"img/3d08bb06e29e1d3b.png\" alt=\"\">, qual é a soma de todos os vetores?<br><div><img src=\"img/fd2f54fa6c1bca65.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Representar os vetores em função dos vetores&nbsp;<img src=\"img/4279364f27c5d354.png\" alt=\"\">é decompô-los na direção vertical e horizontal.<\/div><br><div><img src=\"img/f635bb6a0c8c3611.png\" alt=\"\"><br><\/div><br><div><img src=\"img/1d0eef181ca80e84.png\" alt=\"\"><br><\/div><br><div>Para o vetor&nbsp;<img src=\"img/644cb30002896ba0.png\" alt=\"\"><\/div><br><div><img src=\"img/e0652030fbe47b22.png\" alt=\"\"><br><\/div><br><div>Para o vetor&nbsp;<img src=\"img/15dfc7b4449f7c47.png\" alt=\"\"><\/div><br><div><img src=\"img/0953b2302c3aeab6.png\" alt=\"\"><br><\/div><br><div>Para o vetor&nbsp;<img src=\"img/a20616d4495af787.png\" alt=\"\"><\/div><br><div><img src=\"img/774bba1613faf3aa.png\" alt=\"\"><br><\/div><br><div>Para o vetor&nbsp;<img src=\"img/4c5f8b6438505e14.png\" alt=\"\"><\/div><br><div><img src=\"img/60560e0197dfec8a.png\" alt=\"\"><br><\/div><br><div><img src=\"img/e37fc36c49e9236d.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/ba4cc8b693402823.png\" alt=\"\">"], ["b", "<img src=\"img/12571f56be410427.png\" alt=\"\">"], ["c", "<img src=\"img/190d47e58f925713.png\" alt=\"\">"], ["d", "<img src=\"img/bab1ddd5591ad920.png\" alt=\"\">"]], "resp": "d"}, {"n": 24, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "No caso a seguir, considere<img src=\"img/3e3be1975442a791.png\" alt=\"\"> e <img src=\"img/f1216a778f7352c8.png\" alt=\"\">. Determine o módulo do vetor <img src=\"img/9389dfcac2adbd69.png\" alt=\"\"><br><div><img src=\"img/6f6275054b34915c.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Podemos trabalhar com a operação como:<\/div><br><div><img src=\"img/fb7920fe005db59a.png\" alt=\"\"><br><\/div><br><div>Vamos inverter o vetor&nbsp;<img src=\"img/6ac25a0059f7839c.png\" alt=\"\"><\/div><br><div><img src=\"img/65edf8dec4beb035.png\" alt=\"\"><br><\/div><br><div>Para a nova configuração, podemos aplicar a lei dos cossenos:<\/div><br><div><img src=\"img/7c8f0b6039557d85.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/3bb4c3ee93fe14f8.png\" alt=\"\">"], ["b", "<img src=\"img/55239c37ea149d1a.png\" alt=\"\">"], ["c", "<img src=\"img/a985a9a1de93e804.png\" alt=\"\">"], ["d", "<img src=\"img/c5f451fc7c1158c8.png\" alt=\"\">"]], "resp": "c"}, {"n": 25, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "No exercício abaixo, temos&nbsp;<img src=\"img/ea7653e3ea7c705d.png\" alt=\"\">&nbsp;e&nbsp;<img src=\"img/c4141b3ae0c459cb.png\" alt=\"\">. Determine o módulo do vetor&nbsp;<img src=\"img/d463a1934407fd37.png\" alt=\"\"><br><div><img src=\"img/11eb2b122cc58fd5.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Podemos trabalhar com a operação como:<\/div><br><div><img src=\"img/eeeebe4d69bd3fbd.png\" alt=\"\"><br><\/div><br><div>Podemos interpretar a diferença entre dois vetores, como sendo a soma do primeiro vetor com o oposto do segundo vetor. O vetor&nbsp;<img src=\"img/b0b984023a69c0c7.png\" alt=\"\">&nbsp;tem a mesma direção e módulo iguais ao&nbsp;<img src=\"img/4d55e724cf163e74.png\" alt=\"\">, mas tem sentido oposto.<\/div><br><div><img src=\"img/d13be493c7f96bad.png\" alt=\"\"><br><\/div>"], "alts": [["a", "1"], ["b", "3"], ["c", "7"], ["d", "10"]], "resp": "b"}, {"n": 26, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Determine o módulo da resultante <img src=\"img/e15819dea3c0aa97.png\" alt=\"\">dos vetores força dados. Considere <img src=\"img/5f895a1ee53dff5c.png\" alt=\"\"><br><div><img src=\"img/f5c6f8dcca50bc69.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Como são três vetores, podemos utilizar a decomposição dos vetores. Vamos posicionar os vetores em relação a um sistema coordenado de referência. O vetor&nbsp;<img src=\"img/c4f198be9179dadf.png\" alt=\"\">&nbsp;já está naturalmente decomposto.<\/div><br><div><img src=\"img/cda4c87dcf99599a.png\" alt=\"\"><br><\/div><br><div>Desta maneira, decompondo os vetores&nbsp;<img src=\"img/8f76f75482533e04.png\" alt=\"\">, temos:<\/div><br><div><img src=\"img/5e162fcea6a3ccea.png\" alt=\"\"><br><\/div><br><div><img src=\"img/5b8e8ecdf95dc08f.png\" alt=\"\"><br><\/div><br><div><img src=\"img/479e7d9ec81ad9be.png\" alt=\"\"><br><\/div><br><div>Percebemos que se somarmos os vetores na horizontal a resultante será nula. De maneira análoga, a soma dos vetores que estão na vertical também será nula.<\/div><br><div>Desta maneira, o vetor resultante será nulo.<\/div>"], "alts": [["a", "5√2"], ["b", "15√2"], ["c", "0"], ["d", "15"]], "resp": "c"}, {"n": 27, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Seja<img src=\"img/c8f4ec2faea7609b.png\" alt=\"\">&nbsp;a resultante dos vetores&nbsp;<img src=\"img/a026251f9909fa98.png\" alt=\"\"><img src=\"img/8979aff694c26b87.png\" alt=\"\">representados abaixo. Determine&nbsp;<img src=\"img/7759fddea8fec0d7.png\" alt=\"\">&nbsp;sabendo que&nbsp;<img src=\"img/ee708e549f27d72f.png\" alt=\"\">.<br><div><img src=\"img/149aa13c5371ef88.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Como os vetores estão na mesma direção, a resultante entre eles é simples. Como o módulo de<img src=\"img/933cba9927cc4061.png\" alt=\"\">é maior, a resultante será para a direita.<\/div><br><div><img src=\"img/2174d7e3a4316cbc.png\" alt=\"\"><br><\/div><br><div><img src=\"img/3a5c533f7d07520f.png\" alt=\"\"><\/div>"], "alts": [["a", "3"], ["b", "2"], ["c", "1"], ["d", "0,5"]], "resp": "c"}, {"n": 28, "fonte": "CFS - Demais Especialidades · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Um  ponto  material  está  sujeito  simultaneamente  a  ação  de  duas  forças  perpendiculares  de  intensidades  F1  e  F2,  conforme  mostrado na figura a seguir. O ângulo  tem valor igual a 30° e a força&nbsp;<img src=\"img/c63c3023df09cacb.png\" alt=\"\">&nbsp; tem  intensidade  igual  a  7  N.  Portanto,  a  força  resultante&nbsp;<img src=\"img/b07b1353e019c267.png\" alt=\"\">&nbsp;tem intensidade, em N, igual a _____.&nbsp;<br><div><img src=\"img/ed497c5139a6f559.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Podemos formar um triângulo com os vetores.<br><div><b><br><\/b><\/div><div><img src=\"img/5a87999510f7e36b.png\" alt=\"\"><b><br><\/b><\/div><br><div><img src=\"img/43c886b47e668fe1.png\" alt=\"\"><br><\/div><br><div><img src=\"img/bde675014ad2c13d.png\" alt=\"\"><br><\/div><br><div>𝐹𝑅 = 14 N<\/div><br><div><b>Gabarito: C<\/b><\/div><\/div>"], "alts": [["a", "7"], ["b", "10"], ["c", "14"], ["d", "49"]], "resp": "c"}, {"n": 29, "fonte": "CFS - Demais Especialidades · 2019", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Um vetor de intensidade igual a F pode ser decomposto num sistema  cartesiano  de  tal  maneira  que  a  componente  Fx,  que  corresponde  a  projeção  no  eixo  das  abscissas,  tem  valor  igual  a&nbsp;<img src=\"img/847787f884e5acbe.png\" alt=\"\">, sendo Fy a componente no eixo das ordenadas. Portanto, o cosseno  do  ângulo 𝛂 formado  entre  o  vetor  F  e  a  componente  Fx  vale ________.&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Faremos a decomposição do vetor.&nbsp;<\/div><br><div><img src=\"img/874f0505c6db9484.png\" alt=\"\"><br><\/div><br><div><img src=\"img/032144e2d66f27ad.png\" alt=\"\"><br><\/div><br><div><img src=\"img/cdb69bdea5c5641d.png\" alt=\"\"><br><\/div><br><div><img src=\"img/f36eeffac6e55fd0.png\" alt=\"\"><br><\/div><br><div><img src=\"img/a357cc4dc14aa363.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: C<\/b><\/div>"], "alts": [["a", "<img src=\"img/be3955048d36e0d2.png\" alt=\"\">"], ["b", "<img src=\"img/a039386e425eb152.png\" alt=\"\">"], ["c", "<img src=\"img/03278cac2b4c98d1.png\" alt=\"\">"], ["d", "√7"]], "resp": "c"}, {"n": 30, "fonte": "CFS - Demais Especialidades · 2019", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Dois  vetores  V₁ e  V₂ formam  entre  si  um  ângulo θ e possuem    módulos    iguais    a    5    unidades    e    12    unidades,    respectivamente.  Se  a  resultante  entre  eles  tem  módulo  igual  a13 unidades, podemos afirmar corretamente que o ângulo θ entre os vetores V₁ e V₂ vale:&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div><img src=\"img/d1467e1901d08150.png\" alt=\"\"><b><br><\/b><\/div><br><div>Devemos aplicar a lei dos cossenos para efetuar essa soma vetorial e descobrirmos o valor do ângulo 𝜃:<\/div><br><div>𝑎² = 𝑏² + 𝑐² − 2 ∙ 𝑏 ∙ 𝑐 ∙ 𝑐𝑜𝑠(𝛼)  Lei dos cossenos: soma de vetores com um ângulo qualquer<br><br>Lei dos cossenos: soma de vetores com um ângulo qualquer:<\/div><br><div>13² = 12² + 5² − 2 ∙ 12 ∙ 5 ∙ 𝑐𝑜𝑠(180° − 𝜃)<\/div><br><div>169 = 144 + 25 − 120 ∙ 𝑐𝑜𝑠(180° − 𝜃)<\/div><br><div>169 = 169 − 120 ∙ 𝑐𝑜𝑠(180° − 𝜃)<\/div><br><div>0 = −120 ∙ 𝑐𝑜𝑠(180° − 𝜃)<\/div><br><div>120 ∙ 𝑐𝑜𝑠(180° − 𝜃) = 0<\/div><br><div>𝑐𝑜𝑠(180° − 𝜃) = 0<\/div><br><div>Lembre-se:<\/div><br><div><img src=\"img/853ad0f2b1d3bb93.png\" alt=\"\"><br><\/div><br><div>Se cos(90°) = 0, então: 180° − 𝜃 = 90°, logo 𝜃 = 90° .<\/div><div><span><br><\/span><\/div>"], "alts": [["a", "0º&nbsp;"], ["b", "45º&nbsp;"], ["c", "90º&nbsp;"], ["d", "180º&nbsp;"]], "resp": "c"}, {"n": 31, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2014", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "“O feudalismo foi a forma de organização política, social e econômica dominante na Europa Ocidental durante a Idade Média.” (AZEVEDO &amp; SERIACOPI, 2007)&nbsp;<div><br><div>Abaixo estão redigidas algumas afirmações:&nbsp;<\/div><br><div>I - Os servos da gleba viviam sob o domínio dos senhores feudais.&nbsp;<\/div><br><div>II - Declínio das atividades rurais e fortalecimento das atividades comerciais urbanas.&nbsp;<\/div><br><div>III - Sociedade rigidamente hierarquizada, mas com grande mobilidade entre as classes.&nbsp;<\/div><br><div>IV - Poder político fragmentado entre senhores feudais e o rei.&nbsp;<\/div><br><div>V - Grandes senhores de terras e alto clero ocupavam o topo da sociedade.&nbsp;<\/div><br><div>Assinale a alternativa que lista unicamente características do feudalismo.&nbsp;<\/div><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div><b>[II] INCORRETA<\/b>. As atividades rurais eram a base da economia feudal;<\/div><br><div><b>[III] INCORRETA.<\/b> Não havia praticamente nenhuma mobilidade social no Feudalismo.<\/div>"], "alts": [["a", "I, II e III."], ["b", "II, III e V."], ["c", "I, IV e V."], ["d", "III, IV e V."], ["e", "I, III e V."]], "resp": "c"}, {"n": 32, "fonte": "CFS - Demais Especialidades · 2009", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Uma   força,   de   módulo   F,   foi   decomposta   em   duas   componentes  perpendiculares  entre  si.  Verificou-se  que  a  razão  entre os módulos dessas componentes vale √3. O ângulo entre esta força e sua componente de maior módulo é de:", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Se decompomos a força 𝐹 em duas perpendiculares, temos que:<\/div><br><div><img src=\"img/6c586cff19da4f5c.png\" alt=\"\"><br><\/div><br><div>Se considerarmos que:<\/div><br><div><img src=\"img/9cce39a4d3aada19.png\" alt=\"\"><br><\/div><br><div>Geometricamente, teríamos:<\/div><br><div><img src=\"img/532fc1fe15b5eda3.png\" alt=\"\"><br><\/div><br><div>Da trigonometria, sabemos que:<\/div><br><div><img src=\"img/793dad141fae7e45.png\" alt=\"\"><br><\/div><br><div>Logo:<\/div><br><div><img src=\"img/d1b7f6b419c067b0.png\" alt=\"\"><br><\/div><br><div>Note ainda que se&nbsp;<img src=\"img/ed84d85d660579c2.png\" alt=\"\">&nbsp;Logo, o ângulo 𝛼 desejado é entre&nbsp;<img src=\"img/4f0453ae7525cf33.png\" alt=\"\">&nbsp;é igual a 30°.<\/div><br><div>Você poderia ter escolhido a razão&nbsp;<img src=\"img/11dc783ae27fc823.png\" alt=\"\">&nbsp;e feito uma análise semelhante a essa que fiz logo acima e chegaríamos no mesmo resultado.<\/div>"], "alts": [["a", "30°."], ["b", "45°."], ["c", "60°."], ["d", "75°."]], "resp": "a"}, {"n": 33, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2005", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Sabendo que a = 6 N e b = 4 N, o módulo do vetor soma dos vetores <img src=\"img/50f7499acbab36da.png\" alt=\"\">,   que formam um ângulo de 60º entre si e atuam sobre um ponto material, vale:<br><div>Dados: considere sen 60º = 0,87 e cos 60º = 0,50<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "2√5 N"], ["b", "2√7 N"], ["c", "2√13 N"], ["d", "2√14 N"], ["e", "2√19 N"]], "resp": "e"}, {"n": 34, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 1998", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Com    base  no  sistema  de  forças  de  mesma  intensidade,  representado  abaixo,  assinale  a  alternativa correta.<br><div><img src=\"img/73549077b32a3af5.png\" alt=\"\"><br><\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "<img src=\"img/a28567cef5ba1439.png\" alt=\"\"> é resultante da soma de <img src=\"img/c1f9063291c05ab6.png\" alt=\"\">"], ["b", "<img src=\"img/17dd00d503c5c309.png\" alt=\"\">"], ["c", "<img src=\"img/ec901146ea46be84.png\" alt=\"\"> é resultante da soma de <img src=\"img/ff60a0e6054968f1.png\" alt=\"\">"], ["d", "<img src=\"img/8c5e5598090444ee.png\" alt=\"\">"], ["e", "A resultante da soma de <img src=\"img/0a8643928c045b68.png\" alt=\"\"> nula."]], "resp": "e"}, {"n": 35, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 1996", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Duas  forças  com  módulos  iguais  a  3N  ,  formam  entre  si  um  ângulo  de  120º.  O  valor  do  módulo  da  força resultante será de :", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "O N"], ["b", "3 N"], ["c", "6 N"], ["d", "9 N"], ["e", "18 N"]], "resp": "b"}, {"n": 36, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2022", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "O desenho a seguir representa a disposição dos vetores deslocamento não nulos: <img src=\"img/be69d5f02a8a87bf.png\" alt=\"\"> Podemos afirmar que, a partir do desenho, a relação vetorial correta, entre os vetores, é:<br><div><img src=\"img/5056de0f5bc80041.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b>"], "alts": [["a", "<img src=\"img/2367328a9adf37e9.png\" alt=\"\">"], ["b", "<img src=\"img/02352239afd740bc.png\" alt=\"\">"], ["c", "<img src=\"img/a089e0be2099cada.png\" alt=\"\">"], ["d", "<img src=\"img/b4c6c187f672fef9.png\" alt=\"\">"], ["e", "<img src=\"img/ec0be354f5936f78.png\" alt=\"\">"]], "resp": "e"}, {"n": 37, "fonte": "Simulado EFOMM · 2022", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere seis vetores idênticos, cada um com extremidade inicial em um dos vértices de um hexágono regular e extremidade final no centro do hexágono. O vetor resultante da soma dos seis vetores é:<div><br><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><br><div>Podemos fazer um rearranjo dos vetores e colocá-los sobre os lados do hexágono. Pela regra do polígono o vetor resultante será nulo.<\/div><br><div><img src=\"img/63bc4f27e3bd2536.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: A<\/b><\/div>"], "alts": [["a", "Nulo"], ["b", "<img src=\"img/9235bf204fd5e53f.png\" alt=\"\">"], ["c", "<img src=\"img/d020a553a30c16bf.png\" alt=\"\">"], ["d", "<img src=\"img/d415255789a98769.png\" alt=\"\">"], ["e", "<img src=\"img/71e9791dd1c2fa75.png\" alt=\"\">"]], "resp": "a"}, {"n": 38, "fonte": "Simulado EsPCEx · 2022", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere os seguintes vetores mostrados na figura abaixo.<br><div><img src=\"img/03edf31c9785519e.png\" alt=\"\"><br><\/div><br><div>A operação&nbsp;<img src=\"img/0893d6c38b7ba7e7.png\" alt=\"\"><\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Utilizando a regra da poligonal, percebemos que os vetores&nbsp;<img src=\"img/d758c50b42a6e21a.png\" alt=\"\">&nbsp;formam um polígono fechado e, portanto, a resultante deles é igual a zero.<\/div><br><div>Desta maneira:<\/div><br><div><img src=\"img/29fec6852a5a163a.png\" alt=\"\"><br><\/div><br><div>Nos resta somar os vetores 𝑎⃗ , 𝑒 𝑑⃗ .<\/div><br><div>Utilizando a regra da poligonal, a soma entre esses vetores resulta no próprio vetor 𝑒 .<\/div><br><div><b>Gabarito: E<\/b><\/div>"], "alts": [["a", "<img src=\"img/f8bebd952ba9356a.png\" alt=\"\">"], ["b", "<img src=\"img/649e83bce07bac94.png\" alt=\"\">"], ["c", "<img src=\"img/7a1811b3035dd333.png\" alt=\"\">"], ["d", "<img src=\"img/76d5dcf1737d4db7.png\" alt=\"\">"], ["e", "<img src=\"img/42cd083cca46e19f.png\" alt=\"\">"]], "resp": "e"}, {"n": 39, "fonte": "Simulado EEAR · 2022", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere os vetores abaixo. <br><div><img src=\"img/0aa52ea0db7fe015.png\" alt=\"\"><br><\/div><br><div>Assinale a alternativa correta:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Pela regra da poligonal, a alternativa correta é B.<\/div>"], "alts": [["a", "<img src=\"img/205ebbc29950583e.png\" alt=\"\">"], ["b", "<img src=\"img/31326e2e735f4ac8.png\" alt=\"\">"], ["c", "<img src=\"img/f66927d17a12c802.png\" alt=\"\">"], ["d", "<img src=\"img/2794c8face961e8f.png\" alt=\"\">"]], "resp": "b"}, {"n": 40, "fonte": "Questões Inéditas - Cursos Regulares · 2021", "tema": "Operações com vetores", "tipo": "disc", "html": true, "enun": "Considere duas cargas elétricas positivas posicionadas nos vértices A e B. No vértice C, coloca-se uma terceira carga de tal forma que surgem forças repulsivas na carga do vértice, conforme a figura abaixo. Determine o módulo da força resultante no vértice C.<br><div><img src=\"img/29a050ec4fe6b2b2.png\" alt=\"\"><br><\/div>", "com": ["Primeiramente, utilizaremos a lei dos cossenos para calcular o valor do cosseno do vértice:\r<br><div><img src=\"img/26e2d5bd04df257a.png\" alt=\"\"><br><\/div><br><div>Diante disso, podemos usar a expressão para o cálculo do vetor soma:&nbsp;<\/div><br><div><img src=\"img/6dd4d95973d00b22.png\" alt=\"\"><br><\/div>"]}, {"n": 41, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere dois vetores&nbsp;<img src=\"img/b7524882f798dcff.png\" alt=\"\">&nbsp;Se que&nbsp;<img src=\"img/b9b8281595d05c03.png\" alt=\"\">&nbsp;=13 e&nbsp;<img src=\"img/82ffe0e919f0d326.png\" alt=\"\">&nbsp;=7, qual é o maior valor para&nbsp;<img src=\"img/d655a9a7e66bb8f7.png\" alt=\"\">?", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Para que o valor de&nbsp;<img src=\"img/7f0458381200e7cc.png\" alt=\"\">seja máximo, os vetores devem possuir a mesma direção e sentidos opostos.<\/div><br><div><img src=\"img/83ee41f253e35f82.png\" alt=\"\"><\/div><br><div>Desta maneira, temos:<\/div><br><div><img src=\"img/692583b174569c24.png\" alt=\"\"><br><\/div>"], "alts": [["a", "6"], ["b", "20"], ["c", "12"], ["d", "7"]], "resp": "b"}, {"n": 42, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "um  sistema  de  forças  tal  que temos dois vetores perpendiculares A e B. Determine o  módulo  do  vetor  resultante <img src=\"img/0d353f333b9c98c4.png\" alt=\"\">, que  equilibra  o sistema é de ___newtons.<br><div>Obs.:<\/div><br><div>1. <img src=\"img/9a49ee3185e8d628.png\" alt=\"\"><\/div><br><div>2. Os três vetores são coplanares<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div>Basta aplicar um teorema de pitágoras.<\/div><div>R² =6+6<\/div><div>R=2√3<\/div>"], "alts": [["a", "1,0"], ["b", "2√3"], ["c", "√2"], ["d", "2√2"]], "resp": "b"}, {"n": 43, "fonte": "Provão de Bolsas AFA/EFOMM/EN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Seja&nbsp;<img src=\"img/49f17b37e99f2684.png\" alt=\"\">o vetor resultante definido por&nbsp;<img src=\"img/6b07a6ef1994b792.png\" alt=\"\"><img src=\"img/6b70d44a948239c4.png\" alt=\"\">&nbsp;O módulo de valor de&nbsp;<img src=\"img/3cd5f7e9ab71b427.png\" alt=\"\">&nbsp;é igual a:<br><div><img src=\"img/3e16066396bb8616.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Pela figura, verificamos que:<\/div><br><div><img src=\"img/037de449934658be.png\" alt=\"\"><br><\/div><br><div>Então:<\/div><br><div><img src=\"img/ea60cb1143b0f438.png\" alt=\"\"><br><\/div><br><div>Portanto:<\/div><br><div><img src=\"img/d78dbda742962ec4.png\" alt=\"\"><br><\/div>"], "alts": [["a", "0"], ["b", "2"], ["c", "4"], ["d", "6"], ["e", "8"]], "resp": "c"}, {"n": 44, "fonte": "Provão de Bolsas CN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "No ponto 𝑃 são aplicadas cincos forças, sendo que&nbsp;<img src=\"img/70421b49824ba22c.png\" alt=\"\">&nbsp;= 2 𝑁. Dessa forma, a intensidade da força resultante no ponto 𝑃 é igual a:<br><div>Considere que o hexágono é regular.\r<\/div><br><div><img src=\"img/cdf966c24655c177.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>De acordo com a figura e pela regra do polígono podemos escrever que:<br><div><b><br><\/b><\/div><div><img src=\"img/3c7dfcf06d131bda.png\" alt=\"\"><b><br><\/b><\/div><br><div><img src=\"img/e922f83083ef7f8e.png\" alt=\"\"><br><\/div><br><div>Portanto, o vetor soma é dado por:<\/div><br><div><img src=\"img/e054e0fd77883c30.png\" alt=\"\"><br><\/div><br><div><img src=\"img/a51b1bad73cf6a36.png\" alt=\"\"><br><\/div><\/div><br><div><b>Gabarito: C\r<\/b><\/div>"], "alts": [["a", "2 N"], ["b", "4 N"], ["c", "6 N"], ["d", "3√3 N"], ["e", "2√5 N"]], "resp": "c"}, {"n": 45, "fonte": "Provão de Bolsas CN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Ao realizar uma caminha em um parque, um jovem se deslocou de A para B, seguindo de B para C, conforme figura abaixo.<br><div><img src=\"img/955762941f1a3812.png\" alt=\"\"><br><\/div><br><div>Dessa forma, o vetor deslocamento do jovem tem intensidade igual a:<\/div><br><div>Considere que cada quadradinho tenha um tamanho igual a 1 metro.<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><br><div>Determinar o vetor deslocamento nesse caso, é o mesmo que fazer:<\/div><br><div><img src=\"img/f833eeefc3598f02.png\" alt=\"\"><br><\/div><br><div>Portanto:<\/div><br><div><img src=\"img/1f4db52f43a68c29.png\" alt=\"\">&nbsp;= 5² + 12²<br><\/div><br><div><img src=\"img/1ebab9fac75231de.png\" alt=\"\"><br><\/div><br><div><img src=\"img/04ab2e5bebddba8b.png\" alt=\"\"><br><\/div>"], "alts": [["a", "13 𝑚"], ["b", "3√5 𝑚"], ["c", "6√2 𝑚"], ["d", "10 𝑚"], ["e", "4√3 𝑚"]], "resp": "a"}, {"n": 46, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere  um  relógio  com mostrador circular de 10 cm de raio e cujo ponteiro dos minutos tem comprimento igual ao raio do mostrador. Considere esse  ponteiro  como  um  vetor  de  origem  no  centro  do  relógio  e  direção  variável.  O  módulo  da  soma  dos  três  vetores determinados pela posição desse ponteiro quando o relógio marca exatamente 12 horas, 12 horas e 20 minutos e, por fim, 12 horas e 40 minutos é, em cm, igual a:", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Considere as posições dos ponteiros:<\/div><br><div><img src=\"img/fa2fa7e0d5e07708.png\" alt=\"\"><br><\/div><br><div>Como os vetores estão dispostos simetricamente e possuem o mesmo módulo, a soma deles é nula.<\/div>"], "alts": [["a", "30"], ["b", "10 (1 + √3)"], ["c", "20"], ["d", "zero"]], "resp": "d"}, {"n": 47, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Dados os vetores&nbsp;&nbsp;<img src=\"img/110ab1241f68f418.png\" alt=\"\">de mesmo módulo, qual das relações abaixo está correta?<br><div><img src=\"img/f6b003047cb4f1f2.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Podemos decompor os vetores em relação a um eixo XOY. Suponha que o módulo de todos os vetores seja 𝜌.<\/div><br><div><img src=\"img/c7891999bd2b7d43.png\" alt=\"\"><br><\/div><br><div><img src=\"img/7f3b6c04957eacb5.png\" alt=\"\"><br><\/div><br><div>Desta maneira, a soma correta é dada por: <img src=\"img/7ff75c1247cf1d04.png\" alt=\"\"><\/div>"], "alts": [["a", "<img src=\"img/9a98106de663d9d9.png\" alt=\"\">"], ["b", "<img src=\"img/1c54ce026436aa23.png\" alt=\"\">"], ["c", "<img src=\"img/b6c9144e105ff84f.png\" alt=\"\">"], ["d", "<img src=\"img/17b9fc51b7233b3a.png\" alt=\"\">"]], "resp": "b"}, {"n": 48, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Nas  figuras  seguintes  estão representados pares de vetores <img src=\"img/b5daab0df10bfdf0.png\" alt=\"\">, nos quais cada segmento orientado está subdividido em segmentos unitários.<br><div><img src=\"img/cd29c45f8259a1c9.png\" alt=\"\"><br><\/div><br><div>Quais desses pares tem a mesma resultante?<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>(I) Primeiro caso:<\/div><br><div><img src=\"img/38092f24471ba11f.png\" alt=\"\"><br><\/div><br><div>Como os vetores são perpendiculares, temos:<\/div><br><div><img src=\"img/5e16d3d160c99f82.png\" alt=\"\"><br><\/div><br><div>(II) Segundo caso:<\/div><br><div><img src=\"img/6a3f63714ef577e6.png\" alt=\"\"><br><\/div><br><div>Como os vetores são paralelos, temos:<\/div><br><div><img src=\"img/14a1d4d1001ff092.png\" alt=\"\"><br><\/div><br><div>(III) Terceiro caso:<\/div><br><div><img src=\"img/f8486032d2bbdd12.png\" alt=\"\"><br><\/div><br><div>Podemos usar a lei dos cossenos:<\/div><br><div><img src=\"img/bb1f060d5546e288.png\" alt=\"\"><br><\/div><br><div>(IV) Quarto caso:<\/div><br><div><img src=\"img/b340c87d05febfac.png\" alt=\"\"><br><\/div><br><div>Como os vetores são perpendiculares, temos:<\/div><br><div><img src=\"img/c49acb38c599495c.png\" alt=\"\"><br><\/div><br><div>(V) Quinto caso:<\/div><br><div><img src=\"img/5cf7c8e751e8bc29.png\" alt=\"\"><br><\/div><br><div>Podemos usar a lei dos cossenos:<\/div><br><div><img src=\"img/2af4eca3d81a39da.png\" alt=\"\"><br><\/div><br><div>Desta maneira, a primeira e a quarta são iguais<\/div>"], "alts": [["a", "1 e 5"], ["b", "1 e 4"], ["c", "3 e 5"], ["d", "2 e 3"], ["e", "2 e 5"]], "resp": "b"}, {"n": 49, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Na figura estão desenhados dois vetores&nbsp;<img src=\"img/fcee31b5b78c9b99.png\" alt=\"\">. Esses vetores representam deslocamentos sucessivos de um corpo. Qual é o módulo do vetor igual&nbsp;<img src=\"img/e704a39da1267675.png\" alt=\"\"><img src=\"img/90c655cb29b0cf03.png\" alt=\"\"><br><div><img src=\"img/cee4fc7c1e11a11f.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Podemos utilizar o método da poligonal para descobrir a soma entre os vetores:<\/div><br><div><img src=\"img/ca9c615ce1204eb9.png\" alt=\"\"><br><\/div><br><div>Destacado em verde-limão, temos um triângulo retângulo:<\/div><br><div><img src=\"img/91e0e5cefff37321.png\" alt=\"\"><br><\/div>"], "alts": [["a", "4 cm"], ["b", "5 cm"], ["c", "8 cm"], ["d", "13 cm"]], "resp": "b"}, {"n": 50, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "A figura mostra três vetores&nbsp;<img src=\"img/827a404604e47df5.png\" alt=\"\">. De acordo com a figura podemos afirmar que:<br><div><img src=\"img/76151df45c28086c.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Para contemplar a regra do polígono, os vetores devem estar posicionados com a extremidade na origem do outro. Os vetores&nbsp;<img src=\"img/b6e2040564241f5e.png\" alt=\"\">estão posicionados respeitando a regra do paralelogramo.<\/div><br><div><img src=\"img/98b8ac088227236a.png\" alt=\"\"><br><\/div><br><div>O vetor&nbsp;<img src=\"img/3c4ead1a0302e6ec.png\" alt=\"\">&nbsp;Desta maneira, temos a alternativa&nbsp;<img src=\"img/d7b02378efaed349.png\" alt=\"\"><\/div>"], "alts": [["a", "<img src=\"img/b88ed0ede2cdec23.png\" alt=\"\">"], ["b", "<img src=\"img/427f3b8011e9be6e.png\" alt=\"\">"], ["c", "<img src=\"img/76b6adee56f37db4.png\" alt=\"\">"], ["d", "<img src=\"img/fe2c37beacfd77d9.png\" alt=\"\">"]], "resp": "d"}, {"n": 51, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Qual é a relação entre os vetores&nbsp;<img src=\"img/73cf7e9658aced48.png\" alt=\"\">&nbsp;representados na figura?<br><div><img src=\"img/f319a3d7c58f485d.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Podemos realizar a soma dos vetores utilizando a regra do polígono. Uma estratégia interessante é somar&nbsp;<img src=\"img/9a2e85eb294397b3.png\" alt=\"\">&nbsp;e também somar&nbsp;<img src=\"img/0ed4885267e31657.png\" alt=\"\"><\/div><br><div><img src=\"img/e0fe99f306ae1af3.png\" alt=\"\"><br><\/div><br><div>Percebemos que os vetores&nbsp;<img src=\"img/e4171d77c68a369b.png\" alt=\"\">&nbsp;são iguais:<\/div><br><div><img src=\"img/1dc7c43b9e9837be.png\" alt=\"\"><img src=\"img/1dc7c43b9e9837be.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/5e478e037d8298dd.png\" alt=\"\">"], ["b", "<img src=\"img/0ce774070a01d3fc.png\" alt=\"\">"], ["c", "<img src=\"img/cccb7683fa3f0ed2.png\" alt=\"\">"], ["d", "<img src=\"img/c8dea6864c7b6bfc.png\" alt=\"\">"]], "resp": "b"}, {"n": 52, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Determine o ângulo formado entre os vetores <img src=\"img/07aa1faf33975aeb.png\" alt=\"\">, sabendo que: <img src=\"img/696bb58e78328f09.png\" alt=\"\"><br><div><img src=\"img/ce1467dd2c69476c.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Podemos enxergar os vetores como lados de um triângulo. Os comprimentos do lado são os módulos dos vetores.<\/div><br><div><img src=\"img/339a9e5d11c36477.jpeg\" alt=\"\"><br><\/div><br><div>Desta maneira, podemos aplicar a lei dos senos:<\/div><br><div><img src=\"img/f252d28b73179bf9.png\" alt=\"\"><br><\/div><br><div>Da segunda e da última, temos:<\/div><br><div><img src=\"img/8280be6dcb10938c.png\" alt=\"\"><br><\/div><br><div><img src=\"img/944ee0a79af2a8e4.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/5d949c20c402be5f.png\" alt=\"\">"], ["b", "<img src=\"img/83bc8ffebc17358a.png\" alt=\"\">"], ["c", "<img src=\"img/6ea9e839793354dd.png\" alt=\"\">"], ["d", "<img src=\"img/de3a1bcb4db7f1b4.png\" alt=\"\">"]], "resp": "a"}, {"n": 53, "fonte": "Sprint EEAR Inéditas · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Na figura abaixo estão representados os vetores&nbsp;<img src=\"img/75d21fad6fd0ab50.png\" alt=\"\">. Determine o modulo do vetor&nbsp;<img src=\"img/ecadfd0b76d75d00.png\" alt=\"\"><br><div><img src=\"img/66bd4033c79db87c.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Para a soma de dois vetores, podemos utilizar a lei dos cossenos. Entretanto, devemos colocar os vetores com a origem em comum.<\/div><br><div><img src=\"img/1e3750b6f9d70d58.png\" alt=\"\"><br><\/div><br><div>Para a lei dos cossenos, devemos utilizar o ângulo entre os vetores:<\/div><br><div><img src=\"img/df9d6959e46a67a8.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/b0f2ca98bd3e4299.png\" alt=\"\">"], ["b", "<img src=\"img/3a8982905d96d6c3.png\" alt=\"\">"], ["c", "<img src=\"img/71564eedb4335699.png\" alt=\"\">"], ["d", "<img src=\"img/b11e54b81e4e387b.png\" alt=\"\">"]], "resp": "a"}, {"n": 54, "fonte": "Provão de Bolsas CN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Dois  vetores&nbsp;<img src=\"img/5182b246acbb8309.png\" alt=\"\">&nbsp;e  módulos  constantes  estão dispostos em um plano. Sabe-se que o maior e menor valor da resultante desses vetores é 32 u e 8 u, respectivamente. O módulo de&nbsp;<img src=\"img/4938bcbd18b560e5.png\" alt=\"\">&nbsp;quando&nbsp;<img src=\"img/b9559b4c1b90d8b5.png\" alt=\"\">&nbsp;formam um ângulo de 60° é igual:", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Quando dois vetores estão em um plano, o seu valor máximo ocorre quando os dois vetores estão no  mesmo  sentido  e  o  valor  mínimo  quando  eles  estão  em  sentidos  contrários.  Sem  perda  de generalidade, podemos dizer que 𝐴⃗ é o vetor de maior módulo. Portanto:<\/div><br><div><img src=\"img/a957bd7c5da5d499.png\" alt=\"\"><br><\/div><br><div>Quando eles formam um ângulo de 60°, temos a seguinte disposição dos vetores:<\/div><br><div><img src=\"img/fa0536305d3aa4e0.png\" alt=\"\"><br><\/div><br><div>Pela lei dos cossenos, temos:<\/div><br><div><img src=\"img/c59f3fb5032b0d4c.png\" alt=\"\"><br><\/div>"], "alts": [["a", "√19 𝑢"], ["b", "2√19 𝑢"], ["c", "3√19 𝑢"], ["d", "4√19 𝑢"], ["e", "5√19 𝑢"]], "resp": "d"}, {"n": 55, "fonte": "Provão de Bolsas EEAR · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere dois vetores&nbsp;<img src=\"img/e47ad622d4cc2156.png\" alt=\"\">&nbsp;de módulos  x e y (y&lt; x), respectivamente. Se r é módulo máximo para a soma entre os dois vetores e s é modulo mínimo para a soma entre dois vetores, qual é o valor da razão<img src=\"img/ba6a6259f8cb5ef5.png\" alt=\"\">", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>O módulo máximo é quando os vetores tem a mesma direção e o mesmo sentido:<\/div><div>𝑟 = 𝑥 + 𝑦<\/div><br><div>O módulo mínimo é quando os vetores tem a mesma direção e sentidos opostos:<\/div><br><div>𝑠 = 𝑥 − 𝑦<\/div><br><div>Desta maneira, temos:<\/div><br><div><img src=\"img/990092b2c674df02.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/89e69e9a0e86a7f9.png\" alt=\"\">"], ["b", "<img src=\"img/6a022f44ebbf63fe.png\" alt=\"\">"], ["c", "<img src=\"img/c3fe70c928d06d62.png\" alt=\"\">"], ["d", "<img src=\"img/fe363e95a649c435.png\" alt=\"\">"], ["e", "<img src=\"img/5da600d4de44f0d5.png\" alt=\"\">"]], "resp": "b"}, {"n": 56, "fonte": "Academia da Força Aérea - AFA · 2013", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Sejam três vetores&nbsp;<img src=\"img/a1912b38c20d9ac5.png\" alt=\"\">&nbsp;Os módulos dos vetores&nbsp;<img src=\"img/c94b5e68152c9fe6.png\" alt=\"\">&nbsp;são,  respectivamente,  6<i>u<\/i>  e  8<i>u<\/i>.  O  módulo  do  vetor&nbsp;<img src=\"img/785af5dc66d65bed.png\" alt=\"\">&nbsp;vale 10u, já o módulo do vetor&nbsp;<img src=\"img/d31ed844c20ee8c7.png\" alt=\"\">&nbsp;é nulo.&nbsp;<br><div>Sendo  o  vetor&nbsp;<img src=\"img/f66d886ced152896.png\" alt=\"\">, tem-se  que  o  módulo  de&nbsp;<img src=\"img/63d4a40d3057d120.png\" alt=\"\">&nbsp;é igual a&nbsp;<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Como 𝑆² = 𝐴² + 𝐵² temos que 𝐴 e 𝐵 são perpendiculares:<\/div><br><div><img src=\"img/d413ea30ca11342f.png\" alt=\"\"><br><\/div><br><div><img src=\"img/37c4d9d24e7286a9.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: A<\/b><\/div>"], "alts": [["a", "16<i>u<\/i>"], ["b", "10<i>u<\/i>"], ["c", "8<i>u<\/i>"], ["d", "6<i>u<\/i>"]], "resp": "a"}, {"n": 57, "fonte": "Academia da Força Aérea - AFA · 2011", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Considere que dois vetores&nbsp;<img src=\"img/4fa48a1bb2f39015.png\" alt=\"\">&nbsp;fazem entre si um ângulo de  60°,  quando  têm  suas  origens  sobre  um  ponto  em comum. Além disso, considere também, que o módulo de&nbsp;<img src=\"img/5f8f02c982e8209c.png\" alt=\"\">é duas vezes maior que o de&nbsp;<img src=\"img/74b3850a8f4b6dbb.png\" alt=\"\">, ou seja, B = 2A. Sendo o vetor  soma&nbsp;<img src=\"img/69dc9f16ca431128.png\" alt=\"\">&nbsp; e  o  vetor  diferença&nbsp;<img src=\"img/cad21dd92003bc91.png\" alt=\"\">&nbsp;,  a razão entre os módulos&nbsp;<img src=\"img/c3b07e988b13287e.png\" alt=\"\">&nbsp;vale&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>O vetor soma vale:<\/div><br><div>𝑆²= 𝐴² + 𝐵² + 2𝐴𝐵 cos 60°<\/div><br><div><i>S² = A² + (2A)² + 2A(2A).(1/2)<\/i><\/div><div><i><br><\/i><\/div><div><i>S² = A² + 4A² + 2A²<\/i><\/div><div><i><br><\/i><\/div><div><i>S² = 7A²<\/i><\/div><br><div>𝑆 = 𝐴 √7<\/div><br><div>O vetor diferença vale:<\/div><br><div>𝐷² = 𝐴² + 𝐵² - 2𝐴𝐵 cos 60°<\/div><br><div><i>D² = A² + (2A)² - 2A(2A).(1/2)<\/i><\/div><br><div><i>D²= 3A²<\/i><\/div><br><div>𝐷 = 𝐴√3<\/div><br><div>A razão vale:<\/div><br><div><i>S/D = 𝐴 √7/𝐴√3<\/i><\/div><div><i><br><\/i><\/div><div><i>S/D = √21/3<\/i><\/div><br><br><div><b>Gabarito: A<\/b><\/div>"], "alts": [["a", "<img src=\"img/50ac5a92409f69fa.png\" alt=\"\">"], ["b", "1&nbsp;"], ["c", "√7"], ["d", "3"]], "resp": "a"}, {"n": 58, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2004", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "No desenho abaixo, os 3 vetores são coplanares e concorrentes no ponto O<br><div><img src=\"img/1f08ece75ba217e6.png\" alt=\"\"><br><br><div>Sabendo que v₂ = v₁√2  e v₃ =  v₁, o módulo da soma vetorial v₁ + v₂ +  v₃ será:<\/div><br><div>Dados:<\/div><\/div><br><div>sen 45º = cos 45° = √2/2<\/div>", "com": ["O material não traz comentário escrito para esta questão; confira o gabarito acima."], "alts": [["a", "<img src=\"img/7970aad6ff45033c.png\" alt=\"\">"], ["b", "v₁"], ["c", "√2v₁"], ["d", "2v₁"], ["e", "3v₁"]], "resp": "d"}, {"n": 59, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2024", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "<p>Dois pescadores e um aprendiz estão puxando um barco pelo ponto 0 ao longo de um canal&nbsp;retilíneo localizado em uma região horizontal plana. Os dois pescadores e o aprendiz puxam o&nbsp;barco com forças de módulo F₁, F₂ e F₃, respectivamente, cujos módulos e direções de F₁ e F₂ são&nbsp;indicados no desenho. Todas as forças e o canal estão no mesmo plano horizontal. A intensidade&nbsp;da menor força F₃ que o aprendiz deve exercer sobre o barco para mantê-lo em uma direção&nbsp;paralela às margens é:&nbsp;<\/p><p><strong>Dados:<\/strong> Considere sen 60º = cos 30º = √3/2 e cos 60º=sen 30º = 1/2&nbsp;<br><\/p><p>&nbsp;<\/p><p><img src=\"img/ff2c1d75e7840331.png\" alt=\"\"><br><\/p>", "com": ["<p><strong>GABARITO: ALTERNATIVA C<\/strong><\/p><p>Para que o movimento seja na horizontal, teremos o equilíbrio na vertical:<\/p><p><img src=\"img/1af8cac6a96b91ed.png\" alt=\"\"><br><\/p><p>Assim, essa será a força em módulo.<\/p>"], "alts": [["a", "10(20√3+8) N"], ["b", "10(20√3-8) N"], ["c", "<p><span data-type=\"katex\" value=\"F_3 = 40(4 - 5\\sqrt{3}) \\ \\text{N}\"><\/span><\/p>"], ["d", "10(10√3+16) N"], ["e", "<p>5(16 - 10√3) N<\/p>"]], "resp": "c"}, {"n": 60, "fonte": "Simulado AFA · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "<p>As forças que atuam em um corpo foram diagramada em um hexágono de lado 𝐿, como na figura abaixo. Dessa forma, o modulo de&nbsp;<img src=\"img/87409b2b72d417e9.png\" alt=\"\"><\/p><p><img src=\"img/e1932e552089e9c2.png\" alt=\"\"><br><\/p>", "com": ["<p><strong>GABARITO: ALTERNATIVA D<\/strong><\/p><p>Podemos representar os vetores&nbsp;<img src=\"img/d277d771f81568ee.png\" alt=\"\">&nbsp;da seguinte forma:<\/p><p><img src=\"img/bf2176e2548cb189.png\" alt=\"\"><br><\/p><p>Assim, notamos que:<\/p><p><img src=\"img/c9cdc4f6f3a2ddd2.png\" alt=\"\"><br><\/p><p>Então, nossa soma desejada pode ser expressa por:<\/p><p><img src=\"img/7f47bf544ed9368c.png\" alt=\"\"><br><\/p><p>Mas, pela figura,&nbsp;<img src=\"img/74baf5a2730c59fe.png\" alt=\"\">&nbsp; Portanto:<\/p><p><img src=\"img/54018aab91139339.png\" alt=\"\"><br><\/p><p>Além disso, percebemos que:&nbsp;<img src=\"img/b80ab79997e921e7.png\" alt=\"\">.&nbsp; Portanto:<\/p><p><img src=\"img/51f294017649a2ae.png\" alt=\"\"><br><\/p><p>Então:<\/p><p><img src=\"img/1e8eae82512199ee.png\" alt=\"\"><br><\/p><p>Matematicamente, temos a seguinte figura:<\/p><p><img src=\"img/cbc1c98074c30a69.png\" alt=\"\"><br><\/p><p><img src=\"img/978d2d42703c9c08.png\" alt=\"\"><br><\/p>"], "alts": [["a", "<p><span data-type=\"katex\" value=\"\\frac{2\\sqrt{3}L}{3}\"><\/span><\/p>"], ["b", "<p><span data-type=\"katex\" value=\"\\sqrt{3}L\"><\/span><\/p>"], ["c", "<p><span data-type=\"katex\" value=\"\\frac{4\\sqrt{3}L}{3}\"><\/span><\/p>"], ["d", "<p><span data-type=\"katex\" value=\"\\frac{5\\sqrt{3}L}{3}\"><\/span><\/p>"]], "resp": "d"}, {"n": 61, "fonte": "Simulado EN · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "A figura abaixo mostra um conjunto de vetores dispostos sobre um cubo cuja aresta mede 2𝑎.<div><br><div>Determine o módulo de&nbsp;<img src=\"img/2541caac3db6b406.png\" alt=\"\">sabendo que&nbsp;<img src=\"img/386b5450b058eae1.png\" alt=\"\">&nbsp;<img src=\"img/eca371f08d5d2fe2.png\" alt=\"\">&nbsp;(𝐻 𝑒 𝑃 são pontos médios)<\/div><\/div><br><div><img src=\"img/a016b0e33cbe093f.png\" alt=\"\"><br><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>Vamos nomear na figura os pontos 𝑄 𝑒 𝑊. Em seguida, vamos escrever os vetores com em função das coordenadas unitárias 𝑖̂, 𝑗̂e 𝑘̂. Assim, temos<br><div><img src=\"img/c956352163217a9c.png\" alt=\"\"><br><\/div><br><div>Note que os vetores serão dado da seguinte forma:<\/div><br><div><img src=\"img/bde61c46c1478246.png\" alt=\"\"><br><\/div><br><div>Dessa forma, temos que&nbsp;<img src=\"img/aeadc2a3b455a49e.png\" alt=\"\"><\/div><br><div><img src=\"img/9bb656b9b4b3e01f.png\" alt=\"\"><br><\/div>"], "alts": [["a", "𝑎√6/2"], ["b", "𝑎√8"], ["c", "𝑎√6"], ["d", "2𝑎√3"], ["e", "4𝑎√3"]], "resp": "c"}, {"n": 62, "fonte": "Simulado EEAR · 2021", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Analisando a disposição dos vetores&nbsp;<img src=\"img/5746e7e6de59bbf3.png\" alt=\"\">, conforme  figura  abaixo,  assinale  a  alternativa  que  contém  a relação vetorial correta.<br><div><img src=\"img/f16ddbeaf0e094b8.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>Tomando a origem do sistema de vetores como sendo a origem do vetor BA e façamos a soma dos vetores.<\/div><br><div>Logo:<\/div><br><div><img src=\"img/cf88bc99961e0ed0.png\" alt=\"\"><br><\/div>"], "alts": [["a", "<img src=\"img/2e563bd0bb2dda5e.png\" alt=\"\">"], ["b", "<img src=\"img/fbe798bdac90850b.png\" alt=\"\">"], ["c", "<img src=\"img/554848410d3c2b71.png\" alt=\"\">"], ["d", "<img src=\"img/cb97ac13a19f23f5.png\" alt=\"\">"]], "resp": "d"}, {"n": 63, "fonte": "Provão de Bolsas ITA/IME · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "<div>Considere um cubo de lado 𝑎, onde se estabelece as seguintes somas vetoriais.&nbsp;<\/div><br><img src=\"img/b7d36ed42bf79878.png\" alt=\"\"><br><div>I -&nbsp;<img src=\"img/d0fc06d84dc0ef39.png\" alt=\"\"><\/div><br><div>II -&nbsp;<img src=\"img/251251c84ea1ba79.png\" alt=\"\"><\/div><br><div>III -&nbsp;<img src=\"img/f8c8051fba0f88dd.png\" alt=\"\"><\/div><br><div>Estão corretas:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div>Lembrando que um vetor é definido como&nbsp;<img src=\"img/afc86855242e0d69.png\" alt=\"\">&nbsp;= 𝑌 − 𝑋, então:<\/div><br><div>I. Verdadeira. Pois:<\/div><br><div><img src=\"img/9eaa34174f659136.png\" alt=\"\"><br><\/div><br><div>II. Verdadeira. Pois:<\/div><br><div><img src=\"img/43177f8cd7107415.png\" alt=\"\">&nbsp;= 𝐹 − 𝐴 + 𝐺 − 𝐷 = (𝐹 − 𝐷) + (𝐺 − 𝐴) =&nbsp;<img src=\"img/39f59099538d8d3f.png\" alt=\"\"><br><\/div><br><div>Mas, pela figura, podemos escrever que:<\/div><br><div><img src=\"img/dff910dd062da4af.png\" alt=\"\"><br><\/div><br><div>Portanto:<\/div><br><div><img src=\"img/d387d55d53f4f2eb.png\" alt=\"\"><br><\/div><br><div>III. Verdadeira. Pois:<\/div><br><div><img src=\"img/3c02c80990c6d3f7.png\" alt=\"\"><br><\/div><br><div><img src=\"img/5bd6840ea1f7771a.png\" alt=\"\"><br><\/div><br><div><img src=\"img/675f40e6c686ba2b.png\" alt=\"\"><br><\/div><br><div><img src=\"img/fa0e9840dc6a06b3.png\" alt=\"\"><br><\/div><br><div>Logo:<\/div><br><div><img src=\"img/a389aa84de3cf30b.png\" alt=\"\"><br><\/div><br><div><img src=\"img/a9ceb51ae3758991.png\" alt=\"\"><br><\/div>"], "alts": [["a", "apenas I."], ["b", "apenas II."], ["c", "apenas I e II."], ["d", "apenas II e III."], ["e", "todas as afirmativas."]], "resp": "e"}, {"n": 64, "fonte": "Provão de Bolsas ITA/IME · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Dois vetores em um mesmo plano tem módulos constante. Sabe-se que o maior e o menor valor de resultante valem 30 u e 6 u, respectivamente. Qual o modulo do vetor diferença quando os vetores formarem um ângulo de 120°?", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br><div>Os vetores terão resultante de módulo máximo quando eles estiverem na mesma direção e no mesmo sentido:<\/div><br><div>𝐴 + 𝐵 = 30<\/div><br><div>E terão resultante de módulo mínimo quando estiverem na mesma direção e sentidos opostos, portanto:<\/div><br><div>𝐴 − 𝐵 = 6<\/div><br><div>Portanto:&nbsp;<\/div><br><div>𝐴 = 18 e 𝐵 = 12<\/div><br><div>Logo:<\/div><br><div><img src=\"img/cd2a0502b1efcbd8.png\" alt=\"\"><br><\/div><br><div><img src=\"img/85bf6178c6e6a209.png\" alt=\"\"><br><\/div><br><div><img src=\"img/03fee05638c77781.png\" alt=\"\"><br><\/div><br><div><img src=\"img/40ada362150accbf.png\" alt=\"\"><br><\/div>"], "alts": [["a", "2√19 𝑢"], ["b", "3√15 𝑢"], ["c", "6√19 𝑢"], ["d", "4√13 𝑢"], ["e", "7√11 𝑢"]], "resp": "c"}, {"n": 65, "fonte": "Provão de Bolsas AFA/EFOMM/EN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Em  um  plano  cartesiano,  constrói-se  o  triângulo  ABC, conforme figura abaixo.<br><div><img src=\"img/c1f94c8da9cb4c1c.png\" alt=\"\"><br><\/div><br><div>Se P e Q são pontos médios de AB e BC, então o vetor&nbsp;<img src=\"img/d30831a826a4021a.png\" alt=\"\">&nbsp;é dado por:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>De acordo com a figura, temos os pontos A(8,3), B(2,3) e C(4,7). Se P é ponto médio de BC, então:<\/div><br><div><img src=\"img/a9c6ba2c774c3d57.png\" alt=\"\"><br><\/div><br><div>Se Q é ponto médio de BC, então:<\/div><br><div><img src=\"img/c80889b4ff71f4e9.png\" alt=\"\"><br><\/div><br><div>𝑄 = (3,5)<\/div><br><div>Portanto, o vetor&nbsp;<img src=\"img/cddb1956aeb3b6f4.png\" alt=\"\">&nbsp;é dado por:<\/div><br><div><img src=\"img/6aab37ed668e35dc.png\" alt=\"\">&nbsp;= (3,5) − (5,3)<br><\/div><br><div><img src=\"img/9aa453241158a117.png\" alt=\"\"><br><\/div>"], "alts": [["a", "(2,−2)"], ["b", "(−2,2)"], ["c", "(3,5)"], ["d", "(−3,5)"], ["e", "(−5,5)"]], "resp": "b"}, {"n": 66, "fonte": "Provão de Bolsas AFA/EFOMM/EN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Dois vetores&nbsp;<img src=\"img/046052b9503743c2.png\" alt=\"\">, , de mesmo módulo, formam um ângulo agudo 𝜃. Dessa forma, a razão entre os módulos de&nbsp;<img src=\"img/69b8643529a0dc41.png\" alt=\"\">", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Denotando&nbsp;<img src=\"img/b6a061cca6fbac03.png\" alt=\"\">&nbsp;então:<b><br><\/b><\/div><br><div><img src=\"img/f33d1b2de3ca2519.png\" alt=\"\"><br><\/div><br><div>E:<\/div><br><div><img src=\"img/803e480c3e312c8d.png\" alt=\"\"><br><\/div><br><div>Então a razão desejada é:<\/div><br><div><img src=\"img/9bfd6c72a9af07f3.png\" alt=\"\"><br><\/div><br><div><img src=\"img/39b1f719faf40d47.png\" alt=\"\"><br><\/div><br><div><img src=\"img/09a1b34d84b9a470.png\" alt=\"\"><br><\/div><br><div>Da trigonometria, utilizando arco duplo, sabemos que:<\/div><br><div><img src=\"img/c12f7c3fd50e4101.png\" alt=\"\"><br><\/div><br><div>Portanto:<\/div><br><div><img src=\"img/83fa2723f05be76c.png\" alt=\"\"><br><\/div><br><div><img src=\"img/346ca284a7eac520.png\" alt=\"\"><br><\/div><br><div>Como é uma razão de módulos e o ângulo é agudo, temos:<\/div><br><div><img src=\"img/1a4549d8fc5ecbed.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: B<\/b><\/div>"], "alts": [["a", "<img src=\"img/103466b158f1ab24.png\" alt=\"\">"], ["b", "<img src=\"img/1363e39b0e698d95.png\" alt=\"\">"], ["c", "<img src=\"img/f25b25579cb11956.png\" alt=\"\">"], ["d", "<img src=\"img/103845f2726f43dc.png\" alt=\"\">"], ["e", "𝑡𝑔(2𝜃)"]], "resp": "b"}, {"n": 67, "fonte": "Provão de Bolsas ITA/IME · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Tomando dois vetores&nbsp;<img src=\"img/38d8fe6cb054a5c3.png\" alt=\"\">&nbsp;podemos gerar dois novos vetores, como na figura abaixo:<br><div><img src=\"img/f7c7a1da56ec8b2c.png\" alt=\"\"><br><\/div><br><div><img src=\"img/49537e6d03f23e78.png\" alt=\"\"><br><\/div><br><div>Se&nbsp;<img src=\"img/84908cfd64b2d6eb.png\" alt=\"\">&nbsp;é igual a:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>Para chegar em&nbsp;<img src=\"img/b125c28b9b9d10ed.png\" alt=\"\">&nbsp;devemos notar que:<div>&nbsp;<\/div><div><img src=\"img/b9f09407e1a0067b.png\" alt=\"\"><br><\/div><br><div>Então:<\/div><br><div><img src=\"img/51457f802cf0ae5a.png\" alt=\"\"><br><\/div><br><div><img src=\"img/179e7f204dfb77f2.png\" alt=\"\"><br><\/div><br><div>Logo, desejamos saber o módulo de&nbsp;<img src=\"img/b63c0023887bf637.png\" alt=\"\">. Para isso, basta olhar para a geometria dos vetores:<\/div><br><div><img src=\"img/67dd700c5725e728.png\" alt=\"\"><br><\/div><br><div><img src=\"img/59477b07ab9b5725.png\" alt=\"\"><br><\/div><br><div><img src=\"img/faa32f6f2b47b1c0.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: C<\/b><\/div>"], "alts": [["a", "10√3 𝑢"], ["b", "20√3 𝑢"], ["c", "10√13 𝑢"], ["d", "5√3 𝑢"], ["e", "3√10 𝑢"]], "resp": "c"}, {"n": 68, "fonte": "Provão de Bolsas ITA/IME · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Na figura abaixo são representados 4 vetores em um retângulo. Podemos dizer que o módulo do vetor resultante é de:<br><div><img src=\"img/4aaf049f8f3251d8.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div>Fazendo a decomposição dos vetores, temos:<\/div><br><div><img src=\"img/5f0129f9c4990c9a.png\" alt=\"\"><br><\/div><br><div>Portanto, na direção horizontal, o vetor resultante tem intensidade igual a:<\/div><br><div><img src=\"img/a147070a93bef419.png\" alt=\"\">&nbsp;= 6 𝑢<\/div><br><div>Na direção vertical, temos:<\/div><br><div><img src=\"img/73edb88b0577e23c.png\" alt=\"\">= 8 𝑢<\/div><br><div>Logo:<\/div><br><div><img src=\"img/b8de6cb6bba1ce65.png\" alt=\"\"><br><\/div><br><div>𝑅 = 10 𝑢<\/div>"], "alts": [["a", "2 u"], ["b", "4 u"], ["c", "6 u"], ["d", "8 u"], ["e", "10 u"]], "resp": "e"}, {"n": 69, "fonte": "Provão de Bolsas CN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Na  figura  abaixo,  o  valor  de 𝛼 para  que  o  vetor resultante seja mínimo é de:<br><div><img src=\"img/d7f0d99a8a4fa335.png\" alt=\"\"><br><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA A<\/b><\/div><br>Pela figura, vemos que os vetores possuem o mesmo tamanho. Assim, o vetor resultante é mínimo quando a soma de dois deles estiver na mesma direção do terceiro, como na figura abaixo:<br><div><img src=\"img/ed84e2ee079e4faa.png\" alt=\"\"><br><\/div><br><div>Note que como |𝑎⃗| = |𝑏⃗|, o ângulo entre 𝑎⃗ e 𝑎⃗ + 𝑏⃗ deve ser de 45°. Então, pela geometria da questão, temos:<\/div><br><div>45° + 𝛼 + 90° + 𝛼 = 180°<\/div><br><div><img src=\"img/8bc8b9cd748c973d.png\" alt=\"\"><br><\/div>"], "alts": [["a", "22,5°"], ["b", "30°"], ["c", "45°"], ["d", "60°"], ["e", "75°"]], "resp": "a"}, {"n": 70, "fonte": "Provão de Bolsas AFA/EFOMM/EN · 2020", "tema": "Operações com vetores", "tipo": "mc", "html": true, "enun": "Se M e N são pontos médios, o módulo do vetor resultante é de:<br><div><img src=\"img/9b1f6df2f8bd372b.png\" alt=\"\"><br><\/div><br><div>Considere que PQRS é um trapézio, com 𝑆𝑅 = 10 e 𝑃𝑄 = 20.<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br><div>O vetor&nbsp;<img src=\"img/3e46727540110165.png\" alt=\"\">&nbsp;pode ser escrito como&nbsp;<img src=\"img/4baf953e54e9c66b.png\" alt=\"\">, assim como o vetor&nbsp;<img src=\"img/9ff5ab18e989d7a2.png\" alt=\"\">&nbsp;pode ser escrito como&nbsp;<img src=\"img/e2a6f3e36cd3d3d1.png\" alt=\"\">. Então:<\/div><br><div><img src=\"img/23cfd4ea355bcbfa.png\" alt=\"\"><br><\/div><br><div>Como M e N são pontos médios, então:<\/div><br><div><img src=\"img/6c0a6ac79ec86c27.png\" alt=\"\"><br><\/div><div>Então:<\/div><br><div><img src=\"img/2ee1953ee4c69989.png\" alt=\"\"><br><\/div><br><div><img src=\"img/9ac94364d27bc5e7.png\" alt=\"\"><br><\/div><br><div><img src=\"img/2a3d0520fda97ff7.png\" alt=\"\"><br><\/div><br><div><img src=\"img/7c9fe8a8bfa541f6.png\" alt=\"\"><br><\/div><br><div>𝑅 = 10 + 20 + 15 = 45<\/div>"], "alts": [["a", "25"], ["b", "30"], ["c", "45"], ["d", "55"], ["e", "60"]], "resp": "c"}];
+
+const FLASH = [
+ ["a00","O que é decompor um vetor?","Trocá-lo por duas componentes perpendiculares cuja soma é o vetor.<br><b>Exemplo:</b> 10 N a 30° = 5√3 N (x) + 5 N (y)."],
+ ["a00","Componentes de um vetor a com ângulo θ do eixo x","x = a cos θ; y = a sen θ.<br><b>Exemplo:</b> 20 a 60°: x = 10, y = 10√3."],
+ ["a00","Módulo a partir das componentes","√(x² + y²).<br><b>Exemplo:</b> (5, 12) ⇒ 13."],
+ ["a00","O que é versor?","Vetor de módulo 1 com mesma direção e sentido.<br><b>Exemplo:</b> versor de (3, 4) = (3/5, 4/5)."],
+ ["a00","Como se calcula o versor?","v̂ = v / |v|.<br><b>Exemplo:</b> (0, 7) ⇒ (0, 1) = ĵ."],
+ ["a00","O que são î e ĵ?","Versores dos eixos x e y.<br><b>Exemplo:</b> (4, −2) = 4î − 2ĵ."],
+ ["a00","sen e cos de 37° e 53° (aprox.)","sen 37 = cos 53 = 0,6; cos 37 = sen 53 = 0,8.<br><b>Exemplo:</b> 10 m/s a 37°: x = 8, y = 6."],
+ ["a00","sen 30°, cos 30°","1/2 e √3/2.<br><b>Exemplo:</b> 8 N a 30°: y = 4 N."],
+ ["a00","Como achar o ângulo de (x, y)?","tg θ = y/x (cuidado com o quadrante).<br><b>Exemplo:</b> (√3, 1) ⇒ 30°."],
+ ["ref","Resultante máxima e mínima de a e b","a + b e |a − b|.<br><b>Exemplo:</b> 7 e 3 ⇒ entre 4 e 10."],
+ ["ref","Resultante de perpendiculares","√(a² + b²).<br><b>Exemplo:</b> 6 e 8 ⇒ 10."],
+ ["ref","Lei dos cossenos da soma","R² = a² + b² + 2ab cos θ.<br><b>Exemplo:</b> dois de 10 a 120° ⇒ R = 10."],
+ ["ref","Soma por componentes","Some os x, some os y.<br><b>Exemplo:</b> (2, 3) + (4, −1) = (6, 2)."],
+ ["ref","Vetor oposto","Mesmo módulo e direção, sentido contrário.<br><b>Exemplo:</b> −(3, 4) = (−3, −4)."],
+ ["pan","Grandeza escalar × vetorial","Escalar: só valor (massa, tempo). Vetorial: módulo, direção e sentido (força, velocidade).<br><b>Exemplo:</b> 5 kg é escalar; 5 N para cima é vetor."],
+ ["pan","Onde a decomposição aparece?","Lançamento oblíquo, plano inclinado, equilíbrio.<br><b>Exemplo:</b> no plano inclinado, P·sen θ puxa o bloco para baixo da rampa."],
+ ["pan","Velocidade é vetor?","Sim; a rapidez (módulo) é escalar.<br><b>Exemplo:</b> 60 km/h para o norte."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "VETORES", s: "Módulo · direção · sentido<br><small>Soma · decomposição · versores</small>",
+  e: "Grandezas vetoriais precisam de módulo, direção e sentido. Decompor nos eixos transforma problemas de vetores em contas com números.",
+  x: "Uma força de 10 N a 30° vira 5√3 N na horizontal e 5 N na vertical.", l: "v = x·î + y·ĵ",
+  p: "Somar módulos de vetores sem olhar o ângulo."};
+const MM = [
+ {k: "dec", c: "#2f5bd3", t: "Decomposição", s: "x = a cos θ · y = a sen θ",
+  e: "Troca o vetor por duas componentes perpendiculares.", x: "Bola chutada a 20 m/s e 53°: 12 m/s na horizontal, 16 m/s na vertical.", l: "x = a cos θ; y = a sen θ",
+  p: "Cosseno vai para o eixo adjacente ao ângulo.",
+  f: [
+   {k: "dec1", t: "Passo a passo", e: "Eixos, origem comum, projeções.", x: "Desenhe sempre o triângulo.", l: "3 passos", p: "Esquecer o sinal da componente (vetor para a esquerda: x negativo)."},
+   {k: "dec2", t: "Módulo a partir das componentes", e: "Pitágoras.", x: "(6, 8) ⇒ 10.", l: "|a| = √(x² + y²)", p: "Somar x + y em vez de usar Pitágoras."},
+   {k: "dec3", t: "Ângulo a partir das componentes", e: "tg θ = y / x.", x: "(1, 1) ⇒ 45°.", l: "tg θ = y/x", p: "Verifique o quadrante pelos sinais."}
+  ]},
+ {k: "ver", c: "#1f8a4c", t: "Versores", s: "módulo 1",
+  e: "Indicam só direção e sentido.", x: "(3, 4) ⇒ (3/5, 4/5).", l: "v̂ = v/|v|",
+  p: "O versor não muda a direção nem o sentido.",
+  f: [
+   {k: "ver1", t: "Versor de um vetor", e: "Divide cada componente pelo módulo.", x: "(0, −2) ⇒ (0, −1).", l: "v̂ = v/|v|", p: "Vetor nulo não tem versor."},
+   {k: "ver2", t: "î e ĵ", e: "Versores dos eixos x e y.", x: "F = 20î + 30ĵ = (20, 30).", l: "î = (1, 0); ĵ = (0, 1)", p: "î e ĵ são perpendiculares e unitários."}
+  ]},
+ {k: "som", c: "#b07400", t: "Soma (revisão)", s: "poligonal e paralelogramo",
+  e: "A resultante depende do ângulo entre os vetores.", x: "3 N e 4 N perpendiculares ⇒ 5 N.", l: "R² = a² + b² + 2ab cos θ",
+  p: "R está entre |a − b| e a + b.",
+  f: [
+   {k: "som1", t: "Mesmo sentido / opostos", e: "R = a + b (máx.) ou |a − b| (mín.).", x: "5 e 3 ⇒ 8 ou 2.", l: "a + b; |a − b|", p: "Opostos não se anulam se os módulos forem diferentes."},
+   {k: "som2", t: "Perpendiculares", e: "Pitágoras.", x: "6 e 8 ⇒ 10.", l: "R² = a² + b²", p: "cos 90° = 0 zera o termo 2ab cos θ."},
+   {k: "som3", t: "Por componentes", e: "Soma os x, soma os y, depois Pitágoras.", x: "(3, 2) + (−1, 4) = (2, 6).", l: "R = √(Rx² + Ry²)", p: "Método mais seguro com três ou mais vetores."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Fórmula</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"MRU": "movimento retilíneo uniforme"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.9_fis_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

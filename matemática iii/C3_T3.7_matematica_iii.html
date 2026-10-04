@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.7 · Ciclo 3 · Matemática III — Geometria Plana: fundamentos — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.7</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa F (3.7) · Matemática III</h1>
+        <div class="sub">EsPCEx 2026 · Geometria Plana Euclidiana: entes primitivos, retas, segmentos, ângulos, paralelas e Teorema de Tales</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Contas resolvidas</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.7</h2>
+  <p class="lead">Tarefa F da trilha: <i>"Estude os seguintes temas: Noções Primitivas; Posições Relativas entre Retas; Segmento de Reta; Ângulos; Feixe de Paralelas e Transversais; Teorema de Tales; Prática Dirigida EsPCEx; Minissimulado EsPCEx. Faça os exercícios e minissimulados disponíveis nesta sessão"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os trechos do livro digital de Matemática III (itens 2.1 a 2.8). O minissimulado é um link externo do Estratégia (com ranking) e não entra aqui; faça-o lá, se quiser. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Paralelas cortadas por transversal: só existem <b>dois valores</b> de ângulo, α e β, com α + β = 180°.<br>• Opostos pelo vértice são <b>iguais</b>; complementares somam 90°, suplementares 180°.<br>• Conversão: <b>180° = π rad = 200 grados</b>.<br>• Tales: paralelas cortadas por duas transversais determinam segmentos <b>proporcionais</b>.<br>• Prática dirigida: faça toda a lista nível A; acima de 70%, siga em frente; senão, refaça as de fixação.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (20 min).</b> Leia a aba <b>Resumo</b> desenhando cada figura no papel.</li><li><b>Mapa e Esquemas (10 min).</b> Decore a tabela de ângulos entre paralelas.</li><li><b>Contas resolvidas (10 min).</b> Refaça as conversões e o Tales.</li><li><b>Questões (40 min).</b> 68 questões; comece pelas de fixação e depois a lista EsPCEx.</li><li><b>Rendimento (5 min).</b> Abaixo de 70% na lista A, refaça as de fixação.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: geometria plana é base para triângulos, polígonos e circunferência.</span></div><div class="card"><b>Questões</b><br><span class="muted">56 de múltipla escolha e 12 discursivas.</span></div><div class="card"><b>Material</b><br><span class="muted">Os erros de digitação do livro estão apontados no resumo.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: fundamentos da Geometria Plana</h2>
+  <p class="lead">Na ordem do livro digital. Desenhe cada figura enquanto lê.</p>
+
+  <h3>1. Noções primitivas</h3>
+  <div class="card">
+    <ul>
+      <li>Aceitas <b>sem definição</b>: <span class="k">ponto</span> (letra maiúscula, sem dimensão), <span class="k">reta</span> (letra minúscula, ilimitada nos dois sentidos) e <span class="k">plano</span> (letra grega α, β, γ, ilimitado).</li>
+    </ul>
+  </div>
+
+  <h3>2. Posições relativas entre retas</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Posição</th><th>Interseção</th><th>Observação</th></tr>
+      <tr><td><b>Concorrentes</b></td><td>um único ponto: r ∩ s = {P}</td><td>Se formam 90°, são perpendiculares (r ⊥ s).</td></tr>
+      <tr><td><b>Paralelas distintas</b></td><td>vazia: r ∩ s = ∅</td><td>Mesmo plano, sem ponto comum.</td></tr>
+      <tr><td><b>Paralelas coincidentes</b></td><td>a própria reta: r ∩ s = r</td><td>Todos os pontos em comum.</td></tr>
+      <tr><td><b>Reversas</b></td><td>vazia</td><td>Não estão no mesmo plano (geometria espacial); não são paralelas.</td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"Retas sem ponto em comum são paralelas": <b>ERRADO</b>.<br><b>O erro:</b> esquece as reversas.<br><b>O certo:</b> só são paralelas se estiverem no <b>mesmo plano</b>; fora dele, são reversas.</div>
+  </div>
+
+  <h3>3. Segmentos</h3>
+  <div class="card">
+    <p>Notações: reta <b>AB</b> com seta dupla; segmento <b>AB</b> com barra (limitado por A e B); semirreta <b>AB</b> com seta (origem em A, passa por B). A medida é AB ou med(AB).</p>
+    <ul>
+      <li><b>Congruentes</b> (≡): mesma medida.</li>
+      <li><b>Colineares</b>: na mesma reta suporte.</li>
+      <li><b>Consecutivos</b>: têm uma extremidade comum.</li>
+      <li><b>Adjacentes</b>: colineares, consecutivos e com <b>só</b> a extremidade em comum (AB ∩ BC = {B}).</li>
+      <li><b>Ponto médio</b> M: está entre A e B e <b>AM ≡ MB</b>.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um erro do material</b>O livro define o ponto médio com "AB ≡ MB". O correto é <b>AM ≡ MB</b> (cada metade igual à outra).</div>
+  </div>
+
+  <h3>4. Ângulos</h3>
+  <div class="card">
+    <p>Região <b>convexa</b>: o segmento entre quaisquer dois pontos dela fica dentro dela; senão, <b>côncava</b>. <span class="k">Ângulo</span>: duas semirretas não colineares de mesma origem (vértice O, lados OA e OB); notação AÔB ou Ô.</p>
+    <div class="grid2">
+      <div class="call"><b>Quanto à posição</b><b>Consecutivos</b>: têm um lado comum. <b>Adjacentes</b>: consecutivos sem pontos internos comuns. <b>Opostos pelo vértice</b>: lados de um são os prolongamentos dos lados do outro; são <b>congruentes</b>.</div>
+      <div class="call"><b>Quanto à medida</b><b>Agudo</b> &lt; 90°; <b>reto</b> = 90°; <b>obtuso</b> entre 90° e 180°; <b>raso</b> = 180°.</div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th>Par de ângulos</th><th>Condição</th><th>Exemplo</th></tr>
+      <tr><td><b>Complementares</b></td><td>α + β = 90°</td><td>complemento de 30° é 60°</td></tr>
+      <tr><td><b>Suplementares</b></td><td>α + β = 180°</td><td>suplemento de 30° é 150°</td></tr>
+      <tr><td><b>Replementares</b></td><td>α + β = 360°</td><td>replemento de 30° é 330°</td></tr>
+    </table></div>
+    <div class="call warn"><b>Atenção a pontos do material</b>(1) O livro define "explementares" por α − β = 180°; essa definição é rara e varia entre autores (muitos usam explementar como sinônimo de replementar). Na prova, fique com complementar, suplementar e replementar. (2) Na demonstração dos opostos pelo vértice, o livro termina com "= 180°": o certo é AÔB = CÔD (ambos somam 180° com AÔD).</div>
+    <p><span class="k">Bissetriz</span>: semirreta interna que divide o ângulo em dois ângulos congruentes.</p>
+    <div class="call bad"><b>Pegadinha</b>"Ângulos consecutivos são sempre adjacentes": <b>ERRADO</b>.<br><b>O erro:</b> consecutivos podem ter pontos internos comuns (AÔB e AÔC, com B dentro de AÔC).<br><b>O certo:</b> adjacentes são consecutivos <b>sem</b> pontos internos comuns.</div>
+  </div>
+
+  <h3>5. Unidades de medida de ângulo</h3>
+  <div class="card">
+    <ul>
+      <li><b>Grau</b>: 1/360 da circunferência; 1° = 60′ (minutos) e 1′ = 60″ (segundos): sistema sexagesimal.</li>
+      <li><b>Grado</b>: 1/400 da circunferência; meia-volta = 200 gr.</li>
+      <li><b>Radiano</b>: arco de comprimento igual ao raio. Volta completa: C = 2πr, logo 2π rad. Medida em radianos = comprimento do arco ÷ raio (arco de 10 cm em raio 5 cm = 2 rad).</li>
+    </ul>
+    <div class="tbl"><table>
+      <tr><th>Grau</th><th>Grado</th><th>Radiano</th></tr>
+      <tr><td>360°</td><td>400 gr</td><td>2π rad</td></tr>
+      <tr><td>180°</td><td>200 gr</td><td>π rad</td></tr>
+      <tr><td>90°</td><td>100 gr</td><td>π/2 rad</td></tr>
+    </table></div>
+    <p>Conversão por regra de três: g = (10/9)·G; rad = (π/180)·G. Ex.: 240° = 240π/180 = <b>4π/3 rad</b> = 800/3 gr.</p>
+    <div class="call warn"><b>Atenção a um erro do material</b>No exemplo de 240°, o livro chega a 2π/3 rad. A conta 360x = 240 · 2π dá x = 480π/360 = <b>4π/3 rad</b> (2π/3 rad é 120°).</div>
+  </div>
+
+  <h3>6. Paralelas cortadas por uma transversal</h3>
+  <div class="card">
+    <p>Com r ∥ s e uma transversal t, formam-se 8 ângulos com apenas <b>dois valores</b>: os agudos (α) são todos iguais, os obtusos (β) são todos iguais, e α + β = 180°.</p>
+    <div class="tbl"><table>
+      <tr><th>Nome</th><th>Posição</th><th>Relação</th></tr>
+      <tr><td><b>Correspondentes</b></td><td>mesma posição em cada cruzamento</td><td>congruentes</td></tr>
+      <tr><td><b>Alternos internos</b></td><td>entre as paralelas, lados opostos de t</td><td>congruentes</td></tr>
+      <tr><td><b>Alternos externos</b></td><td>fora das paralelas, lados opostos de t</td><td>congruentes</td></tr>
+      <tr><td><b>Colaterais internos</b></td><td>entre as paralelas, mesmo lado de t</td><td><b>suplementares</b></td></tr>
+      <tr><td><b>Colaterais externos</b></td><td>fora das paralelas, mesmo lado de t</td><td><b>suplementares</b></td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"Colaterais internos são congruentes": <b>ERRADO</b>.<br><b>O erro:</b> confunde com alternos.<br><b>O certo:</b> <b>alternos</b> são iguais; <b>colaterais</b> somam 180°.</div>
+  </div>
+
+  <h3>7. Teorema de Tales</h3>
+  <div class="card">
+    <p>Um feixe de retas paralelas cortado por duas transversais determina segmentos <b>proporcionais</b>: x₁/y₁ = x₂/y₂ = … = k.</p>
+    <p>Ex.: numa transversal, segmentos 3 e 5; na outra, 6 e x. Então 3/6 = 5/x, logo x = 10.</p>
+    <div class="call warn"><b>Atenção a um erro do material</b>A fórmula do livro começa com "x₁/y₂"; o correto é <b>x₁/y₁</b> = x₂/y₂.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: fundamentos da Geometria Plana</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Esta tarefa</b><br><span class="muted">Ponto, reta, plano · segmentos · ângulos · paralelas · Tales.</span></div>
+    <div><b>Próximos</b><br><span class="muted">Triângulos (congruência, semelhança), polígonos, circunferência, áreas.</span></div>
+    <div><b>Ligação</b><br><span class="muted">Radianos voltam em Trigonometria; Tales leva à semelhança de triângulos.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Paralelas e transversal</h3>
+  <div class="tbl"><table>
+    <tr><th>Iguais (≡)</th><th>Somam 180°</th></tr>
+    <tr><td>correspondentes · alternos internos · alternos externos · opostos pelo vértice</td><td>colaterais internos · colaterais externos · adjacentes sobre a reta</td></tr>
+  </table></div>
+  <h3>Pares de ângulos</h3>
+  <div class="tbl"><table>
+    <tr><th>Complemento</th><th>Suplemento</th><th>Replemento</th></tr>
+    <tr><td>90° − x</td><td>180° − x</td><td>360° − x</td></tr>
+  </table></div>
+  <h3>Conversões</h3>
+  <div class="tbl"><table>
+    <tr><th>Graus</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>120°</th><th>180°</th><th>270°</th><th>360°</th></tr>
+    <tr><td>Radianos</td><td>π/6</td><td>π/4</td><td>π/3</td><td>π/2</td><td>2π/3</td><td>π</td><td>3π/2</td><td>2π</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Contas resolvidas</h2>
+  <p class="lead">Faça no papel antes de abrir.</p>
+  <div class="card">
+    <details><summary>1. O suplemento de um ângulo é o triplo do seu complemento. Quanto mede o ângulo?</summary><div>180 − x = 3(90 − x) ⇒ 180 − x = 270 − 3x ⇒ 2x = 90 ⇒ <b>x = 45°</b>.</div></details>
+    <details><summary>2. Converta 150° em radianos e em grados.</summary><div>150 · π/180 = <b>5π/6 rad</b>; 150 · 10/9 = <b>500/3 gr</b>.</div></details>
+    <details><summary>3. Converta 3π/4 rad em graus.</summary><div>3 · 180/4 = <b>135°</b>.</div></details>
+    <details><summary>4. Paralelas cortadas por transversal: um ângulo mede 2x + 10 e seu colateral interno mede 3x − 30. Ache x.</summary><div>Colaterais somam 180: 5x − 20 = 180 ⇒ <b>x = 40</b> (ângulos de 90° e 90°).</div></details>
+    <details><summary>5. Alternos internos medem 3x − 15 e x + 45. Ache os ângulos.</summary><div>São iguais: 3x − 15 = x + 45 ⇒ x = 30 ⇒ ambos medem <b>75°</b>.</div></details>
+    <details><summary>6. Tales: segmentos 4 e 6 numa transversal; 10 e y na outra.</summary><div>4/10 = 6/y ⇒ <b>y = 15</b>.</div></details>
+    <details><summary>7. Some 35°48′ + 20°27′.</summary><div>55°75′ = <b>56°15′</b> (75′ = 1°15′).</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos, prática dirigida EsPCEx)</h2>
+  <p class="lead">São as <b>68 questões</b> dos cadernos de seis trechos teóricos e da Prática Dirigida EsPCEx (listas de nível A e C): 56 de múltipla escolha e 12 discursivas. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Nas discursivas, escreva a resolução no campo e abra a resolução do material; elas ficam fora do rendimento (a correção é com o professor). Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.7 · Retas, segmentos e ângulos</option>
+      <option value="ref">Paralelas, Tales e unidades</option>
+      <option value="pan">Panorama de Geometria Plana</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Sprint EsPCEx · 2022", "tema": "Noções Primitivas", "tipo": "mc", "html": true, "enun": "Antônio e Camila participaram da Virada cultural na cidade de São Paulo. Evento repleto de shows e intervenções artísticas espalhados pelo centro da cidade. Depois de assistir uma apresentação no Largo do Arouche, foram até o largo do Paissandu comer um lanche. Logo após a refeição, se deslocaram para assistir um show no Teatro Municipal.<br><div><img src=\"img/b65020847d72022d.png\" alt=\"\"><br><\/div><br><div>De acordo com as coordenadas geográficas, Antônio e Camila ao saírem do Largo do Paissandu para o Teatro Municipal seguiram para a direção:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>O Largo Paissandu está mais ao Sul (23° 54') pelo fato de os minutos serem mais altos comparado ao Teatro Municipal (23°32').<div><br><div>O Largo Paissandu está mais Oeste (46°63') pelo fato de os minutos serem mais altos comparado ao Teatro Municipal (46°38').<\/div><\/div><br><div>Para irem até o Teatro Municipal, Antônio e Camilla seguiram pela direção Norte + Leste = Nordeste. <\/div>"], "alts": [["a", "Sudeste"], ["b", "Noroeste"], ["c", "Nordeste"], ["d", "Sudoeste"], ["e", "Centro-oeste"]], "resp": "c"}, {"n": 2, "fonte": "Questões Inéditas · 2025", "tema": "Posições Relativas entre Retas", "tipo": "disc", "html": true, "enun": "Classifique em verdadeiro (V) ou falso (F).<p>a)\tDuas retas são concorrentes se possuem pontos em comum.<\/p><p>b)\tDuas retas distintas que têm um ponto em comum são concorrentes.<\/p><p>c)\tDuas retas concorrentes têm um ponto em comum.<\/p><p>d)\tSe duas retas distintas têm um ponto comum, então elas possuem um único ponto comum.<\/p><p>e)\tTodo par de retas que não possui ponto de interseção são ditas retas paralelas.<\/p><p>f)\tRetas paralelas distintas são retas que não possuem ponto de interseção.<\/p><p>g)\tRetas reversas são sempre coplanares.<\/p><p>h)\tRetas paralelas são sempre não coplanares.<\/p>", "com": ["<p>a) F<\/p><p>b) V<\/p><p>c) V<\/p><p>d) V<\/p><p>e) F<\/p><p>f) V<\/p><p>g) F<\/p><p>h) F<\/p>"]}, {"n": 3, "fonte": "Questões Inéditas · 2025", "tema": "Segmento de Reta", "tipo": "disc", "html": true, "enun": "<p>Determine 𝑥, sendo 𝑀 o ponto médio de 𝐴𝐵.<\/p><p>a)&nbsp;<img src=\"img/2cc091feefc34f87.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/5f09deb1138ad179.png\" alt=\"\"><\/p>", "com": ["a) x = 9 cm<p><br><p>b) x = 6 cm <\/p><\/p>"]}, {"n": 4, "fonte": "Questões Inéditas · 2025", "tema": "Segmento de Reta", "tipo": "disc", "html": true, "enun": "Classifique em verdadeiro (V) ou falso (F).<p>a)\tDois segmentos de reta são congruentes quando eles possuem uma extremidade em comum.<\/p><p>b)\tDois segmentos de reta são colineares quando eles pertencem a uma mesma reta suporte.<\/p><p>c)\tSe dois segmentos de reta são adjacentes, então eles são colineares.<\/p><p>d)\tSe dois segmentos de reta são consecutivos, então eles são adjacentes.<\/p><p>e)\tDois segmentos de reta são congruentes quando eles possuem as mesmas medidas.<\/p><p>f)\tSe dois segmentos de reta são adjacentes, então eles são consecutivos.<\/p><p>g)\tSe dois segmentos de reta são colineares, então eles são consecutivos.<\/p><p>h)\tSe dois segmentos de reta são colineares, então eles são adjacentes.<\/p>", "com": ["<p>a) F<\/p><p>b) V<\/p><p>c) V<\/p><p>d) F<\/p><p>e) V<\/p><p>f) V<\/p><p>g) F<\/p><p>h) F<\/p>"]}, {"n": 5, "fonte": "Questões Inéditas · 2025", "tema": "Segmento de Reta", "tipo": "disc", "html": true, "enun": "<p>Se a medida do segmento 𝐴𝐵 é 12 cm, determine o valor de 𝑥 nos casos a seguir<\/p><p>a)&nbsp;<img src=\"img/439a8873cd7675cb.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/7528442e5a5f0a67.png\" alt=\"\"><\/p><p>c)&nbsp;<img src=\"img/35d6cb8daeb10038.png\" alt=\"\"><\/p><p>d)&nbsp;<img src=\"img/46687f04b443d10f.png\" alt=\"\"><\/p><p>e)&nbsp;<img src=\"img/53e8f06ac90245a6.png\" alt=\"\"><\/p>", "com": ["<p>a) x = 4 cm<\/p><p>b) x = 9 cm<\/p><p>c) x = 6 cm<\/p><p>d) x = 9 cm<\/p><p>e) x = 8 cm<\/p>"]}, {"n": 6, "fonte": "Questões Inéditas · 2025", "tema": "Ângulos", "tipo": "disc", "html": true, "enun": "<p>&nbsp;Responda as questões a seguir<\/p><p>a)&nbsp;<img src=\"img/0f46f95a716689d8.png\" alt=\"\">&nbsp;e<img src=\"img/a53b76b5cbe6c31d.png\" alt=\"\">são as bissetrizes de dois ângulos adjacentes, <strong>𝐴Ô𝐵<\/strong> e <strong>𝐵Ô𝐶<\/strong>, ambos agudos, e tais que <strong>𝐴Ô𝐵<\/strong>&nbsp;- <strong>𝐵Ô𝐶&nbsp;= 36°<\/strong>.&nbsp;<img src=\"img/ff3c63ef8a424133.png\" alt=\"\">&nbsp;é a bissetriz do ângulo <strong>𝑋Ô𝑌<\/strong>, calcular o ângulo <strong>𝐵Ô𝑍<\/strong>.<\/p><p>b)&nbsp; As bissetrizes de dois ângulos consecutivos formam um ângulo de 38°. Um dos ângulos mede 41°. Calcular o outro ângulo.<\/p><p>c) Quatro semirretas&nbsp;<img src=\"img/e2fe0009ef45094a.png\" alt=\"\">formam os ângulos adjacentes <strong>𝐴Ô𝐵, 𝐵Ô𝐶, 𝐶Ô𝐷 <\/strong>e<strong> 𝐷Ô𝐴<\/strong>, respectivamente proporcionais aos números <strong>1<\/strong>,<strong> 2<\/strong>,<strong> 4 <\/strong>e<strong> 5<\/strong>. Determine o ângulo formado pelas bissetrizes de <strong>𝐴Ô𝐵<\/strong> e<strong> 𝐶Ô𝐷<\/strong>.<\/p><p>d) Os ângulos 𝑥, 𝑦, 𝑧 e 𝑤, estão situados num mesmo plano e em torno de um mesmo ponto, e expressos em graus, da seguinte maneira: 𝑥 = 2𝑘 + 60, 𝑦 = 3𝑘 - 20, 𝑧 = 𝑘 + 80 e 𝑤 = 2k - 40, respectivamente. Calcule a medida desses ângulos.&nbsp;<\/p><p>e) Determine a medida do ângulo formado pelas bissetrizes de dois ângulos adjacentes sabendo que o dobro do primeiro vale metade do&nbsp; suplemento do complemento do seu triplo e o segundo vale um terço de seu suplemento.<\/p><p>f) Calcule o menor dos ângulos formados pelos ponteiros de um relógio às 13h30.<\/p><p>g) Calcule o menor dos ângulos formados pelos ponteiros de um relógio às 21h35.<\/p><p>h) Quando que, aproximadamente, pela primeira vez, após as 8h, os ponteiros de um relógio formarão um ângulo de 90°.<\/p>", "com": ["<p>a) 𝐵Ô𝑍 = 9°<\/p><p>b) 35° ou 117°<\/p><p>c) 135°<\/p><p>d) 30°, 85°, 115° e 130°<\/p><p>e) 67,5°<\/p><p>f) 135°<\/p><p>g) 77,5°<\/p><p>h) 8h 27 min 16 seg<\/p>"]}, {"n": 7, "fonte": "Questões Inéditas · 2025", "tema": "Ângulos", "tipo": "disc", "html": true, "enun": "Responda as questões a seguir<p>a) Calcule um ângulo, sabendo que um quarto de seu suplemento vale 20°.<\/p><p>b) Qual o ângulo que é igual ao dobro do complemento do seu dobro.<\/p><p>c) Dê a medida do ângulo que vale o triplo do seu complemento.<\/p><p>d) Qual o ângulo que excede o seu complemento em 30°.<\/p><p>e) Calcule dois ângulos suplementares, sabendo que 2/5 de um deles somado com 1/6 do outro é igual a 58°.<\/p><p>f) Calcule três ângulos cuja soma vale 200° e que os dois menores são complementares e os dois maiores são suplementares.<\/p><p>g) Calcule um ângulo, sabendo que o seu suplemento excede o dobro do seu complemento em 100°.<\/p><p>h) Calcule um ângulo, sabendo que o seu suplemento excede o complemento do seu dobro em 100°.<\/p><p>i) A diferença entre dois ângulos é 10°. Determine a diferença entre seus suplementos após os aumentarmos em 20° e 30° respectivamente.<\/p><p>j) O triplo do complemento do suplemento de um ângulo é igual à metade do replemento do suplemento do seu dobro. Qual é esse ângulo?<\/p>", "com": ["<p>a) 100°<\/p><p>b) 36°<\/p><p>c) 67,5°<\/p><p>d) 60°<\/p><p>e) 120° e 60°<\/p><p>f) 20°, 70° e 110°<\/p><p>g) 100°<\/p><p>h) 10°<\/p><p>i) Zero<\/p><p>j) 180°<\/p>"]}, {"n": 8, "fonte": "Questões Inéditas · 2025", "tema": "Ângulos", "tipo": "disc", "html": true, "enun": "<p>Classifique em verdadeiro (V) ou falso (F)<\/p><p>a) Ângulos opostos pelo vértice são sempre congruentes.<\/p><p>b) Complemento de um ângulo é o quanto falta ao ângulo para completar 90°.<\/p><p>c) Ângulos suplementares são ângulos que somam 90°.<\/p><p>d) Dois ângulos consecutivos são ângulos adjacentes.<\/p><p>e) Dois ângulos adjacentes são ângulos consecutivos.<\/p><p>f) Dois ângulos opostos pelo vértice são sempre complementares.<\/p><p>g) Dois ângulos opostos pelo vértice são consecutivos.<\/p><p>h) Dois ângulos adjacentes podem ser ângulos opostos pelo vértice.<\/p><p>i) O ângulo formado pelas bissetrizes de dois ângulos adjacentes tem por medida a média aritmética desses dois ângulos.<\/p><p>j) Dois ângulos adjacentes podem ser suplementares.&nbsp;<\/p>", "com": ["a)\tV<p><br><p>b)\tV<\/p><p>c)\tF<\/p><p>d)\tF<\/p><p>e)\tV<\/p><p>f)\tF<\/p><p>g)\tF<\/p><p>h)\tF<\/p><p>i)\tV<\/p><p>j)\tV<\/p><\/p>"]}, {"n": 9, "fonte": "Questões Inéditas · 2025", "tema": "Feixe de Paralelas e Transversais", "tipo": "disc", "html": true, "enun": "<p>&nbsp; Sendo 𝑟 e 𝑠 paralelas, determine o valor de 𝑥.<\/p><p>a)&nbsp;<img src=\"img/5e9e1ccb4b7062a6.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/24ac8cf844aca3e4.png\" alt=\"\"><\/p>", "com": ["a)\tx = 70°<p><br><p>b)\tx = 80°<\/p><\/p>"]}, {"n": 10, "fonte": "Questões Inéditas · 2025", "tema": "Feixe de Paralelas e Transversais", "tipo": "disc", "html": true, "enun": "<p>Sendo 𝑟 e 𝑠 paralelas, determine o valor de 𝑥 e 𝑦.<\/p><p>a)&nbsp;<img src=\"img/e4239955d2c3ffed.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/f4dc01e7e2ceed32.png\" alt=\"\"><\/p><p>c)&nbsp;<img src=\"img/7e29c245d3bc63c6.png\" alt=\"\"><\/p>", "com": ["a)\tx = 20°<p><br><p>b)\tx = 35°<\/p><p>c)\tx = 20° e y = 90°<\/p><\/p>"]}, {"n": 11, "fonte": "Questões Inéditas · 2025", "tema": "Feixe de Paralelas e Transversais", "tipo": "disc", "html": true, "enun": "<p>Sendo 𝑟 e 𝑠 paralelas, determine o valor de 𝑥.<\/p><p>a)&nbsp;<img src=\"img/5c3f97fd7e5975e7.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/90413b5d1c9fad07.png\" alt=\"\"><\/p><p>c)&nbsp;<img src=\"img/8f3363495b9ab5ff.png\" alt=\"\"><\/p>", "com": ["<span>a)\tx = 60°<\/span><p><br><p>b)\tx = 135°<\/p><p>c)\tx = 40°<\/p><\/p>"]}, {"n": 12, "fonte": "Questões Inéditas · 2025", "tema": "Teorema de Tales", "tipo": "disc", "html": true, "enun": "<p>&nbsp; Determine os valores de 𝑥 e 𝑦 no caso a seguir, sabendo que as retas r, s e t são paralelas entre si.<\/p><p>a)&nbsp;<img src=\"img/4229f883997504d5.png\" alt=\"\"><\/p>", "com": ["a)\tx = 8/3 e y = 20/3"]}, {"n": 13, "fonte": "Questões Inéditas · 2025", "tema": "Teorema de Tales", "tipo": "disc", "html": true, "enun": "<p>Determine o valor de 𝑥 em cada um dos casos a seguir, sabendo que as retas r, s e t são paralelas entre si.<\/p><p>a)&nbsp;<img src=\"img/ed87c1b1d0dc276a.png\" alt=\"\"><\/p><p>b)&nbsp;<img src=\"img/0944d9151acec9e6.png\" alt=\"\"><\/p>", "com": ["a)\tx = 12<p><br><p>b)\tx = 8/3<\/p><\/p>"]}, {"n": 14, "fonte": "Corpo de Bombeiros Militar do Estado do Rio de Janeiro - CFO-CBMERJ · 2025", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "<p><img src=\"img/9cfe5179e4ecbc2b.jpeg\" alt=\"\"><\/p><p>De acordo com a análise do mapa, os números I e II da legenda correspondem, respectivamente, aos seguintes tipos de agricultura:<\/p>", "com": ["<p><strong>GABARITO: ALTERNATIVA B<\/strong><\/p>", "<b>Alternativa A:<\/b> <p>Incorreta. Algumas agriculturas familiares são intensivas.<\/p>", "<b>Alternativa B:<\/b> <p>Correta. Apesar de a agricultura familiar possuir maior número de estabelecimentos (propriedades), o empresário do agronegócio possui áreas muito maiores na grande maioria dos estados.<\/p>", "<b>Alternativa C:<\/b> <p>Incorreta. O empresário do agronegócio é muito moderno (tecnológico).<\/p>", "<b>Alternativa D:<\/b> <p>Incorreta. O empresário do agronegócio é comercial.<\/p>"], "alts": [["a", "<p>extensiva e intensiva<\/p>"], ["b", "<p>familiar e não familiar<\/p>"], ["c", "<p>moderna e tradicional<\/p>"], ["d", "<p>comercial e de subsistência<\/p>"]], "resp": "b"}, {"n": 15, "fonte": "Provão de Bolsas EEAR · 2022", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O arco de 8𝜋/15 rad em graus é:", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Convertendo o arco:<\/div><br><div><img src=\"img/3d1bdb37e6ce3b79.png\" alt=\"\"><br><\/div>"], "alts": [["a", "84°"], ["b", "96°"], ["c", "106°"], ["d", "94°"], ["e", "68°"]], "resp": "b"}, {"n": 16, "fonte": "Soldado Fuzileiro Naval · 2022", "tema": "Área do setor circular", "tipo": "mc", "html": true, "enun": "Um círculo tem área igual a 16π cm2. Se aumentarmos seu raio em 50%, consequentemente, sua área irá aumentar em:", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Temos a relação entre raios e áreas:<\/div><div><img src=\"img/1d59c5033235f78d.png\" alt=\"\"><br><\/div><br><div>Se r₂ = 1,5 ⋅ r₁<span>, isto é, teve seu raio aumentado em 50%, para as áreas:<\/span><\/div><div><span><br><\/span><\/div><div><img src=\"img/21762945fb48b1a7.png\" alt=\"\"><span><br><\/span><\/div><br><div>Logo, o aumento foi de 125%.<\/div>"], "alts": [["a", "50%"], ["b", "75%"], ["c", "100%"], ["d", "125%"], ["e", "150%"]], "resp": "d"}, {"n": 17, "fonte": "Sprint CN-EPCAR · 2022", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "O ângulo convexo formado entre os ponteiros das horas e dos minutos às 10 horas e 15 minutos é:", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><br><div>Às 10h em ponto, o ponteiro dos minutos está no 0° (12h), enquanto o ponteiro das horas está  nos 10 ⋅ 30° = 300° (10h).<\/div><br><div>A partir desse instante, o ponteiro dos minutos gira 360° a cada 1h, que é o mesmo de girar 6° a  cada minuto. Sendo assim, quando for 10h e 15 min, o ponteiro dos minutos estará exatamente nos 15 ⋅ 6° = 90°, que é o giro correspondente às 3h.<\/div><br><div>Por outro lado, o ponteiro das horas também gira nesses 15 minutos. Como um ponteiro de hora  gira 30° a cada 1h, isso é o mesmo que girar 30°/4 a cada 15 minutos. Portanto, a posição do ponteiro das  horas após esses 15 minutos é:<\/div><br><div>300° + 30°/4 = 307,5° = 307° 30′<\/div><br><div>Portanto, o ângulo convexo entre eles poderia ser calculado pela diferença entre essas marcações  angulares:<\/div><br><div>307°30′ − 90° = 217° 30′<\/div><br><div>Mas como esse ângulo não é convexo, devemos pegar seu replementar:<\/div><br><div>360° − 217°30′ = 142° 30′<\/div>"], "alts": [["a", "142° 30′"], ["b", "142° 40′"], ["c", "141° 30′"], ["d", "140°"], ["e", "144° 20′"]], "resp": "a"}, {"n": 18, "fonte": "Sprint CN-EPCAR · 2022", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Considere as retas paralelas r e s e os ângulos 𝛼, 𝛽 e 𝜃 da figura abaixo.<br><div><img src=\"img/ca8c7143aa03171c.png\" alt=\"\"><br><\/div><br><div>Podemos afirmar que:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>A soma dos ângulos voltados para a esquerda é igual à soma dos ângulos voltados para a direita:<\/div><br><div><img src=\"img/0c650770c9c68bbf.png\" alt=\"\"><\/div><div>80° + (180° − 𝜃) = 𝛼 + 𝛽<\/div><div>𝛼 + 𝛽 + 𝜃 = 260°<\/div>"], "alts": [["a", "𝛼 + 𝛽 + 𝜃 = 250°"], ["b", "𝛼 + 𝛽 + 𝜃 = 260°"], ["c", "𝛼 + 𝛽 + 𝜃 = 270°"], ["d", "𝛼 + 𝛽 = 𝜃"], ["e", "𝛼 + 𝛽 = 𝜃 + 90°"]], "resp": "b"}, {"n": 19, "fonte": "Sprint EEAR · 2022", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "O complementar do ângulo 17𝜋/45 é igual a:", "com": ["<b>ALTERNATIVA CORRETA: B<\/b><div><b><br><\/b><\/div><div>Vamos converter o ângulo para graus:\n<\/div><br><div>17𝜋/45 = 17/45 ⋅ 180° = 17 ⋅ 4 = 68°<\/div><br><div>O complementar é<\/div><br><div>𝜃 = 90° − 68° = 22°<\/div>"], "alts": [["a", "68°"], ["b", "22°"], ["c", "36°"], ["d", "18°"]], "resp": "b"}, {"n": 20, "fonte": "Simulado EEAR · 2022", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O suplemento do ângulo 36° em radianos é:", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>Convertendo para radiano:<\/div><br><div><img src=\"img/c9b03591daeea04a.png\" alt=\"\"><br><\/div><br><div>Calculando o suplemento:<\/div><br><div><img src=\"img/bb423919647eea5e.png\" alt=\"\"><br><\/div><br><div><b>GABARITO: D<\/b><\/div>"], "alts": [["a", "𝜋/6"], ["b", "2𝜋/3"], ["c", "𝜋/5"], ["d", "4𝜋/5"]], "resp": "d"}, {"n": 21, "fonte": "Simulado EAM · 2022", "tema": "Geometria plana", "tipo": "mc", "html": true, "enun": "Considere as figuras a seguir:<div><br><div>• r // s // t<\/div><\/div><br><div><img src=\"img/b4f40959a9b12aa9.png\" alt=\"\"><br><\/div><br><div>(F) • m // n // p<\/div><br><div><img src=\"img/8ede3bd4fcb3b0c1.png\" alt=\"\"><br><\/div><br><div>Assim, o valor de (𝑥 + 2𝑦) é igual a:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Sabemos do teorema de tales que:\r<br><div><img src=\"img/af7087ddb7fca081.png\" alt=\"\"><br><\/div><br><div>→ 𝑥 = 3<\/div><br><div>Ainda:<\/div><br><div>(12− 𝑦)/2 = 12/8<\/div><br><div>→ 𝑦 = 9<\/div><br><div>Dessa forma, temos:<\/div><br><div>𝑥 + 2𝑦 = 3 + 18 = 21<\/div>"], "alts": [["a", "19"], ["b", "20"], ["c", "21"], ["d", "22"], ["e", "23"]], "resp": "c"}, {"n": 22, "fonte": "Simulado FN · 2022", "tema": "Geometria plana", "tipo": "mc", "html": true, "enun": "O suplemento do complemento do ângulo 𝜃, tal que:\r<br><div><img src=\"img/a53e4680ecb6f133.png\" alt=\"\"><br><\/div><br><div>É igual a:<\/div><br><div>(Dado: 𝑟//𝑠)<\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Pela relação de alternos internos, temos:<\/div><br><div>𝜃 + 30° + 2𝜃 = 180°<\/div><br><div>𝜃 = 50°<\/div><br><div>Dessa forma, o complemento de 𝜃 é dado por:<\/div><br><div>𝛼 = 90° − 𝜃<\/div><br><div>𝛼 = 90° − 50°<\/div><br><div>𝛼 = 40°<\/div><br><div>O suplemento de 𝛼 é dado por:<\/div><br><div>𝛽 = 180° −40°<\/div><br><div>𝛽 = 140°\r<\/div><br><div>Portanto, o suplemento do complemento de 𝜃 é 140°\r<\/div>"], "alts": [["a", "40°"], ["b", "50°"], ["c", "100°"], ["d", "110°"], ["e", "140°"]], "resp": "e"}, {"n": 23, "fonte": "Simulado EEAR · 2022", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "A metade da medida de&nbsp;<img src=\"img/968f9b9dac317997.png\" alt=\"\">&nbsp;𝑟𝑎𝑑 em graus é:", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Fazendo a conversão de radianos para graus, obtemos:<\/div><br><div><img src=\"img/61fc0e6a0aeb7aa9.png\" alt=\"\"><br><\/div><br><div>A metade será:<\/div><br><div><img src=\"img/01e65b7c092c6aa5.png\" alt=\"\"><br><\/div>"], "alts": [["a", "9°"], ["b", "18°"], ["c", "27°"], ["d", "54°"]], "resp": "c"}, {"n": 24, "fonte": "Simulado FN · 2022", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Qual o valor de &#34;𝑥&#34; sabendo que 𝑟₁ e 𝑟₂ são retas paralelas entre si.<br><div><img src=\"img/eec4a779bafacadf.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Analisando o triângulo formado pelas retas, podemos observar que seus ângulos internos são 2𝑥, 𝑥 𝑒 60°. Assim:<\/div><br><div>2𝑥 + 𝑥 + 60 = 180°<\/div><br><div>3𝑥 + 60 = 180 → 3𝑥 = 120 → 𝑥 = 40°<\/div><br><div><b>Gabarito: C<\/b><\/div>"], "alts": [["a", "20°"], ["b", "30°"], ["c", "40°"], ["d", "45°"], ["e", "60°"]], "resp": "c"}, {"n": 25, "fonte": "Questões Inéditas - Cursos Regulares · 2021", "tema": "Teorema de Tales", "tipo": "mc", "html": true, "enun": "Na figura a seguir, as retas r, s, t e w são paralelas e, a, b e c representam medidas dos segmentos tais que a + b + c = 100.<br><div><img src=\"img/9ae5691922ed080e.png\" alt=\"\"><br><\/div><br><div>Conforme esses dados, os valores de a, b e c são, respectivamente, iguais a<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Pelo teorema de Tales, temos:<\/div><br><div>18/a = 24/b = 33/c =&nbsp;<img src=\"img/71f8f8b3a8722e12.png\" alt=\"\"><\/div><br><div>18/a = 24/b = 33/c = 75/100<\/div><br><div>18/a = 24/b = 33/c = 3/4<\/div><br><div>⇒a = 24&nbsp;<\/div><div>⇒b = 32&nbsp;<\/div><div>⇒c = 44&nbsp;<\/div>"], "alts": [["a", "24, 32 e 44."], ["b", "24, 36 e 40."], ["c", "26, 30 e 44."], ["d", "26, 34 e 40."]], "resp": "a"}, {"n": 26, "fonte": "Provão de Bolsas FN/EAM · 2021", "tema": "Geometria plana", "tipo": "mc", "html": true, "enun": "Dada a figura abaixo, assinale a alternativa que traga o valor de 𝑎 + 𝑏, sabendo que r e s são paralelas<br><div><img src=\"img/d3bc19ba3875b365.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Traçando paralelas nos bicos dos ângulos e utilizando o conceito de ângulos alternos internos, temos que:<\/div><br><div><img src=\"img/58eb6f31de08d0a9.png\" alt=\"\"><br><\/div><br><div>Finalmente, temos que:<\/div><br><div>𝑎 − 30° + 𝑏 − 15° = 40° → 𝑎 + 𝑏 = 85°<\/div>"], "alts": [["a", "90°"], ["b", "70°"], ["c", "85°"], ["d", "65°"], ["e", "80°"]], "resp": "c"}, {"n": 27, "fonte": "Soldado Fuzileiro Naval · 2019", "tema": "Geometria plana", "tipo": "mc", "html": true, "enun": "Na figura abaixo, sendo r//s, quais os valores de X, Y e Z, respectivamente?<br><div><img src=\"img/2cc554258b382356.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Vamos usar as propriedades de retas paralelas cortadas por um transversal.<\/div><br><div>Vamos chamar o ângulo oposto pelo vértice de 𝒙 de 𝒂. Analisando a imagem, vemos que 𝟖𝟎° + 𝒂 = 𝟏𝟓𝟎°.<\/div><br><div>Logo:<\/div><br><div>𝟖𝟎° + 𝒂 = 𝟏𝟓𝟎°<\/div><div>𝒂 = 𝟏𝟓𝟎° − 𝟖𝟎°<\/div><div>𝒂 = 𝟕𝟎°<\/div><br><div>Sabemos que a medida de ângulos opostos pelo vértice são iguais, portanto 𝒙 = 𝟕𝟎°.<\/div><br><div>Também vemos na imagem que os ângulos 𝟖𝟎° + 𝒂 e 𝒛 são suplementares. Logo, 𝒛 = 𝟑𝟎° (𝟏𝟖𝟎° − 𝟏𝟓𝟎).<\/div><br><div>É possível observar também que 𝒚 = 𝒛 + 𝒂. Ou seja:<\/div><br><div>𝒚 = 𝒛 + 𝒂<\/div><div>𝒚 = 𝟑𝟎° + 𝟕𝟎°<\/div><div>𝒚 = 𝟏𝟎𝟎°<\/div><br><div>Colocando na ordem do enunciado: 𝒙 = 𝟕𝟎°, 𝒚 = 𝟏𝟎𝟎° e 𝒛 = 𝟑𝟎°.<\/div><br><div><b>Gabarito “c”.<\/b><\/div>"], "alts": [["a", "50°, 80° e 20°"], ["b", "60°, 120° e 40°"], ["c", "70°, 100° e 30°"], ["d", "80°, 150° e 100°"], ["e", "100°, 80° e 30°"]], "resp": "c"}, {"n": 28, "fonte": "Soldado Fuzileiro Naval · 2019", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Na figura abaixo, a medida do suplemento do menor ângulo é:<br><div><img src=\"img/859f48e0175320d4.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Sabemos que ângulos suplementares são ângulos que a soma é igual a 180°.<\/div><br><div>Vamos calcular o valor de 𝒙:<\/div><br><div>(𝟐𝒙 + 𝟕𝟎°) + (𝟑𝒙 − 𝟒𝟎°) = 𝟏𝟖𝟎°<\/div><div>𝟐𝒙 + 𝟕𝟎° + 𝟑𝒙 − 𝟒𝟎° = 𝟏𝟖𝟎°<\/div><div>𝟓𝒙 + 𝟑𝟎° = 𝟏𝟖𝟎°<\/div><div>𝟓𝒙 = 𝟏𝟖𝟎° − 𝟑𝟎°<\/div><div>𝒙 =𝟏𝟓𝟎°/𝟓<\/div><div>𝒙 = 𝟑𝟎°<\/div><br><div>Vemos na figura que o menor ângulo é 𝟑𝒙 − 𝟒𝟎°. Vamos calcular seu valor:<\/div><br><div>𝟑𝒙 − 𝟒𝟎°<\/div><div>𝟑 ∙ 𝟑𝟎° − 𝟒𝟎°<\/div><div>𝟗𝟎° − 𝟒𝟎°<\/div><div>𝟓𝟎°<\/div><br><div>Logo, a medida de seu suplemento será 𝟏𝟑𝟎° (𝟏𝟖𝟎° − 𝟓𝟎°).<\/div><br><div><b>Gabarito “b”<\/b><\/div>"], "alts": [["a", "&nbsp;120°"], ["b", "130°"], ["c", "132°"], ["d", "135°"], ["e", "140°"]], "resp": "b"}, {"n": 29, "fonte": "Soldado Fuzileiro Naval · 2018", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Na figura abaixo, a medida do complemento do menor ângulo é:<br><div><img src=\"img/c7ecf8343d4365e3.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>Vamos calcular o valor de 𝒙:<\/div><br><div>(𝟐𝒙 + 𝟐𝟎°) + (𝟑𝒙 − 𝟔𝟓°) = 𝟏𝟖𝟎°<\/div><div>𝟐𝒙 + 𝟐𝟎° + 𝟑𝒙 − 𝟔𝟓° = 𝟏𝟖𝟎°<\/div><div>𝟓𝒙 − 𝟒𝟓° = 𝟏𝟖𝟎°<\/div><div>𝟓𝒙 = 𝟏𝟖𝟎° + 𝟒𝟓°<\/div><div>𝒙 =𝟐𝟐𝟓°/𝟓<\/div><div>𝒙 = 𝟒𝟓°<\/div><br><div>Vemos na figura que o menor ângulo é 𝟑𝒙 − 𝟔𝟓°. Vamos calcular seu valor:<\/div><br><div>𝟑𝒙 − 𝟔𝟓°<\/div><div>𝟑 ∙ 𝟒𝟓° − 𝟔𝟓°<\/div><div>𝟏𝟑𝟓° − 𝟔𝟓°<\/div><div>𝟕𝟎°<\/div><br><div>Sabemos que ângulos complementares são ângulos que a soma equivale a 𝟗𝟎°. Logo, a medida de seu complemento será 𝟐𝟎° (𝟗𝟎° − 𝟕𝟎°).<\/div><br><div><b>Gabarito “d”<\/b><\/div>"], "alts": [["a", "110°"], ["b", "70°"], ["c", "45°"], ["d", "20°"], ["e", "10°"]], "resp": "d"}, {"n": 30, "fonte": "Soldado Fuzileiro Naval · 2018", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Determine o valor da expressão: 90° - 45°40'.", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div>Calculando:<\/div><br><div>𝟗𝟎° − 𝟒𝟓° 𝟒𝟎′<\/div><div>𝟖𝟗° 𝟔𝟎′ − 45° 40'<\/div><div>𝟒𝟒° 𝟐𝟎′<\/div><br><div><b>Gabarito “e”<\/b><\/div>"], "alts": [["a", "45° 20'"], ["b", "45° 10'"], ["c", "44° 40'"], ["d", "44° 30'"], ["e", "44° 20'"]], "resp": "e"}, {"n": 31, "fonte": "CFS - Demais Especialidades · 2018", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O complemento do suplemento do ângulo de 112° mede", "com": ["<b>GABARITO: ALTERNATIVA D.<\/b><div><b><br><\/b><\/div><div>suplemento de 𝟏𝟏𝟐° = 𝟏𝟖𝟎° − 𝟏𝟏𝟐° = 𝟔𝟖°.<\/div><br><div>complemento de 𝟔𝟖° = 𝟗𝟎° − 𝟔𝟖° = 𝟐𝟐°.<\/div>"], "alts": [["a", "18°"], ["b", "28°"], ["c", "12°"], ["d", "22°"]], "resp": "d"}, {"n": 32, "fonte": "Soldado Fuzileiro Naval · 2017", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Determine o valor da expressão:&nbsp;<br><div><b>&nbsp;180° - 40°20'40''.<\/b><\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div>Calculando:<\/div><br><div>𝟏𝟖𝟎° − 𝟒𝟎° 𝟐𝟎′ 𝟒𝟎\"<\/div><div>𝟏𝟕𝟗° 𝟓𝟗′ 𝟔𝟎\" − 40° 20' 40\"<\/div><div>𝟏𝟑𝟗° 𝟑𝟗′ 𝟐𝟎\"<\/div><br><div><b>Gabarito “e”<\/b><\/div>"], "alts": [["a", "140° 20' 40''"], ["b", "140° 39' 20''"], ["c", "139° 39' 40''"], ["d", "139° 40' 20''"], ["e", "139° 39' 20''"]], "resp": "e"}, {"n": 33, "fonte": "Soldado Fuzileiro Naval · 2017", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "De acordo com a figura abaixo, determine o valor da incógnita x.<br><div><img src=\"img/ec994154630172bc.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>Vemos que essas duas expressões são ângulos complementares, já que a sua soma é 𝟗𝟎°.&nbsp;<\/div><br><div>Então:<\/div><br><div>(𝟐𝒙 + 𝟐𝟎°) + (𝟑𝒙 − 𝟔𝟓°) = 𝟗𝟎°<\/div><div>𝟐𝒙 + 𝟐𝟎° + 𝟑𝒙 − 𝟔𝟓° = 𝟗𝟎°<\/div><div>𝟓𝒙 − 𝟒𝟓° = 𝟗𝟎°<\/div><div>𝟓𝒙 = 𝟗𝟎° + 𝟒𝟓°<\/div><div>𝟓𝒙 = 𝟏𝟑𝟓°<\/div><div>𝒙 =𝟏𝟑𝟓°/𝟓<\/div><div>𝒙 = 𝟐𝟕°<\/div><br><div><b>Gabarito “d”<\/b><\/div>"], "alts": [["a", "85°"], ["b", "45°"], ["c", "38°"], ["d", "27°"], ["e", "12°"]], "resp": "d"}, {"n": 34, "fonte": "CFS - Demais Especialidades · 2016", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Os ângulos&nbsp;&nbsp;<img src=\"img/b16a0cea26578a7b.png\" alt=\"\">&nbsp;são congruentes. Sendo&nbsp;<img src=\"img/d62f099d03ea0f4d.png\" alt=\"\">&nbsp;= 2x + 15º e&nbsp;<img src=\"img/35e34890e2d62d22.png\" alt=\"\">= 5x – 9º. Assinale a alternativa que representa, corretamente, o valor de x.", "com": ["<b>GABARITO: ALTERNATIVA B.<\/b><br><div><img src=\"img/822be65f43d753b9.png\" alt=\"\"><br><\/div>"], "alts": [["a", "2º"], ["b", "8º"], ["c", "12º"], ["d", "24º"]], "resp": "b"}, {"n": 35, "fonte": "2015", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Sejam dois ângulos, α e β. Pode-se afirmar que β é complemento de α se, e somente se,", "com": ["<b>Gabarito B. <\/b><br><div>A questão nos fala sobre dois ângulos, α e β, e nos pede para determinar a relação entre eles, dado que β é complemento de α.<\/div><br><div>Definição de ângulos complementares: <span>dizemos que dois ângulos são complementares quando a soma de suas medidas é 90 graus.<\/span><\/div><br><div>Portanto, β será complemento de α se, e somente se, a soma de suas medidas for 90°.<\/div><br><div><b>Passo 1: Analisando as alternativas<\/b><\/div><br><div>- Alternativa A: \"Suas medidas são iguais\" – Isso não é verdade. Dois ângulos complementares não precisam ter medidas iguais. Eles apenas somam 90°.<\/div><div>- Alternativa B: \"A soma de suas medidas é 90°\" – Isso está correto. Dois ângulos complementares somam sempre 90°.<\/div><div>- Alternativa C: \"A soma de suas medidas é 180°\" – Isso não é verdadeiro para ângulos complementares. A soma de ângulos complementares é 90°, não 180°.<\/div><div>- Alternativa D: \"Seus lados são semirretas opostas\" – Isso se refere a ângulos formados por semirretas opostas, mas não é uma característica dos ângulos complementares.<\/div><br><div><b>Passo 2: Concluir a resposta correta<\/b><\/div><br><div>A única alternativa correta é B, pois ela descreve corretamente a definição de ângulos complementares: a soma de suas medidas é 90°.<\/div><br><div>Portanto, <b>a resposta correta é B: \"A soma de suas medidas é 90°\".<\/b><\/div>"], "alts": [["a", "suas medidas são iguais."], ["b", "a soma de suas medidas é 90°."], ["c", "a soma de suas medidas é 180°."], ["d", "seus lados são semi-retas opostas."]], "resp": "b"}, {"n": 36, "fonte": "2015", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Ao somar 1° (um grau) à medida de um ângulo α, obtém-se <img src=\"img/e261a7550838effe.png\" alt=\"\"> rad. Então, a medida de α, em graus, é", "com": ["<b>Gabarito A. <\/b><br><div>A questão fornece a informação de que ao somar 1 grau à medida de um ângulo α, obtém-se o valor de π/36 rad. Precisamos encontrar a medida de α em graus.<\/div><br><div><b>Passo 1: Converter π/36 rad para graus<\/b><\/div><br><div>Sabemos que 1 radiano corresponde a 180/π graus. Então, para converter π/36 rad para graus, usamos a seguinte fórmula:<\/div><br><div>graus = (π/36) * (180/π)<\/div><br><div>A constante π se cancela, e a equação se simplifica para:<\/div><br><div>graus = 180/36 = 5 graus.<\/div><br><div><b>Passo 2: Determinar a medida de α<\/b><\/div><br><div>Sabemos que ao somar 1 grau a α, obtemos 5 graus. Ou seja, a medida de α é:<\/div><br><div>α = 5 - 1 = 4 graus.<\/div><br><div>A medida de α em graus é 4. <b>Portanto, a resposta correta é a alternativa A: 4.<\/b><\/div>"], "alts": [["a", "4."], ["b", "8."], ["c", "15."], ["d", "30."]], "resp": "a"}, {"n": 37, "fonte": "2015", "tema": "Triângulo (definição-ângulo-lados)", "tipo": "mc", "html": true, "enun": "Seja ABCD um trapézio isósceles de bases <img src=\"img/4b74d08e93a86d39.png\" alt=\"\"> e <img src=\"img/059c5238d6255310.png\" alt=\"\"> , conforme a figura. Pode-se afirmar que o ângulo x mede<br><div><img src=\"img/c266ef023cc67c9f.png\" alt=\"\"><br><\/div>", "com": ["<b>Gabarito A. <\/b><br><div>Vamos resolver a questão do trapézio isósceles com a seguinte abordagem:<\/div><br><div>1. O trapézio ABCD é isósceles, o que significa que os ângulos das bases opostas são iguais.  <\/div><br><div>2. Os dados fornecidos indicam:  <\/div><div>   - Um ângulo da base menor é y + 10.  <\/div><div>   - O outro ângulo da mesma base é 2y - 20.  <\/div><div>   - O ângulo x é um dos ângulos da base maior.  <\/div><br><div><b>Passo 1: Soma dos ângulos internos do trapézio  <\/b><\/div><div>A soma dos ângulos internos de qualquer quadrilátero é 360 graus. Assim, podemos escrever:  <\/div><div>(y + 10) + (2y - 20) + x + x = 360.  <\/div><br><div><b>Passo 2: Simplificar a equação  <\/b><\/div><div>Somando os ângulos fornecidos:  <\/div><div>y + 10 + 2y - 20 + 2x = 360.  <\/div><br><div>Simplificando:  <\/div><div>3y - 10 + 2x = 360.  <\/div><br><div><b>Passo 3: Condição do trapézio isósceles  <\/b><\/div><div>Nos trapézios isósceles, os ângulos das bases opostas são iguais. Isso nos dá a igualdade:  <\/div><div>y + 10 = 2y - 20.  <\/div><br><div>Resolva para y:  <\/div><div>y = 30.  <\/div><br><div><b>Passo 4: Substituir o valor de y na equação total  <\/b><\/div><div>Substituímos y = 30 na equação 3y - 10 + 2x = 360:  <\/div><div>3.(30) - 10 + 2x = 360.  <\/div><br><div>Resolva:  <\/div><div>90 - 10 + 2x = 360,  <\/div><div>80 + 2x = 360,  <\/div><div>2x = 280,  <\/div><div>x = 140.  <\/div><br><div><span>O ângulo x mede 140 graus. <b>A resposta correta é a letra A.<\/b><\/span><\/div>"], "alts": [["a", "140°."], ["b", "130°."], ["c", "120°."], ["d", "110°."]], "resp": "a"}, {"n": 38, "fonte": "2014", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Somando-se o complemento e o suplemento do ângulo <b>x<\/b>, <span>obtém-se a metade do replemento de <b>x<\/b>. Então, <b>x<\/b> é igual a _____.<\/span>", "com": ["<p>Dadas as definições:<\/p><ul><li><p><span>Complemento de <\/span><span data-type=\"katex\" value=\"x =90°-x\"><\/span><\/p><\/li><li><p><span>Suplemento de <\/span><span data-type=\"katex\" value=\"x =180°-x\"><\/span><\/p><\/li><li><p><span>Replemento de <\/span><span data-type=\"katex\" value=\"x =360°-x\"><\/span><\/p><\/li><\/ul><p>Somando-se o complemento e o suplemento de <span>x<\/span>, obtém-se a metade do replemento de x.<\/p><p><span data-type=\"katex\" value=\"(90\\degree-x)+(180\\degree-x)=\\dfrac{1}{2}\\cdot (360\\degree-x)\"><\/span><\/p><p><span data-type=\"katex\" value=\"270-2x=180-\\dfrac{x}{2}\"><\/span><\/p><p><span data-type=\"katex\" value=\"540-4x=360-x\"><\/span><\/p><p><span data-type=\"katex\" value=\"3x=180\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=60\\degree\"><\/span><\/p>"], "alts": [["a", "30°"], ["b", "40°"], ["c", "50°"], ["d", "60°"]], "resp": "d"}, {"n": 39, "fonte": "2013", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Ao expressar 240° em radianos, obtém-se _____ π.", "com": ["<p>Sabemos que:<\/p><p><span data-type=\"katex\" value=\"180\\degree=\\pi\\ rad\"><\/span><\/p><p>Pela regra de três:<\/p><p><span data-type=\"katex\" value=\"\\begin{array}{rcl}180^\\circ &amp; \\longleftrightarrow &amp; \\pi \\\\240^\\circ &amp; \\longleftrightarrow &amp; x \\\\\\end{array}\"><\/span><\/p><p><span data-type=\"katex\" value=\"180x=240\\pi \\Rightarrow x=\\dfrac{240\\pi}{180}\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=\\dfrac{4\\pi}{3}\"><\/span><\/p>"], "alts": [["a", "4/3"], ["b", "3/4"], ["c", "3/2"], ["d", "2/3"]], "resp": "a"}, {"n": 40, "fonte": "2010", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>A bissetriz de um ângulo AÔB forma 60° com o lado&nbsp;<span data-type=\"katex\" value=\"\\overline{OB}\"><\/span><span>.<\/span>&nbsp;Assim, AÔB pode ser classificado como<\/p>", "com": ["<p>A bissetriz de um ângulo divide o ângulo ao meio. Se a bissetriz forma 60° com o lado <span data-type=\"katex\" value=\"\\overline{OB}\"><\/span>, então:<\/p><p><span data-type=\"katex\" value=\"\\dfrac{A\\widehat{O}B}{2}=60\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B=2\\cdot 60\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B=120\\degree\"><\/span><\/p><p>Como <span data-type=\"katex\" value=\"120\\degree\"><\/span> está entre <span data-type=\"katex\" value=\"90\\degree\"><\/span> e <span data-type=\"katex\" value=\"180\\degree\"><\/span>, o ângulo é obtuso.<\/p>"], "alts": [["a", "reto."], ["b", "raso."], ["c", "agudo."], ["d", "obtuso."]], "resp": "d"}, {"n": 41, "fonte": "2010", "tema": "Posições relativas entre retas", "tipo": "mc", "html": true, "enun": "<p>Se r, s e t são retas paralelas, então, quando x vale&nbsp;____, y vale ____ .<\/p><p><img src=\"img/550abd94cb2ad3f6.png\" alt=\"\"><br><\/p>", "com": ["<p>Dada a situação do enunciado:<\/p><p><span><img src=\"img/3c662b15a8e2deac.jpeg\" alt=\"\"><\/span><span data-type=\"katex\" value=\"x+y+110\\degree=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+y=70\\degree\"><\/span><\/p><p>Dentre as alternativas, a soma dos valores deve ser 70°:<\/p><p><span data-type=\"katex\" value=\"x=30\\degree\\Rightarrow y=40\\degree\"><\/span><\/p>"], "alts": [["a", "30°; 40°."], ["b", "30°; 60°."], ["c", "50°; 30°."], ["d", "80°; 30°."]], "resp": "a"}, {"n": 42, "fonte": "2010", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Sejam três ângulos adjacentes AÔB, BÔC e CÔD tais que <span>AÔB é o triplo de CÔD, e este é a metade de BÔC. Se AÔD é um <\/span><span>ângulo raso, então a medida de AÔB é<\/span>", "com": ["<p>Sejam os ângulos adjacentes: <span data-type=\"katex\" value=\"A\\widehat{O}B\"><\/span>, <span data-type=\"katex\" value=\"B\\widehat{O}C\"><\/span>, <span data-type=\"katex\" value=\"C\\widehat{O}D\"><\/span>. Sabemos que:<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}D=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B+B\\widehat{O}C+C\\widehat{O}D=180\\degree\"><\/span><\/p><p>Além disso,<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B=3\\cdot C\\widehat{O}D\"><\/span><\/p><p><span data-type=\"katex\" value=\"C\\widehat{O}D=\\dfrac{1}{2}\\cdot B\\widehat{O}C\"><\/span><\/p><p>Chamemos por <span data-type=\"katex\" value=\"x=C\\widehat{O}D\"><\/span>:<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B+B\\widehat{O}C+C\\widehat{O}D=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"3x+2x+x=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"6x=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=30\\degree\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B=3\\cdot 30\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}B=90\\degree\"><\/span><\/p>"], "alts": [["a", "120°."], ["b", "90°."], ["c", "60°."], ["d", "45°."]], "resp": "b"}, {"n": 43, "fonte": "2009", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Algumas pessoas têm o hábito de “cortar o sete”. No “sete Rascunho&nbsp;cortado” da figura, o “corte” é paralelo ao traço horizontal acima&nbsp;dele. O valor de x é<\/p><p><img src=\"img/9435f7015f0d9206.png\" alt=\"\"><br><\/p>", "com": ["<p>Dada a situação do enunciado, temos duas retas traçadas por uma transversal, isso significa:<\/p><p><span data-type=\"katex\" value=\"x+(3x+8\\degree)=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"4x=172\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=43\\degree\"><\/span><\/p>"], "alts": [["a", "40°."], ["b", "41°."], ["c", "42°."], ["d", "43°."]], "resp": "d"}, {"n": 44, "fonte": "2009", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "Dois ângulos são adjacentes se eles forem consecutivos e", "com": ["<p>Dois ângulos são adjacentes quando:<\/p><ul><li><p>São consecutivos (têm o mesmo vértice e um lado comum),<\/p><\/li><li><p>E não possuem ponto interno comum (não \"invadem\" o interior um do outro).<\/p><\/li><\/ul><p>Analisando as alternativas,<\/p><p>“Dois ângulos são adjacentes se eles forem consecutivos e <strong>não possuírem ponto interno comum<\/strong>.”<\/p>"], "alts": [["a", "os lados de um forem semi-retas coincidentes com os lados <span>do outro.<\/span>"], ["b", "os lados de um forem as semi-retas opostas aos lados do <span>outro.<\/span>"], ["c", "não possuírem ponto interno comum."], ["d", "possuírem ponto interno comum."]], "resp": "c"}, {"n": 45, "fonte": "2009", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Na figura, AÔC é um ângulo raso. O valor de x é<\/p><p><img src=\"img/26b6377e90b7c1f6.png\" alt=\"\"><br><\/p>", "com": ["<p>Se <span data-type=\"katex\" value=\"A\\widehat{O}C\"><\/span> é um ângulo raso:<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}C=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+46\\degree 28’=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=180\\degree-46\\degree 28’\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=180\\degree-\\left(46+\\dfrac{28}{60}\\right)\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=133\\degree + \\degree{32}{60}\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=133\\degree 32’\"><\/span><\/p>"], "alts": [["a", "133° 32&#39;."], ["b", "133° 28&#39;."], ["c", "134° 32&#39;."], ["d", "134° 28&#39;."]], "resp": "a"}, {"n": 46, "fonte": "2008", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "<p>A razão entre o complemento e o suplemento de um ângulo&nbsp;é&nbsp;<span data-type=\"katex\" value=\"\\dfrac{2}{7}\"><\/span>. Esse ângulo mede<\/p>", "com": ["<p>Dada a definição:<\/p><ul><li><p>Complemento de um ângulo <span data-type=\"katex\" value=\"x =90\\degree-x\"><\/span><\/p><\/li><li><p>Suplemento de um ângulo <span data-type=\"katex\" value=\"x =180\\degree-x\"><\/span><\/p><\/li><\/ul><p>A razão entre o complemento e o suplemento é:<\/p><p><span data-type=\"katex\" value=\"\\dfrac{90\\degree-x}{180\\degree-x}=\\dfrac{2}{7}\"><\/span><\/p><p><span data-type=\"katex\" value=\"630\\degree-7x=360\\degree-2x\"><\/span><\/p><p><span data-type=\"katex\" value=\"5x=270\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=54\\degree\"><\/span><\/p>"], "alts": [["a", "28°."], ["b", "32°."], ["c", "43°."], ["d", "54°."]], "resp": "d"}, {"n": 47, "fonte": "2008", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Sendo r // s, é correto afirmar que o valor de x é<\/p><p><img src=\"img/065a771e6383f5ec.png\" alt=\"\"><br><\/p>", "com": ["<p>Dada a situação do enunciado, as retas r e s são paralelas e cortadas pelas transversais t e u. Forma-se um triângulo retângulo:<\/p><p><span data-type=\"katex\" value=\"90\\degree+x+(180\\degree-160\\degree)=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=160\\degree-90\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=70\\degree\"><\/span><\/p>"], "alts": [["a", "80°."], ["b", "70°."], ["c", "60°."], ["d", "50°."]], "resp": "b"}, {"n": 48, "fonte": "2008", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Se&nbsp;<span data-type=\"katex\" value=\"\\vec{OP}\"><\/span>&nbsp;é bissetriz de AÔB, então o valor de x é<\/p><p><img src=\"img/6670ea34a3b261ff.png\" alt=\"\"><br><\/p>", "com": ["<p>Sabendo que <span data-type=\"katex\" value=\"\\vec{OP}\"><\/span> é bissetriz de <span data-type=\"katex\" value=\"A\\widehat{O}B\"><\/span>, então:<\/p><p><span data-type=\"katex\" value=\"A\\widehat{O}P=P\\widehat{O}B\"><\/span><\/p><p><span data-type=\"katex\" value=\"3x-5\\degree=2x+10\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=15\\degree\"><\/span><\/p>"], "alts": [["a", "10°."], ["b", "12°."], ["c", "15°."], ["d", "18°."]], "resp": "c"}, {"n": 49, "fonte": "2007", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Na figura,&nbsp;<span data-type=\"katex\" value=\"\\overline{OC}\"><\/span>&nbsp;é bissetriz de DÔB. Então CÔE mede<\/p><p><img src=\"img/bcd2a0b31389ee54.png\" alt=\"\"><br><\/p>", "com": ["<p>Sabendo que <span data-type=\"katex\" value=\"\\overline{OC}\"><\/span> é bissetriz de <span data-type=\"katex\" value=\"D\\widehat{O}B\"><\/span>, então:<\/p><p><span data-type=\"katex\" value=\"B\\widehat{O}C=C\\widehat{O}D=x\"><\/span><\/p><p>Queremos saber:<\/p><p><span data-type=\"katex\" value=\"C\\widehat{O}E=90\\degree+x\"><\/span><\/p><p>Além disso,<\/p><p><span data-type=\"katex\" value=\"50\\degree+90\\degree+x+x=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"2x=40\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=20\\degree\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"C\\widehat{O}E=90\\degree+20\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"C\\widehat{O}E=110\\degree\"><\/span><\/p>"], "alts": [["a", "140°."], ["b", "130°."], ["c", "120°."], ["d", "110°."]], "resp": "d"}, {"n": 50, "fonte": "2007", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O quádruplo da medida do complemento de um ângulo é <span>igual a 108°. A medida desse ângulo é um valor múltiplo de<\/span>", "com": ["<ul><li><p>Complemento de x = 90\\degree-x<\/p><\/li><\/ul><p>O enunciado diz que o quádruplo do complemento é 108°:<\/p><p><span data-type=\"katex\" value=\"4\\cdot (90\\degree-x)=108\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"90\\degree-x=27\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=63\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=9\\cdot 7\\degree\"><\/span><\/p><p>A medida desse ângulo é um valor múltiplo de <span data-type=\"katex\" value=\"7\\degree\"><\/span>.<\/p>"], "alts": [["a", "5°."], ["b", "7°."], ["c", "15°."], ["d", "17°."]], "resp": "b"}, {"n": 51, "fonte": "2007", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Na figura, r // s. O valor de x + y é<\/p><p><img src=\"img/d7e534dcb6ee605c.png\" alt=\"\"><br><\/p>", "com": ["<p>Na figura do enunciado, há um quadrilátero:<\/p><p><span data-type=\"katex\" value=\"(180\\degree-2x)+(5y)+(2y+116\\degree)+(3x-50\\degree)=(4-2)\\cdot 180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+7y=114\\degree\"><\/span><\/p><p>Além disso, r e s são paralelas, então:<\/p><p><span data-type=\"katex\" value=\"2x=5y\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"\\dfrac{5y}{2}+7y=114\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"y=12\\degree\"><\/span><\/p><p>E,<\/p><p><span data-type=\"katex\" value=\"2x=5\\cdot 12\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=30\\degree\"><\/span><\/p><p>Para a soma:<\/p><p><span data-type=\"katex\" value=\"x+y=30\\degree+12\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+y=42\\degree\"><\/span><\/p>"], "alts": [["a", "18°."], ["b", "38°."], ["c", "42°."], ["d", "60°."]], "resp": "c"}, {"n": 52, "fonte": "2007", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Quando uma transversal intercepta duas retas paralelas, <span>formam-se ângulos alternos internos, cujas medidas são expressas <\/span><span>por 4x – 20° e 2x + 42°. A medida de um desses ângulos é<\/span>", "com": ["<p>Quando uma transversal intercepta duas retas paralelas, os ângulos alternos internos são congruentes, ou seja:<\/p><p><span data-type=\"katex\" value=\"4x-20\\degree=2x+42\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"2x=62\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=31\\degree\"><\/span><\/p><p>Assim, para os ângulos:<\/p><p><span data-type=\"katex\" value=\"\\alpha=4x-20\\degree=2x+42\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=2\\cdot 31\\degree+42\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=104\\degree\"><\/span><\/p>"], "alts": [["a", "31°."], ["b", "62°."], ["c", "104°."], ["d", "158°."]], "resp": "c"}, {"n": 53, "fonte": "2006", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Dadas duas semi-retas colineares opostas&nbsp;<span data-type=\"katex\" value=\"\\vec{AO}\"><\/span><span> e <\/span><span data-type=\"katex\" value=\"\\vec{OB}\"><\/span>&nbsp;e um&nbsp;ponto C não pertencente à reta&nbsp;<span data-type=\"katex\" value=\"\\overline{AB}\"><\/span>&nbsp;é correto afirmar que os&nbsp;ângulos AÔC e CÔB são<\/p>", "com": ["<p>Observe a situação do enunciado:<\/p><p><span><img src=\"img/10b2063a3d0ab45f.jpeg\" alt=\"\"><\/span><span data-type=\"katex\" value=\"\\alpha+\\beta=180\\degree\"><\/span><\/p><p>Essa situação representa ângulos consecutivos e suplementares.<\/p>"], "alts": [["a", "suplementares e não consecutivos."], ["b", "consecutivos e não suplementares."], ["c", "não consecutivos e não suplementares."], ["d", "consecutivos e suplementares."]], "resp": "d"}, {"n": 54, "fonte": "2006", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>De acordo com a figura, é <u>FALSA<\/u> a afirmação:<\/p><p><img src=\"img/55ec7b14e2b13250.png\" alt=\"\"><br><\/p>", "com": ["<p>Dada a situação do enunciado:<\/p><ul><li><p>Ângulos opostos pelo vértice:<\/p><\/li><\/ul><p><span data-type=\"katex\" value=\"x+y=2x-y\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=2y\"><\/span><\/p><ul><li><p>Ângulo raso:<\/p><\/li><\/ul><p><span data-type=\"katex\" value=\"(4x-2y)+(x+y)=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"5x-y=180\\degree\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"5\\cdot (2y)-y=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"9y=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"y=20\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=2\\cdot 20\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=40\\degree\"><\/span><\/p><p>Para o ângulo <span data-type=\"katex\" value=\"\\alpha\"><\/span>:<\/p><p><span data-type=\"katex\" value=\"\\alpha=4x-2y\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=4\\cdot 40\\degree-2\\cdot 20\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=160\\degree-40\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=120\\degree\"><\/span><\/p><p>A única alternativa FALSA diz: <span data-type=\"katex\" value=\"125\\degree<\\alpha<138\\degree\"><\/span>.<\/p>"], "alts": [["a", "α &gt; 100°."], ["b", "α &lt; 150°."], ["c", "125° &lt; α &lt; 138°."], ["d", "112° &lt; α &lt; 145°."]], "resp": "c"}, {"n": 55, "fonte": "2006", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O valor da expressão (27°38&#39;+18°42&#39;20&#34;) .3 − 50°52&#39;38&#34; , na <span>forma mais simplificada possível, é<\/span>", "com": ["<p>Dada a expressão do enunciado:<\/p><p><span data-type=\"katex\" value=\"(27\\degree 38’+18\\degree 42’20”)\\cdot 3-50\\degree 52’38”\"><\/span><\/p><p>(i) <span data-type=\"katex\" value=\"27\\degree 38’+18\\degree 42’20”\"><\/span>:<\/p><p><span data-type=\"katex\" value=\"0”+20”=20”\"><\/span><\/p><p><span data-type=\"katex\" value=\"38’+42’=80’=1\\degree 20’\"><\/span><\/p><p><span data-type=\"katex\" value=\"27\\degree+18\\degree=45\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"27\\degree 38’+18\\degree 42’20”=45\\degree+1\\degree 20’+20”\"><\/span><\/p><p><span data-type=\"katex\" value=\"27\\degree 38’+18\\degree 42’20”=46\\degree 20’20”\"><\/span><\/p><p>(ii) <span data-type=\"katex\" value=\"(27\\degree 38’+18\\degree 42’20”)\\cdot 3=3\\cdot 46\\degree 20’20”\"><\/span>:<\/p><p><span data-type=\"katex\" value=\"3\\cdot 20”=60”=1’\"><\/span><\/p><p><span data-type=\"katex\" value=\"3\\cdot 20’=60’=1\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"3\\cdot 46\\degree=138\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"3\\cdot 46\\degree 20’20”=138\\degree+1\\degree+1’\"><\/span><\/p><p><span data-type=\"katex\" value=\"3\\cdot 46\\degree 20’20”=139\\degree 1’\"><\/span><\/p><p>(iii) <span data-type=\"katex\" value=\"139\\degree 1’-50\\degree 52’38”\"><\/span>:<\/p><p><span data-type=\"katex\" value=\"1’=60”\\Rightarrow 1’-38”=60”-38”=22”\"><\/span><\/p><p><span data-type=\"katex\" value=\"139\\degree=138\\degree+60’\"><\/span><\/p><p><span data-type=\"katex\" value=\"1\\degree=60’\\Rightarrow 60’-52’=8’\"><\/span><\/p><p><span data-type=\"katex\" value=\"138\\degree-50\\degree=88\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"139\\degree 1’-50\\degree 52’38”=88\\degree 8’ 22”\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"(27\\degree 38’+18\\degree 42’20”)\\cdot 3-50\\degree 52’38”88\\degree 8’22”\"><\/span><\/p>"], "alts": [["a", "139°59&#39;20&#34;"], ["b", "138°51&#39;38&#34;"], ["c", "88°51&#39;38&#34;"], ["d", "88°8&#39;22&#34;"]], "resp": "d"}, {"n": 56, "fonte": "2006", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O equivalente, em radianos, a um arco de 37 30&#39; \u0001 é", "com": ["<p>Convertendo 37°30’ em graus decimais:<\/p><p><span data-type=\"katex\" value=\"37\\degree 30’=37,5\\degree\"><\/span><\/p><p>Convertendo graus para radianos:<\/p><p><span data-type=\"katex\" value=\"\\begin{array}{rcl}180^\\circ &amp; \\longleftrightarrow &amp; \\pi \\\\37,5^\\circ &amp; \\longleftrightarrow &amp; x \\\\\\end{array}\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=37,5\\cdot\\dfrac{\\pi}{180}\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=\\dfrac{5\\pi}{24}\"><\/span><\/p>"], "alts": [["a", "<p><span data-type=\"katex\" value=\"\\dfrac{15\\pi}{32}\"><\/span><\/p>"], ["b", "<p><span data-type=\"katex\" value=\"\\dfrac{5\\pi}{24}\"><\/span><\/p>"], ["c", "<p><span data-type=\"katex\" value=\"\\dfrac{15\\pi}{28}\"><\/span><\/p>"], ["d", "<p><span data-type=\"katex\" value=\"\\dfrac{12\\pi}{31}\"><\/span><\/p>"]], "resp": "b"}, {"n": 57, "fonte": "2005", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "O quádruplo da medida 86°28’36’’ é igual a", "com": ["<p>Queremos o quádruplo de 86° 28’36”:<\/p><p><span data-type=\"katex\" value=\"\\alpha=4\\cdot (86° 28’36”)\"><\/span><\/p><p><span data-type=\"katex\" value=\"4\\cdot 86\\degree=344\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"4\\cdot 28’=112’=60’+52’=1\\degree 52’\"><\/span><\/p><p><span data-type=\"katex\" value=\"4\\cdot 36”=144”=120”+24”=2’24”\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"\\alpha=344\\degree+1\\degree 52’+2’24”\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\alpha=345\\degree 54’ 24”\"><\/span><\/p>"], "alts": [["a", "346°52’24’’."], ["b", "346°54’24’’."], ["c", "345°52’24’’."], ["d", "345°54’24’’."]], "resp": "d"}, {"n": 58, "fonte": "2005", "tema": "Posições relativas entre retas", "tipo": "mc", "html": true, "enun": "Duas retas r e s, cortadas por uma transversal t, <span>determinam ângulos colaterais internos de medidas 3p + 14° e <\/span><span>5p – 30°. O valor de p, para que as retas r e s sejam paralelas, é<\/span>", "com": ["<p>Quando duas retas são paralelas e cortadas por uma transversal, os ângulos colaterais internos são suplementares, ou seja, a soma é igual a 180°.<\/p><p><span data-type=\"katex\" value=\"(3p+14\\degree)+(5p-30\\degree)=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"8p-16\\degree=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"8p=196\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"p=24,5\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"p=24\\degree 30’\"><\/span><\/p>"], "alts": [["a", "5° 30&#39;."], ["b", "23° 40&#39;."], ["c", "24° 30&#39;."], ["d", "30° 40&#39;."]], "resp": "c"}, {"n": 59, "fonte": "2005", "tema": "Semelhança de triângulos", "tipo": "mc", "html": true, "enun": "<p>Na figura, AB = 15 cm, BC = 6 cm, CD = 9 cm e EF = 4 cm. Se&nbsp;<span data-type=\"katex\" value=\"\\overline{BE}//\\overline{CF}//\\overline{DG}\"><\/span>, então a medida de&nbsp;<span data-type=\"katex\" value=\"\\overline{AG}\"><\/span>, em cm, é<\/p><p><img src=\"img/c9c074a69f7d71f5.png\" alt=\"\"><br><\/p>", "com": ["<p>Pela razão de semelhança, vale:<\/p><p><span data-type=\"katex\" value=\"\\dfrac{BC}{EF}=\\dfrac{AD}{AG}\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\dfrac{BC}{EF}=\\dfrac{AB+BC+CD}{AG}\"><\/span><\/p><p><span data-type=\"katex\" value=\"\\dfrac{6}{4}=\\dfrac{15+6+9}{AG}\"><\/span><\/p><p><span data-type=\"katex\" value=\"AG=20\\ cm\"><\/span><\/p>"], "alts": [["a", "16"], ["b", "20"], ["c", "24"], ["d", "30"]], "resp": "b"}, {"n": 60, "fonte": "2005", "tema": "Posições relativas entre retas", "tipo": "mc", "html": true, "enun": "“Se duas retas paralelas distintas interceptam uma transversal, então os ângulos _____________ são suplementares.” Completa corretamente a sentença a palavra", "com": ["<p>Quando duas retas paralelas são cortadas por uma transversal, formam-se vários pares de ângulos. Entre eles, destacam-se:<\/p><ul><li><p>Ângulos correspondentes: são congruentes (iguais).<\/p><\/li><li><p>Ângulos alternos (internos e externos): também são congruentes.<\/p><\/li><li><p>Ângulos colaterais (ou consecutivos internos): são suplementares, ou seja, somam <span data-type=\"katex\" value=\"180\\degree\"><\/span>.<\/p><\/li><\/ul><p>Se duas retas paralelas distintas interceptam uma transversal, então os ângulos <strong>colaterais <\/strong>são suplementares.<\/p>"], "alts": [["a", "opostos pelo vértice."], ["b", "correspondentes."], ["c", "colaterais."], ["d", "alternos."]], "resp": "c"}, {"n": 61, "fonte": "2005", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Um arco de 22°30’ mede, em radianos,", "com": ["<p>Convertendo 22°30’ em graus decimais:<\/p><p><span data-type=\"katex\" value=\"22°30’=22,5°\"><\/span><\/p><p>Convertendo graus para radianos:<\/p><p><span data-type=\"katex\" value=\"\\begin{array}{rcl}180^\\circ &amp; \\longleftrightarrow &amp; \\pi \\\\22,5^\\circ &amp; \\longleftrightarrow &amp; x \\\\\\end{array}\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=22,5\\cdot\\dfrac{\\pi}{180}\"><\/span><\/p><p><span data-type=\"katex\" value=\"x=0,125\\pi\"><\/span><\/p>"], "alts": [["a", "5."], ["b", "0,125."], ["c", "0,125π."], ["d", "0,2π"]], "resp": "c"}, {"n": 62, "fonte": "2005", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "<p>Na figura, r // s e x + 2y + 2z = 340°. Então y =&nbsp;<\/p><p><img src=\"img/bb055c73fceb882e.png\" alt=\"\"><br><\/p>", "com": ["<p>Observe que há retas r e s paralelas, e uma reta transversal:<\/p><p><span data-type=\"katex\" value=\"x+z=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"y+(50\\degree+z)=180\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"y+z=130\\degree\"><\/span><\/p><p>Assim,<\/p><p><span data-type=\"katex\" value=\"(x+z)+(y+z)=180\\degree+130\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+y+2z=310\\degree\"><\/span><\/p><p><span data-type=\"katex\" value=\"x+2y+2z=310\\degree+y\"><\/span><\/p><p><span data-type=\"katex\" value=\"340\\degree=310\\degree+y\"><\/span><\/p><p><span data-type=\"katex\" value=\"y=30\\degree\"><\/span><\/p>"], "alts": [["a", "60°."], ["b", "50°."], ["c", "40°."], ["d", "30°."]], "resp": "d"}, {"n": 63, "fonte": "CFS - Demais Especialidades · 2003", "tema": "Teorema de Tales", "tipo": "mc", "html": true, "enun": "Observando as figuras abaixo, o valor, em grau .de x — y é<br><div><img src=\"img/2493cabe053507b6.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Passe pelo vértice do ângulo de 65° uma paralela a 𝑟, e chame-a de 𝑟₁ Da mesma forma, passe uma paralela a 𝑟 pelo vértice de 𝑥, e chame-a de 𝑟₂. Sejam 𝑎₁, 𝑎₂, as partes do ângulo de 65° à esquerda e à direita de 𝑟₁, respectivamente. Da mesma forma, sejam 𝑥₁, 𝑥₂ as partes do ângulo 𝑥 à esquerda e à direita de 𝑟₂. Como temos retas paralelas cortadas por transversais, deduz-se que:<\/div><br><div>𝑎₁ é alterno interno com 30° ⇒ 𝑎₁ = 30°<\/div><br><div>𝑎₂ é alterno interno com 𝑥₁ ⇒ 𝑎₂ = 𝑥₁<\/div><br><div>𝑥₂ é alterno interno com 40° ⇒ 𝑥₂ = 40°<\/div><br><div>𝑎₁ e 𝑎₂ compõem o ângulo de 65° ⇒ 𝑎₁ + 𝑎₂ = 65°<\/div><br><div>𝑥₁ e 𝑥₂ compõem o ângulo de 𝑥 ⇒ 𝑥₁ + 𝑥₂ = 𝑥<\/div><br><div>Logo, temos que 𝑥 = 𝑥₁ + 𝑥₂ = 𝑎₂ + 40° = (65° − 𝑎₁) + 40° = (65° − 30° + 40°)<\/div><br><div>∴ 𝑥 = 75°<\/div><br><div>De modo geral, aplicando o mesmo procedimento, podemos concluir que a soma dos ângulos que “olham” para cima é igual à soma dos que “olham” para baixo. Poderíamos, assim, ter calculado o valor de 𝑥 de maneira mais rápida: 30° + 𝑥 = 65° + 40° ∴ 𝑥 = 75°.<\/div><br><div>Para calcular o valor de 𝑦, percebemos primeiro que o suplementar do ângulo de 150° é um ângulo interno do triângulo e vale 180° − 150° = 30°. Pelo teorema do ângulo externo, temos que 𝑦 = 25° + 30° = 55°.<\/div><br><div>Portanto,<\/div><br><div>𝑥 − 𝑦 = 75° − 55° = 20°<\/div>"], "alts": [["a", "25"], ["b", "20"], ["c", "15"], ["d", "10"]], "resp": "b"}, {"n": 64, "fonte": "CFS - Demais Especialidades · 2002", "tema": "Lista de questões", "tipo": "mc", "html": true, "enun": "Coloque V ou F conforme as afirmações sejam verdadeiras ou falsas:<br><div>(   ) Dois ângulos adjacentes são suplementares.<\/div><br><div>(   ) Dois ângulos que têm o mesmo complemento são congruentes,<\/div><br><div>(   ) Dois ângulos suplementares são adjacentes.<br><\/div><br><div>(   ) Um triângulo obtusângulo pode ser isósceles.\n<\/div><br><div>(   ) Um triângulo retângulo é escaleno.<\/div><br><div>Assinale a sequência correta,<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>“Dois ângulos adjacentes são suplementares.” ⇒ F.<div><br><div>A imagem a seguir mostra um contraexemplo. 𝛼 e 𝛽 são ângulos adjacentes, mas não há nenhuma restrição quanto a eles serem suplementares ou não.<\/div><\/div><br><div><img src=\"img/5901c715c1928d60.png\" alt=\"\"><br><\/div><br><div>“Dois ângulos que têm o mesmo complemento são congruentes.” ⇒ V.<\/div><br><div>Suponha que 𝛾 seja o complemento de 𝛼 e de 𝛽. Devemos mostrar que 𝛼 = 𝛽. De fato, 𝛼 = 90° − 𝛾 = 90° − (90° − 𝛽) = 𝛽.<\/div><br><div>“Dois ângulos suplementares são adjacentes.”⇒ 𝐹<\/div><br><div>Se os ângulos são suplementares, quer dizer que a sua soma é 180°. Mas eles podem estar deslocados. Não necessariamente têm um lado em comum.<\/div><br><div>“Um triângulo obtusângulo pode ser isósceles.”⇒ 𝑉<\/div><br><div>Tome, por exemplo, no hexágono regular 𝐴𝐵𝐶𝐷𝐸𝐹, o triângulo 𝐴𝐵𝐶. O triângulo claramente é isósceles pois têm dois lados congruentes (ao lado do hexágono, e portanto, entre si). Além disso, o hexágono tem 6 lados, o ângulo interno 𝐴𝐵̂𝐶 mede<\/div><br><div>((6 − 2) ⋅ 180°)/6 = 120° &gt; 90°.<\/div><br><div>Logo, o triângulo 𝐴𝐵𝐶 é obtusângulo e isósceles.<\/div><br><div>“Um triângulo retângulo é escaleno.”⇒ 𝐹<\/div><br><div>Existe triângulo retângulo que é isósceles. Basta que os catetos tenham a mesma medida.<\/div>"], "alts": [["a", "F-V-F-V-V"], ["b", "F-V-V-V-F"], ["c", "F-V-F-V-F"], ["d", "F-F-V-V-F"]], "resp": "c"}, {"n": 65, "fonte": "CFS - Demais Especialidades · 2002", "tema": "Soma dos ângulos  de um polígono", "tipo": "mc", "html": true, "enun": "Duas retas paralelas são cortadas por uma transversal, de modo que a soma dos ângulos agudos formados vale 144°. Então a diferença entre as medidas de um ângulo obtuso e de um agudo é", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Quando a transversal não é perpendicular às paralelas, são formados oito ângulos, sendo quatro agudos congruentes e quatro obtusos congruentes. Seja 𝑥 o valor de um desses agudos. Então, o suplementar, 𝑦 = 180°−𝑥, é o valor de um dos obtusos. Temos:<br><div>𝟒𝒙 = 𝟏𝟒𝟒° ⇒ 𝒙 = 𝟑𝟔° ⇒ 𝒚 = 𝟏𝟒𝟒° ∴ 𝒚 − 𝒙 = 𝟏𝟎𝟖°<br><br><\/div>"], "alts": [["a", "85°"], ["b", "92°"], ["c", "108°"], ["d", "116°"]], "resp": "c"}, {"n": 66, "fonte": "Sprint EsPCEx · 2023", "tema": "Relações métricas em triângulos retângulos", "tipo": "mc", "html": true, "enun": "Três árvores de alturas diferentes estão alinhadas e localizadas perpendicularmente à superfície. A pequena mede 2m e a média 3m. Se a distância entre cada par de árvores consecutivas é de 3 m, qual é a altura da árvore mais alta?", "com": ["<div><b>GABARITO: ALTERNATIVA C<\/b><\/div><br>Desenhando os dados do enunciado teremos:<br><div><img src=\"img/13e86586cd519c37.png\" alt=\"\"><br><\/div><br><div>observamos que a figura formada é um trapézio e a <span>árvore central é o equivalente a base média do trapézio, <\/span><span>então:<\/span><\/div><div><span><br><\/span><\/div><div><img src=\"img/1c972929d85491b4.png\" alt=\"\"><span><br><\/span><\/div>"], "alts": [["a", "4,5 m"], ["b", "5,0 m"], ["c", "4,0 m"], ["d", "4,3 m"], ["e", "6,0 m"]], "resp": "c"}, {"n": 67, "fonte": "Sprint EsPCEx · 2023", "tema": "Semelhança de triângulos", "tipo": "mc", "html": true, "enun": "Na figura abaixo 𝐸𝐿 ∥ 𝐵𝐹, 𝐸𝐹 ∥ 𝐵𝐶, 𝐿𝐶 = 10 𝑐𝑚 𝑒 𝐴𝐿 = 8 𝑐𝑚. Sendo assim o <span>valor de LF será igual a:<\/span><div><span><br><\/span><\/div><div><img src=\"img/4ac2186f3ba48124.png\" alt=\"\"><span><br><\/span><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA D<\/b><\/div><br><img src=\"img/780e4f0ca86d9f14.png\" alt=\"\"><br><div>i) Sendo EL ∥ BF, temos:<\/div><br><div><img src=\"img/c0f20026c8483503.png\" alt=\"\"><br><\/div><br><div>ii) Sendo EF ∥ BC, temos:<\/div><br><div><img src=\"img/48e8a3774a316488.png\" alt=\"\"><br><\/div><br><div>iii) Igualando i) e ii)<\/div><br><div><img src=\"img/fe175fbadf495e80.png\" alt=\"\"><br><\/div>"], "alts": [["a", "2 𝑐𝑚"], ["b", "2,5 𝑐𝑚"], ["c", "3 𝑐𝑚"], ["d", "4 𝑐𝑚"], ["e", "5 𝑐𝑚"]], "resp": "d"}, {"n": 68, "fonte": "Sprint EsPCEx · 2023", "tema": "Fundamentos (Ponto-reta-plano-ângulo)", "tipo": "mc", "html": true, "enun": "O valor da expressão 𝐸 = 𝛼 + 𝛽 + 𝜃 + 𝝕, em <span>graus, será igual a:<\/span><div><span><br><\/span><\/div><div><img src=\"img/378eee9fb8ac5abc.png\" alt=\"\"><span><br><\/span><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA A<\/b><\/div><img src=\"img/4e80712f748d4203.png\" alt=\"\"><br><div>i) Utilizando a soma dos ângulos externos <span>em triângulos<\/span><\/div><br><div>a) 𝛼 + 𝛽 + 𝑦 = 360˚<\/div><br><div>b) 𝜃 + 𝝕 + 𝑥 = 360˚<\/div><br><div>c) 𝑥 + 𝑦 + 70˚ = 360˚ → 𝑥 + 𝑦 = 290˚<\/div><br><div>ii) Somando as eq. a) e b)<\/div><br><div>𝛼 + 𝛽 + 𝜃 + 𝝕 + 𝑥 + 𝑦 = 720˚<\/div><br><div>iii) Substituindo c) na soma<\/div><br><div><img src=\"img/f778d11d9bb2d31b.png\" alt=\"\"><br><\/div>"], "alts": [["a", "430°"], ["b", "650°"], ["c", "630°"], ["d", "580°"], ["e", "510°"]], "resp": "a"}];
+
+const FLASH = [
+ ["a00","Quais são as noções primitivas da Geometria?","Ponto, reta e plano.<br><b>Exemplo:</b> ponto A, reta r, plano α."],
+ ["a00","Retas reversas","Não estão no mesmo plano e não se cruzam.<br><b>Exemplo:</b> arestas não paralelas de faces opostas de um cubo."],
+ ["a00","Paralelas coincidentes: interseção?","A própria reta (todos os pontos).<br><b>Exemplo:</b> paralelas distintas têm interseção vazia."],
+ ["a00","Segmentos adjacentes","Colineares e consecutivos, com só a extremidade em comum.<br><b>Exemplo:</b> AB e BC com B entre A e C."],
+ ["a00","Ponto médio","M entre A e B com AM ≡ MB.<br><b>Exemplo:</b> AB = 12 ⇒ AM = 6."],
+ ["a00","Ângulo obtuso","Entre 90° e 180°.<br><b>Exemplo:</b> 120°."],
+ ["a00","Opostos pelo vértice","São congruentes.<br><b>Exemplo:</b> duas retas formam 40° e o OPV também mede 40°."],
+ ["a00","Complemento × suplemento de 35°","55° e 145°.<br><b>Exemplo:</b> replemento de 35° = 325°."],
+ ["a00","Consecutivos × adjacentes","Consecutivos: lado comum. Adjacentes: consecutivos sem pontos internos comuns.<br><b>Exemplo:</b> AÔB e AÔC (com B dentro de AÔC) são consecutivos, não adjacentes."],
+ ["a00","O que é bissetriz?","Semirreta interna que divide o ângulo em dois congruentes.<br><b>Exemplo:</b> bissetriz de 90° gera dois de 45°."],
+ ["ref","Quantos valores de ângulo surgem com paralelas e uma transversal?","Dois: α e β, com α + β = 180°.<br><b>Exemplo:</b> 65° e 115°."],
+ ["ref","Alternos internos","Congruentes.<br><b>Exemplo:</b> se um mede 50°, o outro também."],
+ ["ref","Colaterais internos","Suplementares (somam 180°).<br><b>Exemplo:</b> 50° e 130°."],
+ ["ref","Teorema de Tales","Paralelas cortadas por transversais determinam segmentos proporcionais.<br><b>Exemplo:</b> 2/4 = 3/x ⇒ x = 6."],
+ ["ref","180° em radianos e grados","π rad e 200 gr.<br><b>Exemplo:</b> 90° = π/2 rad = 100 gr."],
+ ["ref","Converter graus em radianos","Multiplique por π/180.<br><b>Exemplo:</b> 60° = π/3 rad."],
+ ["ref","1° tem quantos minutos? 1′ tem quantos segundos?","60′ e 60″.<br><b>Exemplo:</b> 0,5° = 30′."],
+ ["ref","Medida de um arco em radianos","Comprimento do arco ÷ raio.<br><b>Exemplo:</b> arco 10 cm, raio 5 cm ⇒ 2 rad."],
+ ["pan","Soma dos ângulos internos de um triângulo","180°.<br><b>Exemplo:</b> triângulo equilátero tem três ângulos de 60°."],
+ ["pan","Soma dos internos de um polígono de n lados","(n − 2)·180°.<br><b>Exemplo:</b> hexágono: 720°."],
+ ["pan","Semelhança de triângulos","Ângulos iguais e lados proporcionais.<br><b>Exemplo:</b> Tales leva à semelhança."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "GEOMETRIA PLANA", s: "Ponto · reta · plano<br><small>Segmentos · ângulos · paralelas · Tales</small>",
+  e: "A Geometria Euclidiana parte de três noções primitivas e constrói, a partir delas, segmentos, ângulos e as relações entre retas.",
+  x: "Os trilhos de um trem são paralelas; os dormentes, transversais.", l: "ponto (A), reta (r), plano (α)",
+  p: "Reta é ilimitada; segmento é limitado; semirreta tem origem."};
+const MM = [
+ {k: "ret", c: "#2f5bd3", t: "Retas", s: "posições relativas",
+  e: "Duas retas podem ser concorrentes, paralelas (distintas ou coincidentes) ou reversas.", x: "Ruas que se cruzam são concorrentes.", l: "r ∩ s = {P} · ∅ · r",
+  p: "Sem ponto comum ≠ paralelas (podem ser reversas).",
+  f: [
+   {k: "ret1", t: "Concorrentes", e: "Um único ponto comum; se o ângulo é 90°, perpendiculares.", x: "Os eixos x e y.", l: "r ∩ s = {P}", p: "Perpendicular é um caso de concorrente."},
+   {k: "ret2", t: "Paralelas distintas e coincidentes", e: "Distintas: sem ponto comum, mesmo plano. Coincidentes: todos os pontos comuns.", x: "Linhas de um caderno.", l: "r ∥ s", p: "Coincidentes têm interseção = a própria reta, não ∅."},
+   {k: "ret3", t: "Reversas", e: "Em planos diferentes, sem ponto comum e não paralelas.", x: "Uma aresta do teto e uma do chão em direções diferentes.", l: "não coplanares", p: "Não existem no plano."}
+  ]},
+ {k: "seg", c: "#1f8a4c", t: "Segmentos", s: "congruentes, colineares, adjacentes",
+  e: "Parte da reta entre dois pontos.", x: "Lado de um quadrado.", l: "AB com barra",
+  p: "Adjacentes exigem colineares + só um ponto comum.",
+  f: [
+   {k: "seg1", t: "Congruentes", e: "Mesma medida.", x: "Lados de um quadrado.", l: "AB ≡ CD", p: "Congruente ≠ coincidente."},
+   {k: "seg2", t: "Consecutivos e adjacentes", e: "Consecutivos: extremidade comum. Adjacentes: além disso, colineares e sem sobreposição.", x: "AB e BC numa reta, com B entre A e C.", l: "AB ∩ BC = {B}", p: "MN e NP sobrepostos não são adjacentes."},
+   {k: "seg3", t: "Ponto médio", e: "Divide o segmento em duas partes iguais.", x: "AB = 10 ⇒ AM = MB = 5.", l: "AM ≡ MB", p: "O livro escreve AB ≡ MB por engano."}
+  ]},
+ {k: "ang", c: "#b07400", t: "Ângulos", s: "posição, medida, pares",
+  e: "Duas semirretas de mesma origem.", x: "Ponteiros do relógio às 3h: 90°.", l: "AÔB",
+  p: "OPV são iguais, não suplementares.",
+  f: [
+   {k: "ang1", t: "Agudo, reto, obtuso, raso", e: "&lt;90°, =90°, entre 90° e 180°, =180°.", x: "Às 2h os ponteiros formam 60° (agudo).", l: "90° · 180°", p: "Obtuso não chega a 180°."},
+   {k: "ang2", t: "Opostos pelo vértice", e: "Formados por duas retas concorrentes; são congruentes.", x: "Num X, os ângulos de cima e de baixo são iguais.", l: "OPV ⇒ ≡", p: "Ângulos vizinhos no X somam 180°."},
+   {k: "ang3", t: "Complementar, suplementar, replementar", e: "Somam 90°, 180° e 360°.", x: "Complemento de 25° = 65°.", l: "90 − x · 180 − x · 360 − x", p: "Trocar complemento por suplemento."},
+   {k: "ang4", t: "Bissetriz", e: "Divide o ângulo em dois iguais.", x: "Bissetriz de 80° forma dois de 40°.", l: "AÔC ≡ CÔB", p: "Bissetriz é semirreta interna."},
+   {k: "ang5", t: "Grau, grado, radiano", e: "360° = 400 gr = 2π rad.", x: "240° = 4π/3 rad = 800/3 gr.", l: "rad = G·π/180", p: "O livro dá 2π/3 rad para 240°; isso é 120°."}
+  ]},
+ {k: "par", c: "#8a3ac2", t: "Paralelas e Tales", s: "transversais",
+  e: "Paralelas cortadas por transversais geram ângulos iguais ou suplementares e segmentos proporcionais.", x: "Rampas paralelas cortadas por uma rua.", l: "α + β = 180°",
+  p: "Colaterais somam 180°; alternos são iguais.",
+  f: [
+   {k: "par1", t: "Alternos e correspondentes: iguais", e: "Alternos internos, alternos externos e correspondentes são congruentes.", x: "Ângulo de 70° em cima ⇒ 70° no alterno.", l: "≡", p: "\"Alternos internos somam 180°\": ERRADO."},
+   {k: "par2", t: "Colaterais: suplementares", e: "Colaterais internos e externos somam 180°.", x: "70° e 110°.", l: "α + β = 180°", p: "Mesmo lado da transversal = colateral."},
+   {k: "par3", t: "Teorema de Tales", e: "Segmentos determinados nas transversais são proporcionais.", x: "3/6 = 5/x ⇒ x = 10.", l: "x₁/y₁ = x₂/y₂", p: "O livro escreve x₁/y₂ por engano."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Fórmula ou notação</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"OPV": "opostos pelo vértice"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.7_mat3_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

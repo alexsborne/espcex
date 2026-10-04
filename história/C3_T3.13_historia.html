@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.13 · Ciclo 3 · História — A Idade Média e o feudalismo (parte 1/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.13</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa L (3.13) · História</h1>
+        <div class="sub">EsPCEx 2026 · A Idade Média e o modo de vida feudal (parte 1/2): origens, Reino Franco, feudalismo e suas transformações</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Linha do tempo</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.13</h2>
+  <p class="lead">Tarefa L da trilha: <i>"Estude os seguintes temas: Introdução à Idade Média e ao feudalismo; Império Carolíngio - Alta Idade Média; Consolidação do feudalismo - Idade Média Central; As transformações do Feudalismo - Baixa Idade Média"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os quatro trechos do livro digital de História (itens 2.1 a 2.4). O slide-resumo do capítulo não pôde ser baixado; vários quadros do material são imagens, e o conteúdo deles foi reconstruído aqui com a historiografia de referência. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Ato inaugural da Idade Média: as <b>invasões germânicas</b>; principal consequência: <b>ruralização</b>.<br>• Heranças: romanas (<b>colonato</b>, clientela, precarium) e germânicas (<b>comitatus</b>, beneficium).<br>• Suserano <b>doa</b> o feudo; vassalo <b>recebe</b> e jura fidelidade (relação entre nobres). Servidão: senhor × servo.<br>• Sociedade <b>estamental</b>: quem ora, quem guerreia, quem trabalha; mobilidade quase nula.<br>• Século XI: paz, inovações agrícolas, excedente, crescimento populacional, comércio: início da crise do feudalismo.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (30 min).</b> Leia a aba <b>Resumo</b> e monte a sua própria pirâmide social.</li><li><b>Mapa e Linha do tempo (15 min).</b> Memorize as datas-chave (476, 496, 732, 751, 800, 814, 843, 987).</li><li><b>Questões (35 min).</b> 28 questões; leia o comentário de todas.</li><li><b>Rendimento (5 min).</b> Anote os conceitos que confundiu.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: História Geral com interpretação de documentos e conceitos.</span></div><div class="card"><b>Questões</b><br><span class="muted">28 de múltipla escolha.</span></div><div class="card"><b>Próxima parte</b><br><span class="muted">Idade Média 2/2: Igreja, Cruzadas, renascimento comercial e urbano, crise do século XIV.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: a Idade Média e o feudalismo (parte 1/2)</h2>
+  <p class="lead">Na ordem do livro digital. A experiência estudada é a da porção <b>ocidental</b> do antigo Império Romano.</p>
+
+  <h3>1. Periodização e origem</h3>
+  <div class="card">
+    <ul>
+      <li>Idade Média: da queda de Roma do Ocidente (<b>476</b>) à tomada de Constantinopla (<b>1453</b>). <b>Alta Idade Média</b> (séc. V–X): formação do feudalismo. <b>Idade Média Central</b> (séc. X–XIII) e <b>Baixa</b> (séc. XI/XIV–XV): auge e crise.</li>
+      <li>Para Jacques Le Goff, o "ato inaugural" foram as <b>invasões bárbaras</b>, e o mundo medieval nasceu sobre as ruínas de Roma: houve <b>fusão</b> de romanos e germânicos num mundo rural.</li>
+      <li>Principal consequência: <span class="k">ruralização</span> da sociedade e da economia.</li>
+    </ul>
+    <div class="tbl"><table>
+      <tr><th>Herança</th><th>Instituição</th><th>Virou…</th></tr>
+      <tr><td>Romana</td><td><b>Colonato</b>: colono livre, mas preso à terra</td><td>base da <b>servidão</b></td></tr>
+      <tr><td>Romana</td><td><b>Clientela</b>: dependência pessoal</td><td>relações senhor-servo</td></tr>
+      <tr><td>Romana</td><td><b>Precarium</b>: terras entregues a um grande senhor em troca de proteção</td><td>servidão</td></tr>
+      <tr><td>Germânica</td><td><b>Comitatus</b>: lealdade entre guerreiros e chefe</td><td><b>suserania e vassalagem</b></td></tr>
+      <tr><td>Germânica</td><td><b>Beneficium</b>: chefe concede terras aos guerreiros</td><td>feudo (benefício)</td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"A vassalagem tem origem no colonato romano": <b>ERRADO</b>.<br><b>O erro:</b> mistura as heranças.<br><b>O certo:</b> o colonato está na base da <b>servidão</b>; a vassalagem vem do <b>comitatus</b> germânico (com o beneficium).</div>
+  </div>
+
+  <h3>2. Reino Franco (Alta Idade Média)</h3>
+  <div class="card">
+    <p><b>Dinastia Merovíngia</b> (451–751): de Meroveu; <b>Clóvis</b> unificou o reino (481–511) e se <b>converteu ao cristianismo em 496</b>, ganhando o apoio da Igreja e da população romanizada; em troca, a Igreja recebeu terras. Nasce a aliança <b>trono e altar</b>, de interdependência, não de subordinação.</p>
+    <ul>
+      <li><b>Prefeitos do palácio</b> (<i>major domus</i>) passaram a governar de fato. <b>Carlos Martel</b> venceu os árabes em <b>Poitiers (732)</b>; para isso organizou uma cavalaria forte, que recebia terras: base da vassalagem.</li>
+      <li><b>Pepino, o Breve</b>, com apoio do papa, depôs o último merovíngio em <b>751</b> e fundou a <b>Dinastia Carolíngia</b>; doou ao papa terras na Itália central (<b>Patrimônio de São Pedro</b>, embrião dos Estados Pontifícios). A unção por Estêvão II (754) selou a aliança.</li>
+      <li><b>Carlos Magno</b> (768–814): expansão, administração por condes, marqueses e <b>missi dominici</b> (enviados do senhor); <b>coroado imperador pelo papa Leão III em 800</b>; <b>Renascimento Carolíngio</b> (escolas, eruditos na corte, a "Academia").</li>
+      <li>Doação de terras em troca de lealdade criou os <b>títulos de nobreza</b> (marca → marquês, condado → conde): de vitalícios passaram a hereditários, com <b>imunidades</b> (jurídica e tributária) e forte <b>descentralização</b>.</li>
+      <li>Luís, o Piedoso, sucedeu Carlos Magno; seus filhos disputaram o trono até o <b>Tratado de Verdun (843)</b>: Luís, o Germânico (Germânia), Carlos, o Calvo (França) e Lotário (faixa central e Itália, com o título imperial).</li>
+      <li>Em 987, Hugo Capeto inicia a dinastia <b>Capetíngia</b> na França. As <b>novas invasões</b> (vikings/normandos, magiares, sarracenos), nos séculos IX–X, aprofundaram a feudalização: a população buscava proteção nos castelos e se tornava serva.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um ponto do material</b>O livro situa a Batalha de Poitiers "nos montes Pireneus". Poitiers fica no centro-oeste da França; os árabes já tinham cruzado os Pireneus quando foram detidos.</div>
+    <div class="call bad"><b>Pegadinha</b>"A vassalagem era a relação entre senhores e servos": <b>ERRADO</b>.<br><b>O erro:</b> confunde vassalagem com servidão.<br><b>O certo:</b> vassalagem é entre <b>nobres</b> (suserano e vassalo); servidão é entre senhor e camponês.</div>
+  </div>
+
+  <h3>3. O feudalismo consolidado</h3>
+  <div class="card">
+    <p>Sistema em que guerreiros especializados (senhores), ligados por vínculos de dependência, dominam camponeses que trabalham a terra (Le Goff). O <span class="k">feudo</span> é a <b>unidade produtiva autossuficiente</b>: produz e também é onde se mora, reza, festeja.</p>
+    <p><b>Espaços do feudo</b>: <b>manso senhorial</b> (terras do senhor, trabalhadas pelos servos), <b>manso servil</b> (lotes dos servos) e <b>manso comunal</b> (bosques, pastos, pântanos de uso comum), além do castelo, aldeia, igreja e moinho.</p>
+    <div class="tbl"><table>
+      <tr><th>Estamento</th><th>Função</th><th>Origem</th></tr>
+      <tr><td><b>Clero</b> (oratores)</td><td>orar; detinha a cultura e muitas terras</td><td>vinha da nobreza (alto clero); não se nascia clérigo</td></tr>
+      <tr><td><b>Nobreza</b> (bellatores)</td><td>guerrear e proteger</td><td>nascimento</td></tr>
+      <tr><td><b>Servos</b> (laboratores)</td><td>trabalhar</td><td>nascimento; presos à terra</td></tr>
+    </table></div>
+    <p>Sociedade <b>estamental</b>: posição definida pelo nascimento; mobilidade praticamente nula; a Igreja ensinava que a desigualdade era ordem divina.</p>
+    <div class="tbl"><table>
+      <tr><th>Obrigação servil</th><th>O que era</th></tr>
+      <tr><td><b>Corveia</b></td><td>trabalho gratuito alguns dias por semana no manso senhorial</td></tr>
+      <tr><td><b>Talha</b></td><td>parte da produção do manso servil entregue ao senhor</td></tr>
+      <tr><td><b>Banalidades</b></td><td>taxas pelo uso do moinho, forno, lagar do senhor</td></tr>
+      <tr><td><b>Mão-morta</b></td><td>taxa para os herdeiros continuarem na terra</td></tr>
+      <tr><td><b>Dízimo</b></td><td>décima parte para a Igreja</td></tr>
+    </table></div>
+    <ul>
+      <li><b>Poder político descentralizado</b>: o rei existia, mas cada senhor mandava no seu feudo (poder temporal sem interferência).</li>
+      <li><b>Economia</b>: agrária, de subsistência, com pouca moeda e trocas em espécie; pesos e medidas regionalizados.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um ponto do material</b>O livro fala em economia "isolada" e poder baseado na terra "na Baixa Idade Média". O isolamento e a quase ausência de moeda caracterizam sobretudo a <b>Alta Idade Média</b>; na Baixa Idade Média o comércio renasce.</div>
+  </div>
+
+  <h3>4. Transformações (séculos XI em diante)</h3>
+  <div class="card">
+    <p>Com o fim das invasões, a Europa ficou em <b>paz</b> e <b>superpovoada</b>. Inovações:</p>
+    <ul>
+      <li><b>Rotação trienal</b> (três campos, com pousio) e ampliação das áreas cultivadas sobre o manso comunal.</li>
+      <li><b>Charrua</b> de ferro, <b>peitoral</b> (atrelagem) e <b>ferradura</b> para o cavalo, <b>moinho hidráulico</b>.</li>
+    </ul>
+    <p>Consequências: <b>excedente</b>, crescimento do <b>comércio</b> e do <b>artesanato</b> (mercadores e artesãos), mas também <b>marginalizados</b> (servos expulsos e filhos de nobres sem terra). O feudo autossuficiente não respondia às novas demandas: começa a <b>desagregação do feudalismo</b>, um processo lento.</p>
+    <div class="call bad"><b>Pegadinha</b>"A crise do feudalismo começou por falta de produção": <b>ERRADO</b>.<br><b>O erro:</b> inverte a causa.<br><b>O certo:</b> começou pelo <b>excesso</b>: excedente e população maior pediam comércio e terras que o feudo não oferecia.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: o mundo feudal</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/2 (esta)</b><br><span class="muted">Origens, Reino Franco, estrutura feudal, transformações do século XI.</span></div>
+    <div><b>Parte 2/2</b><br><span class="muted">Igreja medieval, Cruzadas, renascimento comercial e urbano, crise do século XIV.</span></div>
+    <div><b>Depois</b><br><span class="muted">Formação das monarquias nacionais e transição para a Idade Moderna.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Relações feudais</h3>
+  <div class="tbl"><table>
+    <tr><th>Relação</th><th>Entre</th><th>Troca</th><th>Origem</th></tr>
+    <tr><td>Suserania e vassalagem</td><td>nobre × nobre</td><td>terra (feudo) × fidelidade e serviço militar</td><td>comitatus + beneficium</td></tr>
+    <tr><td>Servidão</td><td>senhor × servo</td><td>proteção e lote × trabalho e taxas</td><td>colonato + precarium</td></tr>
+  </table></div>
+  <h3>Dinastias francas</h3>
+  <div class="tbl"><table>
+    <tr><th>Dinastia</th><th>Nomes</th><th>Marco</th></tr>
+    <tr><td>Merovíngia</td><td>Meroveu, Clóvis</td><td>conversão de Clóvis (496)</td></tr>
+    <tr><td>Carolíngia</td><td>Pepino, Carlos Magno, Luís</td><td>751 · coroação em 800 · Verdun 843</td></tr>
+    <tr><td>Capetíngia</td><td>Hugo Capeto</td><td>987</td></tr>
+  </table></div>
+  <h3>Causa → consequência no século XI</h3>
+  <div class="tbl"><table>
+    <tr><th>Causas</th><th>Consequências</th></tr>
+    <tr><td>Fim das invasões; inovações técnicas</td><td>Excedente e crescimento populacional → comércio, cidades, marginalizados → crise do feudalismo</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Linha do tempo</h2>
+  <div class="tbl"><table>
+    <tr><th>Ano</th><th>Fato</th></tr>
+    <tr><td>451</td><td>Batalha dos Campos Catalúnicos; Meroveu (início merovíngio, segundo o material)</td></tr>
+    <tr><td>476</td><td>Queda do Império Romano do Ocidente</td></tr>
+    <tr><td>481–511</td><td>Clóvis constrói o Reino Franco</td></tr>
+    <tr><td>496</td><td>Conversão de Clóvis ao cristianismo</td></tr>
+    <tr><td>711</td><td>Árabes atravessam Gibraltar e dominam a Península Ibérica</td></tr>
+    <tr><td>732</td><td>Carlos Martel vence os árabes em Poitiers</td></tr>
+    <tr><td>751</td><td>Pepino, o Breve, depõe o último merovíngio: dinastia Carolíngia</td></tr>
+    <tr><td>754</td><td>Unção de Pepino pelo papa Estêvão II</td></tr>
+    <tr><td>768–814</td><td>Reinado de Carlos Magno</td></tr>
+    <tr><td>800</td><td>Carlos Magno coroado imperador pelo papa Leão III</td></tr>
+    <tr><td>817</td><td><i>Ordinatio Imperii</i> (sucessão, sob Luís, o Piedoso)</td></tr>
+    <tr><td>843</td><td>Tratado de Verdun: divisão do império</td></tr>
+    <tr><td>séc. IX–X</td><td>Novas invasões (vikings, magiares, sarracenos); feudalização se aprofunda</td></tr>
+    <tr><td>987</td><td>Hugo Capeto: dinastia Capetíngia</td></tr>
+    <tr><td>séc. XI</td><td>Paz, inovações agrícolas, crescimento populacional, renascimento comercial</td></tr>
+    <tr><td>1453</td><td>Queda de Constantinopla: fim convencional da Idade Média</td></tr>
+  </table></div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos do livro digital)</h2>
+  <p class="lead">São as <b>28 questões</b> dos cadernos de quatro trechos do livro digital de História: 28 de múltipla escolha. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.13 · Formação e estrutura do feudalismo</option>
+      <option value="ref">Reino Franco e Carlos Magno</option>
+      <option value="pan">Panorama da Idade Média</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Simulado EsPCEx · 2022", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Desde o final do Império Romano, as cidades vinham sendo abandonadas por causa das invasões e dos saques. Ao mesmo tempo, a falta de mão de obra escrava atraía vastos contingentes de trabalhadores para o campo.<br><div>(VICENTINO e DORIGO. História, 2011.)\n<\/div><br><div>O comentário acima descreve o processo que constitui uma das principais características da Europa medieval, que está corretamente identificada em<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b>", "<b>Alternativa A:<\/b> Errado. Cercamentos foi um processo de êxodo rural, saída do campo. O texto descreve um processo contrário. Além disso, a temporalidade é da Alta Idade Média. Os cercamentos ocorrem por séculos da idade Moderna.", "<b>Alternativa B:<\/b> Errado. Não existe renascimento agrícola.", "<b>Alternativa C:<\/b> Correto. O texto descreve o processo de ruralização, ou seja, a sociedade se volta para o campo e a economia também. Guarde isso como a principal característica da formação da Idade Média.", "<b>Alternativa D:<\/b> Errado. É uma relação feudal, mas não é o que está descrito no texto.", "<b>Alternativa E:<\/b> Errado. Também ocorreu ao longo de toda a idade Média, mas não é o processo que está descrito no texto."], "alts": [["a", "Cercamentos"], ["b", "Renascimento agrícola"], ["c", "Ruralização"], ["d", "Suserania e vassalagem"], ["e", "Expansão do cristianismo"]], "resp": "c"}, {"n": 2, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2014", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "“O feudalismo foi a forma de organização política, social e econômica dominante na Europa Ocidental durante a Idade Média.” (AZEVEDO &amp; SERIACOPI, 2007)&nbsp;<div><br><div>Abaixo estão redigidas algumas afirmações:&nbsp;<\/div><br><div>I - Os servos da gleba viviam sob o domínio dos senhores feudais.&nbsp;<\/div><br><div>II - Declínio das atividades rurais e fortalecimento das atividades comerciais urbanas.&nbsp;<\/div><br><div>III - Sociedade rigidamente hierarquizada, mas com grande mobilidade entre as classes.&nbsp;<\/div><br><div>IV - Poder político fragmentado entre senhores feudais e o rei.&nbsp;<\/div><br><div>V - Grandes senhores de terras e alto clero ocupavam o topo da sociedade.&nbsp;<\/div><br><div>Assinale a alternativa que lista unicamente características do feudalismo.&nbsp;<\/div><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div><b>[II] INCORRETA<\/b>. As atividades rurais eram a base da economia feudal;<\/div><br><div><b>[III] INCORRETA.<\/b> Não havia praticamente nenhuma mobilidade social no Feudalismo.<\/div>"], "alts": [["a", "I, II e III."], ["b", "II, III e V."], ["c", "I, IV e V."], ["d", "III, IV e V."], ["e", "I, III e V."]], "resp": "c"}, {"n": 3, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Sobre as cidades durante a Idade Medieval, é correto afirmar que:", "com": ["<b>GABARITO: ALTERNATIVA B.<\/b><div><b><br><\/b><\/div><div>Questão clássica sobre o papel das cidades ao longo da história. Observe que a questão cobra do aluno se ele consegue perceber permanências e mudanças que promovem certas reconfigurações de sentidos. Assim, a cidade medieval utilizou o mesmo espaço e suas edificação, ainda que em ruínas, para nova função ou atividade, qual seja: religiosa. Assim, o espaço da cidade da antiguidade essencialmente política dá espaço para a cidade que reúne as pessoas para seus ritos e sermões religiosos – outro tipo de sociabilidade. Tendo isso em mente, vamos à análise das alternativas:<\/div>", "<b>Alternativa A:<\/b> Errado. Não continuavam sendo espaços políticos, conforme o texto e pelo que conhecemos sobre a descentralização da política que acabou a cargo dos senhores feudais e da classe nobre.", "<b>Alternativa B:<\/b> Correto, pelo que comentamos acima.", "<b>Alternativa C:<\/b> Errado. Embora seja verdade sobre as invasões e a destruição dos edifícios, fato que tornavam as cidades espaços mais perigosos, aqui a sociabilidade é religiosa e não é inexistência de sociabilidade.", "<b>Alternativa D:<\/b> Errado. Essa descrição ficaria mais coerente com as cidades modernas que surgem com o renascimento urbano e, ainda assim, com ressalvas porque sempre há ressignificação com algumas continuidades.", "<b>Alternativa E:<\/b> Errado. Os burgos começaram a surgir com o renascimento comercial, já na Baixa Idade Média, então, não existiu durante toda a Idade Média."], "alts": [["a", "Continuavam sendo espaços políticos, mesmo que suas edificações estivessem e ruínas."], ["b", "São uma continuação espacial das cidades da antiguidade com ressignificação das suas funções e das atividades que eram realizadas nela, como as religiosas."], ["c", "Não era possível uma sociabilidade devido à falta de urbanidade por conta das invasões e da destruição dos edifícios."], ["d", "São uma renovação completa porque permitiram um amplo desenvolvimento econômico baseado no comércio."], ["e", "Eram o mesmo que burgos."]], "resp": "b"}, {"n": 4, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Na formação e expansão do Reino Franco atuaram soberanos de duas dinastias: a merovíngia, que governou do século V ao século VIII, e a carolíngia, que governou nos século VIII e IX.<div>(Cotrim, pg. 168) <\/div><br><div>Sobre o Império Carolíngio, está correta a seguinte afirmação <\/div>", "com": ["<b>GABARITO: ALTERNATIVA C.<\/b>", "<b>Alternativa A:<\/b> errado, pois a cultura escrita foi valorizada durante o renascimento carolíngio, com destaque para a organização de textos administrativos, os quais contribuíram para estruturar a administração do Império.", "<b>Alternativa B:<\/b> falso, pois não foi Carlo Martel quem foi coroado, mas Carlos Magno, no ano de 800.", "<b>Alternativa C:<\/b> correto, pois a alternativa sintetiza o processo de fusão por que passou a formação das relações sociais na Idade Média.", "<b>Alternativa D:<\/b> falso, pois o resgate cultura foi da cultura greco-romana.", "<b>Alternativa E:<\/b> falso, pois não eram os clérigos que desempenhavam esta função, mas os missi-dominici."], "alts": [["a", "o renascimento carolíngio foi marcado pelo desestímulo à cultura escrita e pela valorização da oralidade em cantigas."], ["b", "Carlos Martel foi coroado pelo Papa Leão XIII e, com isso, conquistou a legitimidade da Igreja Católica para governar."], ["c", "unificado sob o universalismo da tradição romana e cristã, o Império foi administrado pela tradição de vínculos pessoais, característica da cultura franca, o que levou à constituição dos laços de vassalagem."], ["d", "o renascimento carolíngio foi inspirado na retomada da cultura clássica egípcia."], ["e", "Carlos Magno designou aos clérigos a função de inspecionar e viajar pelos territórios para aprimorar o controle administrativo do império."]], "resp": "c"}, {"n": 5, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Na passagem da Idade Antiga para a Idade Média, os povos germânicos que passaram a viver nas terras do antigo Império Romano se dividiam em vários grupos, com grandes diferenças entre si. <br><div>COTRIM. <i>História Global.<\/i><\/div><div><i><br><\/i><\/div><div>São características comuns a esses povos:<\/div><br><div>I.\torganização familiar baseada no poder patriarcal.<\/div><div>II.\tlíderes guerreiros eram os líderes políticos.<\/div><div>III.\tdireito consuetudinário.<\/div><div>IV.\treligião monoteísta. <\/div><br><div>Assinale a única alternativa que contém apenas os itens corretos:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>I.\tCorreto. Poder patriarcal vem de patriarca, ou seja, o pai da família.<\/div><br><div>II.\tCorreto. Os germânicos eram sociedades guerreiras, então os chefes guerreiros eram os mais poderosos e isso os tornava líderes políticos também.<\/div><br><div>III.\tCorreto. Consuetudinário é o mesmo que costumeiro, ou seja, o direito era baseado em costumes antigos e transmitidos oralmente. Não usavam leis escritas, como os romanos.<\/div><br><div>IV.\tErrado. Os germânicos eram originalmente politeístas. Apenas depois de um tempo, eles vão, aos poucos, convertendo-se ao cristianismo.<\/div><br><div>Assim, os itens corretos são I, II e II. Gabarito alternativa B.<\/div>"], "alts": [["a", "I, II, IV"], ["b", "I, II, III"], ["c", "I, II"], ["d", "I, IV"], ["e", "I, II, III, IV"]], "resp": "b"}, {"n": 6, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Entre os séculos XI e XIII,  a Europa ocidental viveu um período de relativa paz e expansão do desenvolvimento. Nesse cenário, houve um crescimento demográfico, principalmente nas áreas que compreendem Itália, Alemanha, Holanda, Bélgica, Luxemburgo, França e Península Ibérica. Nesse sentido, esse crescimento populacional estava relacionado com", "com": ["<b>Gabarito: alternativa B.<\/b>", "<b>Alternativa A:<\/b> <b>falso, <\/b>pois o processo de expansão marítima não ocorreu neste momento, mas no final do século XIV. Repare que o enunciado delimita um período histórico ainda correspondente ao feudalismo, transitando para o renascimento comercial.", "<b>Alternativa B:<\/b> <b>correto,<\/b> pois houve um relativo desenvolvimento agrícola que favoreceu o crescimento demográfico. Por exemplo, é desse período que surgem os sistemas rotativos e instrumentos que ampliam a produtividade agrícola (charrua, ferradura, moinho d’água).", "<b>Alternativa C:<\/b> <b>falso,<\/b> pois o cercamento foi um fenômeno específico da Inglaterra, o que, de fato, aumentou a concentração populacional nas cidades. Mas veja que o enunciado aborda outras regiões da Europa.", "<b>Alternativa D:<\/b> <b>falso, <\/b>pois neste período as ondas de invasões do leste europeu foram interrompidas, o que permitiu um período de relativa paz.", "<b>Alternativa E:<\/b> <b>errado,<\/b> pois os servos conseguiram, após revoltas e em função do surgimento de técnicas que viabilizaram acúmulos, aliviar a cobrança de determinadas obrigações feudais. Veja, segundo Cotrim, nesse momento os servos conseguem “arrendar” terras dos senhores feudais. Além disso, ainda não havia Estado nacionais formados para garantir investimentos estatais."], "alts": [["a", "a expansão além mar, após o descobrimento de tecnologias que permitiam grandes navegações."], ["b", "a ampliação do cultivo agrícola, com a ocupação de áreas de campos e florestas, bem como o aperfeiçoamento das técnicas de produção."], ["c", "o processo de cercamentos no campo, o qual favoreceu a concentração urbana."], ["d", "os imigrantes que chegavam do norte da África e Ocidente asiático, fato que impactou positivamente o crescimento populacional."], ["e", "a ampliação das taxas feudais, o que gerou capital para investimentos estatais."]], "resp": "b"}, {"n": 7, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Acerca do governo de Carlos Magno (768-814), assinale a opção correta.", "com": ["<b>GABARITO: C<\/b>", "<b>Alternativa A:<\/b> errado, pois os  “vândalos” ocupavam a porção norte da África, sendo que o Império Carolíngio não se expandiu até estes territórios.", "<b>Alternativa B:<\/b> errado, pois este feito ocorreu sob o domínio de Pepino, pai de Carlos Magno, quando ele combater os lombardos na Península Itálica.", "<b>Alternativa C:<\/b> correto, porque a afirmação faz referência à relação de vassalagem, a qual foi lapidada por meio das alterações da organização administrativa do território elaboradas por Carlos Magno.", "<b>Alternativa D:<\/b> falso, pois os netos de Carlos Magno (Carlos, Luis e Lotário)  passaram a disputar o poder até estabelecerem o Tratado de Verdun (em 843), dividindo o território carolíngio em 3 partes, ou seja, a fragmentação do território.", "<b>Alternativa E:<\/b> errado, pois este feito foi de responsabilidade de Carlos Martel"], "alts": [["a", "lutou contra o reino dos vândalos, povo germânico que ameaçava o poder da Igreja Católica na Europa central."], ["b", "como parte da política expansionista do Império Carolíngio, a Igreja Católica recebeu vasta porção de terra no reino da Itália, o que deu início a formação do Patrimônio de São Pedro, o Estado da Igreja Católica."], ["c", "os laços de fidelidade entre o poder político e nobres foram aprofundados por meio da distribuição de terras, o que fortaleceu uma das relações elementares da sociabilidade medieval."], ["d", "a coroação de Carlos Magno deu início à longeva unificação dos povos germânicos sob um soberano cristão."], ["e", "Carlos Magno foi responsável por barrar a expansão islâmica para o continente europeu a partir da Península Ibérica e ganhou notoriedade pela vitória na batalha de Poitiers."]], "resp": "c"}, {"n": 8, "fonte": "Simulado EsPCEx · 2023", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Carlos Magno dividiu o Império em cerca de duzentos <i>condados <\/i>administrados por <i>condes<\/i>. Nas fronteiras, criou as <i>marcas<\/i>, unidades governadas por <i>marqueses<\/i>. Havia ainda <i>ducados<\/i>, cada um dos quais englobava diversos <i>condados<\/i>. Os duques, seus administradores, tinham a função de convocar e dirigir os exércitos dos <i>condados <\/i>sob sua responsabilidade. <div><br><div>(ARRUDA, José Jobson de; PILETTI, Nelson, 2007, o, 110)<\/div><br><div>Considerando o contexto da consolidação das relações feudais e para evitar que a estrutura administrativo-territorial acima descrita se desintegrasse, a unidade do Império de Carlos Magno foi assegura por qual elemento específico do feudalismo:<\/div><\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA D<\/b><\/div><br>Em primeiro lugar, identifique tempo, espaço e tema nas informações fornecidas pelo enunciado. É fácil notar que o tema é o Império Carolíngio, o que já nos permite deduzir o tempo e o espaço. Esse império se formou a partir da expansão do Reino dos Francos quando era governado pela Dinastia Carolíngia, durante a Alta Idade Média, na região central da Europa (territórios entre a França e a Alemanha). Carlos Magno foi o rei responsável pela maior expansão do reino, tornando-o um império e coroando-se como novo Imperador Romano-Germânico com o apoio da Igreja Católica, em 800. Entretanto, o cerne da questão aqui é como Carlos Magno conseguia manter sua autoridade e um poder centralizado. Lembra que durante o feudalismo a ruralização da sociedade e as guerras frequentes dificultavam a centralização do poder? Daí, que gente a grande habilidade política de Carlos Magno. Ele soube se aproveitar de outro elemento da sociedade feudal para assegurar a lealdade pessoal dos condes, marqueses, duques e demais membros da nobreza. Vejamos qual era:", "<b>Alternativa A:<\/b> Incorreta. O <i>beneficium <\/i>era o lote de terra concedido a cavaleiros ou nobres pelo serviço militar prestado a outro nobre mais poderoso e influente. De fato, isso fazia parte do elemento que ajudou Carlos Magno a centralizar o poder, porém sozinho não é uma resposta suficiente para a questão.", "<b>Alternativa B:<\/b> Incorreta. A fidelidade servil dizia respeito à relação entre os servos (camponeses e demais trabalhadores braçais) e os senhores feudais.", "<b>Alternativa C:<\/b> Incorreta, pela mesma razão que a anterior.", "<b>Alternativa D:<\/b> Correta! A relação de suserania e vassalagem era um juramento feito entre dois nobres. Um deles (o vassalo) jurava lealdade ao outro (suserano), comprometendo-se a prestar apoio político e militar sempre que convocado. Em geral, o suserano retribuía o vassalo com o <i>beneficium<\/i>. Essa troca poderia envolver também a concessão de cargos, títulos e partilha de riquezas, dependendo do poder e posição detidos pelo suserano. Tratava-se de uma relação de reciprocidade, isto é, com obrigações recíprocas. Selando esse pacto pessoal diretamente com seus generais, marqueses, condes, duques e demais membros da corte, Carlos Magno garantiu a lealdade deles e a centralização do poder em seu império.", "<b>Alternativa E:<\/b> Incorreta. Até podemos considerar a relação de suserania e vassalagem como uma hierarquia militar, mas seria algo reducionista. Esse vínculo pessoal entre Carlos Magno e a nobreza diretamente subordinada a ele possuía tanto um caráter militar quanto político e social."], "alts": [["a", "beneficium."], ["b", "fidelidade servil."], ["c", "relação de servidão."], ["d", "relação de suserania e vassalagem."], ["e", "hierarquia militar."]], "resp": "d"}, {"n": 9, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2022", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Segundo Azevedo e Seriacopi (2006, p. 109), o feudalismo foi a forma de organização política, social e econômica dominante na Europa ocidental durante a Idade Média. Mesmo não tendo se manifestado de maneira idêntica em todas as regiões do continente, pode-se dizer que, de modo geral, são estas as suas características:", "com": ["<b>GABARITO: ALTERNATIVA C<\/b>", "<b>Alternativa A:<\/b> falso, pois no feudalismo não havia massiva de manufaturas, pois a economia era essencialmente rural e voltada para a subsistência. Já as relações de servidão, ok, essas existiam, pois eram as relações entre Senhores e servos.", "<b>Alternativa B:<\/b> errado, pois a religião que predominou no feudalismo, aliás, durante toda a Idade Média, foi o catolicismo, ou seja, um contexto monoteísta (apenas uma religião). A frase erra ao sugerir politeísmo, ou seja, muitas religiões.", "<b>Alternativa C:<\/b> correto, é o nosso gabarito. O feudalismo se caracterizou por um tipo de economia rural, agrícola, bem como havia o isolamento dos feudos em cada “canto” da maior parte da Europa. Nesses feudos, o poder político era exercício pelo Senhor feudal.", "<b>Alternativa D:<\/b> falso, pois não havia mercado interno no feudalismo. Já o trecho da sociedade estamental está correto, pois havia a nobreza, o clero e os servos.", "<b>Alternativa E:<\/b> falso, pois no feudalismo não havia massiva de manufaturas, pois a economia era essencialmente rural e voltada para a subsistência."], "alts": [["a", "produção massiva de manufaturas para o mercado externo e relações de servidão no campo."], ["b", "agricultura como principal atividade e politeísmo como forma de religião."], ["c", "agricultura como principal atividade produtiva e o poder político estava fragmentado entre os senhores feudais."], ["d", "mercado interno fortalecido e sociedade estamental."], ["e", "poder político fragmentado entre os senhores feudais e produção massiva de manufaturas."]], "resp": "c"}, {"n": 10, "fonte": "Sprint EsPCEx · 2022", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "“Durante muito tempo, a Idade Média foi considerada um período obscuro da história europeia. Dominada pelo misticismo e pela ignorância, ela seria uma espécie de “Idade das Trevas”, durante a qual a Europa teria sofrido um retrocesso artístico, intelectual, filosófico e institucional, com a destruição dos valore da cultura greco-romana. Hoje, contudo, os historiadores reconhecem a importância da Idade Média para a formação do mundo contemporâneo”.<br><div>(ARRUDA, José Jobson de A., PILETTI, Nelson. Toda a História. São Paulo: Ed. Ática. 2007, p. 93)<\/div><br><div>A ressalva feita sobre o significado da Idade Média indica que houve criações intelectuais e civilizatórias positivas ao longo desse período, considerado, durante muito tempo, como das “sombras”. Nesse sentido, qual das alternativas abaixo expressa criações surgidas na Idade Média?<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA B<\/b><\/div><br>O tempo ao qual a questão se refere é a Idade Média, entre os séculos V e XV. O espaço é a Europa. O tema é inovações técnicas e intelectuais nesse período. Neste ponto, é bom lembrar que os critérios e a visão sobre a história muda de acordo com o período em que a mesma é produzida. A divisão didática dos períodos da história da humanidade (Antiguidade, Idade Média e Idade Moderna) foi criada pelos humanistas do Renascimento cultural, na Europa, durante os séculos XIV e XVI. Como vimos com mais detalhes na Aula 04, esse movimento foi caracterizado pela redescoberta do conhecimento da Antiguidade pelos europeus. O fim da Idade Média é marcado por uma série de crises (guerras, fome, peste, etc.) e pelo controle ideológico da Igreja. Além disso, o contato frequente com os muçulmanos, resultante seu domínio da Península Ibérica até o século XIV e das cruzadas ocorridas entre o XI e XIII, trouxe também uma série de novos saberes e documentos de civilizações antigas que eles haviam preservado. O fim do Império Bizantino, em 1453, também ocasionou um fluxo migratório para a Europa cristã e com isso uma série de textos, artefatos e professores bizantinos serviram de ponte entre europeus e a antiguidade.<br><div>Dessa forma, os europeus do Renascimento consideravam as civilizações antigas, sobretudo Grécia e Roma, como o ápice do desenvolvimento humano em todas as áreas. Algo que só seria retomado naquele momento em que eles estavam redescobrindo todo esse conhecimento. O período de mil anos entre o fim do Império Romano e o século XV, que estavam vivendo, era visto por eles como um momento de decadência, estagnação e obscurantismo. Isso porque eles consideravam que a estagnação do comércio, o abandono das cidades e o controle ideológico da Igreja contribuíram para que o progresso fosse empacado. Por isso, deram o nome de Idade Média, pois a mesma estaria bem no meio de dois períodos de riqueza e prosperidade. Contudo, como o texto da questão sugere, as gerações seguintes de historiadores revisaram essa avaliação sobre o período medieval, identificando que houve diferentes inovações importantíssimas para a sociedade europeia. Considerando esses apontamentos, vejamos:<\/div>", "<b>Alternativa A:<\/b> Incorreta. O Estado Moderno e as teorias contratualistas só começam a se desenvolver no início da Idade Moderna, logo depois da Idade Média. Na verdade, é difícil demarcar exatamente essa origem em um ou outro período, pois cada país passou por esses processos no seu próprio tempo. Contudo, como o Estado com características modernas mais antigo, Portugal, se consolidou no século XIV, considera-se como um fenômeno que se enquadra melhor na Idade Moderna que estava prestes a se iniciar.", "<b>Alternativa B:<\/b> Correta! As primeiras universidades surgiram na Idade Média pela iniciativa da Igreja Católica, que monopolizava todas as instâncias da educação nessa época. Era do seu interesse oferecer cursos superiores para padronizar a formação do clero e dos nobres e alinhá-los ao seu discurso e pensamento oficiais. Por sua vez, o Parlamento Inglês foi fundado pela Magna Carta, de 1215. As resistências locais dos nobres à consolidação do poder monárquico foram grandes. O rei João Sem Terra, governante entre 1199-1216, enfrentou uma série de revoltas da nobreza feudal britânica, ao tentar organizar as bases tributárias do Estado Monárquico. Recusando-se a pagar quaisquer impostos lançados unilateralmente pelo soberano, os nobres coagiram o rei a assinar a Magna Carta, em 1215. Esse documento que o obrigava a consultar um parlamento eleito entre a nobreza antes de criar ou aumentar qualquer tributo.", "<b>Alternativa C:<\/b> Incorreta. Cidades muradas para resistir à ataques militares existiam em outras regiões que não a Europa e em momentos anteriores, inclusive no continente europeu.", "<b>Alternativa D:<\/b> Incorreta. A Igreja Católica foi fundada muito tempo antes da Idade Média. É possível destacar três momentos importantes para sua fundação: 1) quando Jesus Cristo começou a professar seus ensinamentos, por volta de 30 d. C.; 2) quando o Imperador Constantino, de Roma, converteu-se ao cristianismo e legalizou o culto à esta religião, em 312 d. C., e promoveu o Concílio de Nicéia, em 325 d. C.; 3) quando o Imperador Teodósio tornou o cristianismo a religião oficial do Império Romano, em 383 d. C.", "<b>Alternativa E:<\/b> Incorreta. A criação da escrita data aproximadamente 4 mil anos a. C., provavelmente na região do Oriente Médio, na Mesopotâmia."], "alts": [["a", "surgimento do Estado Moderno e das teorias contratualistas."], ["b", "surgimento das primeiras universidades e novas formas de representação política, como o Parlamento inglês."], ["c", "aparição das primeiras cidades cercadas por muros, destinadas à defesa militar."], ["d", "aparição da Igreja Católica."], ["e", "criação da escrita."]], "resp": "b"}, {"n": 11, "fonte": "Sprint EsPCEx · 2022", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "Embora o feudalismo seja um sistema que caracterizou diversas regiões da Europa ocidental entre os séculos X e XIII, podemos dizer que suas instituições resultaram de longa gestação, mesclando elementos romanos e germânicos.<br><div>Classifique os itens abaixo da seguinte forma:<\/div><br><div>R para a herança do <b>final do Império<\/b> Romano<\/div><br><div>G para a herança germânica<\/div><br><div>(   ) Colonato<\/div><br><div>(   ) Enfraquecimento do poder centralizado<\/div><br><div>(   ) Economia agropastoril<\/div><br><div>(   ) Comitatus<\/div><br><div>(   ) Beneficium<\/div><br><div>Assinale a alternativa que contém a sequência correta:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA E<\/b><\/div><br>A invasão do Império Romano pelos povos germânicos (chamados de bárbaros pelos romanos), que ocorreu a partir do século V, gerou o isolamento de várias regiões europeias, que deram origem posteriormente aos feudos, sendo esta a origem do feudalismo. Além disso, temos a junção de instituições romanas (como o colonato) e germânicas (como o comitatus, por exemplo). No sistema de colonato, os trabalhadores rurais e seus descendentes estavam ligados de maneira perpétua às terras do senhor-proprietário, porém não eram escravos, e sim, seus servos. Em troca do uso das terras e da proteção, retribuíam com trabalho obrigatório. No sistema germânico conhecido como comitatus, havia uma relação entre guerreiros e proprietários de terra, baseada na honra, lealdade e proteção mútua. Isso deu origem ao sistema de suserania e vassalagem na Idade Média junto com o beneficium, recompensa dada pelos chefes militares germânicos aos guerreiros, em forma da posse de terras, que dariam origem aos feudos.", "<b>Alternativa A:<\/b> Incorreta! Apesar do colonato ser uma herança que o feudalismo herdou do Império Romano, e o enfraquecimento de poder ter possibilitado a descentralização desse último, esta alternativa se torna incorreta ao colocar a economia agropastoril como romana. Esse era o modelo germânico por excelência, que, somado aos saques e invasões, eram importantes fontes de renda.", "<b>Alternativa B:<\/b> Incorreta! Todas as alternativas estão corretas, exceto o enfraquecimento do poder centralizado, que foi uma característica romana e não de povos germânicos, conforme dissemos anteriormente. Os povos germânicos não possuíam bases políticas centralizadas, as tribos germânicas desfrutavam de grande autonomia política, tinham uma organização social patriarcal na qual o chefe familiar era responsável pelas principias decisões.", "<b>Alternativa C:<\/b> Incorreta! O Império Romano (e não os povos germânicos) é que teve o enfraquecimento de seu poder centralizado. Já o comitatus, foi uma herança germânica, na qual guerreiros se ligavam por juramento aos chefes das tribos e clãs, para servi-los até a morte, o que mais tarde vai influenciar fortemente as relações de poderes feudais.", "<b>Alternativa D:<\/b> Incorreta! Conforme vimos na alternativa anterior, os povos germânicos não possuíam poder centralizado, sendo esta uma característica do Império Romano. Por sua vez, o comitatus (a ligação dos guerreiros ligados por juramento ao chefe) e o beneficium (recompensa dada pelos chefes militares germânicos aos guerreiros, através da posse de terras) são formas sociopolíticas germânicas.", "<b>Alternativa E:<\/b> Correta! O colonato é uma herança romana, onde um senhor oferecia terra e proteção ao colono, que recebia um rendimento do seu trabalho. Ao final do Império, a administração romana não impunha mais a sua autoridade em todas as regiões, desta forma, com o poder central enfraquecido, os servos ampliaram seus poderes locais. Sobre o legado germânico, do ponto de vista econômico, esses povos possuíam uma economia agrícola e pastoril; outra forma de sua economia diz respeito aos saques e invasões, que se transformavam em outra importante fonte de renda. A ordem social dos germânicos era estabelecida por meio de clãs e tribos patriarcais que se mantinham unidas pelas relações consanguíneas. O comitatus, que estipulava a união militar dos guerreiros, ligava os guerreiros ao chefe, através de juramento, para servi-lo até a morte, em troca de uma parte do saque e de sua proteção. Já o beneficium, era a recompensa dada pelos chefes militares germânicos aos guerreiros, em forma da posse de terras, onde o guerreiro oferecia fidelidade ao senhor."], "alts": [["a", "R R R G G"], ["b", "R G G G G"], ["c", "R G G R G"], ["d", "R G G R R"], ["e", "R R G G G"]], "resp": "e"}, {"n": 12, "fonte": "Simulado EsPCEx · 2021", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "O feudalismo na Europa Ocidental surgiu no século X, expandiu-se durante o século XI e atingiu seu auge no final do século XII e no século XIII. (...) Pelo século XIII, o feudalismo europeu já havia produzido uma civilização unificada e desenvolvida (...).<div><br><div>ANDERSON, Perry. Passagens da Antiguidade ao Feudalismo. São Paulo: Ed. Brasiliense. 1989, p. 177.<\/div><br><div>(Estratégia Militares 2020 – Inédita – o professor)<\/div><br><div>Sobre a formação do mundo feudal, podemos relacionar:<\/div><br><div>I. A ruralização da sociedade e da economia<\/div><br><div>II. A descentralização política que ficou a cargo dos senhores feudais<\/div><br><div>III.O assalariamento do trabalho campesino<\/div><br><div>IV. O estabelecimento de relações de vassalagem entre senhores e servos<\/div><br><div>V. A divisão estamental da sociedade cujo critério era o nascimento.<\/div><br><div>Assinale a alternativa em que todas as afirmativas caracterizam a sociedade feudal:\r<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Sobre a formação do Mundo Feudal ou da ordem social feudal, entre o século  V. ao XI. Listo abaixo os principais aspectos que você não pode esquecer:&nbsp;&nbsp;<\/div><br><div>1- a ruralização da sociedade - o declínio da cidade e do comércio;&nbsp;<\/div><br><div>2- a descentralização política com o estabelecimento de relações sociais, políticas e militares de vassalagem;&nbsp;<\/div><br><div>3- a servidão que caracterizou as relações entre senhores e camponeses plebeus.<\/div><br><div>Além disso, A sociedade feudal era estamental, ou seja, estava dividida em estamentos. Cada estamento era composto por um grupo ou classe social.&nbsp;<\/div><br><div><b>A participação de cada indivíduo, em cada grupo social, era determinada pelo seu nascimento e\\ou pela função que o indivíduo executava na sociedade.<\/b>&nbsp;<\/div><br><div>Isso formava uma pirâmide social. No feudalismo havia 2 classes sociais divididas em 3 ordens sociais estabelecidas.&nbsp;<\/div><br><div>Veja o esquema:<\/div><br><div><img src=\"img/90cc28f26edcbc92.png\" alt=\"\"><br><\/div><br><div>Assim, os historiadores concordam que a sociedade feudal estava dividida em 3 ordens principais, conforme o esquema acima, as quais estavam determinadas pelo nascimento. Essa lógica definia as funções dos membros de cada estamento na organização da sociedade.<\/div><br><div><img src=\"img/ee1224a2ab3ba7ba.png\" alt=\"\"><br><\/div><br><div>Nesse sentido existem dois tipos de relações:<\/div><br><div>1- Entre nobres: relações de suserania e vassalagem<\/div><br><div>2- Relações entre senhores e camponeses presos à terra por meio de obrigações ou impostos feudais:<\/div><br><div><img src=\"img/8741b0590409d1fe.png\" alt=\"\"><br><\/div><br><div>Tendo isso em mente, podemos dizer que:&nbsp;<\/div><br><div>- o item III está errado porque não havia assalariamento.&nbsp;<\/div><br><div>- o item IV está incorreto porque as relações de vassalagem ocorrem entre senhores e não entre senhores e servos.<\/div>"], "alts": [["a", "I, II, III, V"], ["b", "I, II, IV, V"], ["c", "I, II, V"], ["d", "I, II, III, IV, V"], ["e", "I, II, IV."]], "resp": "c"}, {"n": 13, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "A origem do poder político na Baixa Idade Média era a terra. No contexto das invasões bárbaras, entre os séculos V e IX, conquistar e deter terras era atividade fundamental para obter poder político. Esse processo fazia parte da formação dos Reinos Germânicos entre os séculos V e VIII d.C.<br><div>A partir da posse e doação de terras se estabeleceu uma relação feudal fundamental expressa corretamente em:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Olha, falou em Idade Média e doação de terra de cara tem que pensar: relações de suserania e vassalagem. Guarda esse Bizu!<\/div><br><div>Vamos à análise das alternativas:<\/div>", "<b>Alternativa A:<\/b> A alternativa A está incorreta, pois as relações de servidão ocorrem entre nobres e camponeses e não envolve a doação de terras.", "<b>Alternativa B:<\/b> A alternativa B está correta, a partir da fusão do comitatus (estabelecimento de laços de fidelidade entre o chefe militar e os seus comandados guerreiros) com o beneficium (os chefes militares concediam a seus guerreiros posses de terras), gerou- se a relação de Suserania e Vassalagem. Ou seja, o REI, em troca de fidelidade oferecia terra aos guerreiros.", "<b>Alternativa C:<\/b> A alternativa C está incorreta, pois, como falamos na alternativa anterior, o comitatus foi estabelecimento de laços de fidelidade entre o chefe militar e os seus comandados guerreiros.", "<b>Alternativa D:<\/b> A alternativa D está incorreta, pois, como falamos no item anterior, o beneficium era a concessão de terras que os chefes guerreiros faziam aos seus guerreiros. Tem origem germânica.", "<b>Alternativa E:<\/b> A alternativa E está incorreta. As relações de vilania, na Idade média, diz respeito ao vilão. Os chamados vilões equivaliam a uma parcela de camponeses que trabalhavam nas propriedades, mas não tinham a obrigação de se fixar definitivamente na propriedade."], "alts": [["a", "Relação de servidão"], ["b", "Relação de Suserania e vassalagem"], ["c", "Comitatus"], ["d", "Beneficium"], ["e", "Relação de Vilania"]], "resp": "b"}, {"n": 14, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "“A invasão é o fato inicial da Idade Média. Nenhum fato da  mesma  amplitude  ou  de  consequências  comparáveis  se  produziu  depois,  e  a  História  subsequente,  entendida corretamente,  nada  mais  foi  que  a  evolução  da  sociedade  resultante  da  invasão.  É  necessário  entender  por  invasão  a compenetração desses dois elementos até então separados: o civilizado grego ou latino, helenizado ou latinizado, e o bárbaro recém-chegado sobre o solo imperial.”<br><div>(GIORGANI, 1968, p.21).<br><div>A partir do texto e de seus conhecimentos, a ordem feudal foi resultado<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><br><div>Inicialmente, vamos recordar da divisão clássica da Idade Média<\/div><br><div><img src=\"img/04c73db7e6e4cfaa.png\" alt=\"\"><br><\/div><br><div>Período da Idade Média: entre os séculos V e XV.&nbsp;<\/div><br><div>Embora saibamos que a marca factual do fim da Antiguidade seja o fim do Império Romano do Ocidente, quero alertar-lhe  para  o  fato  de  que  as  migrações  dos  povos  germânicos  para  as  regiões  que  antes formavam  o  Império  Romano  do Ocidente não pararam em 476. <b>Na Alta Idade Média, ou seja, entre os séculos V e X, os germânicos continuaram se deslocando por toda a Europa Ocidental.<\/b> Por isso que o início da ordem feudal está marcado por um ato inaugural: as invasões bárbaras (povos germânicos), conforme afirma o o professor, no seu livro <i>A Civilização do Ocidente Medieval<\/i>¹. Para além disso, e mais especificamente, podemos dizer que a formação propriamente dita do mundo medieval é a compenetração e fusão de dois  elementos: a civilização romana e  a germânica. O mundo medieval nasceu sobre  as ruínas do mundo romano, pois a decadência do Império Romano teria alimentado o surgimento do Idade Média². No mesmo sentido, o professor inglês Perry Anderson, no seu livro <i>Passagens da Antiguidade ao Feudalismo<\/i>³, elabora a tese de que a ordem  feudal,  ou  o  mundo  feudal, <b>foi  a  síntese  da  interação  entre  os  modos  de  vida  dos  romanos  e  dos germânicos.<\/b>&nbsp;<\/div><br><div>Assim, podemos afirmar com tranquilidade que o feudalismo contou com o encontro cultural e trocas das mais variadas formas de duas civilizações: a romana e a germânica.<\/div><br><div><b>Dessa experiência histórica nasceu uma nova forma de ver o mundo, de reproduzir as condições materiais que  permitiam  a  sobrevivência,  de  se  relacionar  uns  com  os  outros  e,  também,  de  representar  o  mundo espiritual.<\/b>  A esse novo mundo damos o nome de “<b><i>Mundo Feudal<\/i><\/b>”. Gabarito, letra A.&nbsp;<\/div><br><div>¹LE GOFF, Jacques. A Civilização do Ocidente Medieval. Lisboa: Editorial Estampa. Vl. 1. 1983, p. 29.&nbsp;<\/div><br><div>¹LE GOFF, Jacques, Idem. p. 27.<\/div><br><div>¹ANDERSON, Perry. Passagens da Antiguidade ao Feudalismo. São Paulo: Ed. Brasiliense, 1989.<\/div>", "<b>Alternativa B:<\/b> a afirmação é falsa porque o Império Romano entrou em decadência.&nbsp;", "<b>Alternativa C:<\/b> falso, pois neste momento da História a civilização grega, a Antiguidade Clássica, já havia declinado. Após os gregos, a grande civilização que dominou Europa e boa parte da África e Oriente Médio foi o Império Romano cujo declínio se deu, no século V d. C.", "<b>Alternativa D:<\/b> falso, não surgiu uma nova raça. Atenção: medievalista é o nome dato aos estudiosos contemporâneos que pesquisam o mundo medieval, ou seja, são historiadores como o o professor.", "<b>Alternativa E:<\/b> falso, pois os mulçumanos invadiram a Península Ibérica VIII."], "alts": [["a", "do  encontro,  seguido  de  trocas  culturais,  de  duas  civilizações  com  hábitos  e  costumes  diferentes,  a  romana  e  a germânica."], ["b", "da vitória do Império Romano sobre os povos bárbaros."], ["c", "da expansão da civilização grega em direção ao oeste da Europa."], ["d", "do surgimento de uma nova raça de europeus que ficou conhecida como medievalistas.&nbsp;"], ["e", "de múltiplas determinações culturais, com destaque para os mulçumanos que invadiram a Península Ibérica."]], "resp": "a"}, {"n": 15, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "A casa de Deus, que cremos ser uma, está, pois, dividida em três: uns oram, outros combatem e os outros, enfim, trabalham. Essas três partes que coexistem não sofrem com a sua disjunção; os serviços prestados por uma são a condição da obra das outras duas;e cada uma, por sua vez, se encarrega de aliviar o todo. De modo que essa tripla associação nem por isso é menos unida, e é assim que a lei tem podido triunfar e que o mundo tem podido gozar de paz.&nbsp;<br><div>(Adalbéron de Laon (c. 1020). Apud LE GOFF, Jacques. <b>A Civilização do Ocidente Medieval<\/b>. Lisboa: Estampa, 1984, p. 45-46).&nbsp;<\/div><br><div>Assinale a alternativa que corresponde aos três estamentos sociais do mundo medieval aludido no texto acima:&nbsp;<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B.<\/b><div><b><br><\/b><\/div><div>Durante a Idade Média na Europa, a divisão social estava pautada em três estamentos sociais: clero, nobreza e servo. Por meio do texto do enunciado é possível perceber essa divisão já que, para explicar o regime feudal, a Igreja divulgava a imagem da sociedade de três funções como um corpo: aqueles que oravam (os clérigos da Igreja) eram a cabeça da sociedade; os que combatiam (os guerreiros e cavaleiros das famílias dos senhores feudais, ou seja, a nobreza) eram os braços; e os que trabalhava (os servos camponeses, ligados à terra dos senhores por meio da relação de servidão) eram os pés da sociedade. Veja, então que a metáfora utilizada por Adalbéron ao se referir à Casa de Deus possui, de fato, correspondência na realidade dos estamentos sociais do feudalismo. Logo, nosso gabarito é a alternativa b).<\/div>", "<b>Alternativa A:<\/b> falso, pois “patrícios” é uma categoria social do Império Romano.", "<b>Alternativa C:<\/b> falso, pois “agricultores” é uma categoria genérica para trabalhadores rurais no período contemporâneo. Agricultores se distingue de servos ou mesmo senhor feudal porque a relação de posso e de trabalho com a terra é outra. Veja, o senhor tinha a posse mas não trabalhava, já agricultores podem ou não ter a posse e trabalham; servos não têm a posse e trabalham sob um regime de servidão em que não podiam abandonar a terra, já os agricultores podem ter a posse e trabalham sob pressupostos de uma economia liberal, ou seja, são assalariados e, quando proprietários, podem ou não vender suas terras. Além disso, cavaleiros não é uma categoria de estrato social, mas sim uma função desempenhada por membros da camada social da nobreza.", "<b>Alternativa D:<\/b> falso, pois “patrícios” é uma categoria do período Romano.", "<b>Alternativa E:<\/b> falso, pois “estrangeiros” não é um estamento social, mas sim um termo utilizado desde a Grécia Antiga para se referir às pessoas que não são da cidade. No período Romano, a ideia de estrangeiro foi deixada de lado e um novo termo passou a ser usado “bárbaros” para os romanos se referirem às pessoas que não faziam parte do Império Romano."], "alts": [["a", "patrícios, plebeus e clero.&nbsp;"], ["b", "nobreza, servo e clero.&nbsp;"], ["c", "cavaleiros, agricultores e clero.&nbsp;"], ["d", "nobreza, patrícios e servos.&nbsp;"], ["e", "senhores, cleros e estrangeiros.&nbsp;"]], "resp": "b"}, {"n": 16, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "Introdução à Idade Média e ao feudalismo", "tipo": "mc", "html": true, "enun": "A respeito da Idade Média, analise os  itens  e depois marque a alternativa correta.<br><div>I - Os árabes foram expulsos da Península Ibérica entre os séculos X e XI.&nbsp;<\/div><br><div>II – A relação de trabalho característica desse período dependia do vínculo com a terra.&nbsp;<\/div><br><div>III – Apesar de a sociedade ser estamental, servos podiam comprar sua alforria.<\/div><br><div>IV – O comércio não deixou de ser praticado, embora em regiões mais limitadas  e em rotas portuárias, como de Veneza a Bizâncio.<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>I\t– errado, porque os árabes foram expulsos da Península Ibérica quando os reis católicos retomam a região no fina do século XV.<\/div><br><div>II\t– correto, pois a unidade produtiva era o feudo, de modo que as relações de trabalho que caracterizavam o período se desenvolveram no interior do feudo. O servo, apesar de não serem escravos, possuíam um vínculo com a terra do senhor e não podiam abandoná-la. Além de trabalharem na terra, também pagavam tributos para permanecerem ali.<\/div><br><div>III\t– falso, pois alforria é um tipo de liberdade para escravizados.<\/div><br><div>IV\t– correto. Apesar de ter ficado muito reduzido durante a Idade Média, apenas praticado em burgos e pequenas vilas, o comércio não morreu. O grosso das atividades comerciais se desenvolviam em cidades portuárias do Mediterrâneo, como Veneza.<\/div>"], "alts": [["a", "Todas as afirmações estão corretas.&nbsp;"], ["b", "Apenas I e II estão corretos.&nbsp;"], ["c", "Apenas II e IV estão corretos.&nbsp;"], ["d", "I, II e IV estão corretos.&nbsp;"], ["e", "Apenas III e IV estão corretos.&nbsp;"]], "resp": "c"}, {"n": 17, "fonte": "Simulado EsPCEx · 2022", "tema": "Império Carolíngio - Alta Idade Média", "tipo": "mc", "html": true, "enun": "Durante a constituição dos Reinos Germânicos (século V), a liderança de Clovis foi decisiva para a ocupação da região central da Europa. A unificação promovida por este rei foi possível em função de qual elemento determinante?", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>Questão sobre Alta Idade Média, período de formação dos reinos romano-germânicos. É fato que você deve memorizar: A Igreja Cristã, na Europa Ocidental, uniu-se aso Francos com o objetivo de consolidar seu poder; já os Francos procuraram, nessa aliança, legitimar suas conquistas territoriais e o poder de seus reis frente aos demais cavaleiros. Tendo isso em mente, vamos analisar as alternativas.<\/div>", "<b>Alternativa A:<\/b> Errado. Isso foi importante para a aproximação com a Igreja e, indiretamente (apenas) para a afirmação do poder dos Francos. Cuidado com o que “poderia ser”.", "<b>Alternativa B:<\/b> Errado. O que houve foi o contrário: a aproximação!", "<b>Alternativa C:<\/b> Errado. Na Alta Idade Média, os Francos foram responsáveis por tentar refundar o Império Romano e, por isso, conquistaram terras e centralizaram o poder político. Foi a partir do século IX, a partir do Tratado de Verdun que veremos um longo processo de descentralização do poder políticos.", "<b>Alternativa D:<\/b> Gabarito, conforme nosso comentário.", "<b>Alternativa E:<\/b> Errado. Isso foi uma consequência do fortalecimento do Reino Franco."], "alts": [["a", "vitória sobre os mouros na batalha de Poitiers."], ["b", "separação entre Igreja e Estado."], ["c", "descentralização do poder político."], ["d", "aliança estabelecida com a Igreja Católica."], ["e", "restauração do Império Romano do Ocidente."]], "resp": "d"}, {"n": 18, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2021", "tema": "Império Carolíngio - Alta Idade Média", "tipo": "mc", "html": true, "enun": "São características da Alta Idade Média<div><br><div>I - Fim da Unidade Política<\/div><br><div>II - Ruralização<\/div><br><div>III - Retomada do legado greco-romano<\/div><br><div>IV - Diminuição do Comércio<\/div><br><div>V – Cruzadas<\/div><\/div><br><div>Assinale a alternativa que contenha os itens corretos:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>A Alta Idade Média, período que começou no século V a.C até X a.C. Foi um período pós Idade Antiga e, de certo modo, é fruto dos processos de desagregação do Antigo Império Romano. O sistema que prevaleceu na Europa Central, na Idade Média foi o feudalismo.<\/div><br><div>Tendo essa periodização em mente, vamos analisar as alternativas:<\/div><br><div>I. Correto. A partir das invasões bárbaras, no século V, o poder político passa a se desagregar e, por isso, a Alta Idade Média é marcada por descentralização política.<\/div><br><div>II. Correto. A ruralização foi processo que se iniciou a partir da crise do século III esse e se consolidou na Idade Média.<\/div><br><div>III. Errado. A retomada do legado se deu no Renascimento Cultural, movimento cultural iniciado na Baixa Idade Média.<\/div><br><div>IV. Correto. A economia feudal é caracterizada como agrária e de subsistência realizada dentro do feudo.<\/div><br><div>V. Errado. As Cruzadas começam no início do século XII.<\/div><br><div>Assim, os itens corretos são: I, II e IV.<\/div>"], "alts": [["a", "I, II, IV"], ["b", "I, II, III, V"], ["c", "I, II, III"], ["d", "I, II, IV, V"], ["e", "III, IV"]], "resp": "a"}, {"n": 19, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "Império Carolíngio - Alta Idade Média", "tipo": "mc", "html": true, "enun": "No  processo  de  formação  do  feudalismo,  o  Reino  dos Francos, incialmente um povo bárbaro, tomou uma atitude que foi determinante para a formação das relações políticas e sociais na Idade Média. Trata-se da", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>No período final do Império Romano, na região central do que conhecemos hoje como França, povos germânicos ali se instalaram e deram início à construção do Reino dos Francos. Este Reino se tornou o mais importante da Alta Idade Média. Por isso, é o Reino que tomamos como referência para estudar o feudalismo.<\/div><br><div>Um cavaleiro franco, Meroveu, considerado o herói da batalha dos Campos Catalúnicos, em <b>451<\/b>, deu início ao que ficou conhecida como a <b>Dinastia Merovíngia<\/b>. Seu neto o príncipe <b>Clovis <\/b>foi considerado o fundador do Reino Franco. Foi ele quem arquitetou, entre <b>481 <\/b>e <b>511,<\/b> o Estado Franco - fruto das vitórias militares que ele e seu exército obtiveram nas disputas territoriais com os romanos, com os visigodos, com os burgúndios, alamanos, entre outros povos bárbaros. Ou seja, os caras dominaram tudo!!!<\/div><br><div>Agora, em meio ao contato com a civilização Romana, ocorreu um fato importante. A <b>conversão ao cristianismo de Clóvis, em 496<\/b>. Clóvis estaria numa batalha – perdendo - quando pediu ajuda aos santos da religião de sua esposa, que era católica. Nesse momento, inverteu-se sua posição na batalha e seu exército teria saído vitorioso. A partir desse momento, Clóvis adere ao cristianismo. Com essa decisão, o príncipe conquistou a simpatia dos povos de origem romana, bem como adquiriu apoio da população da Gália e da Igreja Católica. Em troca da aliança que se iniciaria no Reino dos Francos, a Igreja recebeu terras, muitas terras.<\/div><br><div>Diante disso, nosso gabarito é a alternativa C.<\/div>", "<b>Alternativa A:<\/b> A alternativa A está incorreta. Neste momento não podemos falar em exército nacional, o qual irá surgir a partir da formação das Monarquias Nacionais na Era Moderna, século XVI em diante.", "<b>Alternativa B:<\/b> A alternativa B está incorreta, a conversão foi ao cristianismo.", "<b>Alternativa D:<\/b> A alternativa D está incorreta, pois o absolutismo é uma característica das Monarquias a partir do século XVI, na Era Moderna.", "<b>Alternativa E:<\/b> A alternativa E está incorreta, pois os árabes serão expulsos da Península Ibérica somente e no século XV, quando as campanhas militares dos reis Fernando de Aragão e Isabel Castela consolidaram o processo de reconquista, culminando na expulsão completa dos muçulmanos em 1492."], "alts": [["a", "profissionalização do exército nacional.&nbsp;"], ["b", "conversão dos francos ao islamismo."], ["c", "conversão dos francos ao cristianismo."], ["d", "constituição do absolutismo enquanto organização do Estado.&nbsp;"], ["e", "expulsão dos árabes da Península Ibérica.&nbsp;"]], "resp": "c"}, {"n": 20, "fonte": "Colégio Naval - CN · 2024", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "<p>Observe a figura abaixo.&nbsp;<\/p><p><img src=\"img/3af0d2858843b272.png\" alt=\"\"><br><\/p><p>Sabendo que na figura acima as retas r e s são&nbsp;paralelas, é correto afirmar que o valor de θ é igual a:&nbsp;<\/p>", "com": ["<p><strong>GABARITO: ALTERNATIVA C<\/strong><\/p><p>Traçando as retas paralelas t e u e completando os ângulos da figura, obtemos:<\/p><p><img src=\"img/ed18c58a3946887f.png\" alt=\"\"><br><\/p><p>Comparando os ângulos, temos:<\/p><p>θ + 10° =&nbsp;40°<\/p><p>∴ θ = 30°<\/p>"], "alts": [["a", "45º"], ["b", "40º"], ["c", "30º"], ["d", "25º"], ["e", "20º"]], "resp": "c"}, {"n": 21, "fonte": "Simulado EsPCEx · 2023", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "<div><div>O desenvolvimento comercial e urbano da Europa, a partir do século XIII, encontrou sérios obstáculos em algumas estruturas feudais. A diversidade regional e política, típica do feudalismo, com vários feudos e seus poderes locais, constitui um estorvo ao comércio na medida em que senhores feudais interferiam nas relações econômicas, cobrando impostos dos mercadores.<\/div><\/div><br><div>Além do problema citado no texto, outros foram obstáculos para o desenvolvimento da economia, como:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>A questão trata sobre o renascimento comercial ocorrido na Baixa idade Média. Mais especificamente, cobra os obstáculos para o desenvolvimento das relações econômicas de troca. Vamos analisar cada alternativa:<\/div>", "<b>Alternativa A:<\/b> Errado. Embora esteja correta, o comando cobrou outros problemas além daquele trazido no texto, que é exatamente o que está definido na alternativa A, por isso, não podemos marcá-la. Cuidado com o comando.", "<b>Alternativa B:<\/b> Correto. Essa falta de unidade de pesos, medidas e unidade monetária, dificultava a troca. Não se sabia o que era o quilo, metro e essas unidades todas que poderia padronizar as trocas e aumentar a escala dos negócios.", "<b>Alternativa C:<\/b> Errado. Os estados ainda não estavam centralizados, então, não existia exército. O que existia era a força militar dos senhores feudais formadas por seus cavaleiros vassalos.", "<b>Alternativa D:<\/b> Errado. A Igreja protestante só vai surgir no século XVI. A questão trata sobre o século XIII.", "<b>Alternativa E:<\/b> Errado. As revoltas camponesas são mais presentes do século XIV e não estão diretamente relacionadas com o comércio, mas com a fome e a peste."], "alts": [["a", "a cobrança de impostos pelos senhores feudais."], ["b", "a falta de unidade monetária e de pesos e medidas."], ["c", "os exércitos reais que acabavam gerando repressão nas feiras."], ["d", "o apoio da Igreja Protestante que concordava com o lucro."], ["e", "as rebeliões rurais, como as jacqueries."]], "resp": "b"}, {"n": 22, "fonte": "Simulado EsPCEx · 2022", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "No contexto do feudalismo, século V ao XV, é considerada uma característica correta:", "com": ["<b>GABARITO: ALTERNATIVA B<\/b>", "<b>Alternativa A:<\/b> errado, pois o regime de trabalho era o servil.", "<b>Alternativa B:<\/b> correto, pois os servos, para viverem nas terras dos Senhores feudais, pagavam tributos, como a corveia, a talha, <div>banalidade.<\/div>", "<b>Alternativa C:<\/b> errado, porque a relação de lealdade militar era a relação de suserania e vassalagem, entre os nobres. Agora, atenção, o servos recebiam proteção militar dos Senhores, mas porque, em troca, trabalhavam na terra, o que caracterizava a relação de servidão.", "<b>Alternativa D:<\/b> falso, pois, no contexto da economia feudal, a principal atividade era a agricultura, de modo que os burgos não determinavam as relações sociais no feudalismo. Sim, as feitas nos burgos (que eram espécies de vilas) faziam parte do contexto da Idade Média, porém, sem a determinação das relações sociais. A terra e o trabalho sérvio, as relações no feudo eram o que dava a tônica daquele período.", "<b>Alternativa E:<\/b> errado, os servos não recebiam educação e eram, salvo raríssimas exceções, analfabetos. Na verdade, nem os nobres sabiam ler. E por que isso, gente? Porque a exclusividade do aprendizado do latim era dos membros da Igreja, do estamento clerical, pois, dessa forma, detinham o monopólio da “palavra religiosa”. Com isso, a interpretação dos textos sagrados eram exclusividade da Igreja."], "alts": [["a", "a primazia do regime escravagista."], ["b", "as obrigações tributárias dos servos e os vínculos que eles tinham com a terra."], ["c", "a relação de lealdade militar entre servos e nobres."], ["d", "as relações sociais feudais estavam determinadas pelas trocas comerciais desenvolvidas nos burgos."], ["e", "a educação religiosa formal que servos recebiam para que pudessem ler a bíblia."]], "resp": "b"}, {"n": 23, "fonte": "Simulado EsPCEx · 2022", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "A respeito das relações sociais no feudalismo, pode-se dizer que elas", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>Vamos lá pessoal, falou em relações sociais, falou em sociedade de ordens, formada por 3 estamentos: clero, nobreza e servos. Tendo isso em mente, vamos analisar cada alternativa:<\/div>", "<b>Alternativa A:<\/b> Errado. A sociedade feudal não tem muita flexibilidade.", "<b>Alternativa B:<\/b> Errado. A sociedade feudal é baseada no sistema de estamentos e não no de castas.", "<b>Alternativa C:<\/b> Errado. A sociedade feudal é caracterizada por ter uma economia de subsistência e autossuficiente.", "<b>Alternativa D:<\/b> Gabarito. Guarde: a sociedade feudal é dominada pela mentalidade religiosa da Igreja católica que, inclusive, usava a doutrina religiosa para justificar a sociedade dividida em 3 ordens sociais rígidas.", "<b>Alternativa E:<\/b> Errado. Trabalho servil está certo, mas escravocrata NÃO. Cuidado. Servo não é escravo."], "alts": [["a", "eram flexíveis, pois havia mobilidade social entre os estamentos."], ["b", "eram rigidamente estabelecidas, pois o sistema de castas assegurava que cada camada da sociedade se mantinha em seu lugar."], ["c", "baseavam-se nas relações de exploração econômica determinada pelo lucro do excedente agrícola."], ["d", "eram penetradas por uma mentalidade religiosa que contribuía para justificar a organização estamental."], ["e", "estavam estruturadas em um sistema de exploração do trabalho servil e escravocrata."]], "resp": "d"}, {"n": 24, "fonte": "Simulado EsPCEx · 2022", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "Durante o feudalismo na Europa Ocidental, uma série de obrigações submetia servos aos seus senhores.<div><br><div>Uma delas era mão morta, que consistia\r<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><br><div>Para responder à questão é preciso lembrar e associar os tributos com o conceito:<\/div><br><div><img src=\"img/4b1fabe64ffeead3.png\" alt=\"\"><br><\/div>", "<b>Alternativa A:<\/b> é o nosso gabarito.", "<b>Alternativa B:<\/b> falso, pois é as terras que não pertenciam a ninguém eram comuns, chamadas de <i>terras comunais<\/i>, eram as florestas,  bosques e pastos e lá os servos podiam levar seus animais para pastar além de pegar lenha. As terras comunais eram o  local de acesso para todos os habitantes do feudo.", "<b>Alternativa C:<\/b> falso, pois este representa o conceito de <i>corveia<\/i>.", "<b>Alternativa D:<\/b> falso, pois este é o conceito de <i>talha<\/i>.", "<b>Alternativa E:<\/b> falso, pois este é o conceito de <i>banalidade<\/i>."], "alts": [["a", "no pagamento de tributo pela família de um servo morto para que seus herdeiros mantivessem o vínculo com a terra."], ["b", "na entrega de parte do trabalho realizado nas terras que não pertenciam a ninguém, conhecidas como terras mortas."], ["c", "nos dias trabalhados diretamente nas terras do senhor feudal, em geral 3 dias da semana."], ["d", "na entrega de parte da produção realizada no manso servil."], ["e", "no pagamento de uma taxa ao senhor, referente ao uso de equipamentos, como forno e moinho."]], "resp": "a"}, {"n": 25, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2021", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "&#34;A  razão de ser dos <b>carneiros<\/b> é fornecer leite e lã, a dos<b> bois<\/b> é  lavrar  a  terra;  e  a  dos <b>cães<\/b> é  defender  os  carneiros  e  os  bois  dos  ataques  dos  lobos.&#34;  (Bispo    Eadmer  de Canterbury, século XI)<br><div>Levando em consideração a ordem social feudal, os animais, que estão em destaque no texto, representam, respectivamente, os seguintes estamentos sociais:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Esse trecho do enunciado da questão nos remete à organização estamental da sociedade feudal. Ele é parte do discurso do Bispo. Deixo o discurso mais completo aqui para que vocês entendam. Ele usa exemplos de animais da natureza para justificar a desigualdade entre os 3 estamentos sociais. Seu argumento é de natureza religiosa: a sociedade foi criada assim por Deus e, por isso, é inquestionável e imutável.<\/div><br><div>“A razão de ser dos carneiros é fornecer leite e lã, a dos bois é lavrar a terra; e a dos cães é proteger os carneiros e os bois dos ataques dos lobos. Se cada uma destas espécies de animais cumprir a sua missão, Deus protegê-la-á. Deste modo, fez ordens, que instituiu em vista das diversas missões a realizar neste mundo.<\/div><div>Instituiu uns – os clérigos e os monges – para que rezassem pelos outros e, cheios de doçura, como as ovelhas, sobre eles derramassem o leite da pregação e com a lã dos bons exemplos lhes inspirassem um ardente amor à Deus. Instituiu os camponeses para que eles – como fazem os bois, com seu trabalho – assegurassem a sua própria subsistência e a dos outros. A outros, por fim – os guerreiros -, instituiu-os para que mostrassem a força na medida do necessário e para que defendessem dos inimigos, semelhantes a lobos, os que oram e os que cultiva a terra”.<\/div><br><div><img src=\"img/523e1cd94b7a2052.png\" alt=\"\"><br><\/div>"], "alts": [["a", "clero, servos e nobres"], ["b", "Servos, clero e cavaleiros"], ["c", "clero, servos, nobres e bárbaros"], ["d", "cavaleiros, servos, clero"], ["e", "Nobres, plebeus e clero"]], "resp": "a"}, {"n": 26, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2021", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "O  vínculo  que  unia  os  dois  elementos  era estabelecido por um contrato vassálicofeito em um ritual constituído por 4 momentos: homenagem, fidelidade, o osculum e a investidura.Sobre o contrato vassálico, é correto o que se afirma em:", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>Essa questão é sobre as relações de suserania e vassalagem. É preciso encontrar, entre as afirmativas, as informações corretas em relação ao tema.<\/div>", "<b>Alternativa A:<\/b> A alternativa A está incorreta. As relações vassálicas não se dão entre senhores e servos.", "<b>Alternativa B:<\/b> A alternativa B está incorreta. A proteção não era apenas aos seus bens, mas de tudo o que fosse necessário.", "<b>Alternativa C:<\/b> A alternativa C está correta. Aqui está sendo descrito as relações baseados no comitatus e beneficium, ou seja, trocar terras por fidelidade e proteção.", "<b>Alternativa D:<\/b> A alternativa D está incorreta. Era uma relação de dependência mútua.", "<b>Alternativa E:<\/b> A alternativa E está incorreta. É verdade que a dominação de um suserano só atinge seu vassalo direto, mas, ainda assim, há alguma relação de hierarquia sim, na medida em que o suserano pode reivindicar a proteção do vassalo e este deverá obedecer."], "alts": [["a", "Criava obrigações para senhores feudais e servos."], ["b", "Por meio do contrato, o vassalo se comprometia a não prejudicar o suserano, além disso, deveria proteger apenas seus bens."], ["c", "O vassalo deveria prestar auxílio militar enquanto o senhor garantiria seu sustento por meio da doação de terras."], ["d", "Apenas o suserano contraia obrigações com seu vassalo, já que ele precisava manter-se no poder."], ["e", "Não havia nenhuma hierarquia entre senhores e vassalos, por isso, a dominação do suserano era apenas em relação a seus vassalos diretos."]], "resp": "c"}, {"n": 27, "fonte": "Simulado EsPCEx · 2021", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "Feudo: palavra derivada do germânico fehu (gado) significando um “bem oferecido em troca de algo”. Os feudos podiam não ser apenas uma extensão de terras mas também um castelo ou outros direitos.<div><br><div>Em relação à herança dos povos que formaram a sociedade feudal, a definição para a palavra feudo, enquanto extensão territorial, está relacionada a noção de<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>As sociedades feudais, na Europa Central, originaram-se da fusão dos elementos romanos e germânicos. No texto tem uma definição de feudo que traz uma relação de troca – “um bem por algo”. No caso do feudalismo, a troca de fidelidade por terras é parte do legado germânico no período medieval e deram origem às relações de suserania e vassalagem.<\/div><br><div><b>Atenção: o comando da pergunta questionou o legado referente à “extensão territorial”, então, temos que buscar entre as alternativas o legado referente à terra.<\/b><\/div><div><b><br><\/b><\/div><div>No que se refere a troca de terra podemos relacionar com a noção de <i>beneficium. Beneficium<\/i> era a concessão de terras feita pelos chefes guerreiros germânicos a seus cavaleiros. Por isso o gabarito da nossa questão é alternativa C.<\/div><br><div>Vejamos as demais alternativas:\r<\/div>", "<b>Alternativa A:<\/b> <i>Comitatus <\/i>era o estabelecimento de relações de fidelidade. Veja que isso também é parte da sociedade feudal, mas não se trata de terra.", "<b>Alternativa B:<\/b> Colonato se trata de terra, mas não de troca. Refere-se ao trabalho de servos nas terras dos senhores. Há um laço de compromisso, mas não de trocas.", "<b>Alternativa C:<\/b> Gabarito.", "<b>Alternativa D:<\/b> <i>Servitium<\/i> é uma relação de subordinação. Chamava-se serviço (servitium) aquele eu tinha que trabalhar para um “patrono”. Foi um legado romano, mas que nada tinha a ver com a servidão. Por isso, <i>servitium <\/i>não se tornou relação de servidão.", "<b>Alternativa E:<\/b> <i>Mitium <\/i>é um legado germânico e queria dizer a proteção física que um forte dava a um fraco."], "alts": [["a", "Comitatus"], ["b", "Colonato"], ["c", "Beneficium"], ["d", "Servitium"], ["e", "Mitium"]], "resp": "c"}, {"n": 28, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2020", "tema": "As transformações do Feudalismo - Baixa idade Média", "tipo": "mc", "html": true, "enun": "A imagem abaixo representa uma cerimônia da Idade Média.<br><div><img src=\"img/b1a9ea82dbc43200.png\" alt=\"\"><br><\/div><br><div>\"La Chevalerie. Armement d'un Chevalier\". - Farblithographie, anonym, undatiert, Druck: H. Laas, Paris, um 1890 (Collection Privée)<\/div><br><div>Considerando a imagem acima, qual relação entre representa:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>A origem do poder político na Baixa Idade Média era a terra, certo?? Na verdade, já era assim antes. Lembra de que os patrícios, na Roma Antiga, eram donos de terra e, por isso, tinham mais poder? Especialmente, no contexto das invasões bárbaras, entre os séculos V e IX, conquistar e deter terras era atividade fundamental para obter poder político. Esse processo fazia parte da formação dos Reinos Germânicos, como o Reino Franco existente entre os séculos V e VIII d.C.&nbsp;<\/div><br><div>No entanto, a partir da fusão do <b>comitatus <\/b>(estabelecimento de laços de fidelidade entre o chefe militar e os seus comandados guerreiros) com o <b>beneficium <\/b>(os chefes militares concediam a seus guerreiros posses de terras), <b>gerou-se a relação de Suserania e Vassalagem<\/b>. <b>Ou seja, o REI, em troca de fidelidade oferecia terra aos guerreiros.<\/b><\/div><br><div>Para esclarecer, SUSERANO é diferente de vassalo. O suserano é quem doa a terra&nbsp;e o vassalo é quem a recebe.&nbsp;<\/div><br><div><img src=\"img/8b91ec0787b1a063.png\" alt=\"\"><br><\/div><br><div>Os guerreiros, agora senhores de terra e agraciados com títulos de nobreza (títulos nobiliárquicos), tinham poder sobre suas terras e sobre tudo o que estivesse nela. Por isso, no feudo, o nobre senhor feudal era o único a exercer o poder temporal sem interferência de qualquer outro senhor, nem mesmo seu suserano. Veja o que diz a o professor1:<\/div><br><div>Visto que as invasões marcaram um período essencial para a formação das sociedades feudais do Ocidente, verifica-se então a <b>consolidação do poder dos castelães²<\/b>&nbsp;que podiam oferecer abrigo fortificado [...]. Consequentemente, instalou-se uma nova ordem baseada em<b> laços de dependência e juramentos<\/b> que, aliada à emancipação dos principados regionais, <b>constituía-se em verdadeiro obstáculo à autoridade real<\/b>. (p. 123 – grifo nosso)<\/div><br><div>Lembro de que relação de suserania e vassalagem se trata de uma relação entre dois membros da nobreza. Não confunda com as relações de servidão estabelecidas entre o senhor feudal e um servo!!&nbsp;<\/div><br><div>Diante disso, podemos perceber que a imagem do quadro nos remete a uma relação entre dois membros da nobreza. Gabarito, letra C.&nbsp;<\/div>", "<b>Alternativa A:<\/b> falso, pois a relação de servidão é aquela estabelecida entre o servo e o senhor feudal.&nbsp;&nbsp;", "<b>Alternativa B:<\/b> falso, pois a imagem não nos lembra uma relação de escravidão, mas de fidelidade. Reforço que , durante a Idade Média a escravidão era muuuito residual, pois o regime escravista da Roma Antiga havia se desestruturado e o escravismo não fez parte da base das relações sociais no mundo medieval europeu.", "<b>Alternativa C:<\/b> Correta.", "<b>Alternativa D:<\/b> falso, pois a coroação dos reis era feita por um membro da Igreja, em geral, o papa. Agora, repare que o nobre em pé se apresenta como superior ao que está ajoelhado. Se fosse uma relação de coroação a figura que estaria representando o rei (o homem ajoelhado) não estaria em posição inferior ao que está com a espada.", "<b>Alternativa E:<\/b> falso, pois, apesar de a imagem conter referências a elementos religiosos (a cruz), trata-se de um evento envolvendo cavaleiros da nobreza."], "alts": [["a", "Relação se servidão"], ["b", "Relação de escravidão"], ["c", "Relação de suserania e vassalagem"], ["d", "Relação de entrega de títulos nobiliárquicos"], ["e", "Relação de investidura eclesiástica"]], "resp": "c"}];
+
+const FLASH = [
+ ["a00","Qual o \"ato inaugural\" da Idade Média para Le Goff?","As invasões bárbaras (germânicas).<br><b>Exemplo:</b> visigodos, francos e outros ocupam o Império do Ocidente."],
+ ["a00","Principal consequência das invasões","Ruralização da sociedade e da economia.<br><b>Exemplo:</b> cidades esvaziadas, vida concentrada nos domínios rurais."],
+ ["a00","Colonato","Herança romana: colono livre, mas preso à terra. Base da servidão.<br><b>Exemplo:</b> criado para conter o êxodo rural no Império."],
+ ["a00","Comitatus","Herança germânica: lealdade entre guerreiros e chefe. Base da vassalagem.<br><b>Exemplo:</b> guerreiro jura fidelidade ao chefe tribal."],
+ ["a00","Suserano × vassalo","Suserano doa o feudo; vassalo recebe e presta fidelidade e serviço militar.<br><b>Exemplo:</b> um conde pode ser vassalo do rei e suserano de cavaleiros."],
+ ["a00","Vassalagem × servidão","Vassalagem: entre nobres. Servidão: senhor × camponês.<br><b>Exemplo:</b> o cavaleiro é vassalo; o camponês é servo."],
+ ["a00","Sociedade estamental","Posição definida pelo nascimento; mobilidade quase nula.<br><b>Exemplo:</b> filho de servo seria servo."],
+ ["a00","Os três estamentos","Clero (ora), nobreza (guerreia), servos (trabalham).<br><b>Exemplo:</b> oratores, bellatores, laboratores."],
+ ["a00","Corveia × talha","Corveia: dias de trabalho no manso senhorial. Talha: parte da produção.<br><b>Exemplo:</b> trabalhar 3 dias na terra do senhor = corveia."],
+ ["a00","Banalidades","Taxas pelo uso de moinho, forno ou lagar do senhor.<br><b>Exemplo:</b> moer o trigo no moinho do castelo."],
+ ["a00","Feudo como unidade autossuficiente","Produz e é também onde se mora, reza e festeja.<br><b>Exemplo:</b> castelo, aldeia, igreja e moinho no mesmo domínio."],
+ ["a00","Inovações do século XI","Rotação trienal, charrua de ferro, peitoral, ferradura, moinho hidráulico.<br><b>Exemplo:</b> mais terra arada com menos esforço."],
+ ["a00","Por que o feudalismo entrou em crise?","Excedente e população maior exigiam comércio e terras que o feudo não oferecia.<br><b>Exemplo:</b> renascimento das feiras e cidades."],
+ ["ref","Conversão de Clóvis","496: aliança do Reino Franco com a Igreja.<br><b>Exemplo:</b> apoio da população romanizada da Gália."],
+ ["ref","Batalha de Poitiers","732: Carlos Martel detém os árabes.<br><b>Exemplo:</b> origem da cavalaria franca forte."],
+ ["ref","Quem fundou a dinastia Carolíngia?","Pepino, o Breve (751), com apoio do papa.<br><b>Exemplo:</b> doou o Patrimônio de São Pedro."],
+ ["ref","Coroação de Carlos Magno","Ano 800, pelo papa Leão III.<br><b>Exemplo:</b> \"Novo Império Romano do Ocidente\"."],
+ ["ref","Missi dominici","Enviados do imperador que fiscalizavam os territórios.<br><b>Exemplo:</b> controlavam condes e marqueses."],
+ ["ref","Renascimento Carolíngio","Estímulo à cultura e às escolas sob Carlos Magno.<br><b>Exemplo:</b> eruditos reunidos na corte."],
+ ["ref","Tratado de Verdun","843: divisão do império entre os netos de Carlos Magno.<br><b>Exemplo:</b> Carlos, o Calvo, ficou com a França."],
+ ["ref","Dinastia Capetíngia","987, com Hugo Capeto, na França.<br><b>Exemplo:</b> sucede os carolíngios."],
+ ["pan","Datas-limite da Idade Média","476 (queda de Roma) a 1453 (queda de Constantinopla).<br><b>Exemplo:</b> Alta (V–X) e Baixa Idade Média."],
+ ["pan","Origem dos títulos de nobreza","Doações de terras pelos reis (marca → marquês, condado → conde).<br><b>Exemplo:</b> de vitalícios a hereditários."],
+ ["pan","Papel da Igreja","Maior senhora feudal; legitimava os reis e a ordem social.<br><b>Exemplo:</b> desigualdade apresentada como ordem divina."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "MUNDO FEUDAL", s: "Romanos + germânicos → ruralização<br><small>Vassalagem · servidão · estamentos · feudo autossuficiente</small>",
+  e: "O feudalismo nasce da fusão de instituições romanas e germânicas, num mundo rural e inseguro, e organiza economia, sociedade e política em torno da terra.",
+  x: "Um camponês que foge das invasões vikings aceita trabalhar nas terras de um senhor em troca de proteção no castelo.", l: "séc. V–XV (Europa Ocidental)",
+  p: "Vassalagem (entre nobres) ≠ servidão (senhor e servo)."};
+const MM = [
+ {k: "ori", c: "#2f5bd3", t: "Origens", s: "invasões e heranças",
+  e: "Invasões germânicas e ruralização; heranças romanas e germânicas.", x: "Colonato romano → servidão.", l: "476: queda de Roma",
+  p: "Comitatus é germânico; colonato é romano.",
+  f: [
+   {k: "ori1", t: "Colonato, clientela, precarium", e: "Heranças romanas que fixaram o homem à terra e criaram dependência.", x: "Colono livre que não podia sair da terra.", l: "→ servidão", p: "Colono não era escravo."},
+   {k: "ori2", t: "Comitatus e beneficium", e: "Lealdade guerreira + concessão de terras.", x: "Chefe germânico que dá terra a seus guerreiros.", l: "→ vassalagem", p: "Ambos são germânicos."}
+  ]},
+ {k: "fra", c: "#1f8a4c", t: "Reino Franco", s: "merovíngios e carolíngios",
+  e: "O reino mais importante da Alta Idade Média, aliado da Igreja.", x: "Carlos Magno coroado em 800.", l: "496 · 732 · 751 · 800 · 843",
+  p: "Pepino depôs os merovíngios; Carlos Martel não foi rei.",
+  f: [
+   {k: "fra1", t: "Clóvis (496)", e: "Conversão ao cristianismo e aliança com a Igreja.", x: "Ganhou apoio da população romanizada da Gália.", l: "496", p: "Aliança de interdependência, não subordinação."},
+   {k: "fra2", t: "Carlos Martel (732)", e: "Prefeito do palácio; venceu os árabes em Poitiers; cavalaria.", x: "Cavaleiros recebiam terras: base da vassalagem.", l: "732 Poitiers", p: "Poitiers fica na França, não nos Pireneus."},
+   {k: "fra3", t: "Pepino e Carlos Magno", e: "751: dinastia Carolíngia; 800: coroação imperial; Renascimento Carolíngio; missi dominici.", x: "Patrimônio de São Pedro doado ao papa.", l: "751 · 800", p: "Quem coroou Carlos Magno foi Leão III."},
+   {k: "fra4", t: "Verdun (843) e invasões", e: "Divisão entre os netos; novas invasões aprofundam a feudalização.", x: "Carlos, o Calvo, ficou com a França.", l: "843", p: "Hugo Capeto (987) não é carolíngio."}
+  ]},
+ {k: "est", c: "#b07400", t: "Estrutura feudal", s: "feudo, estamentos, obrigações",
+  e: "Feudo autossuficiente; sociedade estamental; poder descentralizado.", x: "Corveia: trabalho nas terras do senhor.", l: "oratores · bellatores · laboratores",
+  p: "Não se nascia clérigo: o clero vinha da nobreza.",
+  f: [
+   {k: "est1", t: "Mansos", e: "Senhorial, servil e comunal.", x: "Bosque e pasto = manso comunal.", l: "3 mansos", p: "O manso comunal foi o que se expandiu para a agricultura no séc. XI."},
+   {k: "est2", t: "Obrigações servis", e: "Corveia, talha, banalidades, mão-morta, dízimo.", x: "Pagar para usar o moinho = banalidade.", l: "trabalho e produtos", p: "Corveia é trabalho; talha é produto."},
+   {k: "est3", t: "Descentralização", e: "O rei existe, mas o senhor manda no feudo.", x: "Imunidades jurídica e tributária.", l: "poder local", p: "\"O rei feudal era absolutista\": ERRADO."}
+  ]},
+ {k: "tra", c: "#8a3ac2", t: "Transformações", s: "século XI",
+  e: "Paz e inovações geram excedente, população e comércio: começa a desagregação.", x: "Charrua de ferro e moinho hidráulico.", l: "rotação trienal",
+  p: "A crise vem do crescimento, não da escassez inicial.",
+  f: [
+   {k: "tra1", t: "Inovações agrícolas", e: "Rotação trienal, charrua, peitoral, ferradura, moinho hidráulico.", x: "Três campos: um descansa a cada ano.", l: "técnica → excedente", p: "Peitoral é atrelagem do cavalo, não armadura."},
+   {k: "tra2", t: "Mercadores e marginalizados", e: "Comércio e artesanato renascem; servos expulsos e nobres sem terra ficam à margem.", x: "Filhos de nobres sem herança (que irão às Cruzadas).", l: "excedente → comércio", p: "Nem todos se beneficiaram."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Data ou conceito</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.13_hist_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

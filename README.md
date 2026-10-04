@@ -9,8 +9,9 @@ Cada tarefa de estudo tem a sua página, com resumo, mapa mental clicável, esqu
 Comece pelo [`index.html`](index.html), que lista os ciclos. Cada ciclo tem a sua página (`ciclo_3.html` etc.)
 com todas as tarefas propostas e o link para as que já têm página.
 
-| Ciclo | Página |
-|---|---|
-| 3 | [`ciclo_3.html`](ciclo_3.html) |
+| Ciclo | Página | Tarefas com página |
+|---|---|---|
+| 3 | [`ciclo_3.html`](ciclo_3.html) | 13 de 13 (3.2 a 3.16; as revisões 3.6, 3.11 e 3.17 usam as páginas das tarefas) |
 
+As questões discursivas têm campo de resposta e a resolução do material; a correção é feita com o professor.
 As respostas e as marcações de texto ficam salvas no próprio navegador.

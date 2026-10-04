@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.12 · Ciclo 3 · Física I — Movimentos retilíneos (parte 1/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.12</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa K (3.12) · Física I</h1>
+        <div class="sub">EsPCEx 2026 · Movimentos retilíneos (parte 1/2): conceitos de cinemática, MRU e MRUV</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Exemplos resolvidos</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.12</h2>
+  <p class="lead">Tarefa K da trilha: <i>"Estude os seguintes temas: Conceitos iniciais de cinemática; Movimento Retilíneo e Uniforme; Movimentos variados"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os três trechos do livro digital de Física I (itens 3.1 a 3.3). Os PDFs de cada parte foram baixados para consulta. As resoluções em vídeo não foram incluídas. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Repouso e movimento dependem do <b>referencial</b>.<br>• Distância percorrida ≥ |deslocamento| (iguais só em linha reta sem volta).<br>• km/h ÷ 3,6 = m/s.<br>• MRU: S = S₀ + v·t. MRUV: v = v₀ + a·t; S = S₀ + v₀·t + a·t²/2; Torricelli v² = v₀² + 2a·ΔS.<br>• Gráfico v × t: <b>área = deslocamento</b>, inclinação = aceleração.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (25 min).</b> Leia a aba <b>Resumo</b> e copie as fórmulas num cartão.</li><li><b>Mapa e Esquemas (10 min).</b> Estude a tabela de gráficos.</li><li><b>Exemplos resolvidos (15 min).</b> Resolva cada um antes de abrir.</li><li><b>Questões (30 min).</b> 106 questões: as objetivas primeiro; as discursivas ao longo das revisões.</li><li><b>Rendimento (5 min).</b> Anote os tipos de questão que errou.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: cinemática é base da Física e aparece em quase toda prova.</span></div><div class="card"><b>Questões</b><br><span class="muted">16 de múltipla escolha e 90 discursivas.</span></div><div class="card"><b>Próxima parte</b><br><span class="muted">Movimentos retilíneos 2/2: queda livre e lançamento vertical.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: movimentos retilíneos (parte 1/2)</h2>
+  <p class="lead">Na ordem do livro digital: conceitos, MRU e MRUV.</p>
+
+  <h3>1. História: Aristóteles × Galileu</h3>
+  <div class="card">
+    <ul>
+      <li><b>Aristóteles</b>: visão qualitativa; movimento <b>natural</b> (cada corpo busca o seu lugar) e <b>violento</b> (por força); para ele, era preciso força para manter o movimento.</li>
+      <li><b>Galileu</b>: experimentos e medidas (planos inclinados); aceleração constante na queda; ideia de <b>inércia</b>: sem força, o corpo mantém repouso ou movimento uniforme. É considerado o pai da ciência moderna.</li>
+    </ul>
+  </div>
+
+  <h3>2. Conceitos básicos</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Ponto material</span>: dimensões desprezíveis para o problema (um carro numa viagem de 300 km). <span class="k">Corpo extenso</span>: dimensões importam (o mesmo carro manobrando numa vaga, ou um trem atravessando uma ponte).</li>
+      <li><b>Repouso e movimento são relativos</b> ao <span class="k">referencial</span>. Referencial inercial: em repouso ou MRU; não inercial: acelerado (surgem forças fictícias, como a centrífuga).</li>
+      <li><b>Trajetória</b>: caminho descrito; também depende do referencial (a bomba solta do avião cai em linha reta para o piloto e em parábola para quem está no chão).</li>
+      <li><b>Posição escalar</b> (S): localização na trajetória a partir de uma origem (o km 277 da rodovia).</li>
+      <li><b>Deslocamento</b> (ΔS = S − S₀): vetorial, liga início e fim. <b>Distância percorrida</b>: escalar, soma de todo o caminho. Distância ≥ |deslocamento|.</li>
+    </ul>
+    <p>Exemplo do material: 100 m + 400 m + 400 m = <b>900 m</b> percorridos, mas deslocamento de <b>500 m</b> (Pitágoras: 300² + 400² = 500²).</p>
+    <div class="call bad"><b>Pegadinha</b>"Uma volta completa numa pista de 400 m tem deslocamento de 400 m": <b>ERRADO</b>.<br><b>O erro:</b> confunde distância com deslocamento.<br><b>O certo:</b> volta ao ponto de partida ⇒ deslocamento <b>zero</b>; distância = 400 m.</div>
+  </div>
+
+  <h3>3. Velocidade</h3>
+  <div class="card">
+    <div class="call"><b>Velocidade escalar média</b>v<sub>m</sub> = ΔS / Δt = (S₂ − S₁)/(t₂ − t₁)</div>
+    <ul>
+      <li>Positiva no sentido da trajetória, negativa no sentido contrário. A <b>instantânea</b> é a do velocímetro naquele instante.</li>
+      <li><b>Conversão</b>: km/h → m/s divide por <b>3,6</b>; m/s → km/h multiplica por 3,6 (72 km/h = 20 m/s).</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Foi a 60 km/h na ida e a 40 km/h na volta: média de 50 km/h": <b>ERRADO</b>.<br><b>O erro:</b> média aritmética das velocidades.<br><b>O certo:</b> para distâncias iguais, v<sub>m</sub> = 2·60·40/(60 + 40) = <b>48 km/h</b> (distância total ÷ tempo total).</div>
+  </div>
+
+  <h3>4. Movimento uniforme (MRU)</h3>
+  <div class="card">
+    <p>Velocidade <b>constante e não nula</b> (v = v<sub>m</sub>); aceleração zero.</p>
+    <div class="call"><b>Função horária</b>S = S₀ + v·t</div>
+    <ul>
+      <li>Gráfico <b>S × t</b>: reta (crescente se v &gt; 0, decrescente se v &lt; 0, horizontal se repouso). Corta o eixo S em S₀; a <b>inclinação</b> (tg α) é a velocidade.</li>
+      <li>Gráfico <b>v × t</b>: reta horizontal; a <b>área</b> sob ela é o deslocamento.</li>
+    </ul>
+  </div>
+
+  <h3>5. Movimento uniformemente variado (MRUV)</h3>
+  <div class="card">
+    <div class="call"><b>Aceleração escalar média</b>a<sub>m</sub> = Δv / Δt. No MRUV, a = a<sub>m</sub> = constante ≠ 0.</div>
+    <div class="tbl"><table>
+      <tr><th>Equação</th><th>Usa quando…</th></tr>
+      <tr><td><b>v = v₀ + a·t</b></td><td>relaciona velocidade e tempo</td></tr>
+      <tr><td><b>S = S₀ + v₀·t + a·t²/2</b></td><td>relaciona posição e tempo</td></tr>
+      <tr><td><b>v² = v₀² + 2·a·ΔS</b> (Torricelli)</td><td>o problema <b>não dá o tempo</b></td></tr>
+      <tr><td>v<sub>m</sub> = (v₀ + v)/2</td><td>velocidade média no MRUV</td></tr>
+    </table></div>
+    <ul>
+      <li>Gráficos: <b>v × t</b> é reta (inclinação = a; área = ΔS); <b>S × t</b> é parábola (concavidade para cima se a &gt; 0); <b>a × t</b> é reta horizontal (área = Δv).</li>
+      <li><b>Acelerado</b>: v e a com o <b>mesmo sinal</b> (|v| aumenta). <b>Retardado</b>: sinais <b>opostos</b> (|v| diminui).</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um ponto do material</b>O livro diz que aceleração negativa significa "desacelerando". Isso só vale se a velocidade for positiva. Um carro andando de ré (v &lt; 0) com a &lt; 0 está <b>acelerando</b>. O critério correto é comparar os sinais de v e a.</div>
+    <div class="call bad"><b>Pegadinha</b>"Aceleração negativa sempre indica movimento retardado": <b>ERRADO</b>.<br><b>O erro:</b> ignora o sinal da velocidade.<br><b>O certo:</b> retardado quando v e a têm <b>sinais opostos</b>.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: cinemática escalar</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/2 (esta)</b><br><span class="muted">Conceitos, velocidade, MRU, MRUV, gráficos, Torricelli.</span></div>
+    <div><b>Parte 2/2</b><br><span class="muted">Queda livre e lançamento vertical (MRUV com a = g).</span></div>
+    <div><b>Depois</b><br><span class="muted">Cinemática vetorial, lançamento oblíquo (usa a decomposição da 3.9), movimento circular.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>MRU × MRUV</h3>
+  <div class="tbl"><table>
+    <tr><th></th><th>MRU</th><th>MRUV</th></tr>
+    <tr><td>Aceleração</td><td>0</td><td>constante ≠ 0</td></tr>
+    <tr><td>Velocidade</td><td>constante</td><td>v = v₀ + at</td></tr>
+    <tr><td>Posição</td><td>S = S₀ + vt</td><td>S = S₀ + v₀t + at²/2</td></tr>
+    <tr><td>Gráfico S × t</td><td>reta</td><td>parábola</td></tr>
+    <tr><td>Gráfico v × t</td><td>horizontal</td><td>reta inclinada</td></tr>
+  </table></div>
+  <h3>Leitura de gráficos</h3>
+  <div class="tbl"><table>
+    <tr><th>Gráfico</th><th>Inclinação</th><th>Área</th></tr>
+    <tr><td>S × t</td><td>velocidade</td><td>—</td></tr>
+    <tr><td>v × t</td><td>aceleração</td><td>deslocamento</td></tr>
+    <tr><td>a × t</td><td>—</td><td>variação de velocidade</td></tr>
+  </table></div>
+  <h3>Conversões</h3>
+  <div class="tbl"><table>
+    <tr><th>km/h</th><th>18</th><th>36</th><th>54</th><th>72</th><th>90</th><th>108</th></tr>
+    <tr><td>m/s</td><td>5</td><td>10</td><td>15</td><td>20</td><td>25</td><td>30</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Exemplos resolvidos</h2>
+  <p class="lead">Modelos para as discursivas que, no material, só têm resolução em vídeo.</p>
+  <div class="card">
+    <details><summary>1. Um carro faz 120 km em 1h30. Velocidade média em km/h e em m/s?</summary><div>v = 120/1,5 = <b>80 km/h</b> ≈ 22,2 m/s.</div></details>
+    <details><summary>2. S = 10 − 4t (SI). Posição inicial, velocidade e instante em que passa pela origem.</summary><div>S₀ = 10 m; v = −4 m/s (sentido contrário); 0 = 10 − 4t ⇒ <b>t = 2,5 s</b>.</div></details>
+    <details><summary>3. Dois carros na mesma estrada: A em S = 0 a 20 m/s; B em S = 300 m a 10 m/s, no mesmo sentido. Quando A alcança B?</summary><div>20t = 300 + 10t ⇒ <b>t = 30 s</b>, em S = 600 m.</div></details>
+    <details><summary>4. Parte do repouso com a = 2 m/s². Velocidade e distância após 5 s.</summary><div>v = 0 + 2·5 = <b>10 m/s</b>; S = 2·25/2 = <b>25 m</b>.</div></details>
+    <details><summary>5. Um carro a 72 km/h freia até parar em 40 m. Aceleração?</summary><div>20 m/s: 0 = 400 + 2a·40 ⇒ <b>a = −5 m/s²</b> (Torricelli, sem o tempo).</div></details>
+    <details><summary>6. Gráfico v × t: v sobe de 0 a 10 m/s em 4 s e fica constante até 10 s. Deslocamento?</summary><div>Área: triângulo 4·10/2 = 20 m + retângulo 6·10 = 60 m ⇒ <b>80 m</b>.</div></details>
+    <details><summary>7. Velocidade média: metade de um percurso a 60 km/h e a outra metade a 40 km/h.</summary><div>2·60·40/(60 + 40) = <b>48 km/h</b> (média harmônica).</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (fixação e lista de cinemática)</h2>
+  <p class="lead">São as <b>106 questões</b> dos cadernos de conceitos iniciais, MRU e movimentos variados do livro digital: 16 de múltipla escolha e 90 discursivas. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Nas discursivas, escreva a resolução no campo e abra a resolução do material; elas ficam fora do rendimento (a correção é com o professor). Meta: <b>80%</b> nas objetivas. Atenção: a maioria das discursivas tem resolução só em vídeo no material, por isso aparece sem resolução escrita aqui; use a aba <b>Exemplos resolvidos</b> como modelo.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.12 · Conceitos, MRU e MRUV</option>
+      <option value="ref">Gráficos do movimento</option>
+      <option value="pan">Panorama de Cinemática</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um menino sai de sua casa e caminha para a escola, dando em média, um passo por segundo. O tamanho médio de seu passo é de 0,5 m e ele gasta 5 minutos no trajeto. Qual a distância entre sua casa e a escola?", "com": []}, {"n": 2, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma patrulha rodoviária mede o tempo que cada veículo leva para percorrer um trecho de 400 metros da estrada. Um automóvel percorre a primeira metade do trecho com velocidade de 140 km/h. Sendo de 80 km/h a velocidade máxima permitida, qual deve ser a maior velocidade média do carona segunda metade do trecho para evitar a multa?", "com": []}, {"n": 3, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro percorre 80 km a 40 km/h e, em seguida, 10 km a 20 km/h. Determine a velocidade média do carro durante todo o percurso.", "com": []}, {"n": 4, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Unicamp-SP) Brasileiro sofre! Numa tarde de sexta-feira, a fila única de clientes de um banco tem comprimento médio de 50 m. Em média, a distância entre as pessoas na fila é de 1,0 m. Os clientes são atendidos por três caixas. Cada caixa leva cerca de 3,0 minutos para atender um cliente. Pergunta-se:<div>a) Qual a velocidade (média) dos clientes ao longo da fila?<\/div><div>b) Quanto tempo um cliente gasta na fila?<\/div><div>c) Se um dos caixas se retirar por trinta minutos, quantos metros a fila aumenta? <\/div>", "com": []}, {"n": 5, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma escada rolante de 6 m de altura e 8 m de base transporta uma pessoa da base até o topo da escada num intervalo de tempo de 20 s.<div>Determine a velocidade média dessa pessoa.<\/div><div><img src=\"img/8abd75618122f956.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 6, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Unesp-SP) Num caminhão-tanque em movimento, uma torneira mal fechada goteja à razão de 2 gotas por segundo. Determine a velocidade do caminhão, sabendo que a distância entre as marcas no asfalto é de 2,5 metros.", "com": []}, {"n": 7, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma linha de ônibus urbano tem um trajeto de 25 km. Sabendo que um ônibus percorre esse trajeto em 85 minutos, calcule sua velocidade escalar média em km/h.", "com": []}, {"n": 8, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Duas cidades A e B distam 600 km. Um carro parte de A às 8 h 15 min 30 s e chega a B às 14 h 32 min 20 s.<div>a) Qual tempo gasto na viagem?<\/div><div>b) Qual a velocidade escalar média do carro na viagem? Dê a resposta em km/h.<\/div>", "com": []}, {"n": 9, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(ESPM-SP) A distância da faculdade até a zona leste da cidade é de 24 km. Considerando a velocidade máxima permitida de 80 km/h, quantos minutos, no mínimo, uma pessoa deve gastar no percurso em trânsito completamente livre?", "com": []}, {"n": 10, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Certa pessoa viajava em um automóvel cujo velocímetro não funcionava. Desejando saber qual a velocidade escalar média do automóvel e sabendo que os postes da rede elétrica dispostos à margem da estrada distam 60 m um do outro, a pessoa começou a marcar o tempo no instante em que passou em frente de certo poste (chamemos a este de 1º poste)  e constatou que transcorreram 45,6 s até o instante em que passou diante do 20º poste. Determine a velocidade escalar média do automóvel, em km/h, constatada no intervalo de tempo durante o qual se deslocou do 1º ao 20º poste.", "com": []}, {"n": 11, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(ESPM-SP) Uma estrela está a uma distância de 4,5⋅10^9 km da Terra. Sabendo-se que a velocidade da luz é de 300 000 km/s, qual o tempo gasto pela luz da estrela para atingir a Terra?", "com": []}, {"n": 12, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um automobilista percorre três voltas de um circuito de comprimento 4,5 km, empregando em cada volta os seguintes tempos: 10 min, 12 min e 12 min 30 s. Calcule em m/s:<div>a) a velocidade média do automobilista em cada volta;<\/div><div>b) a velocidade média no percurso total.<\/div>", "com": []}, {"n": 13, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corredor percorre 100 metros em 10 segundos. Determine sua velocidade média em km/h.", "com": []}, {"n": 14, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) No instante 𝑡1=2 s um automóvel passa pelo ponto A de uma estrada retilínea e, no instante 𝑡2=7 s, passa pelo ponto B.<div>Calcule a velocidade escalar média do automóvel nesse trecho.<\/div><div><img src=\"img/b3b2cf6a17e32944.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 15, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(ESPM-SP) Qual a velocidade em km/h que um avião deve atingir para igualar a velocidade de propagação do som no ar, supondo que esta seja de 330 m/s?", "com": []}, {"n": 16, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Transforme<div>a) 90 km/h em m/s;<\/div><div>b) 15 m/s em km/h.<\/div>", "com": []}, {"n": 17, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A distância da Terra ao Sol é de cerca de 149 milhões de quilômetros. Qual o espaço percorrido, em km, pela Terra durante uma volta na sua órbita? Suponha a órbita circular. Faça 𝜋=3,14.", "com": []}, {"n": 18, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Consideremos um carro percorrendo uma pista circular de raio 80 metros. Determine o deslocamento e o espaço percorrido pelo carro durante:<div>a) um quarto de volta;<\/div><div>b) meia volta;<\/div><div>c) uma volta.<\/div>", "com": []}, {"n": 19, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma pessoa sai do ponto A e caminha passando pelos pontos B, C e D, onde para. Com base na figura a seguir, calcule o deslocamento e o caminho percorrido pela pessoa nos trechos:<div><img src=\"img/a3b5f54a28f9b504.png\" alt=\"\"><br><\/div><div>a) AB<\/div><div>b) ABCD<\/div>", "com": []}, {"n": 20, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um garoto percorre os lados de um terreno retangular de dimensões 40 m e 80 m.<div><img src=\"img/89e68acb01922d3f.png\" alt=\"\"><br><div>a) Qual a distância percorrida pelo garoto em duas voltas completas?<\/div><div>b) Qual a distância percorrida e o deslocamento no percurso ABC?<\/div><br><\/div>", "com": []}, {"n": 21, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "Considere as seguintes alternativas em relação ao movimento de corpo pontual.<br><div>I. A velocidade do corpo é sempre tangente à sua trajetória.<\/div><div>II. Seu vetor posição tem a mesma direção de seu vetor velocidade.<\/div><div>III. A distância percorria pelo corpo é dada pelo comprimento de sua trajetória.<\/div><div>IV. O deslocamento vetorial muda conforme a trajetória o corpo.<\/div><br><div>Classifique como verdadeiro ou falso.<\/div>", "com": ["<b>Comentários:<\/b><div>I. Verdadeiro.<\/div><div>A velocidade sempre será tangente a trajetória do corpo.<\/div><div>II. Falso.<\/div><div>Nem sempre é valido.<\/div><div><img src=\"img/4a109a51242aa4b7.png\" alt=\"\"><br><\/div><div>III. Verdadeiro.<\/div><div>IV. Falso.<\/div><div>Não depende da trajetória. Só depende do ponto final e inicial.<\/div>"]}, {"n": 22, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos iniciais de cinemática", "tipo": "disc", "html": true, "enun": "Um homem tem que ir 50 m ao norte, 40 m ao leste e 20 m ao sul para chegar a um campo. <div>(a) Que distância (deslocamento escalar) ele tem de andar para chegar ao campo? <\/div><div>(b) Qual é o seu deslocamento (deslocamento vetorial) de sua casa para o campo?<\/div>", "com": ["<b>Comentários:<\/b><div>Veja a solução abaixo:<\/div><div><img src=\"img/23409c25ca96bc6b.png\" alt=\"\"><br><\/div>"]}, {"n": 23, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um automóvel faz uma viagem em 4 horas e sua velocidade escalar varia em função do tempo aproximadamente como mostra no gráfico.<div>Calcule a velocidade escalar média do automóvel na viagem.<\/div><div><img src=\"img/c8af085e54caf39a.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 24, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico indica a velocidade adquirida por um móvel no decorrer do tempo.<div>Determine o espaço percorrido pelo móvel no intervalo de 0 a 4 s.<\/div><div><img src=\"img/57aeb34239dbb92f.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 25, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel tem velocidade em função do tempo dada pelo gráfico seguinte.<div>Calcule o espaço percorrido pelo móvel no intervalo de 0 a 5 s.<\/div><div><img src=\"img/e28fc8a6cd203068.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 26, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Em cada caso, represente graficamente a velocidade escalar em função do tempo dos seguintes movimentos:<div>a) 𝑠=10+2𝑡 (no SI)<\/div><div>b) 𝑠=6−4𝑡 (no SI)<\/div><div>c) 𝑠=−70+10𝑡 (no SI)<\/div>", "com": []}, {"n": 27, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Dois mísseis em treinamento de interceptação deslocam-se em movimento retilíneo e uniforme numa mesma direção e sentido. O gráfico representa o movimento desses mísseis.<div><img src=\"img/9007ff732103dd55.png\" alt=\"\"><br><\/div><div>a) Qual o instante em que o míssil B intercepta o míssil A?<\/div><div>b) Qual a distância do ponto de interceptação ao ponto de lançamento?<\/div>", "com": []}, {"n": 28, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma nave espacial em movimento tem sua posição no decorrer do tempo, num trecho do movimento, dada pelo gráfico abaixo.<div><img src=\"img/8803e8782da21a1c.png\" alt=\"\"><br><\/div><div>a) Qual a velocidade da nave?<\/div><div>b) Onde estará a nave após 8 h de movimento a partir do instante 𝑡=0?<\/div>", "com": []}, {"n": 29, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico indica a posição de um corpo no decorrer do tempo. Qual a posição do corpo no instante 12 s?<div><img src=\"img/f238c5da1c852ffd.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 30, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A figura representa a posição de um corpo, em movimento retilíneo, como função do tempo.<div><img src=\"img/8c85dcc60d416c01.png\" alt=\"\"><br><\/div><div>a) Determine a função horária das posições desse móvel.<\/div><div>b) Em que instante o corpo passa pela posição 80 m?<\/div>", "com": []}, {"n": 31, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel realiza um movimento retilíneo e uniforme obedecendo à função horária 𝑠=40−10𝑡 (no SI). Construa o gráfico dessa função no intervalo de 0 a 4 s.", "com": []}, {"n": 32, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um caçador dá um tiro e ouve o eco 6 s após o disparo. Sabendo que a velocidade de propagação do som no ar é de 340 m/s, calcule a que distância do alvo se encontra o caçador.", "com": []}, {"n": 33, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um trem de comprimento 𝐿=200 m, em trajetória retilínea, tem velocidade escalar constante 𝑣_𝑇=20 m/s. Um automóvel de comprimento 𝐿^′=2 m está em uma trajetória paralela à do trem, com velocidade escalar constante 𝑣_𝐴, caminhando no mesmo sentido do trem, e vai ultrapassá-lo. O intervalo de tempo decorrido desde o início até o fim da ultrapassagem completa do trem é de 10,1 s. Calcule 𝑣_𝐴.<div><img src=\"img/69100fb2dd6618b8.png\" alt=\"\"><br><br><\/div>", "com": []}, {"n": 34, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma composição ferroviária com 19 vagões e uma locomotiva desloca-se a 20 m/s. Sendo de 10 m o comprimento de cada elemento da composição, qual é o tempo que o trem gasta para ultrapassar:<div>a) um sinaleiro?<\/div><div>b) uma ponte de 100 m de comprimento?<\/div>", "com": []}, {"n": 35, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(UnB-DF) Qual é o tempo gasto para que uma composição de metrô de 200 m a uma velocidade de 180 km/h atravesse um túnel de 150 m? Dê a sua resposta em segundos.", "com": []}, {"n": 36, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um batalhão de infantaria sai do quartel para uma marcha de exercício às 5 horas da manhã, ao passo de 5 km/h. Depois de um hora e meia, um ordenança sai do quartel de jipe para levar uma informação ao comandante da marcha, ao longo da mesma estrada e a 80 km/h. Quantos minutos o ordenança levará para alcançar o batalhão?", "com": []}, {"n": 37, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Dois corredores partem, em sentidos opostos e no mesmo instante, dos extremos de uma pista retilínea de 600 m de comprimento. Sabendo que suas velocidades são iguais a 8,5 m/s e 6,5 m/s, calcule depois de quanto tempo a distância entre eles é de 450 m.", "com": []}, {"n": 38, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Em uma estrada observam-se um caminhão e um jipe, ambos correndo no mesmo sentido. Suas velocidades são, respectivamente, 54 km/h e 72 km/h. Na data zero, o jipe está atrasado 100 metros em relação ao caminhão. Determine:<div>a) o instante em que o jipe alcança o caminhão;<\/div><div>b) o caminho percorrido pelo jipe até alcançar o caminhão<\/div>", "com": []}, {"n": 39, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corpo se movimenta sobre a trajetória retilínea da figura, obedecendo à função horária 𝑠=−4+2𝑡 (no SI).<div><img src=\"img/5dc32ac9d214aad4.png\" alt=\"\"><br><\/div><div>a) Qual a posição do corpo no instante 5 s?<\/div><div>b) Determine o instante em que ele passa pelo ponto A.<\/div>", "com": []}, {"n": 40, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corpo movimenta-se sobre uma trajetória retilínea obedecendo à função horária 𝑠=60−10𝑡 (no SI). Determine:<p>a) sua posição inicial e sua velocidade;<\/p><p>b) sua posição no instante 3 s;<\/p><p>c) o instante em que passa pela origem das posições;<\/p><p>d) a distância percorrida no intervalo de 1 s a 10 s.<\/p>", "com": []}, {"n": 41, "fonte": "Questões Inéditas · 2025", "tema": "Movimento Retilíneo e Uniforme", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro movimenta-se segundo a função horária 𝑠=50+8𝑡  (no SI).<div>a) Qual a posição inicial e a velocidade do carro?<\/div><div>b) Qual a posição do carro no instante 20 s?<\/div><div>c) Em que instante o carro passa pela posição 650 m?<\/div><div>d) Que distância o carro percorre durante o 10º segundo?<\/div>", "com": []}, {"n": 42, "fonte": "CFS - Demais Especialidades · 2022", "tema": "Movimento Retilíneo e Uniforme", "tipo": "mc", "html": true, "enun": "Um  carro  a  108  km/h  se  encontra  prestes  a  iniciar  uma  ultrapassagem  de  um  caminhão  que  está  a  72  km/h,  conforme  a  figura. Ambos realizam um movimento retilíneo uniforme durante todo percurso.<br><div><img src=\"img/25e8326039afe9b0.png\" alt=\"\"><br><\/div><br><div>O  tempo,  em  segundos,  que  o  carro  leva  para  ultrapassar  o  caminhão  (ponto  A  chegar  à  mesma  posição  do  ponto  B,  em  relação ao referencial x) é igual a<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Para que a ultrapassagem ocorra, o carro deve percorrer o comprimento do caminhão acrescido de seu comprimento. Para isso, usaremos o conceito de velocidade relativa.<br><div><img src=\"img/05f5a4563c8d4cea.png\" alt=\"\"><br><\/div>"], "alts": [["a", "1"], ["b", "2,4"], ["c", "2,7"], ["d", "3"]], "resp": "c"}, {"n": 43, "fonte": "Simulado CN · 2022", "tema": "Movimento Retilíneo e Uniforme", "tipo": "mc", "html": true, "enun": "Dois automóveis viajam em uma estrada retilínea na mesma direção. O gráfico do movimento dos carros é mostrado logo abaixo.<br><div><img src=\"img/f6d5fc0a497ee565.png\" alt=\"\"><br><\/div><br><div>Assinale a alternativa correta.\r<\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> <b>INCORRETO<\/b><div><b><br><\/b><\/div><div>Pelo gráfico do espaço pelo tempo, em 𝑡 = 60 𝑠, o espaço dos corpos é o mesmo e não a velocidade.\r<\/div>", "<b>Alternativa B:<\/b> <b>INCORRETA<\/b><br><div>Em 𝑡 = 100 𝑠 o carro B apenas está no espaço igual a zero. Como os gráficos de A e de B são retas e são gráficos retas, então as velocidades de A e de B são constante e diferentes de zero. Então, então 𝑡 = 100 𝑠, a velocidade de B é diferente de zero.<\/div>", "<b>Alternativa C:<\/b> <b>INCORRETA<\/b><br><div>Os carros possuem velocidades constante, ou seja, as acelerações são nulas.\r<\/div>", "<b>Alternativa D:<\/b> <b>CORRETA<\/b><br><div>Pelo gráfico, o ponto de encontro tem coordenada em 𝑠 que pode ser extraída por semelhança de triângulos:\r<\/div><br><div><img src=\"img/155fcfeb63f197fc.png\" alt=\"\"><br><\/div><br><div>Para o carro A, temos:\r<\/div><br><div><img src=\"img/0d764e7f8a12ece8.png\" alt=\"\"><br><\/div>", "<b>Alternativa E:<\/b> <b>INCORRETA<\/b><br><div>Pelo gráfico do espaço pelo tempo, temos:\r<\/div><br><div><img src=\"img/2c3c7e2b9c106555.png\" alt=\"\"><br><\/div>"], "alts": [["a", "em 𝑡 = 60 𝑠, os carros possuem a mesma velocidade."], ["b", "em 𝑡 = 100 𝑠, o carro B parou."], ["c", "a aceleração de B é maior que a aceleração de A, em módulo."], ["d", "a velocidade de A é de 24 km/h."], ["e", "a velocidade de B é de 50 km/h."]], "resp": "d"}, {"n": 44, "fonte": "Provão de Bolsas CN · 2021", "tema": "Movimento Retilíneo e Uniforme", "tipo": "mc", "html": true, "enun": "Em um laboratório de Física, um professor estuda o movimento de duas esferas A e B. Ele constrói o gráfico do espaço pelo tempo para as duas esferas e verifica as seguintes curvas de movimentos.&nbsp;<br><div><img src=\"img/637b2a9204d11cd0.png\" alt=\"\"><br><\/div><br><div>De acordo com o gráfico, pode-se afirmar que:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA E.<\/b><div><b><br><\/b><\/div>", "<b>Alternativa A:<\/b> <b>INCORRETA<\/b>. No ponto P, o espaço de A é igual ao espaço de B, apenas.<div><br><br><\/div>", "<b>Alternativa B:<\/b> <b>INCORRETA<\/b>. O gráfico apresenta duas retas, então as esferas se movem em MRU.", "<b>Alternativa C:<\/b> <b>INCORRETA<\/b>. A esfera B é mais rápida que a esfera A, elas apenas se move no sentido contrário ao de A. Note que a inclinação da reta de B tem módulo mais que a inclinação da reta de A, ou seja, a intensidade da velocidade de B é maior que a intensidade da velocidade de A.<div><br><\/div>", "<b>Alternativa D:<\/b> <b>INCORRETA<\/b>. A esfera A se move em um MRU.", "<b>Alternativa E:<\/b> <b>CORRETA<\/b>. Conforme mencionado no item (C)."], "alts": [["a", "no ponto P, a velocidade de A é igual a velocidade de B."], ["b", "a esfera A se move em um MRU e a esfera B se move em um MRUV."], ["c", "a esfera B é mais lenta que a esfera A."], ["d", "a esfera A tem aceleração positiva.&nbsp;"], ["e", "a esfera B é mais rápida que A e tem sentido oposto a esta.&nbsp;"]], "resp": "e"}, {"n": 45, "fonte": "Provão de Bolsas CN · 2021", "tema": "Movimento Retilíneo e Uniforme", "tipo": "mc", "html": true, "enun": "Um móvel se desloca em um trajetória retilínea, durante 10 segundos, com a velocidade variando de acordo com o gráfico da figura abaixo. Pode-se afirmar que a velocidade média após 10 s, em m/s, é de:<br><div><img src=\"img/feb934bf93cc8b64.png\" alt=\"\"><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><br><div>Em  um  gráfico  de  velocidade  pelo  tempo,  sabemos  que  a  área  sob  o  gráfico  corresponde  a  variação  de  espaço. Portanto:<\/div><br><div><img src=\"img/8f4b98d4da33fa2e.png\" alt=\"\"><br><\/div><br><div>Logo:<\/div><br><div>Δ𝑠 = 𝐴₁ + 𝐴₂<\/div><br><div>Δ𝑠 = 5 ⋅ 4 + 10 ⋅ (10 − 4)<\/div><br><div>Δ𝑠 = 20 + 10 ⋅ 6 = 80 𝑚<\/div><br><div>Por definição de velocidade média, temos:<\/div><br><div><img src=\"img/7f536e88bb31aa36.png\" alt=\"\"><br><\/div>"], "alts": [["a", "10"], ["b", "8"], ["c", "6"], ["d", "5"], ["e", "3"]], "resp": "b"}, {"n": 46, "fonte": "Provão de Bolsas CN · 2021", "tema": "Movimento Retilíneo e Uniforme", "tipo": "mc", "html": true, "enun": "<p>O gráfico da figura abaixo representa o espaço de um móvel 𝑆 em função do tempo 𝑡. De acordo com o gráfico, podemos dizer que a velocidade vetorial média do móvel no intervalo de 0 a 7 s foi igual a:<\/p><p><img src=\"img/fdff56cfc4d0d9a9.png\" alt=\"\"><br><\/p>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><p>Pela definição de velocidade média, sabemos que&nbsp;<img src=\"img/1b9b85b21a7159c9.png\" alt=\"\">. Como o espaço final é igual ao espaço inicial, após 7 segundos, então a velocidade média é nula.&nbsp;<\/p>"], "alts": [["a", "25 m/s"], ["b", "20 m/s"], ["c", "14,3 m/s"], ["d", "7,2 m/s"], ["e", "0 m/s"]], "resp": "e"}, {"n": 47, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico da aceleração de um móvel em movimento retilíneo é dado na figura. Sabendo que sua velocidade inicial é zero, determine:<div><img src=\"img/6fc403e379f5cbe8.png\" alt=\"\"><br><\/div><div>a) a aceleração média no intervalo 0 |−| 20 s;<\/div><div>b) o gráfico da velocidade em função do tempo.<\/div>", "com": []}, {"n": 48, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ponto material tem velocidade inicial de 40 m/s e aceleração dada pelo gráfico. Ache a velocidade do ponto material no instante 8 s.<div><img src=\"img/083b49d850f51404.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 49, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A aceleração de um corpo é dada pelo gráfico. Calcule a variação da velocidade do corpo nos primeiros 5 segundos.<div><img src=\"img/4b98a7c2a1b9c30e.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 50, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico representa a posição de um móvel em movimento retilíneo de aceleração constante.<div><img src=\"img/c5685f7cde7dff4b.png\" alt=\"\"><br><\/div><div>a) Determine a função horária das posições desse movimento.<\/div><div>b) Ache a velocidade desse móvel no instante 3 s.<\/div>", "com": []}, {"n": 51, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Para um móvel que parte do repouso temos o gráfico de sua posição em função do tempo.<div><img src=\"img/64a646e4c12ee618.png\" alt=\"\"><br><\/div><div>Determine a função horária das posições desse movimento.<\/div>", "com": []}, {"n": 52, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico representativo da posição de um corpo em MUV sobre uma trajetória retilínea é indicado na figura abaixo. Determine:<div><img src=\"img/154a821bf27d54dd.png\" alt=\"\"><br><\/div><div>a) a posição inicial do corpo;<\/div><div>b) o instante em que o corpo muda de sentido;<\/div><div>c) os instantes em que passa pela origem;<\/div><div>d) em qual intervalo de tempo o movimento é acelerado.<\/div>", "com": []}, {"n": 53, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corpo realiza MUV sobre uma trajetória retilínea obedecendo à função horária 𝑠=30+9𝑡−3𝑡^² (no SI). Construa o gráfico dessa função e efetue um estudo do movimento.", "com": []}, {"n": 54, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel realiza MUV sobre uma trajetória retilínea obedecendo à função horária 𝑠=12−8𝑡+𝑡² (no SI). Construa o gráfico dessa função e efetue um estudo do movimento.", "com": []}, {"n": 55, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) No instante 𝑡=0, um móvel está com velocidade escalar 𝑣_𝑜. Continua em movimento uniformemente variado até atingir o repouso. A figura representa, parcialmente, o gráfico da velocidade escalar do móvel em função do tempo t.<div><img src=\"img/4dc805eadb741a32.png\" alt=\"\"><br><\/div><div>a) Determine o valor 𝑣_𝑜.<\/div><div>b) Determine a distância percorrida pelo móvel a partir de 𝑡=2 s até parar.<\/div>", "com": []}, {"n": 56, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Dois móveis, A e B, partem simultaneamente de um mesmo ponto e deslocam-se numa mesma trajetória com velocidades dadas pelo gráfico.<div>Determine a distância que separa os móveis após 30 s de movimento.<\/div><div><img src=\"img/f425d8d9ecd8a2c1.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 57, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) É dado o gráfico de um ponto material que se movimenta numa trajetória retilínea.<div><img src=\"img/559211a7807ca7d7.png\" alt=\"\"><br><\/div><div>a) Qual a aceleração do ponto material nos intervalos de 0 a 3 s e de 3 s a 10 s?<\/div><div>b) Qual a velocidade escalar média no intervalo de 0 a 10 s?<\/div>", "com": []}, {"n": 58, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Unicamp-SP) A tabela mostra os valores da velocidade de um atleta da São Silvestre em função do tempo, nos segundos iniciais da corrida.<div><img src=\"img/13f85dc2e11a546a.png\" alt=\"\"><br><\/div><div>a) Esboce um gráfico da velocidade do atleta em função do tempo.<\/div><div>b) Calcule a aceleração do atleta nos primeiros 5 segundos da corrida.<\/div>", "com": []}, {"n": 59, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ponto material movimenta-se sobre uma trajetória retilínea e sua velocidade varia com o tempo de acordo com o diagrama a seguir:<div>Determine a distância percorrida pelo ponto material entre os instantes 0 e 5 s.<\/div><div><img src=\"img/1395e5a7dc338f0b.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 60, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel realiza um MUV e sua velocidade varia com o tempo de acordo com o gráfico. Calcule:<div><img src=\"img/172b32bdeaa9161a.png\" alt=\"\"><br><\/div><div>a) a função horária da velocidade;<\/div><div>b) o espaço percorrido de 0 a 8 s;<\/div><div>c) a velocidade média do móvel no intervalo de 0 a 8 s.<\/div>", "com": []}, {"n": 61, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O gráfico representa a velocidade de um ponto material em função do tempo.<div><img src=\"img/97c05e3745fb56ca.png\" alt=\"\"><br><\/div><div>a) Ache a velocidade do ponto material no instante 10 s.<\/div><div>b) Determine o instante em que a velocidade do ponto material é de 80 m/s.<\/div>", "com": []}, {"n": 62, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Em cada caso, determine a função horária da velocidade:<div>a)<\/div><div><img src=\"img/5c2ea02b3005a50e.png\" alt=\"\"><br><\/div><div>b)<\/div><div><img src=\"img/a168bca7cf509eea.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 63, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A função horária da velocidade de um corpo em movimento é 𝑣=40−10𝑡 (no SI). Construa o gráfico 𝑣=𝑓(𝑡).", "com": []}, {"n": 64, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ponto material em movimento retilíneo tem velocidade dada por 𝑣=4+2𝑡 (no SI). Construa o gráfico dessa função.", "com": []}, {"n": 65, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel com velocidade inicial de 19,8 km/h adquire uma aceleração constante de 2,4 m/s². Determine a velocidade e o espaço percorrido pelo móvel 15 s após ter recebido a aceleração.", "com": []}, {"n": 66, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma composição de metrô parte de uma estação e percorre 100 metros com aceleração constante, atingindo 20 m/s. Determine a aceleração e a duração do processo.", "com": []}, {"n": 67, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um automóvel que anda com velocidade escalar de 72 km/h é freado de tal forma que, 6,0 s após o início da freada, sua velocidade escalar é de 8,0 m/s.<div>a) Qual o tempo gasto pelo móvel até parar?<\/div><div>b) Qual a distância percorrida pelo móvel até parar?<\/div>", "com": []}, {"n": 68, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um trem corre a uma velocidade de 90 km/h, quando o maquinista vê um obstáculo 125 m à sua frente. Calcule o menor módulo da aceleração de retardamento a ser imprimida ao trem para que não haja choque.", "com": []}, {"n": 69, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ciclista parte do repouso do ponto A e, em movimento uniformemente variado, percorre a pista retilínea indicada na figura. Sabe-se que 20 s após a partida ele passa pelo ponto B com velocidade 8 m/s.<div><img src=\"img/b1b7b7de27bc7407.png\" alt=\"\"><br><\/div><div>a) Qual a medida (𝐴𝐵) ̅?<\/div><div>b) Qual a velocidade do ciclista ao passar pelo ponto C?<\/div>", "com": []}, {"n": 70, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro corre a uma velocidade de 72 km/h. Quando freado, para após percorrer 50 metros. Calcule a aceleração introduzida pelos freios.", "com": []}, {"n": 71, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Uma bicicleta tem velocidade inicial de 4,0 m/s e adquire uma aceleração constante de 1,8 m/s². Qual é sua velocidade após percorrer 50 m?", "com": []}, {"n": 72, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Metodista-SBC) No grande prêmio do Japão de automobilismo, 10 segundos antes de Prost e Senna se chocarem, a distância entre eles era de 100 metros. Supondo que nesse instante as velocidades de ambos eram iguais e que o piloto que vinha na frente mantinha uma aceleração constante de 1 m/s², qual foi a aceleração desenvolvida pelo outro piloto nesse intervalo de tempo?<div><img src=\"img/378bfd0163ff6952.png\" alt=\"\"><br><\/div>", "com": []}, {"n": 73, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) De uma cidade A parte, do repouso, para uma cidade B um carro em movimento uniformemente acelerado de aceleração 12 km/h². Nesse exato momento parte de B para A, na mesma direção, um outro carro com velocidade constante de 25 km/h. A distância entre as cidades A e B é de 469 km. Determine:<div>a) o instante do encontro;<\/div><div>b) a posição do encontro.<\/div>", "com": []}, {"n": 74, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ciclista A inicia uma corrida a partir do repouso, acelerando 0,50 m/s². Nesse instante passa por ele um ciclista B, com velocidade constante de 5,0 m/s e no mesmo sentido que o ciclista A.<div>a) Depois de quanto tempo após a largada o ciclista A alcança o ciclista B?<\/div><div>b) Qual a velocidade do ciclista A ao alcançar o ciclista B?<\/div>", "com": []}, {"n": 75, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ponto material parte do repouso com aceleração constante e 10 s após encontra-se 40 m da posição inicial. Determine:<div>a) a aceleração do ponto material;<\/div><div>b) a velocidade do ponto material no instante 10 s.<\/div>", "com": []}, {"n": 76, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro viajando com velocidade escalar de 72 km/h breca repentinamente e consegue parar em 4 segundos. Considerando a desaceleração uniforme, qual a distância percorrida pelo carro durante esses 4 segundos?", "com": []}, {"n": 77, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Partindo do repouso no instante 𝑡=0, um ponto material possui aceleração escalar constante e igual a 2,0  m/s². Qual a distância percorrida pelo ponto material entre os instantes 𝑡_1=1 s e 𝑡_2=2 s?", "com": []}, {"n": 78, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Num teste de corrida, um carro consegue atingir a velocidade de 40 m/s em 5 segundos. Sabendo que o movimento é uniformemente acelerado, e que ele parte do repouso, calcule a distância percorrida durante 14 segundos.", "com": []}, {"n": 79, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um trem parte do repouso, da origem das posições de uma trajetória retilínea, com aceleração constante de 4 m/s².<div>a) Que velocidade tem após 10 s?<\/div><div>b) Que distância percorreu em 10 s?<\/div><div>c) Qual a distância percorrida até o instante em que sua velocidade atinge 60 m/s?<\/div><div>d) Qual é sua velocidade média no intervalo de 0 a 10 s?<\/div>", "com": []}, {"n": 80, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro percorre uma estrada a 45 km/h. O motorista quer ultrapassar um outro carro e acelera uniformemente, até atingir 90 km/h em 10 segundos.<div>a) Qual foi a aceleração do carro nesses 10 segundos?<\/div><div>b) Qual a distância percorrida pelo carro nesses 10 segundos?<\/div>", "com": []}, {"n": 81, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel parte com velocidade de 10 m/s e aceleração constante de 6 m/s² da posição 20 metros de um trajetória retilínea. Determine sua posição no instante 12 segundos.", "com": []}, {"n": 82, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ciclista executa um movimento uniformemente variado obedecendo à função horária 𝑠=15−𝑡+2𝑡² (no SI). Determine o instante e a posição em que o ciclista muda o sentido do movimento.", "com": []}, {"n": 83, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel desloca-se sobre uma trajetória retilínea obedecendo à função horária 𝑠=6−5𝑡+𝑡² (no SI). Determine:<div>a) a posição do móvel no instante 5 s;<\/div><div>b) o caminho percorrido pelo móvel entre os instantes 4 s e 6 s;<\/div><div>c) o instante em que o móvel passa pela posição 56 m.<\/div>", "com": []}, {"n": 84, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corpo desloca-se sobre uma trajetória retilínea obedecendo à função horária 𝑠=−40−2𝑡+2𝑡² (no SI). Pede-se:<div>a) a posição inicial, a velocidade inicial e a aceleração do corpo;<\/div><div>b) a função horária da velocidade;<\/div><div>c) o instante em que o corpo passa pela origem das posições.<\/div>", "com": []}, {"n": 85, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Considere as seguintes funções horárias da posição, onde s é medido em metros e t, em segundos:<div>a) 𝑠=10+4𝑡+3𝑡²<\/div><div>b) 𝑠=−8+𝑡−5𝑡²<\/div><div>c) 𝑠=1−𝑡²<\/div><div>d) 𝑠=4𝑡²<\/div><div>Ache a função horária da velocidade para cada uma delas.<\/div>", "com": []}, {"n": 86, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um corpo percorre uma trajetória retilínea com aceleração constante de 4 m/s². No instante inicial o movimento é retardado e sua velocidade em módulo é de 20 m/s. Determine a velocidade do corpo no instante 30 s.", "com": []}, {"n": 87, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um automóvel, correndo com velocidade de 90 km/h, é freado com uma aceleração constante e para em 5 s. Qual a aceleração introduzida pelos freios?", "com": []}, {"n": 88, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) O maquinista aciona os freios de um trem, reduzindo sua velocidade de 80 km/h para 60 km/h no intervalo de 1 minuto. Determine, supondo-a constante, a aceleração do trem nesse intervalo. Dê a resposta em km/h².", "com": []}, {"n": 89, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um móvel  parte com velocidade 4 m/s de um  ponto de uma trajetória retilínea com aceleração constante de 5 m/s². Ache sua velocidade no instante 16 s.", "com": []}, {"n": 90, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A velocidade do móvel no decorrer do tempo é indicada pela tabela seguinte. Calcule a função horária da velocidade desse móvel.<div><img src=\"img/7ec18bab321deb1c.png\" alt=\"\"><br><br><\/div>", "com": []}, {"n": 91, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um ponto material em movimento retilíneo adquire velocidade que obedece à função 𝑣=40−10𝑡 (no SI). Determine:<div>a) a velocidade inicial;<\/div><div>b) a aceleração;<\/div><div>c) a velocidade no instante 5 s;<\/div><div>d) o instante em que o ponto material muda de sentido;<\/div><div>e) a classificação do movimento (acelerado ou retardado) nos instante 2 e 6 s.<\/div>", "com": []}, {"n": 92, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) A função da velocidade de um móvel em movimento retilíneo é dada por 𝑣=50+4𝑡 (no SI).<div>a) Qual a velocidade inicial e a aceleração do móvel?<\/div><div>b) Qual a velocidade do móvel no instante 𝑡=5 s?<\/div><div>c) Em que instante a velocidade do móvel é igual a 100 m/s?<\/div>", "com": []}, {"n": 93, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um carro parte do repouso e atinge a velocidade de 25 m/s em 5 s. Ache sua aceleração média nesse intervalo de tempo.", "com": []}, {"n": 94, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Um trenó tem velocidade 𝑣_𝑜 no instante 4 s e velocidade 15 m/s no instante 9 s. Sabendo que a aceleração escalar média no intervalo de 4 s a 9 s foi de 2 m/s², calcule 𝑣_𝑜.", "com": []}, {"n": 95, "fonte": "Questões Inéditas · 2025", "tema": "Movimentos variados", "tipo": "disc", "html": true, "enun": "(Física completa - Bonjorno) Calcule a aceleração média de um carro, sabendo que sua velocidade varia de 4 m/s para 12 m/s em 2 s.", "com": []}, {"n": 96, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Dois carros, A e B, percorrem uma mesma estrada, e suas respectivas funções horárias da posição são dadas por <img src=\"img/77f86eed296ef5fd.png\" alt=\"\"> e <img src=\"img/61cbf205797d14fc.png\" alt=\"\"> onde S é dado em metros e t é dado em segundos. No instante em que os carros se encontram, o movimento do carro B é classificado como:", "com": ["<p><strong>GABARITO: ALTERNATIVA C<\/strong><\/p><p>Encontro dos carros: <\/p><p>Para saber quando os carros se encontram, igualamos suas posições:<\/p><p>Sᴀ(t) = Sʙ(t) ⇒ 2t − 5 = t² − 4 ⇒ 0 = t² − 2t + 1 ⇒ (t − 1)² = 0 ⇒ t = 1s<\/p><p>Classificar o movimento do carro B no instante t = 1 s: <\/p><p>A função de posição do carro B é:<\/p><p>Sʙ(t) = t² − 4 ⇒ vʙ(t) = 2t ⇒ aʙ(t) = 2<\/p><p>No instante t = 1:<\/p><p>vʙ = 2t = 2(1) = 2 m/s (positivo → movimento progressivo)<\/p><p>aʙ = 2 m/s² &gt; 0 (aceleração constante e positiva)<\/p><p>Como vʙ &gt; 0 → movimento progressivo<\/p><p>Como vᴀ &gt; 0 → movimento acelerado<\/p>"], "alts": [["a", "retrógrado e acelerado."], ["b", "retrógrado e retardado."], ["c", "progressivo e acelerado."], ["d", "progressivo e retrógrado."], ["e", "progressivo e constante."]], "resp": "c"}, {"n": 97, "fonte": "Simulado CN · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um corpo se move em um MRUV e varia sua velocidade de 20 m/s para 30 m/s, percorrendo uma distância de 50 metros. Dessa forma, o intervalo de tempo gasto, em segundos, foi de:", "com": ["<div><b>GABARITO: ALTERNATIVA B<\/b><\/div><br>Se o corpo se move em um MRUV, então:<br><div><img src=\"img/3ecf4a79d7275dba.png\" alt=\"\"><br><\/div><br><div>Logo:<\/div><br><div><img src=\"img/dfd468be95010cba.png\" alt=\"\"><br><\/div>"], "alts": [["a", "1"], ["b", "2"], ["c", "3"], ["d", "4"], ["e", "5"]], "resp": "b"}, {"n": 98, "fonte": "CFS - Demais Especialidades · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um  móvel,  de  dimensões  desprezíveis,  parte  do  repouso  e  seu  movimento  retilíneo  é  observado  por  um  professor  de  Física.  Os   valores   das   posições   (x)   desse   móvel   em   função   dos   respectivos  instantes  de  tempo  (t)  estão  registrados  na  tabela  a  seguir.<br><div><img src=\"img/b9a8756c457dda4c.png\" alt=\"\"><br><\/div><br><div>Podemos  afirmar,  corretamente,  que  o  móvel  executa  um  movimento retilíneo ____________________________________ .<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA C.<\/b><\/div><div><b><br><\/b><\/div>Aplicando a expressão do MRUV:<br><div><img src=\"img/28f50cfa7659b7b1.png\" alt=\"\"><br><\/div>"], "alts": [["a", "uniforme   com   uma   velocidade   de   módulo   constante   igual      a 4 m/s²"], ["b", "uniforme   com   uma   velocidade   de   módulo   constante   igual      a 8 m/s²"], ["c", "uniformemente   variado   com   uma   aceleração   constante   de   módulo igual a 4 m/s²"], ["d", "uniformemente   variado   com   uma   aceleração   constante   de   módulo igual a 2 m/s²"]], "resp": "c"}, {"n": 99, "fonte": "Simulado EAM · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Dois móveis, A e B, partem do mesmo local e suas velocidades são registradas no gráfico abaixo.\r<br><div><img src=\"img/d86ae6bbdfab29d6.png\" alt=\"\"><br><\/div><br><div>Após 5 segundos, a distância entre os dois móveis é de:<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA A.<\/b><\/div><div><b><br><\/b><\/div>Inicialmente, devemos transformar a velocidade em m/s, dividindo por 3,6. Em seguida, para determinar o quanto cada um deslocou, basta calcular a área embaixo de cada curva.&nbsp;<br><div><img src=\"img/1840e538182db06d.png\" alt=\"\"><br><\/div><br><div>Para o móvel A:<\/div><br><div>Δ𝑠🇦 = ((3 + 5)/2) ⋅ 15 = 60 𝑚<\/div><br><div>Para o móvel B:<\/div><br><div>Δ𝑠🇧 = 10 ⋅ 5 = 50 𝑚<\/div><br><div>Logo, a distância entre eles é de 10 m.<\/div>"], "alts": [["a", "10 m"], ["b", "15 m"], ["c", "20 m"], ["d", "25 m"], ["e", "30 m"]], "resp": "a"}, {"n": 100, "fonte": "Simulado AFA · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "O manual de um motorista diz que um automóvel com pneus em boas condições e a uma velocidade de 72 𝑘𝑚/ℎ pode parar numa distância de 42 𝑚. A distância correspondente para a velocidade de 54 𝑘𝑚/ℎ é 25,5 𝑚. Suponha que o tempo de reação do motorista, durante o qual a aceleração é zero, independe da velocidade do automóvel e que a aceleração de frenagem seja a mesma. A partir<div>dessas considerações, é possível concluir que o tempo médio de reação de um motorista para esse manual é:\r<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA B.<\/b><\/div><div><b><br><\/b><\/div>As velocidades em 𝑚/𝑠 são, respectivamente: 20 𝑚/𝑠 e 15 𝑚/𝑠&nbsp;<div><br><div>Seja 𝑎 o módulo da aceleração de frenagem do carro.<\/div><br><div>Para a velocidade de 20 𝑚/𝑠, temos:<\/div><\/div><br><div><img src=\"img/b35af7bd3c3c46c2.png\" alt=\"\"><br><\/div><br><div>Para a velocidade de 15 𝑚/𝑠, temos:<\/div><br><div><img src=\"img/b3e40a042d42c6e2.png\" alt=\"\"><br><\/div><br><div>De (𝐼) e (𝐼𝐼), conclui-se:<\/div><br><div><img src=\"img/82cd94e7de2b20d8.png\" alt=\"\"><br><\/div>"], "alts": [["a", "0,75 𝑠"], ["b", "0,5 𝑠"], ["c", "0,3 𝑠"], ["d", "0,14 𝑠"]], "resp": "b"}, {"n": 101, "fonte": "Simulado EAM · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Em um teste de aceleração em linha reta, verificou-se que um carro que estava viajando a 72 km/h e, após aplicar uma aceleração constante, atingiu a velocidade de 144 km/h em 5 s. Então, a distância percorrida pelo carro nesse trecho foi de:", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Se o móvel realiza um MRUV, então sabemos que:<\/div><br><div><img src=\"img/b5b8ec90c1422158.png\" alt=\"\"><br><\/div><div><img src=\"img/6ec117956692102a.png\" alt=\"\"><br><\/div><br><div>Δ<i>s<\/i> = 150 <i>m<\/i><\/div><br><div><b>Gabarito: E<\/b><\/div>"], "alts": [["a", "80 m"], ["b", "100 m"], ["c", "120 m"], ["d", "144 m"], ["e", "150 m"]], "resp": "e"}, {"n": 102, "fonte": "Simulado EsPCEx · 2022", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Considere um móvel que está se movendo em MRUV cujo gráfico do movimento está representado abaixo.<br><div><img src=\"img/1cf224d8025137ad.png\" alt=\"\"><br><\/div><br><div>Qual é o instante de tempo em que o móvel apresenta velocidade nula?\r<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Como o gráfico de x(t) em função do tempo é uma parábola, podemos usar sua forma fatorada para representar o gráfico.<\/div><br><div>𝑥(𝑡) = 𝑎 ⋅ (𝑡 − 𝑡₁ ) ⋅ (𝑡 − 𝑡₂ )<\/div><br><div>Em que a é uma constante real e 𝑡1 e 𝑡2 são as raízes da função de segundo grau.<\/div><br><div>Pelo gráfico, percebemos que as raízes são:\r<\/div><br><div>𝑡₁ = 3 𝑠<\/div><div>𝑡₂ = 5 𝑠<\/div><br><div>Desta maneira, temos:\r<\/div><br><div>𝑥(𝑡) = 𝑎 ⋅ (𝑡 − 3) ⋅ (𝑡 − 5)<\/div><br><div>Percebemos também que:<\/div><br><div>𝑥(0) = 15<\/div><br><div>15 = 𝑎 ⋅ (0 − 3) ⋅ (0 − 5)<\/div><br><div>𝑎 = 1\r<\/div><br><div>Assim, temos a função:\r<\/div><br><div>𝑥(𝑡) = (𝑡 − 3) ⋅ (𝑡 − 5) = 𝑡² − 8𝑡 + 15<\/div><br><div>Para encontrar os termos cinemática, comparamos com a equação:<\/div><br><div>𝑥(𝑡) = 𝑥0 + 𝑣0.𝑡 + 𝑎 ⋅&nbsp;<img src=\"img/52c3363e1b9bd9e2.png\" alt=\"\"><\/div><br><div>𝑥0 = 15 𝑚 ; 𝑣0 = −8&nbsp;<img src=\"img/dae01fee8d2128b0.png\" alt=\"\">= 2 𝑚/𝑠²<\/div><br><div>Portanto, temos que a velocidade em função do tempo é:<\/div><br><div>𝑣(𝑡) = 𝑣0 + 𝑎.𝑡<\/div><br><div>𝑣(𝑡) = −8 + 2.𝑡<\/div><br><div>Para saber o instante em que a velocidade é nula, fazemos:\r<\/div><br><div>𝑣(𝑡) = −8 + 2.𝑡 = 0<\/div><br><div>𝑡 = 4 𝑠\r<\/div><br><div><b>Gabarito: A<\/b><\/div>"], "alts": [["a", "4 s"], ["b", "3 s"], ["c", "2 s"], ["d", "1 s"], ["e", "5 s"]], "resp": "a"}, {"n": 103, "fonte": "Provão de Bolsas CN · 2021", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um carro se move com velocidade de 60 km/h aciona os freios de maneira que desacelera uniformemente por 12 s até parar. Durante a desaceleração, a distância percorrida pelo carro, em metros, é de:", "com": ["<div><b>GABARITO: ALTERNATIVA A<\/b><\/div><br>Como o móvel realiza um MRUV, então:<br><div><img src=\"img/be2bb623923d754f.png\" alt=\"\"><br><\/div><div><img src=\"img/4065778e3a9c5372.png\" alt=\"\"><br><\/div>"], "alts": [["a", "100"], ["b", "200"], ["c", "300"], ["d", "400"], ["e", "500"]], "resp": "a"}, {"n": 104, "fonte": "Simulado EEAR · 2021", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um homem deseja correr 200 metros rasos e acelera desde a largada, com aceleração constante, até atingir a linha de chegada, por onde ele passará com velocidade instantânea de 24m/s. Qual é o valor da sua aceleração?&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><br><div>O homem está realizando um movimento uniformemente variado. Podemos utilizar a equação de Torricelli.<\/div><br><div>v² = v₀² +2⋅a⋅ x<\/div><div>24² = 0 + 2⋅a⋅200<\/div><div>a = 1,44m/s ²<\/div>"], "alts": [["a", "10,0 m/s²&nbsp;"], ["b", "1,0 m/s²&nbsp;"], ["c", "1,44 m/s²&nbsp;&nbsp;"], ["d", "0,72 m/s²&nbsp;"]], "resp": "c"}, {"n": 105, "fonte": "Provão de Bolsas AFA/EFOMM/EN · 2020", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um  automóvel  viaja  em  uma  rodovia  a  90  km/h e percebe que o veículo da frente pisa nos freios. Dessa forma, após 0,5 segundos o motorista consegue acionar os freios de tal modo que o carro desacelera uniformemente em 6 segundos, atingindo a velocidade de 60 km/h. Dessa forma, a distância percorrida pelo carro, desde o instante em que ele notou o outro veículo frear é de:", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div> <\/div><div>A distância percorrida pelo carro até que o motorista aciona os freios é de:<\/div><br><div>𝑑₁ = 𝑣₀ ∙ <img src=\"img/b30682a465f73234.png\" alt=\"\"> = <img src=\"img/5b44215b95c1332d.png\" alt=\"\"> ∙ 0,5 = 12,5 𝑚<\/div><br><div>Quando o motorista aciona os freios, o carro passa a se mover em um MRUV, onde a velocidade média é dada por:<\/div><br><div><img src=\"img/27a72b811ccd8339.png\" alt=\"\"><br><\/div><br><div><img src=\"img/62b980db174c2227.png\" alt=\"\"><br><\/div><br><div>𝑑₂ = 125 𝑚<\/div><br><div>Portanto, a distância total percorrida desde o instante em que o motorista do carro nota que o outro pisou nos freios é de:<\/div><br><div>𝑑 = 𝑑₁ + 𝑑₂ = 12,5 + 125 = 137,5 𝑚<\/div>"], "alts": [["a", "50 m"], ["b", "75 m"], ["c", "100 m"], ["d", "125 m"], ["e", "137,5 m"]], "resp": "e"}, {"n": 106, "fonte": "Escola de Formação de Oficiais da Marinha Mercante - EFOMM · 2016", "tema": "Movimentos variados", "tipo": "mc", "html": true, "enun": "Um    automóvel,    partindo    do    repouso,    pode    acelerar  a  2,0  m/s² e  desacelerar  a  3,0  m/s².  O  intervalo de tempo mínimo, em segundos, que ele leva   para   percorrer   uma   distância   de   375   m,   retornando ao repouso, é de&nbsp;", "com": ["<b>GABARITO: ALTERNATIVA B<\/b><div><b><br><\/b><\/div><div>Seja x a distância em que ele para sua aceleração e começa a brecar:<\/div><br><div>𝑉² = 2 ⋅ 2 ⋅ 𝑥 = 4𝑥<\/div><br><div>0² = 𝑉² − 2 ⋅ 3 ⋅ (375 − 𝑥)<\/div><br><div>4𝑥 = 6 (375 − 𝑥)<\/div><br><div>2𝑥 = 1125 − 3𝑥<\/div><br><div>𝑥 = 225 𝑚<\/div><br><div>A velocidade máxima será:<\/div><br><div>𝑉 = √4𝑥 = 30 𝑚/𝑠<\/div><br><div>O tempo gasto será:<\/div><br><div><img src=\"img/a1b4e5df8ebfa5f4.png\" alt=\"\"><br><\/div><br><div><b>Gabarito: B<\/b><\/div>"], "alts": [["a", "20"], ["b", "25"], ["c", "30"], ["d", "40"], ["e", "55"]], "resp": "b"}];
+
+const FLASH = [
+ ["a00","Ponto material","Corpo cujas dimensões são desprezíveis no problema.<br><b>Exemplo:</b> um ônibus numa viagem de 500 km."],
+ ["a00","Repouso é absoluto?","Não: depende do referencial.<br><b>Exemplo:</b> você sentado no avião está em repouso em relação à poltrona."],
+ ["a00","Deslocamento × distância percorrida","Deslocamento: do início ao fim. Distância: todo o caminho.<br><b>Exemplo:</b> volta numa pista: distância 400 m, deslocamento 0."],
+ ["a00","Velocidade escalar média","ΔS/Δt.<br><b>Exemplo:</b> 150 km em 2 h ⇒ 75 km/h."],
+ ["a00","Converter 90 km/h em m/s","Divida por 3,6: 25 m/s.<br><b>Exemplo:</b> 10 m/s = 36 km/h."],
+ ["a00","Função horária do MRU","S = S₀ + v·t.<br><b>Exemplo:</b> S = 5 + 3t: parte de 5 m a 3 m/s."],
+ ["a00","Função horária da velocidade no MRUV","v = v₀ + a·t.<br><b>Exemplo:</b> v₀ = 4, a = 2: em 3 s, v = 10 m/s."],
+ ["a00","Função horária da posição no MRUV","S = S₀ + v₀t + at²/2.<br><b>Exemplo:</b> do repouso, a = 4: em 3 s, 18 m."],
+ ["a00","Equação de Torricelli","v² = v₀² + 2aΔS (sem tempo).<br><b>Exemplo:</b> do repouso, a = 5, ΔS = 10 ⇒ v = 10 m/s."],
+ ["a00","Movimento acelerado × retardado","Acelerado: v e a com mesmo sinal. Retardado: sinais opostos.<br><b>Exemplo:</b> v = 10, a = −2: retardado."],
+ ["a00","Galileu × Aristóteles","Aristóteles: força para manter movimento. Galileu: inércia, experimentos.<br><b>Exemplo:</b> planos inclinados de Galileu."],
+ ["a00","Velocidade média no MRUV","(v₀ + v)/2.<br><b>Exemplo:</b> de 0 a 20 m/s: média 10 m/s."],
+ ["ref","Inclinação do gráfico S × t","Velocidade.<br><b>Exemplo:</b> reta de 0 a 20 m em 4 s: v = 5 m/s."],
+ ["ref","Área do gráfico v × t","Deslocamento.<br><b>Exemplo:</b> 10 m/s por 6 s: 60 m."],
+ ["ref","Inclinação do gráfico v × t","Aceleração.<br><b>Exemplo:</b> de 0 a 12 m/s em 3 s: a = 4 m/s²."],
+ ["ref","Área do gráfico a × t","Variação de velocidade.<br><b>Exemplo:</b> a = 2 por 5 s: Δv = 10 m/s."],
+ ["ref","Gráfico S × t no MRUV","Parábola.<br><b>Exemplo:</b> concavidade para cima se a &gt; 0."],
+ ["ref","Gráfico S × t horizontal","Repouso.<br><b>Exemplo:</b> carro estacionado."],
+ ["pan","Queda livre (parte 2)","MRUV com a = g ≈ 10 m/s², partindo do repouso.<br><b>Exemplo:</b> em 2 s cai 20 m."],
+ ["pan","Lançamento vertical para cima (parte 2)","No ponto mais alto, v = 0.<br><b>Exemplo:</b> lançado a 20 m/s, sobe 20 m (com g = 10)."],
+ ["pan","Referencial inercial","Em repouso ou MRU; vale a lei da inércia.<br><b>Exemplo:</b> o solo, numa boa aproximação."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "CINEMÁTICA ESCALAR", s: "Referencial · posição · velocidade · aceleração<br><small>MRU e MRUV · gráficos</small>",
+  e: "A cinemática descreve o movimento sem discutir as causas. Tudo começa pela escolha do referencial e da origem das posições.",
+  x: "Um passageiro sentado no ônibus está em repouso em relação ao ônibus e em movimento em relação à rua.", l: "v = ΔS/Δt; a = Δv/Δt",
+  p: "Distância percorrida ≠ deslocamento."};
+const MM = [
+ {k: "con", c: "#2f5bd3", t: "Conceitos", s: "referencial e posição",
+  e: "Ponto material, referencial, trajetória, posição, deslocamento.", x: "Km 277 da rodovia = posição.", l: "ΔS = S − S₀",
+  p: "Trajetória também depende do referencial.",
+  f: [
+   {k: "con1", t: "Ponto material × corpo extenso", e: "Depende do problema, não do tamanho absoluto.", x: "Trem atravessando uma ponte: corpo extenso.", l: "dimensões relevantes?", p: "Um navio pode ser ponto material numa viagem oceânica."},
+   {k: "con2", t: "Referencial", e: "Repouso e movimento são relativos.", x: "Bomba solta do avião: reta para o piloto, parábola para o solo.", l: "inercial: a = 0", p: "Não existe repouso absoluto."},
+   {k: "con3", t: "Deslocamento × distância", e: "Deslocamento liga início e fim; distância soma tudo.", x: "900 m percorridos, 500 m de deslocamento.", l: "distância ≥ |ΔS|", p: "Volta completa: deslocamento zero."}
+  ]},
+ {k: "vel", c: "#1f8a4c", t: "Velocidade", s: "média e instantânea",
+  e: "Média: ΔS/Δt. Instantânea: velocímetro.", x: "72 km/h = 20 m/s.", l: "÷ 3,6",
+  p: "Média não é média aritmética das velocidades.",
+  f: [
+   {k: "vel1", t: "Sinal da velocidade", e: "Positiva a favor da trajetória; negativa contra.", x: "S = 10 − 4t: v = −4 m/s.", l: "v &lt; 0: sentido contrário", p: "Sinal não é \"mais devagar\"."},
+   {k: "vel2", t: "Velocidade média em trechos", e: "Distância total ÷ tempo total.", x: "Metades a 60 e 40 km/h: 48 km/h.", l: "v_m = ΣΔS/ΣΔt", p: "Responder 50 km/h."}
+  ]},
+ {k: "mru", c: "#b07400", t: "MRU", s: "S = S₀ + vt",
+  e: "Velocidade constante, aceleração nula.", x: "Velocímetro parado em 70 km/h.", l: "S = S₀ + v·t",
+  p: "v = 0 é repouso, não MRU.",
+  f: [
+   {k: "mru1", t: "Gráfico S × t", e: "Reta; inclinação = velocidade; corte em S₀.", x: "Reta crescente: v &gt; 0.", l: "tg α = v", p: "Reta horizontal = repouso."},
+   {k: "mru2", t: "Gráfico v × t", e: "Horizontal; área = deslocamento.", x: "v = 5 m/s por 4 s: 20 m.", l: "área = ΔS", p: "Área abaixo do eixo = deslocamento negativo."},
+   {k: "mru3", t: "Encontro", e: "Iguale as funções horárias.", x: "20t = 300 + 10t ⇒ 30 s.", l: "S_A = S_B", p: "Use a mesma origem e o mesmo sentido para os dois."}
+  ]},
+ {k: "muv", c: "#8a3ac2", t: "MRUV", s: "aceleração constante",
+  e: "Velocidade varia igualmente a cada segundo.", x: "Carro que ganha 2 m/s a cada segundo.", l: "v = v₀ + at",
+  p: "Acelerado/retardado depende dos sinais de v e a.",
+  f: [
+   {k: "muv1", t: "Funções horárias", e: "v = v₀ + at; S = S₀ + v₀t + at²/2.", x: "Do repouso, a = 2: em 5 s, 25 m.", l: "S(t) é 2º grau", p: "Esquecer o /2 em at²/2."},
+   {k: "muv2", t: "Torricelli", e: "Relaciona v e ΔS sem o tempo.", x: "Frear de 20 m/s em 40 m: a = −5.", l: "v² = v₀² + 2aΔS", p: "Usar quando o tempo não aparece."},
+   {k: "muv3", t: "Gráficos", e: "v × t reta (inclinação a, área ΔS); S × t parábola; a × t horizontal (área Δv).", x: "Parábola com vértice = instante em que v = 0.", l: "tg α = a", p: "Concavidade da parábola segue o sinal de a."},
+   {k: "muv4", t: "Acelerado × retardado", e: "Mesmo sinal: acelerado. Sinais opostos: retardado.", x: "v = −10, a = −2: acelerado.", l: "v·a &gt; 0 ⇒ acelerado", p: "O livro simplifica: a &lt; 0 nem sempre é frear."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Fórmula</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"MRU": "movimento retilíneo uniforme",
+"MRUV": "movimento retilíneo uniformemente variado",
+"MUV": "movimento uniformemente variado",
+"SI": "Sistema Internacional de Unidades"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.12_fis_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.10 · Ciclo 3 · Geografia — Orientação e localização (parte 1/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.10</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa I (3.10) · Geografia</h1>
+        <div class="sub">EsPCEx 2026 · Orientação e localização (parte 1/2): coordenadas, movimentos da Terra, fusos horários, cartografia e projeções</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Cálculo de fusos</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.10</h2>
+  <p class="lead">Tarefa I da trilha: <i>"Estude os seguintes temas: SLIDES: Orientação e localização; Coordenadas geográficas; Movimentos da Terra e Estações do ano; Fuso horário: teoria; Cartografia; Projeções Cartográficas e visões de mundo"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os seis trechos do livro digital de Geografia (itens 2.1 a 2.3.1). Os slides do capítulo não puderam ser baixados (o material só expõe um identificador interno). Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• Latitude: 0° a 90° N ou S (paralelos, a partir do Equador). Longitude: 0° a 180° L ou O (meridianos, a partir de Greenwich).<br>• Estações: <b>inclinação do eixo</b> (23°27′) + translação. Solstícios: Sol a pino nos trópicos; equinócios: no Equador.<br>• Fusos: <b>15° = 1 hora</b>; horas <b>aumentam para leste</b>.<br>• Conforme (Mercator) preserva <b>formas</b>; equivalente (Peters) preserva <b>áreas</b>; equidistante, distâncias; afilática (Robinson), minimiza tudo.<br>• Curvas de nível juntas = terreno íngreme.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (30 min).</b> Leia a aba <b>Resumo</b> com um mapa-múndi ao lado.</li><li><b>Mapa e Esquemas (10 min).</b> Decore a tabela de projeções.</li><li><b>Cálculo de fusos (10 min).</b> Resolva os exemplos antes de abrir.</li><li><b>Questões (30 min).</b> 43 questões; as de verdadeiro ou falso são de fixação.</li><li><b>Rendimento (5 min).</b> Veja em qual tema ficou abaixo de 80%.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: cartografia e fusos são clássicos (🔥🔥🔥).</span></div><div class="card"><b>Questões</b><br><span class="muted">9 de múltipla escolha, 26 de verdadeiro ou falso e 8 discursivas.</span></div><div class="card"><b>Próxima parte</b><br><span class="muted">Orientação e localização 2/2: escala e leitura de mapas.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: orientação e localização (parte 1/2)</h2>
+  <p class="lead">Na ordem do livro digital. Tenha um mapa-múndi por perto.</p>
+
+  <h3>1. Orientação</h3>
+  <div class="card">
+    <ul>
+      <li><b>Rosa dos ventos</b>: pontos cardeais (N, S, L, O), colaterais (NE, SE, SO, NO) e subcolaterais (N-NE, L-NE, L-SE, S-SE, S-SO, O-SO, O-NO, N-NO).</li>
+      <li>Sinônimos: Norte = <b>setentrional, boreal</b>; Sul = <b>meridional, austral</b>; Leste = <b>oriente, nascente, levante</b>; Oeste = <b>ocidente, poente, ocaso</b>.</li>
+      <li><b>Pelo Sol</b>: braço direito para o nascente (leste), esquerdo para o oeste; à frente fica o norte e às costas, o sul.</li>
+      <li><b>Bússola</b> aponta o <b>polo magnético</b>, que não coincide com o geográfico; o ângulo entre eles é a <span class="k">declinação magnética</span>.</li>
+      <li>Navegação por satélite: <b>GPS</b> (Estados Unidos), Galileo (Europa), Glonass (Rússia), Compass/BeiDou (China).</li>
+    </ul>
+  </div>
+
+  <h3>2. Coordenadas geográficas</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th></th><th>Paralelos → latitude</th><th>Meridianos → longitude</th></tr>
+      <tr><td>Linha zero</td><td>Equador (círculo máximo)</td><td>Greenwich (convenção de 1884)</td></tr>
+      <tr><td>Variação</td><td>0° a 90° N ou S</td><td>0° a 180° L (E) ou O (W)</td></tr>
+      <tr><td>Hemisférios</td><td>Norte e Sul</td><td>Leste (oriental) e Oeste (ocidental)</td></tr>
+      <tr><td>Tamanho</td><td>diminuem em direção aos polos</td><td>todos iguais (semicircunferências de cerca de 20 mil km)</td></tr>
+    </table></div>
+    <p>Paralelos importantes: <b>trópicos</b> de Câncer (≈ 23°27′ N) e Capricórnio (≈ 23°27′ S); <b>círculos polares</b> Ártico e Antártico (≈ 66°33′). O antimeridiano de Greenwich (180°) é a base da <b>Linha Internacional de Data</b>.</p>
+    <p>Precisão: graus, minutos e segundos (Greenwich: 51°28′38″ N, 0°). Quanto <b>menor a latitude</b>, mais perto do Equador; quanto <b>menor a longitude</b>, mais perto de Greenwich.</p>
+    <div class="call bad"><b>Pegadinha</b>"A longitude vai de 0° a 90°": <b>ERRADO</b>.<br><b>O erro:</b> troca com a latitude.<br><b>O certo:</b> latitude 0°–90°; longitude 0°–180°.</div>
+  </div>
+
+  <h3>3. Movimentos da Terra e estações</h3>
+  <div class="card">
+    <ul>
+      <li>Eratóstenes calculou a circunferência da Terra (≈ 40 mil km) pela diferença das sombras em duas cidades.</li>
+      <li>Pela <b>esfericidade</b>, os raios solares chegam mais perpendiculares no Equador (mais calor) e mais oblíquos nas altas latitudes: zonas <b>tropical, temperada e polar</b>.</li>
+      <li><b>Rotação</b> (em torno do eixo, ≈ 24 h): dias e noites, fusos horários. <b>Translação</b> (em torno do Sol, ≈ 365 dias e 6 h, órbita elíptica): com a <b>inclinação do eixo</b> (≈ 23°27′), causa as estações, opostas nos dois hemisférios.</li>
+    </ul>
+    <div class="tbl"><table>
+      <tr><th>Data aprox.</th><th>Fenômeno</th><th>Sol a pino sobre</th><th>Hemisfério Sul</th><th>Hemisfério Norte</th></tr>
+      <tr><td>≈ 20/21 mar.</td><td>equinócio</td><td>Equador</td><td>outono</td><td>primavera</td></tr>
+      <tr><td>≈ 20/21 jun.</td><td>solstício</td><td>Trópico de Câncer</td><td>inverno (noite mais longa)</td><td>verão</td></tr>
+      <tr><td>≈ 22/23 set.</td><td>equinócio</td><td>Equador</td><td>primavera</td><td>outono</td></tr>
+      <tr><td>≈ 21/22 dez.</td><td>solstício</td><td>Trópico de Capricórnio</td><td>verão (dia mais longo)</td><td>inverno</td></tr>
+    </table></div>
+    <p>O Sol só fica a pino entre os trópicos (zona intertropical). <b>Fotoperíodo</b>: no Equador, ≈ 12 h o ano todo; nas altas latitudes, extremos (sol da meia-noite e noite polar, como em Tromsø, 24 h de dia em junho e 0 h em dezembro).</p>
+    <div class="call bad"><b>Pegadinha</b>"As estações acontecem porque a Terra fica mais perto do Sol no verão": <b>ERRADO</b>.<br><b>O erro:</b> as estações são opostas nos dois hemisférios no mesmo dia, o que a distância não explica.<br><b>O certo:</b> a causa é a <b>inclinação do eixo</b> combinada com a translação.</div>
+  </div>
+
+  <h3>4. Fusos horários</h3>
+  <div class="card">
+    <ul>
+      <li>360° ÷ 24 h = <b>15° por hora</b>. Criados em 1883 (Roma) e adotados na Conferência Internacional do Meridiano (Washington, 1884), que fixou Greenwich como referência.</li>
+      <li><b>Limites teóricos</b> (faixas de 15°) × <b>limites práticos</b> (ajustados às fronteiras político-administrativas).</li>
+      <li>As horas <b>aumentam para leste</b> (o Sol nasce antes) e <b>diminuem para oeste</b>.</li>
+      <li><b>Linha de Data</b> (≈ 180°): indo para <b>oeste</b> ao cruzá-la, <b>soma-se um dia</b>; indo para leste, diminui-se um dia.</li>
+    </ul>
+    <div class="call"><b>Passo a passo do cálculo</b>1) graus ÷ 15 = fusos; 2) mesmo hemisfério (L ou O), subtraia; hemisférios diferentes, some; 3) indo para leste, some as horas; para oeste, subtraia; 4) some o tempo de viagem (se pedir a chegada); 5) horário de verão: ajuste 1 h (suspenso no Brasil desde 2019).</div>
+    <div class="call bad"><b>Pegadinha</b>"Viajando para oeste, os relógios devem ser adiantados": <b>ERRADO</b>.<br><b>O erro:</b> inverte o sentido.<br><b>O certo:</b> a oeste é mais cedo: <b>atrase</b> o relógio.</div>
+  </div>
+
+  <h3>5. Cartografia</h3>
+  <div class="card">
+    <ul>
+      <li>A cartografia <b>não é neutra</b>: escolhas de centro e distorção refletem visões de mundo e poder.</li>
+      <li>História: mapa de Ga-Sur (Mesopotâmia, ≈ 2500 a.C.); Ptolomeu (grade de paralelos e meridianos); <b>mapas T-O</b> medievais (Jerusalém no centro, o T como a cruz); Grandes Navegações; hoje, satélites e computação.</li>
+      <li><b>Elementos obrigatórios do mapa</b>: título, legenda, escala e orientação.</li>
+      <li><b>Cartografia sistemática</b> (topográfica): precisão planimétrica e altimétrica, para obras de infraestrutura. <b>Temática</b>: destaca um tema (clima, população, indústria).</li>
+      <li><span class="k">Curvas de nível</span> (isoípsas): ligam pontos de mesma altitude; nunca se cruzam; <b>juntas = declive acentuado</b>, afastadas = terreno suave.</li>
+    </ul>
+  </div>
+
+  <h3>6. Projeções cartográficas</h3>
+  <div class="card">
+    <p>Representar a esfera (na verdade, um elipsoide achatado nos polos) no plano exige <b>distorção</b>, como embrulhar uma bola sem amassar o papel.</p>
+    <div class="tbl"><table>
+      <tr><th>Pela superfície</th><th>Como é</th><th>Melhor para</th></tr>
+      <tr><td><b>Cilíndrica</b></td><td>paralelos e meridianos retos, cruzando a 90°</td><td>baixas latitudes</td></tr>
+      <tr><td><b>Cônica</b></td><td>paralelos curvos, meridianos retos convergindo a um polo</td><td>médias latitudes</td></tr>
+      <tr><td><b>Azimutal (plana)</b></td><td>centro fiel, distorção cresce para fora</td><td>regiões polares</td></tr>
+    </table></div>
+    <div class="tbl"><table>
+      <tr><th>Pela propriedade</th><th>Conserva</th><th>Distorce</th><th>Exemplo</th></tr>
+      <tr><td><b>Conforme</b></td><td>formas e ângulos</td><td>áreas (cresce com a latitude)</td><td><b>Mercator</b> (século XVI, navegação; eurocêntrica)</td></tr>
+      <tr><td><b>Equivalente</b></td><td>áreas</td><td>formas</td><td><b>Peters</b> (Gall-Peters, 1973; valoriza o Sul), Goode</td></tr>
+      <tr><td><b>Equidistante</b></td><td>distâncias a partir do centro</td><td>áreas e formas</td><td>azimutal equidistante (centro num polo ou numa capital)</td></tr>
+      <tr><td><b>Afilática</b></td><td>nada integralmente</td><td>tudo, mas pouco</td><td><b>Robinson</b></td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"Na projeção de Mercator, a Groenlândia aparece com área real": <b>ERRADO</b>.<br><b>O erro:</b> Mercator é conforme, não equivalente.<br><b>O certo:</b> ela preserva formas, mas exagera as áreas das altas latitudes; a Groenlândia parece do tamanho da África.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: orientação, fusos e cartografia</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/2 (esta)</b><br><span class="muted">Orientação, coordenadas, estações, fusos, cartografia e projeções.</span></div>
+    <div><b>Parte 2/2</b><br><span class="muted">Escala cartográfica, leitura de mapas, sensoriamento remoto.</span></div>
+    <div><b>Ligação</b><br><span class="muted">Latitude explica climas; fusos usam a rotação estudada aqui.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Latitude × longitude</h3>
+  <div class="tbl"><table><tr><th></th><th>Latitude</th><th>Longitude</th></tr>
+    <tr><td>Linhas</td><td>paralelos</td><td>meridianos</td></tr><tr><td>Zero</td><td>Equador</td><td>Greenwich</td></tr>
+    <tr><td>Máximo</td><td>90° N/S</td><td>180° L/O</td></tr></table></div>
+  <h3>Projeções em uma linha</h3>
+  <div class="tbl"><table><tr><th>Conforme</th><th>Equivalente</th><th>Equidistante</th><th>Afilática</th></tr>
+    <tr><td>forma (Mercator)</td><td>área (Peters)</td><td>distância</td><td>equilíbrio (Robinson)</td></tr></table></div>
+  <h3>Fusos</h3>
+  <div class="tbl"><table><tr><th>Regra</th><th>Valor</th></tr>
+    <tr><td>Graus por hora</td><td>15°</td></tr><tr><td>Para leste</td><td>+ horas</td></tr><tr><td>Para oeste</td><td>− horas</td></tr>
+    <tr><td>Linha de Data rumo a oeste</td><td>+ 1 dia</td></tr><tr><td>Brasília</td><td>45° O ⇒ GMT −3</td></tr></table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Cálculo de fusos: treino</h2>
+  <p class="lead">Use o passo a passo do resumo. Considere fusos teóricos (graus ÷ 15).</p>
+  <div class="card">
+    <details><summary>1. Quando é meio-dia em Greenwich, que horas são a 60° O?</summary><div>60 ÷ 15 = 4 fusos a oeste ⇒ 12 − 4 = <b>8 h</b>.</div></details>
+    <details><summary>2. Um avião sai de 45° O às 10 h (dia 3) para 90° L, com 10 h de voo. Hora local de chegada?</summary><div>45° O = −3; 90° L = +6; diferença 9 fusos, rumo a leste (+9). 10 + 10 (voo) + 9 = 29 h ⇒ <b>5 h do dia 4</b>. Este é o exemplo 2 do livro.</div></details>
+    <details><summary>3. Sai de 45° O às 13 h para 60° O, com 2 h de voo. Chegada?</summary><div>1 fuso a oeste (−1): 13 + 2 − 1 = <b>14 h</b>.</div></details>
+    <details><summary>4. Ponto A: 40°30′30″ S; ponto B: 40°33′30″ S. Qual está mais perto do Equador?</summary><div><b>A</b>, porque a latitude é menor.</div></details>
+    <details><summary>5. Um navio cruza a Linha de Data rumo a oeste às 10 h de domingo. Que dia passa a ser?</summary><div><b>Segunda-feira</b>, 10 h (soma-se um dia).</div></details>
+    <details><summary>6. Duas cidades a 30° L e 15° O. Diferença de horas?</summary><div>2 fusos + 1 fuso (hemisférios diferentes, some) = <b>3 h</b>; a de 30° L está adiantada.</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (fixação e padrão de prova)</h2>
+  <p class="lead">São as <b>43 questões</b> dos cadernos de coordenadas, fusos, cartografia e projeções do livro digital: 9 de múltipla escolha, 26 de verdadeiro ou falso e 8 discursivas. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Nas discursivas, escreva a resolução no campo e abra a resolução do material; elas ficam fora do rendimento (a correção é com o professor). Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.10 · Coordenadas, estações e fusos</option>
+      <option value="ref">Cartografia e projeções</option>
+      <option value="pan">Panorama de Geografia física</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere os seguintes pontos:<\/div><div>Ponto A: 30°  50’ 50” N/ 55°  50’ 30” L<\/div><div>Ponto B: 30°  50’  10” N / 55°   50’ 10” L<\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: ___________________<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: ___________________<\/div>", "com": ["Note que agora a diferença da localização está nos segundo. Então, quanto maior o valor, mais afastado naquela direção:<br><div><img src=\"img/edb76f6dacbac097.png\" alt=\"\"><br><\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: Sudoeste<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: Nordeste<\/div>"]}, {"n": 2, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere os seguintes pontos:<\/div><div>Ponto A: 30°  50’ N/ 55°  50’ L<\/div><div>Ponto B: 35° 50’ N  / 65° 30’ L<\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: ___________________<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: ___________________<\/div>", "com": ["O ponto B está mais ao norte e mais à leste:<br><div><img src=\"img/9b2bae5d9901c153.png\" alt=\"\"><br><\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: Nordeste<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: Sudoeste<\/div>"]}, {"n": 3, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere os seguintes pontos:<\/div><div>Ponto A: 30°  N / 55° L<\/div><div>Ponto B: 35° N / 55°  L<\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: ___________________<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: ___________________<\/div>", "com": ["<div><img src=\"img/fb66f74700c678f7.png\" alt=\"\"><br><\/div><br><div>A) Do Ponto A para o Ponto B, o deslocamento será na direção: norte<\/div><div>B) Do Ponto B para o Ponto A, o deslocamento será na direção: Sul<\/div>"]}, {"n": 4, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere o cenário a seguir e responda o que se pede<\/div><div><img src=\"img/ad76b08dbc19ce23.png\" alt=\"\"><br><\/div><div>Complete a tabela indicando a direção da viagem com base nos pontos cardiais e, quando preciso, colaterais.<\/div><div><img src=\"img/d625e949f62b5568.png\" alt=\"\"><br><\/div>", "com": ["<img src=\"img/5e9cbaabb1c242f6.png\" alt=\"\">"]}, {"n": 5, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere o cenário a seguir e responda o que se pede<\/div><div><img src=\"img/d9393d5aca397e8d.png\" alt=\"\"><br><\/div><br><div> Indique a localização dos pontos a seguir considerando a latitude e a longitude.<\/div><div><img src=\"img/d025f5e2274e94f2.png\" alt=\"\"><br><\/div>", "com": ["<img src=\"img/08c8c3f4108a3f40.png\" alt=\"\">"]}, {"n": 6, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<div>Considere o cenário a seguir e responda o que se pede<\/div><div><img src=\"img/b13851f0082f9cb8.png\" alt=\"\"><br><\/div><br><div>Indique a Localização de acordo com a latitude, considerando o hemisfério dos seguintes pontos:<\/div><div><img src=\"img/6ee9dfd86daf2ad9.png\" alt=\"\"><br><\/div>", "com": ["<img src=\"img/a4ff212c5ec17916.png\" alt=\"\">"]}, {"n": 7, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<p>Considere o cenário a seguir e responda o que se pede<\/p><p><img src=\"img/8c6cbaeb91ce7336.png\" alt=\"\"><br><\/p><p>Indique a Localização de acordo com a longitude, considerando o hemisfério dos seguintes pontos:<\/p><p><img src=\"img/98f011c5f74c0bea.png\" alt=\"\"><br><\/p>", "com": ["<p><img src=\"img/e3c3b1368af533ff.png\" alt=\"\"><\/p>"]}, {"n": 8, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "ce", "html": true, "enun": "<div>Além do GPS, sistema desenvolvido pelos EUA, outros países também apresentam a sua navegação por satélite como é o caso do Galileo (na Europa), do Glonass (russo) e o Compass (China).<\/div>", "com": ["<div><b>GABARITO: CERTO<\/b><\/div><br><div>A navegação por satélite se tornou fundamental no mundo de hoje, com isso, para não depender de terceiros, alguns países desenvolveram o seus sistemas.<\/div>"], "resp": "C"}, {"n": 9, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "disc", "html": true, "enun": "<p>Observe a imagem e responda o que se pede:<\/p><p><img src=\"img/7d727db44e180883.png\" alt=\"\"><br><\/p><p>Tendo o Distrito Federal como ponto de referência, preencha a tabela indicando a localização a partir do ponto cardeal ou colateral de cada cidade:<\/p><p><img src=\"img/41de3b3428e247b6.png\" alt=\"\"><br><\/p>", "com": ["<p><img src=\"img/414a6ed6a776c4fd.png\" alt=\"\"><\/p>"]}, {"n": 10, "fonte": "Questões Inéditas · 2025", "tema": "Coordenadas geográficas", "tipo": "ce", "html": true, "enun": "Com o avanço tecnológico atual, toda forma de localização no Espaço desconsidera condições naturais.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Ainda que tenhamos diversas tecnologias que permitem uma localização mas precisa no Espaço, como por exemplo os dispositivos de GPS que estão no seu celular, ainda existem formas de se localizar considerando as condições naturais.<\/div>"], "resp": "E"}, {"n": 11, "fonte": "Simulado EsPCEx · 2023", "tema": "Coordenadas geográficas", "tipo": "mc", "html": true, "enun": "<div>Em uma expedição ecológica, um grupo de ativistas desceu de barco o Rio Doce, percorrendo o trecho da cidade de Aimorés até Colatina, como mostra o mapa.<\/div><br><img src=\"img/d1bbfadb0aa30cf9.png\" alt=\"\"><br><div><div>Levando-se em conta que era um dia de verão do mês de janeiro, ao longo da manhã, a expedição esteve com o sol incidindo, diretamente, a maior parte da viagem, em qual posição?<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><div><b><br><\/b><\/div><div>Como o Sol nasce à Leste, pela manhã, ele incidiria na frente dos ativistas, haja vista que o percurso do barco é de Oeste para Leste.<\/div>"], "alts": [["a", "À direita dos ativistas."], ["b", "À esquerda dos ativistas."], ["c", "Sobre a cabeça dos ativistas."], ["d", "Às costas dos ativistas."], ["e", "À frente dos ativistas."]], "resp": "e"}, {"n": 12, "fonte": "Simulado EsPCEx · 2022", "tema": "Coordenadas geográficas", "tipo": "mc", "html": true, "enun": "João Marcelo marcou um encontro com Dora no píer do mirante do Alto da Serra de São Pedro-SP. Sem sinal de internet, mas com as coordenadas geográficas em mãos, Dora utilizou seu conhecimento de orientação para encontrar João Marcelo no píer<br><div><img src=\"img/73bf2db67f0038c3.png\" alt=\"\"><br><\/div><br><div>Com as coordenadas em mãos, Dora seguiu para a direção:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA C<\/b><div><b><br><\/b><\/div><div>Dora está em uma posição mais ao Norte (latitude) e mais Oeste (Longitude) em relação ao píer, sendo assim, Dora seguiu em direção Sudeste para encontrar João Marcelo.<\/div>"], "alts": [["a", "Sudoeste"], ["b", "Nordeste"], ["c", "Sudeste"], ["d", "Noroeste"], ["e", "Oeste"]], "resp": "c"}, {"n": 13, "fonte": "Simulado EsPCEx · 2022", "tema": "Coordenadas geográficas", "tipo": "mc", "html": true, "enun": "Analise as seguintes coordenadas:<div><br><div>Ponto X: 30° 50’ 31” N / 55° 55’ 01” L<\/div><br><div>Ponto Y: 30° 46’ 01” N / 55° 56’ 31” L<\/div><br><div>Do Ponto X para o Ponto Y, o deslocamento será na direção:\r<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><br><div>O primeiro passo é visualizar os hemisférios. Está no Hemisfério Norte (N) e no Hemisfério Leste (L). A latitude do Ponto X  (30° 50’ 31” N) é maior do que a latitude do Ponto Y (30° 46’ 01” N), isso significa que o Ponto X está ao Norte do Ponto Y.  Como o deslocamento é do Ponto X para o Ponto Y, isso significa que terá que deslocar no sentido Sul. A longitude do Ponto  X (55° 55’ 01” L) é menor do que a longitude do Ponto Y (55° 56’ 31” L), isso significa que o Ponto X está ao Oeste do Ponto  Y. Como o deslocamento é do Ponto X para o Ponto Y, isso significa que terá que deslocar no sentido Leste. Assim, a fusão  de Sul mais Leste é igual a Sudeste.<\/div>"], "alts": [["a", "Norte."], ["b", "Noroeste."], ["c", "Nordeste."], ["d", "Sudeste."], ["e", "Sudoeste."]], "resp": "d"}, {"n": 14, "fonte": "Questões Inéditas · 2025", "tema": "Fuso horário: teoria", "tipo": "ce", "html": true, "enun": "Fuso horário é uma padronização em escala mundial, onde os limites teóricos e práticos são os mesmo.", "com": ["<div><b>GABARITO: ERRADO<\/b><\/div><br>Ainda que a estrutura dos fusos busque a padronização dos horários, os limites práticos indicam aquilo que os lugares realmente seguirão."], "resp": "E"}, {"n": 15, "fonte": "Questões Inéditas · 2025", "tema": "Fuso horário: teoria", "tipo": "ce", "html": true, "enun": "Independente se há troca de hemisférios, deslocar-se de leste para oeste leva à redução das horas.", "com": ["<div><b>GABARITO: CERTO<\/b><\/div><br>O “Sol nasce” primeiro na porção leste, logo, ali o dia começa antes da porção oeste. Logo, se você se desloca para o oriente (leste), as horas já correram – é preciso somar, aumentar. Por outro lado, quando o deslocamento se dá para oeste, você está saindo de uma área onde o “dia começou primeiro” rumo à porção onde o “dia começou depois”, assim, “as horas ainda não passaram”, por isso, é preciso diminuir/reduzir."], "resp": "C"}, {"n": 16, "fonte": "Questões Inéditas · 2025", "tema": "Fuso horário: teoria", "tipo": "ce", "html": true, "enun": "Os fusos se tornaram mais importantes em um contexto de maior integração espacial – devido ao avanço dos transportes e da comunicação.", "com": ["<div><b>GABARITO: CERTO<\/b><\/div><br>Com a maior integração, a realidade de um território se tornou mais presente em porções distintas. Ou seja, uma pessoa em Recife teria uma maior interação com alguém no Rio de Janeiro – ou ainda entre o Brasil e o Japão. Assim, para “combinar” algo, seria necessário padronizar os horários, visto que o movimento aparente do Sol não daria à todas as áreas do planeta o mesmo horário. <div><br><div>Ao padronizar, poderíamos inferir, como por exemplo, “Se for 19h em Manaus, em São Paulo será 20h”. E apesar de horários diferentes, estariam juntos no mesmo momento.<\/div><\/div>"], "resp": "C"}, {"n": 17, "fonte": "Simulado EsPCEx · 2022", "tema": "Fuso horário: teoria", "tipo": "mc", "html": true, "enun": "Analise as informações: enquanto na cidade 1 são 18 horas, na cidade 2 são 8 horas do mesmo dia. Podemos inferir que a longitude da cidade 2 em relação à cidade 1 é de:", "com": ["<div><b>GABARITO: ALTERNATIVA D<\/b><\/div><br>A cidade 2 está a Oeste da cidade 1. A cidade 1 está 10 horas adiantadas em relação a cidade 2. Se a cada 1 hora representa 15°. Então, a cidade 2 está a 150° Oeste em relação à cidade 1."], "alts": [["a", "120° Oeste."], ["b", "120° Leste."], ["c", "150° Leste."], ["d", "150° Oeste."], ["e", "130° Leste."]], "resp": "d"}, {"n": 18, "fonte": "Questões Inéditas · 2025", "tema": "Cartografia", "tipo": "ce", "html": true, "enun": "A publicação da primeira tradução para o latim da Geografia de Ptolomeu em 1406 foi crucial para a redescoberta e redesenho dos mapas nos séculos seguintes.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A primeira tradução para o latim da Geografia de Ptolomeu, publicada em 1406, foi fundamental para a redescoberta do trabalho de Ptolomeu e contribuiu para o redesenho dos mapas no século XIII, influenciando a cartografia europeia.<\/div>"], "resp": "C"}, {"n": 19, "fonte": "Questões Inéditas · 2025", "tema": "Cartografia", "tipo": "ce", "html": true, "enun": "O planisfério de Ptolomeu usava uma grade de paralelos e meridianos, com o Meridiano Inicial traçado nas ilhas Canárias ou de Cabo Verde.", "com": ["<b>GABARITO: CERTO<\/b><br><div>O planisfério ptolomaico realmente utilizava uma grade de paralelos e meridianos, e o Meridiano Inicial foi traçado nas ilhas Canárias ou de Cabo Verde, que eram os pontos mais ocidentais conhecidos naquela época.<\/div>"], "resp": "C"}, {"n": 20, "fonte": "Questões Inéditas · 2025", "tema": "Cartografia", "tipo": "ce", "html": true, "enun": "Durante a Idade Média, a cartografia manteve-se fiel à representação realista do mundo físico, sem incorporar elementos religiosos.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Na Idade Média, a cartografia na Europa Ocidental afastou-se da ideia de representação realista do mundo e passou a refletir a visão cristã, utilizando figuras como o 'T' e 'O' para simbolizar elementos religiosos, como a cruz e a Santíssima Trindade.<\/div>"], "resp": "E"}, {"n": 21, "fonte": "Questões Inéditas · 2025", "tema": "Cartografia", "tipo": "ce", "html": true, "enun": "O mapa Ga-Sur, esculpido em argila ou pedra, é considerado o mapa mais antigo que se tem registro, datando de aproximadamente 2500 a.C.", "com": ["<b>GABARITO: CERTO<\/b><br><div>O Ga-Sur é o mapa mais antigo de que se tem registro e foi confeccionado pelos assírios por volta de 2500 a.C. na região da Mesopotâmia, sendo esculpido em pedras ou argilas.<\/div>"], "resp": "C"}, {"n": 22, "fonte": "Questões Inéditas · 2025", "tema": "Cartografia", "tipo": "ce", "html": true, "enun": "A cartografia é apenas uma técnica prática, sem influências culturais.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>A cartografia não é apenas uma técnica prática; ela também reflete elementos culturais das sociedades, traduzindo as formas como o mundo foi interpretado em diferentes épocas.<\/div>"], "resp": "E"}, {"n": 23, "fonte": "Simulado EsPCEx · 2023", "tema": "Cartografia", "tipo": "mc", "html": true, "enun": "Analise a figura.<br><div><img src=\"img/50d523fa1dcce30e.png\" alt=\"\"><br><\/div><br><div>A carta topográfica acima tem como características:<\/div><br><div>I - O relevo tem um elevado declínio, representando uma área de montanha.<\/div><br><div>II - A variação altimétrica é baixa, formando pequenas colinas nas áreas mais altas.<\/div><br><div>III - O relevo está no nível do mar.<\/div><br><div>IV - A variação altimétrica está em intervalos de 50 metros entre cada curva de nível.<\/div>", "com": ["<div><b>GABARITO: ALTERNATIVA E<\/b><\/div><br>I - Incorreta: A diferença altimétrica é baixa, chegando no máximo 250 metros em relação ao nível do mar.<div><br><div>II - Correta: A diferença altimétrica é baixa, representando pequenas colinas.<\/div><br><div>III - Incorreta:  O relevo não está no nível do mar, variando de 0 metros até 250 metros.<\/div><br><div>IV - Correta:  A diferença entre os intervalos de curva de nível é de 50 metros.<\/div><\/div>"], "alts": [["a", "I e II."], ["b", "I e III."], ["c", "I e IV."], ["d", "II e III."], ["e", "II e IV."]], "resp": "e"}, {"n": 24, "fonte": "Simulado EsPCEx · 2023", "tema": "Cartografia", "tipo": "mc", "html": true, "enun": "<p>Analise a carta topográfica.<\/p><p><img src=\"img/e82c99c2e40050ec.png\" alt=\"\"><br><\/p><p>É correto afirmar:<\/p><p>I - A variação altimétrica é quase nula, com um relevo variando com pequenas ondulações.<\/p><p>II - O córrego da fazenda dos Nogueiras percorre a direção da cota 1300 e 1500.&nbsp;<\/p><p>III - A cota mais elevada está na serra do Ouro Fala com 2.073 de altitude.<\/p><p>IV - Os cursos d´água presentes na carta seguem das cotas mais altas e desembocam no rio Aiuruoca.&nbsp;<\/p>", "com": ["<p><strong>GABARITO: ALTERNATIVA E<\/strong><\/p><p>I - Incorreta: A variação altimétrica é significativa, o ponto mais alto é de 2.073 e a cota mais baixa em torno de 1.000 metros, ou seja, uma diferença altimétrica de cerca de 1.000 metros.<\/p><p>II - Incorreta: A direção é de 1.500 a 1.300. O rio sempre segue em direção ao declive.&nbsp;<\/p><p>III - Correta: O ponto altimétrico mais elevado está representado no pico da serra do Ouro Fala, com 2.073 metros de altimetria.&nbsp;<\/p><p>IV - Correta: O rio Aiuruoca é o principal curso d’água dessa carta, recebendo os afluentes que correm das direções mais altas para desembocarem no rio Aiuruoca, localizada em cotas altimétricas mais baixas.&nbsp;<\/p>"], "alts": [["a", "I e II"], ["b", "I e III"], ["c", "I e IV"], ["d", "II e IV"], ["e", "III e IV"]], "resp": "e"}, {"n": 25, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "Projeções cartográficas são influenciadas por aspectos culturais e não são apenas produtos de cálculos matemáticos.", "com": ["<b>GABARITO: CERTO<\/b><br><div>As projeções cartográficas não são meramente produtos de cálculos matemáticos; elas refletem também os contextos culturais e históricos das sociedades que as criam, como foi o caso do eurocentrismo presente na projeção de Mercator.<\/div>"], "resp": "C"}, {"n": 26, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "As projeções conformes são mais indicadas para representar áreas próximas aos polos, pois mantêm tamanhos e formas realistas.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>As projeções conformes, como a de Mercator, são menos adequadas para representar áreas próximas aos polos, pois, embora mantenham as formas, distorcem significativamente os tamanhos dessas regiões.<\/div>"], "resp": "E"}, {"n": 27, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção de Robinson é um exemplo de projeção afilática que não conserva formas nem áreas, mas busca reduzir as distorções.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção de Robinson é uma projeção afilática que não mantém as formas nem as áreas, mas foi projetada para reduzir ao máximo as distorções, oferecendo uma visão mais equilibrada do mapa-múndi.<\/div>"], "resp": "C"}, {"n": 28, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "As projeções afiláticas buscam minimizar distorções, conservando a conformidade e a equivalência.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>As projeções afiláticas buscam minimizar as distorções, mas não conservam a conformidade, a equivalência, nem a equidistância. Elas fazem um equilíbrio entre as deformações, sem se comprometer completamente com nenhuma das propriedades.<\/div>"], "resp": "E"}, {"n": 29, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção de Peters destacou os países de baixa latitude e diminuiu o eurocentrismo na representação cartográfica.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção de Peters (ou Gall-Peters) destacou os países de baixa latitude, dando-lhes uma representação mais próxima de sua verdadeira proporção, reduzindo, mas não eliminando completamente, o eurocentrismo.<\/div>"], "resp": "C"}, {"n": 30, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção de Goode, uma projeção interrompida, é uma alternativa à projeção de Mercator e busca conservar as proporções das áreas.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção interrompida de Goode é uma alternativa que busca conservar as proporções das áreas, tornando-a uma projeção equivalente que surgiu em resposta às críticas ao mapa de Mercator.<\/div>"], "resp": "C"}, {"n": 31, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "Projeções equivalentes, como a de Peters, mantêm as formas das áreas representadas, mas alteram seus tamanhos.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Projeções equivalentes, como a de Peters, mantêm as áreas proporcionalmente idênticas ao globo terrestre, mas comprometem as formas, distorcendo-as para preservar a relação de tamanho.<\/div>"], "resp": "E"}, {"n": 32, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção de Mercator mantém as áreas da África e da América do Sul proporcionais ao seu tamanho real.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>A projeção de Mercator distorce o tamanho das áreas, fazendo com que regiões como a África e a América do Sul pareçam menores do que realmente são em relação a regiões mais próximas dos polos, como a Europa.<\/div>"], "resp": "E"}, {"n": 33, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção de Mercator é a mais conhecida das projeções conformes e foi criada para facilitar a navegação durante a Expansão Marítima europeia.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção de Mercator, desenvolvida no século XVI, é a mais famosa das projeções conformes. Ela foi criada para facilitar a navegação, proporcionando uma representação precisa dos ângulos e das coordenadas geográficas.<\/div>"], "resp": "C"}, {"n": 34, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "As projeções conformes mantêm os tamanhos das áreas iguais aos do globo, com diferentes intensidades, mas alteram as formas.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Nas projeções conformes, os ângulos e as formas são representados sem distorção, mas o tamanho das áreas é alterado, especialmente à medida que se afasta do Equador.<\/div>"], "resp": "E"}, {"n": 35, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "Na projeção azimutal, os paralelos são retos e os meridianos são curvos.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Na projeção azimutal, os paralelos são curvos, e os meridianos são retos que convergem nos polos, o que é o oposto do que foi afirmado. Esta projeção é indicada para representar os polos e as áreas próximas a eles.<\/div>"], "resp": "E"}, {"n": 36, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção cônica é mais indicada para representar áreas de média latitude devido às menores distorções nessas regiões.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção cônica é especialmente adequada para representar áreas de média latitude, pois as distorções são menores nessas porções, tornando a representação mais fiel.<\/div>"], "resp": "C"}, {"n": 37, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A projeção cilíndrica apresenta menores distorções à medida que o ponto representado está mais distante da Linha do Equador.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Na projeção cilíndrica, as distorções aumentam à medida que se afasta da Linha do Equador, tanto no sentido Norte como no Sul, tornando-a menos precisa em altas latitudes.<\/div>"], "resp": "E"}, {"n": 38, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A representação cartográfica usa paralelos e meridianos como referência para transferir os fenômenos da superfície esférica para o plano.", "com": ["<b>GABARITO: CERTO<\/b><br><div>A projeção cartográfica utiliza paralelos e meridianos como referência para representar no plano os fenômenos que ocorrem na superfície esférica da Terra, permitindo assim a criação de mapas baseados nessas coordenadas.<\/div>"], "resp": "C"}, {"n": 39, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "A Terra é considerada uma esfera perfeita para fins de projeções cartográficas, facilitando o trabalho de cartógrafos de países desenvolvidos.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>A Terra não é considerada uma esfera perfeita; ela apresenta irregularidades e um leve achatamento nos polos. Para as projeções cartográficas, utiliza-se um elipsoide como referência, que é uma forma mais precisa para os cálculos necessários na criação de mapas.<\/div>"], "resp": "E"}, {"n": 40, "fonte": "Questões Inéditas · 2025", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "ce", "html": true, "enun": "Com o avanço tecnológico promovido na era dos satélites, algumas projeções cartográficas são capazes de representar a superfície terrestre sem nenhum tipo de desconfiguração.", "com": ["<b>GABARITO: ERRADO<\/b><br><div>Todas as projeções cartográficas apresentam algum tipo de desconfiguração, pois é impossível representar com total precisão a superfície esférica da Terra em um plano. Quem elabora o mapa precisa fazer escolhas sobre quais elementos serão mais fidedignos e quais terão distorções.<\/div>"], "resp": "E"}, {"n": 41, "fonte": "Provão de Bolsas EsPCEx/CFO-CBMERJ · 2022", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "mc", "html": true, "enun": "Sobre as propriedades das projeções cartográficas, o tipo de projeções que não preservam forma, ângulo, distância ou área, ou seja, não há conservação das propriedades, porém, nesse tipo de projeção, há minimização das deformações em conjunto. <br><div>Esse tipo de propriedade é denominado:<\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b>", "<b>Alternativa A:<\/b> Incorreto: Projeção conforme: são as projeções em que há o cruzamento de paralelos e meridianos em ângulos retos. Nesse tipo de projeção, os ângulos são conservados e as áreas apresentam deformações.", "<b>Alternativa B:<\/b> Incorreto: Projeção equivalente: são as projeções que apresentam bastante deformidade em torno de um ponto devido à variação da escala. Nesse tipo de projeção, há conservação das áreas e distorção dos ângulos.", "<b>Alternativa C:<\/b> Incorreto: Projeção equidistante: são as projeções que não apresentam deformidades lineares, ou seja, as distâncias estarão condizentes com a realidade apenas em uma direção. Nesse tipo de projeção, preserva as distâncias, mas deforma as áreas e os ângulos.", "<b>Alternativa D:<\/b> Correto: Projeção afilática: são as projeções que não preservam forma, ângulo, distância ou área, ou seja, não há conservação das propriedades. Porém, nesse tipo de projeção, há minimização das deformações em conjunto.", "<b>Alternativa E:<\/b> Incorreto: Projeção cilíndrica: corresponde à projeção cuja superfície esférica terrestre é projetada sobre um cilindro tocante. Assim, para planificar a área esférica, a base utilizada é um cilindro. Normalmente, as regiões polares nessa projeção são representadas com exagero. Esse tipo de projeção geralmente é utilizado para representar o globo como um todo, como o mapa-múndi."], "alts": [["a", "Projeção conforme"], ["b", "Projeção equivalente"], ["c", "Projeção equidistante"], ["d", "Projeção afilática"], ["e", "Projeção Cilíndrica"]], "resp": "d"}, {"n": 42, "fonte": "Simulado EsPCEx · 2021", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "mc", "html": true, "enun": "Foi criada na década de 1960 por um geógrafo e cartógrafo estadunidense. Essa projeção caracteriza-se pelo fato de as áreas, as distâncias e as formas não serem preservadas, buscando distorcer, ao mínimo, todas elas (afilática). Possui paralelos retos e meridianos curvos. Ela é muito utilizada para fins didáticos.&nbsp;<br><div>O excerto se refere a projeção de:<br><br><\/div>", "com": ["<b>GABARITO: ALTERNATIVA D<\/b><div><b><br><\/b><\/div><div>“afilática”, “paralelos retos e meridianos curvos” e “muito utilizada para fins didáticos” apontam para a Projeção de Robinson.&nbsp;<\/div><br><div><b>Gabarito: D<\/b><\/div>"], "alts": [["a", "Mercator."], ["b", "Peters."], ["c", "Mollweide."], ["d", "Robinson."], ["e", "Goode."]], "resp": "d"}, {"n": 43, "fonte": "Simulado EsPCEx · 2021", "tema": "Projeções Cartográficas e visões de mundo", "tipo": "mc", "html": true, "enun": "A Projeção de Mercator, apesar de ter sido confeccionada no século XVI, ainda é a mais utilizada. Assim, podemos afirmar que ela é:", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> Correto. Conforme significa que as formas dos países são mantidas, porém, as distâncias e as áreas são deformadas.", "<b>Alternativa B:<\/b> Incorreto. Equivalente significa que as áreas dos países são preservadas, no entanto, as distâncias e as formas são distorcidas.", "<b>Alternativa C:<\/b> Incorreto. A Projeção de Mercator é Eurocêntrica.", "<b>Alternativa D:<\/b> Incorreto. A Projeção de Mercator é Cilíndrica.", "<b>Alternativa E:<\/b> Incorreto. A Projeção de Mercator é Cilíndrica."], "alts": [["a", "Cilíndrica, Eurocêntrica e Conforme."], ["b", "Cilíndrica, Eurocêntrica e Equivalente."], ["c", "Cilíndrica, Anglo-Saxônica e Conforme."], ["d", "Azimutal, Eurocêntrica e Conforme."], ["e", "Azimutal, Anglo-Saxônica e Equivalente."]], "resp": "a"}];
+
+const FLASH = [
+ ["a00","Latitude varia de quanto a quanto?","0° a 90° N ou S.<br><b>Exemplo:</b> o Polo Sul está a 90° S."],
+ ["a00","Longitude varia de quanto a quanto?","0° a 180° L ou O.<br><b>Exemplo:</b> Brasília ≈ 48° O."],
+ ["a00","Sinônimos de norte e sul","Norte: boreal, setentrional. Sul: austral, meridional.<br><b>Exemplo:</b> aurora boreal = no norte."],
+ ["a00","O que é declinação magnética?","Ângulo entre o norte magnético (bússola) e o geográfico.<br><b>Exemplo:</b> a bússola não aponta exatamente o Polo Norte."],
+ ["a00","Causa das estações","Inclinação do eixo (≈ 23°27′) + translação.<br><b>Exemplo:</b> em julho é inverno no Brasil e verão nos EUA."],
+ ["a00","Solstício de dezembro","Sol a pino no Trópico de Capricórnio: verão no Sul.<br><b>Exemplo:</b> 21 de dezembro é o dia mais longo em Porto Alegre."],
+ ["a00","Equinócio","Sol a pino no Equador; dia e noite iguais.<br><b>Exemplo:</b> março: outono no Sul."],
+ ["a00","Quantos graus tem um fuso?","15° (360° ÷ 24 h).<br><b>Exemplo:</b> 45° O = 3 h antes de Greenwich."],
+ ["a00","Indo para leste, o relógio…","Adianta.<br><b>Exemplo:</b> de Brasília (−3) a Lisboa (0): +3 h."],
+ ["a00","Cruzando a Linha de Data rumo a oeste","Soma-se um dia.<br><b>Exemplo:</b> domingo vira segunda."],
+ ["a00","Quem calculou a circunferência da Terra na Antiguidade?","Eratóstenes, pelas sombras em duas cidades (≈ 40 mil km).<br><b>Exemplo:</b> o valor atual é ≈ 40.075 km."],
+ ["ref","Elementos obrigatórios de um mapa","Título, legenda, escala e orientação.<br><b>Exemplo:</b> sem escala, não se medem distâncias."],
+ ["ref","Curvas de nível juntas indicam…","Declive acentuado.<br><b>Exemplo:</b> encosta de serra."],
+ ["ref","Cartografia sistemática × temática","Sistemática: precisão (topografia). Temática: destaca um tema.<br><b>Exemplo:</b> mapa de clima é temático."],
+ ["ref","Projeção conforme","Preserva formas e ângulos; distorce áreas.<br><b>Exemplo:</b> Mercator."],
+ ["ref","Projeção equivalente","Preserva áreas; distorce formas.<br><b>Exemplo:</b> Peters."],
+ ["ref","Projeção afilática","Não preserva nada inteiro, mas minimiza distorções.<br><b>Exemplo:</b> Robinson."],
+ ["ref","Cilíndrica, cônica e azimutal servem para…","Baixas, médias e altas latitudes.<br><b>Exemplo:</b> Antártida em azimutal."],
+ ["ref","O que eram os mapas T-O?","Mapas medievais com Jerusalém no centro e o T simbolizando a cruz.<br><b>Exemplo:</b> o T separava Europa, Ásia e África."],
+ ["pan","Zonas térmicas da Terra","Tropical, temperadas e polares.<br><b>Exemplo:</b> o Brasil está quase todo na zona tropical."],
+ ["pan","Por que o Equador é mais quente?","Os raios solares chegam mais perpendiculares.<br><b>Exemplo:</b> Manaus × Oslo."],
+ ["pan","Fuso oficial de Brasília","UTC −3 (45° O).<br><b>Exemplo:</b> o Brasil tem quatro fusos."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "ORIENTAÇÃO E LOCALIZAÇÃO", s: "Coordenadas · estações · fusos<br><small>Cartografia e projeções</small>",
+  e: "Para localizar qualquer ponto da Terra, usamos latitude e longitude; para representá-lo, mapas com escolhas de projeção; o tempo varia com a longitude.",
+  x: "Brasília fica perto de 15° S e 48° O.", l: "latitude (paralelos) + longitude (meridianos)",
+  p: "Mapas não são neutros: toda projeção distorce algo."};
+const MM = [
+ {k: "ori", c: "#2f5bd3", t: "Orientação", s: "rosa dos ventos, Sol, bússola",
+  e: "Pontos cardeais, colaterais e subcolaterais; orientação pelo Sol e pela bússola.", x: "Nascente = leste.", l: "N, S, L, O; NE, SE, SO, NO",
+  p: "Bússola aponta o polo magnético, não o geográfico.",
+  f: [
+   {k: "ori1", t: "Sinônimos", e: "boreal/setentrional = norte; austral/meridional = sul; oriente = leste; ocidente = oeste.", x: "Hemisfério austral = sul.", l: "boreal × austral", p: "Meridional é sul, não meridiano."},
+   {k: "ori2", t: "Declinação magnética", e: "Ângulo entre o norte magnético e o geográfico.", x: "Corrige-se a leitura da bússola com essa declinação.", l: "norte magnético ≠ geográfico", p: "O polo magnético se move."}
+  ]},
+ {k: "coo", c: "#1f8a4c", t: "Coordenadas", s: "latitude e longitude",
+  e: "Endereço de um ponto: cruzamento de paralelo e meridiano.", x: "Greenwich: 51°28′38″ N, 0°.", l: "lat 0–90; long 0–180",
+  p: "Paralelos diminuem para os polos; meridianos têm todos o mesmo tamanho.",
+  f: [
+   {k: "coo1", t: "Paralelos importantes", e: "Equador, trópicos (≈ 23°27′) e círculos polares (≈ 66°33′).", x: "Trópico de Capricórnio passa por São Paulo.", l: "0° · 23°27′ · 66°33′ · 90°", p: "Câncer é no Norte; Capricórnio, no Sul."},
+   {k: "coo2", t: "Meridianos e Linha de Data", e: "Greenwich é o 0°; o 180° é a base da Linha de Data.", x: "Fiji fica perto do 180°.", l: "0° e 180°", p: "A Linha de Data não é reta: desvia de países."}
+  ]},
+ {k: "est", c: "#b07400", t: "Estações e fusos", s: "rotação e translação",
+  e: "Translação + inclinação = estações; rotação = dia/noite e fusos.", x: "Dezembro: verão no Brasil, inverno na Europa.", l: "15° = 1 h",
+  p: "Distância ao Sol não explica as estações.",
+  f: [
+   {k: "est1", t: "Solstícios e equinócios", e: "Solstício: Sol a pino num trópico. Equinócio: Sol a pino no Equador, dia = noite.", x: "21 de dezembro: solstício de verão no Sul.", l: "jun.: Câncer; dez.: Capricórnio", p: "Março no Sul é outono, não primavera."},
+   {k: "est2", t: "Fotoperíodo", e: "Duração do dia varia com a latitude e a estação.", x: "Tromsø: 24 h de luz em junho.", l: "Equador ≈ 12 h", p: "No Equador quase não varia."},
+   {k: "est3", t: "Cálculo de fusos", e: "Graus ÷ 15; leste soma, oeste subtrai.", x: "60° O: 4 h atrás de Greenwich.", l: "Δh = Δlong/15", p: "Esquecer de somar o tempo de viagem."}
+  ]},
+ {k: "car", c: "#8a3ac2", t: "Cartografia", s: "mapas e projeções",
+  e: "Título, legenda, escala e orientação; sistemática × temática; projeções com distorções escolhidas.", x: "Mapa de densidade populacional é temático.", l: "conforme · equivalente · equidistante · afilática",
+  p: "Mercator preserva formas, não áreas.",
+  f: [
+   {k: "car1", t: "Curvas de nível", e: "Ligam pontos de mesma altitude; nunca se cruzam.", x: "Curvas apertadas numa serra = encosta íngreme.", l: "perto = íngreme", p: "Curvas afastadas = terreno suave."},
+   {k: "car2", t: "Cilíndrica, cônica, azimutal", e: "Baixas, médias e altas latitudes, respectivamente.", x: "Mapas polares usam azimutal.", l: "cilindro · cone · plano", p: "Cônica não serve bem para o mundo todo."},
+   {k: "car3", t: "Mercator × Peters", e: "Mercator: conforme, eurocêntrica, navegação. Peters: equivalente, valoriza o Sul.", x: "Na Mercator, a Europa parece maior do que é.", l: "forma × área", p: "Nenhuma projeção é \"a verdadeira\"."},
+   {k: "car4", t: "Robinson (afilática)", e: "Não preserva nada inteiro, mas minimiza distorções.", x: "Muito usada em atlas escolares.", l: "compromisso", p: "Afilática não é \"sem distorção\"."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Regra</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"GPS": "Sistema de Posicionamento Global (Estados Unidos)",
+"GMT": "Tempo Médio de Greenwich",
+"NE": "nordeste",
+"SE": "sudeste",
+"SO": "sudoeste",
+"NO": "noroeste"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.10_geo_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.5 · Ciclo 3 · Literatura — Conceitos Fundamentais (parte 2/2) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.5</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa D (3.5) · Literatura</h1>
+        <div class="sub">EsPCEx 2026 · Conceitos Fundamentais (parte 2/2): poesia e versificação, prosa, teatro, artes visuais e leitura do texto literário</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Treino de escansão</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.5</h2>
+  <p class="lead">Tarefa D da trilha: <i>"Estude os seguintes temas: Poesia; Prosa; Teatro; Representação de Obras de Artes Visuais; Interpretação de Texto Literário; Gramática aplicada à literatura; Crítica Literária; Resumo; Considerações Finais"</i>. A trilha estima cerca de 1h30 por tarefa.</p>
+  <div class="call warn"><b>Sobre o material</b>Montada com os nove trechos do livro digital de Literatura (itens 1.5 a 1.13). Os PDFs do capítulo foram baixados para consulta e não são publicados. Vídeos não foram incluídos.</div>
+  <div class="call"><b>O que o material destaca</b>• <b>Poesia</b> se organiza em versos; <b>prosa</b>, em parágrafos; <b>teatro</b>, em falas, atos e cenas com rubricas.<br>• Na escansão, conta-se até a <b>última sílaba tônica</b> do verso, com elisões: a sílaba poética não é a gramatical.<br>• Redondilha menor = 5; redondilha maior = 7; decassílabo = 10; alexandrino = 12.<br>• Eu lírico (poesia) ≠ narrador (prosa) ≠ autor.<br>• Repetição em texto literário é intencional: costuma indicar ênfase.</div>
+  <div class="card"><ol class="steps"><li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões.</li><li><b>Resumo (35 min).</b> Leia a aba <b>Resumo</b>; recite em voz alta os versos dos exemplos marcando as tônicas.</li><li><b>Mapa e Esquemas (10 min).</b> Decore as tabelas de versos, estrofes e rimas.</li><li><b>Treino de escansão (15 min).</b> Conte as sílabas poéticas antes de abrir as respostas.</li><li><b>Questões (15 min).</b> 5 questões de múltipla escolha; leia o comentário.</li><li><b>Rendimento (5 min).</b> Anote o que errou.</li></ol></div>
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: Literatura entra na prova de Português com interpretação de textos literários.</span></div><div class="card"><b>Questões</b><br><span class="muted">5 de múltipla escolha.</span></div><div class="card"><b>Continuação</b><br><span class="muted">Os próximos capítulos de Literatura percorrem as escolas literárias.</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: conceitos fundamentais de Literatura (parte 2/2)</h2>
+  <p class="lead">Na ordem do livro digital. Termos-chave <span class="k">em destaque</span>.</p>
+
+  <h3>1. Poesia</h3>
+  <div class="card">
+    <p>Texto organizado em <span class="k">versos</span> (linhas de sentido, que se opõem ao parágrafo), com ritmo, métrica e melodia. Na origem, a poesia era cantada: <b>letra de música também é poesia</b>. O conteúdo é <b>subjetivo</b>, centrado no <span class="k">eu lírico</span>, e a forma busca beleza sonora e figuras de linguagem, sobretudo a <b>metáfora</b> (comparação subentendida: "Amor é fogo que arde sem se ver", Camões).</p>
+    <div class="tbl"><table>
+      <tr><th>Elemento</th><th>O que é</th></tr>
+      <tr><td>Eu lírico (eu poético)</td><td>A voz que fala no poema; pode coincidir ou não com o poeta.</td></tr>
+      <tr><td>Verso</td><td>Unidade rítmica, em geral uma linha. <b>Livre</b>: sem métrica fixa. <b>Branco</b>: sem rima.</td></tr>
+      <tr><td>Métrica</td><td>Número de sílabas <b>poéticas</b> do verso.</td></tr>
+      <tr><td>Rima</td><td>Semelhança sonora no fim (externa) ou no interior (interna) dos versos.</td></tr>
+      <tr><td>Ritmo</td><td>Alternância de sílabas fortes e fracas.</td></tr>
+      <tr><td>Formas fixas</td><td>Soneto, haicai, ode, elegia, balada, rondó, trova, madrigal, entre outras.</td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"Verso livre é o verso sem rima": <b>ERRADO</b>.<br><b>O erro:</b> troca os nomes.<br><b>O certo:</b> verso <b>livre</b> não tem métrica fixa; verso <b>branco</b> não tem rima.</div>
+  </div>
+
+  <h3>2. Escansão (metrificação)</h3>
+  <div class="card">
+    <ul>
+      <li><b>Escandir</b> é contar as sílabas poéticas. Regra principal: conta-se <b>até a última sílaba tônica</b> do verso; o que vem depois não conta.</li>
+      <li><span class="k">Elisão</span>: vogal átona final se junta à vogal inicial da palavra seguinte numa só sílaba (o h não impede). "Ves-te a-som-bra i-men-sa" = 5 sílabas. Pausa marcada (vírgula) pode impedir a junção; vogal forte ou ditongo tônico geralmente também.</li>
+      <li><span class="k">Crase</span> (crásis) é a elisão de vogais iguais; na poesia vale para a, e, i, o.</li>
+      <li>Exemplo de Gonçalves Dias: "Tal a chuva / Transparece / Quando desce": 3 sílabas poéticas em cada verso.</li>
+    </ul>
+    <div class="tbl"><table>
+      <tr><th>Verso</th><th>Sílabas</th><th>Apoios rítmicos comuns</th></tr>
+      <tr><td>Pentassílabo ou <b>redondilha menor</b></td><td>5</td><td>2-5, 3-5, 1-3-5</td></tr>
+      <tr><td>Hexassílabo ou heroico quebrado</td><td>6</td><td>2-4-6, 3-6</td></tr>
+      <tr><td>Heptassílabo ou <b>redondilha maior</b></td><td>7</td><td>2-5-7, 3-7, 4-7</td></tr>
+      <tr><td>Octassílabo · eneassílabo</td><td>8 · 9</td><td>4-8 · 3-6-9</td></tr>
+      <tr><td><b>Decassílabo</b></td><td>10</td><td>heroico 6-10; sáfico 4-8-10 (o livro dá 4-6-10); provençal 4-7-10</td></tr>
+      <tr><td>Hendecassílabo</td><td>11</td><td>2-5-8-11</td></tr>
+      <tr><td>Dodecassílabo ou <b>alexandrino</b></td><td>12</td><td>6-12 (cesura) ou 4-8-12</td></tr>
+    </table></div>
+    <div class="call bad"><b>Pegadinha</b>"Número de sílabas poéticas = número de sílabas gramaticais": <b>ERRADO</b>.<br><b>O erro:</b> esquece as elisões e as sílabas depois da última tônica.<br><b>O certo:</b> "A-noi-te in-fi-ni-ta" tem 7 sílabas gramaticais e 5 poéticas.</div>
+  </div>
+
+  <h3>3. Estrofes e rimas</h3>
+  <div class="card">
+    <p><b>Estrofes</b> pelo número de versos: monóstico (1), dístico ou parelha (2), <b>terceto</b> (3), <b>quarteto ou quadra</b> (4), quintilha (5), sextilha (6), sétima (7), oitava (8), nona (9), décima (10). O <b>soneto</b> clássico tem 2 quartetos e 2 tercetos (14 versos).</p>
+    <div class="tbl"><table>
+      <tr><th>Critério</th><th>Tipos</th></tr>
+      <tr><td>Som</td><td><b>Perfeita ou consoante</b> (vogais e consoantes iguais: geração/nação) · <b>toante</b> (só vogais: serras/pedras) · <b>aliterante</b> (só consoantes: luta/luto)</td></tr>
+      <tr><td>Classe gramatical</td><td><b>Pobre</b> (mesma classe: andar/conservar) · <b>rica</b> (classes diferentes: já/dirá) · <b>rara</b> (combinação incomum: estrela/vê-la)</td></tr>
+      <tr><td>Tonicidade</td><td><b>Aguda</b> (oxítonas: céu/chapéu) · <b>grave</b> (paroxítonas: cedo/medo) · <b>esdrúxula</b> (proparoxítonas: propósito/depósito)</td></tr>
+      <tr><td>Posição</td><td><b>Externa</b> (fim do verso) · <b>interna</b> (dentro do verso)</td></tr>
+      <tr><td>Esquema</td><td><b>Alternadas</b> ABAB · <b>emparelhadas</b> AABB · <b>interpoladas</b> ABBA · <b>encadeadas</b> (a rima do fim reaparece dentro do verso seguinte) · <b>mistas</b> (sem esquema)</td></tr>
+    </table></div>
+    <p>Em texto corrido, a <b>barra</b> marca a mudança de verso: "Não chores, meu filho, / não chores que a vida / é luta renhida."</p>
+    <div class="call bad"><b>Pegadinha</b>"Rima rica é a rima de sons perfeitos": <b>ERRADO</b>.<br><b>O erro:</b> mistura critérios.<br><b>O certo:</b> rica/pobre olha a <b>classe gramatical</b>; perfeita/imperfeita olha o <b>som</b>.</div>
+  </div>
+
+  <h3>4. Prosa</h3>
+  <div class="card">
+    <p>Ganhou prestígio com a ascensão da burguesia (a partir do século XVIII), que queria se ver nas histórias. A narrativa gira em torno de uma <b>crise</b> que o personagem enfrenta; predominam verbos de ação.</p>
+    <div class="tbl"><table>
+      <tr><th>Elemento</th><th>O que é</th></tr>
+      <tr><td>Enredo</td><td>Sequência de acontecimentos em relação de causa e efeito.</td></tr>
+      <tr><td>Narrador</td><td>A voz que conta e define o <b>ponto de vista</b> (= foco narrativo = perspectiva). Está para a prosa como o eu lírico para a poesia.</td></tr>
+      <tr><td>Personagens · tempo · espaço</td><td>Tempo <b>cronológico</b> (real) ou <b>psicológico</b> (percepção do personagem).</td></tr>
+      <tr><td>Conflito → clímax → desfecho</td><td>Tensão; momento de maior tensão; solução.</td></tr>
+    </table></div>
+    <p><b>Tipos de narrador</b>: em <b>1ª pessoa</b> (personagem; inclui narrador-testemunha e alter ego, como Sérgio em <i>O Ateneu</i>); em <b>3ª pessoa</b> (fora da história, "como um deus"); <b>impessoal</b> (realistas e naturalistas); <b>condescendente</b> (idealiza preferidos, típico do Romantismo); <b>crítico</b> (comenta a ação).</p>
+    <p><span class="k">Prosa poética</span>: gênero híbrido, prosa com carga lírica, imagens insólitas e linguagem conotativa. Exemplo: Guimarães Rosa, com oralidade, regionalismos e neologismos.</p>
+  </div>
+
+  <h3>5. Teatro (gênero dramático)</h3>
+  <div class="card">
+    <p>Nasce na Grécia antiga (Ésquilo, Sófocles, Eurípides, séculos V–IV a.C.), ligado a cultos aos deuses. <b>Drama</b> (do grego, "ação") divide-se em tragédia e comédia.</p>
+    <ul>
+      <li><b>Ato</b>: grande divisão da peça (como o capítulo). <b>Cena</b>: subdivisão, em geral marcada pela entrada ou saída de atores.</li>
+      <li><b>Personagens</b> são <i>personae</i> (máscaras); o espaço é cenografia.</li>
+      <li><span class="k">Rubrica</span>: orientações do dramaturgo sobre gestos, cenário e postura, em geral entre parênteses antes das falas.</li>
+      <li>Exemplo: <i>O bem-amado</i>, de Dias Gomes, com Odorico Paraguaçu e o neologismo "somentemente".</li>
+    </ul>
+  </div>
+
+  <h3>6. Artes visuais</h3>
+  <div class="card">
+    <p>Passos para ler uma obra: (1) o que ela desperta em você; (2) aspectos técnicos (cores, tons, linhas); (3) composição (perspectiva, fundo, claro-escuro); (4) quem são as figuras; (5) contexto histórico; (6) junte tudo.</p>
+    <p>Comparação do tema da Madona: <b>arte bizantina</b> (figuras chapadas, sem perspectiva, dourado, poder e espiritualidade); <b>Rafael</b>, renascentista (realismo, antropocentrismo, equilíbrio); <b>Parmigianino</b>, maneirista (exagero, dramaticidade, prenúncio do Barroco); <b>Munch</b>, expressionista (sem elementos sacros, mulher sensual e enigmática, pinceladas marcadas).</p>
+  </div>
+
+  <h3>7. Interpretação, gramática e crítica</h3>
+  <div class="card">
+    <ul>
+      <li><b>Poema</b> é o produto pronto em versos; <b>poesia</b> é a forma (pode até estar em prosa).</li>
+      <li><b>Leitura em camadas</b>: 1ª título, fonte e pessoa do discurso; 2ª classes de palavras, pontuação, sintaxe, registro; 3ª gêneros híbridos e relações com outras disciplinas. Considere elementos <b>internos</b> (estilo, gênero, voz, público) e <b>externos</b> (época, autor, meio, contexto, intertextualidade).</li>
+      <li>Dica de prova: leia o enunciado antes do texto e grife; <b>repetição</b> em texto literário é intencional (ênfase).</li>
+      <li><b>Classes de palavras</b>: variáveis (substantivo, verbo, adjetivo, artigo, numeral, pronome) e invariáveis (advérbio, conjunção, preposição, interjeição). Coesão: preposições, conjunções, pronomes e advérbios ligam as partes.</li>
+      <li><b>Crítica</b>: Sartre retoma o <i>ut pictura poesis</i> (Horácio): a poesia se aproxima da pintura; o poeta trata as palavras como <b>coisas</b>, o prosador como <b>signos</b>.</li>
+      <li><span class="k">Narrador onisciente intruso</span>: sabe tudo e comenta, dirigindo-se ao leitor. Machado de Assis em <i>Quincas Borba</i> (3ª pessoa intrusa), diferente de <i>Dom Casmurro</i> e <i>Memórias póstumas</i> (narrador-protagonista em 1ª pessoa).</li>
+      <li><b>Verossimilhança</b> (mimese): representar a realidade de forma convincente.</li>
+    </ul>
+    <div class="call warn"><b>Atenção a um ponto do material</b>O livro apresenta Sartre como "poeta". Ele é mais conhecido como <b>filósofo e escritor</b> (romancista e dramaturgo) do existencialismo.</div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: gêneros e elementos do texto literário</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa</h3>
+  <div class="card"><div class="grid3" style="font-size:14px">
+    <div><b>Parte 1/2</b><br><span class="muted">Texto literário × não literário, funções da linguagem, gêneros.</span></div>
+    <div><b>Parte 2/2 (esta)</b><br><span class="muted">Poesia e versificação, prosa, teatro, artes visuais, leitura e crítica.</span></div>
+    <div><b>Depois</b><br><span class="muted">Escolas literárias: Trovadorismo, Humanismo, Classicismo, Barroco, Arcadismo, Romantismo, Realismo, Modernismo.</span></div>
+  </div></div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <h3>Três gêneros</h3>
+  <div class="tbl"><table>
+    <tr><th></th><th>Lírico (poesia)</th><th>Narrativo (prosa)</th><th>Dramático (teatro)</th></tr>
+    <tr><td>Unidade</td><td>verso, estrofe</td><td>parágrafo, capítulo</td><td>fala, cena, ato</td></tr>
+    <tr><td>Voz</td><td>eu lírico</td><td>narrador</td><td>personagens + rubricas</td></tr>
+    <tr><td>Foco</td><td>subjetividade, sonoridade</td><td>ação, conflito</td><td>ação encenada</td></tr>
+  </table></div>
+  <h3>Versos-chave</h3>
+  <div class="tbl"><table>
+    <tr><th>Sílabas</th><th>Nome</th></tr>
+    <tr><td>5</td><td>redondilha menor</td></tr><tr><td>7</td><td>redondilha maior</td></tr>
+    <tr><td>10</td><td>decassílabo (heroico 6-10; sáfico)</td></tr><tr><td>12</td><td>alexandrino</td></tr>
+  </table></div>
+  <h3>Rimas: qual critério?</h3>
+  <div class="tbl"><table>
+    <tr><th>Pergunta</th><th>Classificação</th></tr>
+    <tr><td>Os sons coincidem inteiros?</td><td>perfeita × toante/aliterante</td></tr>
+    <tr><td>Mesma classe gramatical?</td><td>pobre × rica</td></tr>
+    <tr><td>Qual a tônica?</td><td>aguda × grave × esdrúxula</td></tr>
+    <tr><td>Como se distribuem?</td><td>ABAB alternada · AABB emparelhada · ABBA interpolada</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Treino de escansão e rimas</h2>
+  <p class="lead">Conte em voz alta, batendo na mesa a cada sílaba e parando na última tônica.</p>
+  <div class="card">
+    <details><summary>1. "Minha terra tem palmeiras" (Gonçalves Dias): quantas sílabas poéticas?</summary><div>Mi-nha-ter-ra-tem-pal-<b>mei</b>(ras): <b>7</b> (redondilha maior).</div></details>
+    <details><summary>2. "Amor é fogo que arde sem se ver" (Camões)</summary><div>A-<b>mor</b>-é-fo-go-quear-de-sem-se-<b>ver</b>: <b>10</b> (decassílabo heroico, com elisão em "que arde").</div></details>
+    <details><summary>3. "Vou-me embora pra Pasárgada" (Bandeira)</summary><div>Vou-meem-bo-ra-pra-Pa-<b>sár</b>(ga-da): <b>7</b>; a elisão junta "me em".</div></details>
+    <details><summary>4. Classifique a rima céu/chapéu quanto à tonicidade e à classe</summary><div><b>Aguda</b> (oxítonas) e <b>pobre</b> (dois substantivos).</div></details>
+    <details><summary>5. Classifique estrela/vê-la</summary><div><b>Rara</b> (ou preciosa): substantivo × verbo com pronome; também é rica.</div></details>
+    <details><summary>6. Esquema de "Sons marinhos / choro errante / Pobrezinhos / levante"</summary><div>ABAB: rimas <b>alternadas</b> ou cruzadas.</div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (cadernos do livro digital)</h2>
+  <p class="lead">São as <b>5 questões</b> dos cadernos de trecho de Poesia do livro digital: 5 de múltipla escolha. Escolha com um clique, descarte com dois e confirme em <b>Responder</b>; o comentário do material aparece logo abaixo. Meta: <b>80%</b> nas objetivas.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.5 · Poesia, prosa e teatro</option>
+      <option value="ref">Versificação (métrica, estrofe, rima)</option>
+      <option value="pan">Panorama de Literatura</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2019", "tema": "Poesia", "tipo": "mc", "html": true, "enun": "&nbsp;Leia o trecho abaixo, retirado de I-Juca Pirama, obra de Gonçalves Dias.&nbsp;<div><br><div>Da tribo pujante,&nbsp;<\/div><div>Que agora anda errante&nbsp;<\/div><div>Por fado inconstante,&nbsp;<\/div><div>Guerreiros, nasci:&nbsp;<\/div><div>Sou bravo, sou forte,&nbsp;<\/div><div>sou filho do norte,&nbsp;<\/div><div>Meu canto de morte,&nbsp;<\/div><div>Guerreiros, ouvi.&nbsp;<\/div><br><div>Trata-se de um:&nbsp;<\/div><\/div>", "com": ["<b>GABARITO: ALTERNATIVA B<\/b>", "<b>Alternativa A:<\/b> Incorreta. Poema lírico tem como característica principal a exaltação da subjetividade, do estado de alma do eu lírico.&nbsp;", "<b>Alternativa B:<\/b> Correta – gabarito. Trata-se de poema épico, uma vez que as aventuras de um herói, no caso I-Juca Pirama, são narradas ao longo da obra de Gonçalves Dias.&nbsp;", "<b>Alternativa C:<\/b> Incorreta. As cantigas de amigo são produções medievais portuguesas, caracterizadas por eu lírico feminino em coita de amor por sentir saudades do amigo.&nbsp;", "<b>Alternativa D:<\/b> Incorreta. A novela de cavalaria também é uma produção medieval, cujo herói é um cavaleiro medieval que parte em busca de um objetivo e entra em conflito, muitas vezes, em questões amorosas.&nbsp;", "<b>Alternativa E:<\/b> Incorreta. Os autos são peças teatrais."], "alts": [["a", "poema lírico"], ["b", "poema épico"], ["c", "cantiga de amigo"], ["d", "novela de cavalaria"], ["e", "auto de fundo religioso"]], "resp": "b"}, {"n": 2, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2013", "tema": "Poesia", "tipo": "mc", "html": true, "enun": "Faça a correspondência da segunda coluna com base na primeira e assinale a alternativa que preenche corretamente as colunas, no que diz respeito às formas líricas.<br><div>Coluna 1<\/div><br><div>( 1 ) elegia<\/div><div>( 2 ) écloga<\/div><div>( 3 ) ode<\/div><div>( 4 ) soneto<\/div><div>&nbsp;<\/div><div>Coluna 2<\/div><br><div>(&nbsp; &nbsp;) o(a) mais conhecido(a) das formas líricas. Poema em 14 versos, organizados em dois quartetos e dois tercetos.<\/div><br><div>(&nbsp; &nbsp;) poema originado na Grécia Antiga que exalta os valores nobres, caracterizando-se pelo tom de louvação.<\/div><br><div>(&nbsp; &nbsp;) poema pastoril que retrata a vida bucólica dos pastores, em um ambiente campestre.<\/div><br><div>(&nbsp; &nbsp;) trata de acontecimentos tristes, muitas vezes enfocando a morte de um ente querido.<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b><div><b><br><\/b><\/div><div>Essa questão se insere aqui, porque foram gêneros essencialmente utilizados no período em questão. A questão ainda exige o domínio dos conceitos das formas líricas. O poema com forma tradicional, composto por 14 versos, é um soneto.&nbsp;<\/div><br><div>O poema de exaltação proveniente da Grécia Antiga é denominado Ode.&nbsp;<\/div><br><div>O poema pastoril é a écloga, que ressalta os valores bucólicos e distantes dos meios urbanos.&nbsp;<\/div><br><div>Por fim, a elegia se caracteriza pelo seu tom melancólico, ressaltando temáticas ligadas à morte, à perda ou ao descontentamento.<\/div>"], "alts": [["a", "4, 3, 2, 1"], ["b", "3, 2, 1, 4"], ["c", "2, 1, 3, 4"], ["d", "1, 2, 4, 3"], ["e", "4, 3, 1, 2"]], "resp": "a"}, {"n": 3, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2011", "tema": "Poesia", "tipo": "mc", "html": true, "enun": "<i>“Ao velho coitado<\/i><div><i>De penas ralado,<\/i><\/div><div><i>Já cego e quebrado,<\/i><\/div><div><i>Que resta? — Morrer.<\/i><\/div><div><i>Enquanto descreve<\/i><\/div><div><i>O giro tão breve<\/i><\/div><div><i>Da vida que teve,<\/i><\/div><div><i>Deixai-me viver!<\/i><\/div><div><i>Não vil, não ignavo,<\/i><\/div><div><i>Mas forte, mas bravo,<\/i><\/div><div><i>Serei vosso escravo:<\/i><\/div><div><i>Aqui virei ter.<\/i><\/div><div><i>Guerreiros, não coro<\/i><\/div><div><i>Do pranto que choro:<\/i><\/div><div><i>Se a vida deploro,<\/i><\/div><div><i>Também sei morrer.”<\/i><\/div><br><div>Sobre os versos acima, é correto afirmar que são de um poema<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> Correta – gabarito. São versos do Gonçalves Dias, da primeira geração romântica, valendo-se de redondilhas menores.&nbsp;", "<b>Alternativa B:<\/b> Incorreta. Não é barroco, porque não é religioso, mas sim indianista.&nbsp;", "<b>Alternativa C:<\/b> Incorreta. Não é byroniano, pois consiste na primeira geração romântica e não na segunda.&nbsp;", "<b>Alternativa D:<\/b> Incorreta. Não é antirromântico, mas sim romântico, idealizado por excelência, embora compartilhe a preocupação com a forma com o Parnasianismo.&nbsp;", "<b>Alternativa E:<\/b> Incorreta. Não é simbolista nem manifesta essas características."], "alts": [["a", "indianista, caracterizado pelas cargas lírica, dramática, épica e pela perfeita utilização dos vários recursos da métrica, da musicalidade e do ritmo."], ["b", "que é exemplo da melhor poesia barroca, quer na forma (decassílabos rimados), quer na temática desenvolvida (os estados contraditórios da condição humana)."], ["c", "byroniano, impregnado de egocentrismo, negativismo, pessimismo e dúvida."], ["d", "parnasiano, que manifesta uma postura anti-romântica, impassível e impessoal."], ["e", "simbolista, que expressa a purificação, por meio da qual o espírito atinge as regiões etéreas, o espaço infinito."]], "resp": "a"}, {"n": 4, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2011", "tema": "Poesia", "tipo": "mc", "html": true, "enun": "<i>“Foram-se os deuses, foram-se, em verdade;<\/i><div><i>Mas das deusas alguma existe, alguma<\/i><\/div><div><i>Que tem teu ar, a tua majestade,<\/i><\/div><div><i>Teu porte e aspecto, que és tu mesma, em suma.”<\/i><\/div><br><div>O fragmento acima, quanto à versificação, está classificado corretamente em qual das alternativas?<\/div>", "com": ["<b>GABARITO: ALTERNATIVA E<\/b><br><div>Questão de teoria literária. <b>Cuidado:<\/b> verso tradicional é aquele com métrica regular.<\/div>", "<b>Alternativa A:<\/b> <b> Incorreta<\/b>. As rimas do poema são alternadas (ABAB), isto é, o primeiro verso rima com o terceiro e o segundo com o quarto. Porém, os versos não são livres, mas sim decassílabos.", "<b>Alternativa B:<\/b> <b>Incorreta<\/b>. As rimas não são emparelhadas (AABB), e o verso não é branco, pois faz uso da rima.", "<b>Alternativa C:<\/b> <b>Incorreta.<\/b> As rimas não são interpoladas (ABBA).", "<b>Alternativa D:<\/b> <b>Incorreta.<\/b> O verso não é branco pois é dotado de rima ao longo do quarteto. As rimas são raras, já que há uma similaridade sonora entre palavras de classes gramaticais distintas. Majestade é um pronome, enquanto verdade é um substantivo.", "<b>Alternativa E:<\/b> <b>Correta<\/b> – gabarito. A rima é alternada, e os versos são decassílabos."], "alts": [["a", "rima alternada; verso livre"], ["b", "rima emparelhada; verso branco"], ["c", "rima interpolada; verso tradicional"], ["d", "rima rara; verso branco"], ["e", "rima alternada; verso tradicional"]], "resp": "e"}, {"n": 5, "fonte": "Escola Preparatória de Cadetes do Exército - EsPCEx · 2001", "tema": "Poesia", "tipo": "mc", "html": true, "enun": "<b><u>Texto 1<\/u><\/b><br><div>Sou como a pomba e como as vozes dela<\/div><div>É triste o meu cantar;<\/div><div>–  Flor dos trópicos  –  cá na Europa fria<\/div><div>Eu definho, chorando noite e dia<\/div><div>Saudades do meu lar. <\/div><br><div>A juriti suspira sobre as folhas secas<\/div><div>Seu canto de saudade;<\/div><div>Hino de angústia, férvido lamento,<\/div><div>Um poema de amor e sentimento,<\/div><div>Um grito d&#39;orfandade!<\/div><br><div><b><u>Texto 2<\/u><\/b><\/div><br><div>Fulge de luz banhado, esplêndido e suntuoso<\/div><div>O palácio imperial de pórfiro luzente<\/div><div>E mármor da Lacônia. O teto caprichoso<\/div><div>Mostra, em prata incrustado, o nácar do oriente<\/div><br><div>Nero no toro erbúreo estende-se indolente...<\/div><div>Gemas em profusão do estrágulo custoso<\/div><div>De ouro bordado vêem-se. O olhar deslumbra, ardente, <\/div><div> Da púrpura da Trácia o brilho esplendoroso.<\/div><br><div>Quanto ao texto 1, pode-se afirmar que é um(a)<\/div>", "com": ["<b>GABARITO: ALTERNATIVA A<\/b>", "<b>Alternativa A:<\/b> correta – gabarito. Esses versos são do ultrarromântico Casimiro de Abreu <span>Cuidado: não é porque o poema tem versos com métricas diferentes que ele não vai ter <\/span><span>métrica como um todo. Ele alterna versos decassílabos com hexassílabos na primeira estrofe. <\/span><span>Apenas na segunda surge um dodecassílabo: “A juriti suspira sobre as folhas secas”.<\/span><div><span><br><\/span><\/div><div><span>Todo poema é metrificado. Se é um verso, dentro de um poema, já tem métrica.<\/span><\/div>", "<b>Alternativa B:<\/b> incorreta. Versos livres são versos sem métrica, o que não são, como foi <span>comprovado com a alternativa acima.<\/span>", "<b>Alternativa C:<\/b> incorreta. Versos brancos são versos <span>sem rima. Na primeira estrofe, “cantar” rima com “lar” <\/span><span>e “fria” com “dia”. Na segunda estrofe, “saudade” rima <\/span><span>com “orfandade” e “lamento” com “sentimento”.<\/span>", "<b>Alternativa D:<\/b> incorreta. O soneto clássico é <span>dividido entre dois quartetos e dois tercetos. O poema <\/span><span>acima é composto por duas estrofes, cada uma com 5 <\/span><span>versos (quintilha, quinteto ou pentástico).<\/span>", "<b>Alternativa E:<\/b> incorreta. Não é escrito em <span>parágrafos, mas sim versos.<\/span>"], "alts": [["a", "poema metrificado."], ["b", "composição de versos livres."], ["c", "composição de versos brancos."], ["d", "fragmento de um soneto."], ["e", "poema em prosa."]], "resp": "a"}];
+
+const FLASH = [
+ ["a00","Eu lírico é o poeta?","Não necessariamente: é a voz que fala no poema.<br><b>Exemplo:</b> Chico Buarque escreveu canções com eu lírico feminino."],
+ ["a00","Verso livre × verso branco","Livre: sem métrica fixa. Branco: sem rima.<br><b>Exemplo:</b> muitos poemas modernistas usam versos livres."],
+ ["a00","O que é metáfora?","Comparação subentendida, sem conectivo.<br><b>Exemplo:</b> \"Amor é fogo que arde sem se ver\"."],
+ ["a00","Letra de música é poesia?","Sim; a poesia nasceu ligada ao canto.<br><b>Exemplo:</b> questões de prova usam letras de música como texto poético."],
+ ["a00","Elementos da narrativa","Enredo, narrador, personagens, tempo, espaço, conflito, clímax, desfecho.<br><b>Exemplo:</b> o clímax é o ponto de maior tensão."],
+ ["a00","Narrador-testemunha","Personagem secundário que conta a história do protagonista (1ª pessoa).<br><b>Exemplo:</b> um amigo que narra a vida do herói."],
+ ["a00","Narrador onisciente intruso","Sabe tudo e comenta, dirigindo-se ao leitor.<br><b>Exemplo:</b> Machado em <i>Quincas Borba</i>."],
+ ["a00","Ato × cena × rubrica","Ato: grande divisão. Cena: subdivisão. Rubrica: instrução do dramaturgo.<br><b>Exemplo:</b> \"(entra, nervoso)\" é rubrica."],
+ ["a00","O que é prosa poética?","Prosa com carga lírica e linguagem conotativa.<br><b>Exemplo:</b> Guimarães Rosa."],
+ ["a00","Poema × poesia","Poema: o texto pronto em versos. Poesia: a forma ou qualidade lírica.<br><b>Exemplo:</b> pode haver poesia em prosa."],
+ ["a00","Repetição em texto literário","É intencional e costuma indicar ênfase.<br><b>Exemplo:</b> \"Vou-me embora pra Pasárgada\" repetido."],
+ ["a00","Classes invariáveis","Advérbio, conjunção, preposição e interjeição.<br><b>Exemplo:</b> \"aqui\" (advérbio) não varia em gênero ou número."],
+ ["ref","Até onde se contam as sílabas poéticas?","Até a última sílaba tônica do verso.<br><b>Exemplo:</b> Trans-pa-<b>re</b>(ce) = 3."],
+ ["ref","O que é elisão?","Fusão de vogal átona final com a vogal seguinte numa só sílaba.<br><b>Exemplo:</b> \"que arde\" = quear-de."],
+ ["ref","Redondilha menor e maior","Menor: 5 sílabas. Maior: 7 sílabas.<br><b>Exemplo:</b> \"Minha terra tem palmeiras\" = 7."],
+ ["ref","Decassílabo e alexandrino","10 e 12 sílabas poéticas.<br><b>Exemplo:</b> o soneto clássico usa decassílabos."],
+ ["ref","Rima rica × pobre","Rica: classes diferentes. Pobre: mesma classe.<br><b>Exemplo:</b> já/dirá (rica); andar/conservar (pobre)."],
+ ["ref","Rima toante","Coincidem só as vogais.<br><b>Exemplo:</b> serras/pedras."],
+ ["ref","ABAB, AABB, ABBA","Alternadas, emparelhadas, interpoladas.<br><b>Exemplo:</b> quarteto com rimas nos versos 1 e 4 e 2 e 3 = ABBA."],
+ ["ref","Quarteto, terceto, dístico","4, 3 e 2 versos.<br><b>Exemplo:</b> soneto = 2 quartetos + 2 tercetos."],
+ ["pan","Três gêneros literários","Lírico, narrativo (épico) e dramático.<br><b>Exemplo:</b> <i>Os Lusíadas</i> é épico em versos."],
+ ["pan","O que é verossimilhança?","Coerência que faz a ficção parecer possível (mimese).<br><b>Exemplo:</b> o Realismo busca alta verossimilhança."],
+ ["pan","Arte bizantina × renascentista","Bizantina: chapada, dourada, sem perspectiva. Renascentista: realismo, perspectiva, antropocentrismo.<br><b>Exemplo:</b> Rafael."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "TEXTO LITERÁRIO", s: "Lírico · narrativo · dramático<br><small>Versificação · foco narrativo · leitura em camadas</small>",
+  e: "A Literatura se manifesta em três grandes gêneros: poesia (versos, eu lírico), prosa (narrador, enredo) e teatro (falas e rubricas). Para interpretar, leia em camadas e relacione texto e contexto.",
+  x: "Uma letra de música é poesia; um conto é prosa; <i>O bem-amado</i> é teatro.",
+  l: "Gêneros: lírico, narrativo, dramático.", p: "Confundir eu lírico com autor ou narrador."};
+const MM = [
+ {k: "poe", c: "#2f5bd3", t: "Poesia", s: "versos e eu lírico",
+  e: "Texto em versos, subjetivo, com preocupação estética e sonora.", x: "\"Amor é fogo que arde sem se ver\".", l: "verso, métrica, rima, ritmo, estrofe",
+  p: "Verso livre (sem métrica) ≠ verso branco (sem rima).",
+  f: [
+   {k: "poe1", t: "Eu lírico", e: "A voz que fala no poema; não é necessariamente o poeta.", x: "Um poeta pode criar um eu lírico feminino.", l: "eu lírico = eu poético", p: "\"O eu lírico é sempre o autor\": ERRADO."},
+   {k: "poe2", t: "Metáfora", e: "Comparação subentendida, sem conectivo.", x: "Amor é fogo.", l: "A é B (sem \"como\")", p: "Com \"como\" explícito, é comparação (símile)."},
+   {k: "poe3", t: "Formas fixas: soneto", e: "14 versos: 2 quartetos e 2 tercetos, em geral decassílabos.", x: "Sonetos de Camões e Vinicius de Moraes.", l: "4 + 4 + 3 + 3", p: "Haicai também é forma fixa (3 versos)."}
+  ]},
+ {k: "esc", c: "#1f8a4c", t: "Versificação", s: "escansão, estrofe, rima",
+  e: "Contar sílabas poéticas, nomear estrofes e classificar rimas.", x: "\"Ves-te a-som-bra i-men-sa\": 5 sílabas.", l: "conta até a última tônica",
+  p: "Sílaba poética ≠ gramatical.",
+  f: [
+   {k: "esc1", t: "Conta até a última tônica", e: "As sílabas átonas finais não entram na contagem.", x: "Trans-pa-<b>re</b>(ce): 3.", l: "última tônica = fim da contagem", p: "Contar o \"ce\" final."},
+   {k: "esc2", t: "Elisão e crase", e: "Vogais em contato entre palavras se fundem numa sílaba.", x: "\"que arde\" = quear-de.", l: "átona + vogal = 1 sílaba", p: "Pausa (vírgula) pode impedir."},
+   {k: "esc3", t: "5, 7, 10, 12", e: "Redondilha menor, redondilha maior, decassílabo, alexandrino.", x: "\"Minha terra tem palmeiras\" = 7.", l: "5 · 7 · 10 · 12", p: "Hexassílabo é o heroico quebrado (6)."},
+   {k: "esc4", t: "Estrofes", e: "Nomes pelo número de versos: dístico, terceto, quarteto, quintilha, sextilha, oitava, décima.", x: "Soneto: quartetos e tercetos.", l: "2 · 3 · 4 · 5 · 6 · 8 · 10", p: "Quadra = quarteto."},
+   {k: "esc5", t: "Rimas", e: "Som (perfeita/toante), classe (pobre/rica), tônica (aguda/grave/esdrúxula), esquema (ABAB, AABB, ABBA).", x: "já/dirá: rica.", l: "critério certo para cada nome", p: "Rica não é \"rima bonita\"."}
+  ]},
+ {k: "pro", c: "#b07400", t: "Prosa", s: "narrador e enredo",
+  e: "Narrativa em parágrafos, centrada num conflito.", x: "Romances, contos, crônicas.", l: "enredo, narrador, personagens, tempo, espaço",
+  p: "Foco narrativo = ponto de vista = perspectiva.",
+  f: [
+   {k: "pro1", t: "Narrador em 1ª e 3ª pessoa", e: "1ª: personagem (protagonista ou testemunha). 3ª: fora da história.", x: "Dom Casmurro (1ª) × Quincas Borba (3ª).", l: "eu × ele", p: "Narrador-testemunha é 1ª pessoa, mas não protagonista."},
+   {k: "pro2", t: "Onisciente intruso", e: "Sabe tudo e comenta, falando ao leitor.", x: "\"Não, senhora minha, ainda não acabou este dia\" (Quincas Borba).", l: "comentários e intromissões", p: "Neutralidade é do narrador impessoal (Realismo/Naturalismo)."},
+   {k: "pro3", t: "Tempo cronológico × psicológico", e: "Real e mensurável × percepção do personagem.", x: "Um minuto de angústia \"dura uma eternidade\".", l: "relógio × consciência", p: "Ambos podem coexistir."},
+   {k: "pro4", t: "Prosa poética", e: "Prosa com carga lírica e linguagem conotativa.", x: "Guimarães Rosa, <i>Grande sertão: veredas</i>.", l: "gênero híbrido", p: "Não precisa de versos para ser poética."}
+  ]},
+ {k: "tea", c: "#8a3ac2", t: "Teatro e artes", s: "drama, rubrica, leitura de imagem",
+  e: "Teatro: ação encenada, com atos, cenas e rubricas. Artes visuais: leitura por técnica, composição e contexto.", x: "<i>O bem-amado</i> (Dias Gomes).", l: "ato > cena; rubrica entre parênteses",
+  p: "Rubrica não é fala de personagem.",
+  f: [
+   {k: "tea1", t: "Ato, cena, rubrica", e: "Ato é a grande divisão; cena, a subdivisão; rubrica, a instrução do dramaturgo.", x: "Hamlet, ato III, cena 1: \"Ser ou não ser\".", l: "ato ⊃ cena", p: "Confundir rubrica com narrador."},
+   {k: "tea2", t: "Tragédia e comédia", e: "Os dois tipos do drama grego.", x: "Sófocles (tragédia).", l: "drama = ação", p: "Farsa é variante cômica."},
+   {k: "tea3", t: "Leitura de imagem", e: "Sensação, técnica, composição, figuras, contexto, síntese.", x: "Madona bizantina × Rafael × Munch.", l: "6 passos", p: "Ausência de perspectiva na arte bizantina é escolha, não falta de técnica."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Conceito-chave</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)",
+"ABL": "Academia Brasileira de Letras"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.5_lit_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>
