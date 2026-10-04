@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trilha EsPCEx 2026 · Páginas de estudo</title>
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326}}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:24px;margin:0 0 4px} h2{font-size:19px;margin:28px 0 10px}
+a{color:var(--accent)}
+.lead{color:var(--muted);margin:0 0 18px}
+.muted{color:var(--muted)} .small{font-size:13.5px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:170px}
+.stat b{display:block;font-size:26px}
+.bar{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden;margin-top:6px} .bar>div{height:100%;background:var(--ok)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 4px}
+input,select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+input{min-width:260px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600} tr:last-child td{border-bottom:0}
+td.t{font-weight:750;color:var(--accent);white-space:nowrap} td.acao{white-space:nowrap;text-align:right}
+tr.pend td{opacity:.75}
+.pill{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.btn{display:inline-block;text-decoration:none;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--accent)}
+.btn.pri{background:var(--accent);color:#fff} .btn.pri:hover{filter:brightness(1.1)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--text)}
+a.card:hover{border-color:var(--accent)}
+.card b{font-size:17px}
+:root{--fz:1}
+.wrap{zoom:var(--fz)}
+.topo{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.fz{display:flex;align-items:center;gap:4px;margin-left:auto}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+@media(max-width:700px){.wrap{padding:12px 12px 40px} h1{font-size:18px} .lead{font-size:14px} .fz{margin-left:0} .stat{min-width:0;flex:1;padding:8px 12px} .stat b{font-size:20px} input{min-width:0;width:100%}}
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+</style>
+<script>document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");</script>
+</head>
+<body><div class="wrap">
+
+<div class="topo"><h1>Trilha EsPCEx 2026 · Páginas de estudo</h1>
+<div class="fz" role="group" aria-label="Tamanho da fonte">
+  <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+  <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+  <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+  <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+  <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+</div></div>
+<p class="lead">Preparação para a EsPCEx 2026 pela Trilha de Estudos do Estratégia Militares (72 ciclos).
+Cada tarefa de estudo tem a sua página, com resumo, mapa mental clicável, esquemas, todas as questões do ciclo
+(interativas, com comentário e rendimento) e flashcards com repetição espaçada. Meta: 80% de acertos.</p>
+<div class="stats">
+  <div class="stat"><span class="muted small">Tarefas com página</span><b>1 de 13</b><div class="bar"><div style="width:8%"></div></div></div>
+  <div class="stat"><span class="muted small">Ciclos mapeados</span><b>1 de 72</b></div>
+</div>
+<h2>Ciclos</h2>
+<div class="cards"><a class="card" href="ciclo_3.html"><b>Ciclo 03 — EsPCEx</b>
+<div class="muted small">13 sessões de estudo e 2 de revisão: Matemática, Física, Química, Português, Inglês, Geografia, História e Redação.</div>
+<div class="bar"><div style="width:8%"></div></div>
+<div class="muted small">1 de 13 tarefas de estudo com página</div></a></div>
+<p class="muted small" style="margin-top:18px">As respostas, os flashcards e as marcações de texto ficam salvos no próprio navegador.</p>
+<p class="muted small" style="margin-top:24px">Gerado automaticamente em 04/10/2026 14:29.</p>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+const busca = $("#busca"), filtro = $("#filtro");
+function aplicar(){
+  const q = busca.value.toLowerCase(), f = filtro.value;
+  document.querySelectorAll("tr.feita, tr.pend").forEach(tr => {
+    tr.style.display = (f === "todas" || tr.classList.contains(f)) && tr.textContent.toLowerCase().includes(q) ? "" : "none";
+  });
+}
+if (busca) busca.oninput = filtro.onchange = aplicar;
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body></html>

@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.2 · Ciclo 3 · Matemática I — Conjuntos (parte 1/3) — EsPCEx</title>
+<style>
+:root{
+  --bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;
+  --accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;
+  --warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;
+  --accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;
+  --warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.top{display:flex;align-items:center;gap:16px;padding:12px 0 6px;flex-wrap:wrap}
+.badge{background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:4px 10px;font-size:14px;letter-spacing:.5px}
+.top h1{font-size:18px;margin:0;font-weight:650}
+.top .sub{color:var(--muted);font-size:13px}
+nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:8px}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:var(--surface2);color:var(--text)}
+nav button.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+main{padding:24px 0 80px}
+section.tab{display:none}section.tab.on{display:block}
+h2{font-size:22px;margin:0 0 4px}
+h3{font-size:17px;margin:28px 0 10px}
+.lead{color:var(--muted);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.call.warn{border-color:var(--warn);background:var(--warn-soft)}
+.call.bad{border-color:var(--bad);background:var(--bad-soft)}
+.call.ok{border-color:var(--ok);background:var(--ok-soft)}
+.call b:first-child{display:block;margin-bottom:2px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--surface2);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.tbl table th:first-child,.tbl table td:first-child{padding-left:14px}
+.k{font-weight:650;color:var(--accent)}
+.muted{color:var(--muted)}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+details{border:1px solid var(--line);border-radius:10px;margin:8px 0;background:var(--surface)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details>div{padding:0 14px 12px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+/* roteiro */
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:10px 0 10px 46px;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border:0}
+.steps li::before{content:counter(s);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center}
+
+/* mapa mental */
+.mm{padding:22px 16px}
+.mm-root{display:block;max-width:520px;margin:0 auto;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.mm-root b{display:block;font-size:17px;letter-spacing:.5px}
+.mm-trunk{width:2px;height:22px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:12px;border-top:2px solid var(--line);padding-top:0}
+.mm-br{display:flex;flex-direction:column;align-items:stretch}
+.mm-br::before{content:"";width:2px;height:18px;background:var(--line);margin:0 auto}
+.mm-h{border:2px solid var(--c);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;background:var(--surface)}
+.mm-h b{display:block;font-size:14.5px;color:var(--c)}
+.mm-br ul{list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid var(--c)}
+.mm-br li{font-size:13px;line-height:1.4;background:var(--surface2);border-radius:8px;padding:6px 9px;margin:6px 0;position:relative}
+.mm-br li::before{content:"";position:absolute;left:-12px;top:50%;width:10px;border-top:2px solid var(--c)}
+@media(max-width:860px){.mm-branches{grid-template-columns:1fr 1fr;border-top:0}}
+@media(max-width:520px){.mm-branches{grid-template-columns:1fr}}
+
+
+/* abreviações com dica */
+abbr[data-tip]{text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+#tip{position:fixed;z-index:100;max-width:300px;background:#1d2330;color:#fff;font-size:13px;line-height:1.35;padding:6px 10px;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.on{opacity:1}
+@media (prefers-color-scheme:dark){#tip{background:#e6e9ef;color:#12151b}}
+
+/* mapa clicável */
+.mm [data-k]{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.mm [data-k]:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mm [data-k].sel{outline:3px solid var(--c,var(--accent));outline-offset:2px}
+.mm-root[data-k].sel{outline-color:var(--text)}
+.mm-hint{text-align:center;color:var(--muted);font-size:13px;margin:-4px 0 12px}
+#mmPanel{border-left:6px solid var(--c,var(--accent));scroll-margin-top:140px}
+#mmPanel h4{margin:0 0 4px;font-size:18px;color:var(--c,var(--accent))}
+#mmPanel .mm-sec{margin:12px 0 0}
+#mmPanel .lbl{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+#mmPanel .ex{background:var(--ok-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .pg{background:var(--bad-soft);border-radius:8px;padding:10px 12px}
+#mmPanel .nav{display:flex;justify-content:space-between;gap:8px;margin-top:14px}
+
+/* questões */
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 16px}
+.qnav button{width:34px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:12.5px;cursor:pointer}
+.qnav button.cur{outline:2px solid var(--accent);outline-offset:1px}
+.qnav button.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.qnav button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
+.progress{height:8px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13.5px;margin-bottom:8px}
+.enun{white-space:pre-line;margin-bottom:14px}
+.trecho{white-space:pre-line;margin:0 0 12px;padding:10px 14px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 8px 8px 0;font-style:italic}
+.trecho .lbl{display:block;font-style:normal;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;margin:6px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+.opt .l{font-weight:700;min-width:22px;text-transform:uppercase}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ce{display:flex;gap:10px}.ce .opt{justify-content:center;font-weight:650}
+.opt{user-select:none;-webkit-user-select:none;position:relative}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt.sel .l::before{content:"● ";color:var(--accent)}
+.opt.desc{opacity:.55;padding-right:92px}
+.opt.desc span{text-decoration:line-through;text-decoration-thickness:2px}
+.ce .opt.desc{text-decoration:line-through;text-decoration-thickness:2px}
+.opt.desc::after{content:"descartada";position:absolute;right:10px;top:8px;font-size:11px;color:var(--muted);text-decoration:none}
+.qact{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.qmsg{font-size:14.5px;padding:8px 12px;border-radius:8px;display:none}
+.qmsg.on{display:block}
+.qmsg.warn{background:var(--warn-soft);color:var(--warn)}
+.qmsg.bad{background:var(--bad-soft);color:var(--bad)}
+.qhint{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
+.coment{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.coment p{margin:6px 0}
+.verdict{font-weight:700;font-size:16px}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+
+/* flashcards */
+.fc{perspective:1200px;max-width:640px;margin:0 auto}
+.fc-inner{position:relative;min-height:240px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+.fc-face.back{transform:rotateY(180deg);background:var(--accent-soft);text-align:left;align-items:flex-start;font-size:15px}
+.fc-face .q{font-size:19px;font-weight:600}
+.fc-meta{display:flex;justify-content:space-between;max-width:640px;margin:0 auto 8px;color:var(--muted);font-size:13px}
+.boxes{display:flex;gap:6px;justify-content:center;margin:14px 0}
+.boxes span{font-size:12px;padding:3px 9px;border-radius:99px;background:var(--surface2);border:1px solid var(--line)}
+
+/* rendimento */
+.big{font-size:44px;font-weight:750;line-height:1}
+.bar{display:grid;grid-template-columns:200px 1fr 70px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.bar .t{height:12px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.bar .t>div{height:100%;background:var(--ok)}
+.bar .t>div.mid{background:var(--warn)}.bar .t>div.low{background:var(--bad)}
+@media(max-width:600px){.bar{grid-template-columns:120px 1fr 56px}}
+kbd{font:12px ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;background:var(--surface2)}
+.btn kbd{background:rgba(255,255,255,.18);color:inherit;border-color:currentColor}
+/* marca-texto */
+mark.hl{color:#1d2330;border-radius:3px;padding:0 1px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl-am{background:#fff176}mark.hl-ro{background:#f9c2dc}mark.hl-ve{background:#b6efc4}
+#hlBar{position:fixed;z-index:120;display:none;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#hlBar.on{display:flex}
+#hlBar .lbl{font-size:12px;color:var(--muted);margin-right:2px}
+#hlBar button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;font-size:14px;line-height:1;color:var(--text);background:var(--surface2);padding:0}
+#hlBar button:hover{transform:scale(1.12);border-color:var(--text)}
+#hlBar button[data-c=am]{background:#fff176}#hlBar button[data-c=ro]{background:#f9c2dc}#hlBar button[data-c=ve]{background:#b6efc4}
+@media(pointer:coarse){#hlBar{gap:10px;padding:8px 10px}#hlBar button{width:38px;height:38px;font-size:16px}#hlBar .lbl{font-size:13px}}
+/* tamanho da fonte: A− / A+ escalam a página inteira (zoom em header e main; #tip só a fonte, para não deslocar) */
+:root{--fz:1}
+header,main{zoom:var(--fz)}
+#tip{font-size:calc(13px * var(--fz))}
+.fz{display:flex;align-items:center;gap:4px}
+.fz button{border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:650;min-width:34px;height:30px;padding:0 8px;border-radius:8px;cursor:pointer}
+.fz button:hover{background:var(--surface2)}
+.fz #fzVal{min-width:52px;font-weight:400;color:var(--muted);font-size:13px}
+/* celular: cabeçalho compacto numa linha e menu retrátil (abas, fonte, tela cheia e índice dentro dele) */
+#menuBtn{display:none}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .top{flex-wrap:nowrap;gap:8px;padding:6px 0}
+  .top>div:not(.fz){min-width:0;flex:1}
+  .top h1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top .sub{display:none}
+  .badge{font-size:12px;padding:2px 7px}
+  #menuBtn{display:inline-block;flex-shrink:0;max-width:46vw;border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .top>a,.top .fz,nav{display:none}
+  header.menu-on .top{flex-wrap:wrap}
+  header.menu-on .top>a{display:block;order:3;width:100%;margin:2px 0 0 !important}
+  header.menu-on .top .fz{display:flex;order:4;width:100%;flex-wrap:wrap}
+  header.menu-on nav{display:flex;flex-direction:column;gap:2px;max-height:60vh;overflow-y:auto}
+  header.menu-on nav button{text-align:left;padding:9px 12px}
+}
+/* temas: escolhidos no seletor do cabeçalho; sem escolha salva, segue o claro/escuro do sistema */
+:root[data-theme=claro]{--bg:#f6f7f9;--surface:#fff;--surface2:#f0f2f5;--text:#1d2330;--muted:#5d6676;--line:#dde1e7;--accent:#2f5bd3;--accent-soft:#e7edfc;--ok:#1f8a4c;--ok-soft:#e3f4ea;--bad:#c23a3a;--bad-soft:#fbe7e7;--warn:#a86a00;--warn-soft:#fdf1dc;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.04);color-scheme:light}
+:root[data-theme=escuro]{--bg:#12151b;--surface:#1a1e26;--surface2:#222733;--text:#e6e9ef;--muted:#9aa3b2;--line:#2e3442;--accent:#7b9cff;--accent-soft:#232c45;--ok:#4cc27f;--ok-soft:#1b3326;--bad:#ef7676;--bad-soft:#3a2023;--warn:#f0b54a;--warn-soft:#3a2f1a;--shadow:none;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#f4ecd8;--surface:#fbf6e9;--surface2:#efe4cc;--text:#3b2f22;--muted:#75644e;--line:#e0d3b8;--accent:#8a4b14;--accent-soft:#f1e0c6;--ok:#3d7a2a;--ok-soft:#e3eccf;--bad:#a8322a;--bad-soft:#f5d9cf;--warn:#94600a;--warn-soft:#f6e6c4;--shadow:none;color-scheme:light}
+:root[data-theme=verde]{--bg:#eef4ee;--surface:#f8fbf7;--surface2:#e3ece2;--text:#1f2d22;--muted:#536657;--line:#cfddcf;--accent:#2e7d4f;--accent-soft:#d9eddf;--ok:#1f7a45;--ok-soft:#d6efdf;--bad:#b8362f;--bad-soft:#f6dcd9;--warn:#8a5c00;--warn-soft:#f6ebcd;--shadow:none;color-scheme:light}
+:root[data-theme=noite]{--bg:#0f1a2b;--surface:#16243a;--surface2:#1e2f4a;--text:#e3ebf7;--muted:#9fb0c9;--line:#2a3d5c;--accent:#6fa8ff;--accent-soft:#1d3355;--ok:#5cc98a;--ok-soft:#173a2a;--bad:#f07a7a;--bad-soft:#3d2026;--warn:#f0b54a;--warn-soft:#3a3020;--shadow:none;color-scheme:dark}
+#tema{font:inherit;font-size:13px;height:30px;padding:0 6px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+/* questões em HTML, fórmulas e discursivas (EsPCEx) */
+.enun.html,.trecho.html{white-space:normal}
+.enun img,.opt img,.coment img,.trecho img,.card img{max-width:100%;height:auto;background:#fff;border-radius:6px}
+.enun p,.coment p{margin:6px 0}
+.enun table,.coment table{width:auto;margin:8px 0}
+.enun td,.coment td{border:1px solid var(--line)}
+.katex{font-size:1.05em}
+.opt .katex{font-size:1em}
+.qnav button.disc{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.disc-box textarea{width:100%;min-height:140px;font:inherit;font-size:15px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);resize:vertical}
+.disc-box .lbl{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+.pill.disc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" onload="window.katexPronto && katexPronto()"></script>
+<script>
+/* aplica o tamanho salvo antes de desenhar a página; vale para todas as páginas do plano */
+document.documentElement.style.setProperty("--fz", localStorage.getItem("espcex_fonte") || "1");
+if (localStorage.getItem("espcex_tema")) document.documentElement.dataset.theme = localStorage.getItem("espcex_tema");
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <span class="badge">3.2</span>
+      <div>
+        <h1>Ciclo 3 · Tarefa A (3.2) · Matemática I</h1>
+        <div class="sub">EsPCEx 2026 · Teoria Elementar dos Conjuntos (parte 1/3): notação, conceitos básicos e representação</div>
+      </div>
+
+      <button id="menuBtn" aria-expanded="false" aria-controls="nav" title="Abrir menu">☰ Menu</button>
+      <a href="../ciclo_3.html" style="margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none">← Tarefas do ciclo</a>
+      <div class="fz" role="group" aria-label="Tamanho da fonte">
+        <button id="fzMenos" title="Diminuir fonte" aria-label="Diminuir fonte">A−</button>
+        <button id="fzVal" title="Voltar ao tamanho normal" aria-label="Tamanho normal">100%</button>
+        <button id="fzMais" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+        <select id="tema" title="Tema de cores" aria-label="Tema de cores"><option value="claro">☀ Claro</option><option value="escuro">☾ Escuro</option><option value="sepia">📜 Sépia</option><option value="verde">🌿 Verde</option><option value="noite">🌌 Azul-noite</option></select>
+        <button id="telaCheia" title="Tela cheia" aria-label="Tela cheia">⛶ Tela cheia</button>
+      </div>
+    </div>
+    <nav id="nav">
+      <button data-t="inicio" class="on">Roteiro</button>
+      <button data-t="resumo">Resumo</button>
+      <button data-t="mapa">Mapa mental</button>
+      <button data-t="esquemas">Esquemas</button>
+      <button data-t="reforma">Exemplos resolvidos</button>
+      <button data-t="questoes">Questões <span class="pill" id="navQ">0/0</span></button>
+      <button data-t="flash">Flashcards</button>
+      <button data-t="rend">Rendimento</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ROTEIRO -->
+<section class="tab on" id="inicio">
+<h2>Roteiro da sessão 3.2</h2>
+  <p class="lead">Tarefa da trilha: <i>"Estude os seguintes temas: Notação Matemática; Conceitos Básicos de Conjuntos; Descrição e Formas de Representação de Conjuntos"</i>. É a primeira de três partes de Teoria Elementar dos Conjuntos. A trilha estima cerca de 1h30 por tarefa.</p>
+
+  <div class="call warn"><b>Sobre o material</b>
+    Esta página foi montada com os três trechos do livro digital indicados pela tarefa (itens 2.1 a 2.2.1 do curso de Matemática I). As videoaulas do livro não foram incluídas. As 7 questões são os cadernos de exercícios desses trechos, todas discursivas.
+  </div>
+
+  <div class="call"><b>O que o material destaca</b>
+    • A simbologia é a sua <b>alfabetização</b> em Matemática: quem não lê os símbolos não entende o enunciado. Não pule esta parte.<br>
+    • Não precisa decorar tudo hoje: a familiaridade vem com os exercícios. Mas saiba que cada símbolo existe.<br>
+    • A regra de ouro da pertinência: <b>"se está escrito entre as vírgulas, é elemento"</b>, mesmo que seja um conjunto, como {7}.<br>
+    • Errou algum item? Releia a teoria e <b>refaça o exercício depois de 72 horas</b> (3 dias).
+  </div>
+
+  <div class="card">
+    <ol class="steps">
+      <li><b>Pré-teste (5 min).</b> Abra os <b>Flashcards</b> e tente 5 cartões antes de ler.</li>
+      <li><b>Resumo (30 min).</b> Leia a aba <b>Resumo</b> com papel ao lado; traduza em voz alta cada símbolo da tabela.</li>
+      <li><b>Mapa mental e Esquemas (10 min).</b> Clique em cada item do mapa e leia o exemplo.</li>
+      <li><b>Exemplos resolvidos (15 min).</b> Monte você mesmo os diagramas antes de abrir cada solução.</li>
+      <li><b>Questões (25 min).</b> 7 discursivas. Escreva a resposta no campo, depois abra a resolução do material.</li>
+      <li><b>Flashcards (5 min).</b> Passe o baralho da tarefa e marque com sinceridade.</li>
+    </ol>
+  </div>
+
+  <div class="grid3">
+    <div class="card"><b>Prova</b><br><span class="muted">EsPCEx: múltipla escolha. Conjuntos é base de toda a Matemática I (funções, intervalos, probabilidade).</span></div>
+    <div class="card"><b>Questões</b><br><span class="muted">7 discursivas, com resolução do material. Correção com o professor.</span></div>
+    <div class="card"><b>Próximas partes</b><br><span class="muted">Conjuntos continua nas partes 2/3 e 3/3 (relações de inclusão, operações e problemas).</span></div>
+  </div>
+</section>
+
+<!-- RESUMO -->
+<section class="tab" id="resumo">
+<h2>Resumo: notação, conceitos básicos e representação de conjuntos</h2>
+  <p class="lead">Na ordem do livro digital. Termos-chave <span class="k">em destaque</span>; abra os blocos <i>Pergunte-se</i> só depois de responder de cabeça.</p>
+
+  <h3>1. Simbologia matemática</h3>
+  <div class="card">
+    <p>Os símbolos são uma extensão do alfabeto. A banca escreve o enunciado em linguagem matemática e você precisa traduzir para o português, e vice-versa.</p>
+    <div class="tbl"><table>
+      <tr><th>Símbolo</th><th>Leitura</th><th>Símbolo</th><th>Leitura</th></tr>
+      <tr><td>∧</td><td>"e"</td><td>∈</td><td>"pertence a"</td></tr>
+      <tr><td>∨</td><td>"ou"</td><td>∉</td><td>"não pertence a"</td></tr>
+      <tr><td>→</td><td>"se… então"</td><td>⊂</td><td>"está contido em"</td></tr>
+      <tr><td>↔</td><td>"se, e somente se"</td><td>⊄</td><td>"não está contido em"</td></tr>
+      <tr><td>⊻</td><td>"ou… ou" (exclusivo)</td><td>⊃</td><td>"contém"</td></tr>
+      <tr><td>⇒</td><td>"implica"</td><td>⊅</td><td>"não contém"</td></tr>
+      <tr><td>∀</td><td>"para todo", "qualquer que seja"</td><td>A − B ou A \ B</td><td>diferença entre A e B</td></tr>
+      <tr><td>∃</td><td>"existe pelo menos um"</td><td>A ∪ B</td><td>união de A e B</td></tr>
+      <tr><td>∃!</td><td>"existe um único"</td><td>A ∩ B</td><td>interseção de A e B</td></tr>
+      <tr><td>∄</td><td>"não existe"</td><td>A × B</td><td>produto cartesiano</td></tr>
+      <tr><td>~</td><td>"não" (negação)</td><td>A △ B</td><td>diferença simétrica</td></tr>
+      <tr><td>∴</td><td>"portanto"</td><td>𝒫(A)</td><td>conjunto das partes de A</td></tr>
+      <tr><td>| ou /</td><td>"tal que"</td><td>n(A), #A, |A|</td><td>cardinalidade (número de elementos)</td></tr>
+      <tr><td>≅</td><td>"aproximadamente igual a"</td><td>U</td><td>conjunto universo</td></tr>
+      <tr><td>≡ / ≢</td><td>"equivalente a" / "não equivalente a"</td><td>A<sup>C</sup>, Ā, C<sub>U</sub><sup>A</sup></td><td>complementar de A em relação ao universo</td></tr>
+      <tr><td>±, ∓</td><td>"mais ou menos", "menos ou mais"</td><td>C<sub>A</sub><sup>B</sup> = A − B</td><td>complementar de B em A</td></tr>
+      <tr><td>&lt;, &gt;, ≤, ≥</td><td>menor, maior, menor ou igual, maior ou igual</td><td>∅ ou { }</td><td>conjunto vazio</td></tr>
+      <tr><td>‰</td><td>"por mil"</td><td>ℕ, ℤ, ℚ, 𝕀, ℝ, ℂ</td><td>naturais, inteiros, racionais, irracionais (ℝ − ℚ), reais, complexos</td></tr>
+      <tr><td>∥, ⊥</td><td>paralelo, perpendicular</td><td>|x|</td><td>valor absoluto (módulo)</td></tr>
+    </table></div>
+    <p><b>Ordem dos sinais de associação:</b> primeiro <b>parênteses ( )</b>, depois <b>colchetes [ ]</b>, por último <b>chaves { }</b>. Dentro de cada um: multiplicação e divisão antes de soma e subtração.</p>
+    <div class="call bad"><b>Pegadinha</b>"∅ e {∅} são o mesmo conjunto": <b>ERRADO</b>.<br><b>O erro:</b> {∅} tem as chaves de fora, logo é um conjunto com <b>um</b> elemento (o vazio).<br><b>O certo:</b> ∅ = { } tem zero elementos; n({∅}) = 1.</div>
+    <details><summary>Pergunte-se: como se escreve "existe pelo menos um x real tal que 2 &lt; x &lt; 6"?</summary><div>∃ x ∈ ℝ | 2 &lt; x &lt; 6. Já "não existe x real" é ∄ x ∈ ℝ.</div></details>
+  </div>
+
+  <h3>2. Noções primitivas</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Noções primitivas</span> são ideias aceitas <b>sem definição formal</b>: são entendidas pelo uso e por exemplos, e não derivam de conceitos mais simples.</li>
+      <li>A Teoria dos Conjuntos aceita <b>três</b> noções primitivas: <b>conjunto</b>, <b>elemento</b> e <b>pertinência</b> (de elemento a conjunto).</li>
+    </ul>
+  </div>
+
+  <h3>3. Conjunto</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Conjunto</span> é uma reunião de objetos <b>bem definidos</b>, nomeado em geral por <b>letra maiúscula</b>.</li>
+      <li>"Bem definido" quer dizer que dá para decidir, sem dúvida, se um objeto pertence ou não. Critério <b>subjetivo</b> não forma conjunto.</li>
+      <li>O <b>par de chaves</b> delimita o conjunto: A = {1; 2; 3; 4; 5} são os naturais maiores que 0 e menores que 6 (0 e 6 ficam de fora).</li>
+    </ul>
+    <div class="grid2">
+      <div class="call ok"><b>São conjuntos</b>turmas de uma faculdade; torcedores de um clube; alunos matriculados num curso.</div>
+      <div class="call bad"><b>Não são conjuntos</b>"problemas difíceis"; "carros bonitos" (dependem de opinião).</div>
+    </div>
+  </div>
+
+  <h3>4. Elemento</h3>
+  <div class="card">
+    <ul>
+      <li><span class="k">Elementos</span> são os objetos que formam o conjunto; em geral, letras <b>minúsculas</b>, separados por vírgula ou ponto e vírgula. Ex.: C = {a; e; i; o; u}.</li>
+      <li>Um conjunto pode fazer o papel de <b>elemento</b> de outro: em D = {2; 3; 5; {7}}, os elementos são 2, 3, 5 e <b>{7}</b>. São <b>quatro</b> elementos.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"7 ∈ D, sendo D = {2; 3; 5; {7}}": <b>ERRADO</b>.<br><b>O erro:</b> o que está escrito em D é {7}, e não 7.<br><b>O certo:</b> {7} ∈ D e 7 ∉ D.</div>
+  </div>
+
+  <h3>5. Relação de pertinência</h3>
+  <div class="card">
+    <ul>
+      <li>Liga <b>elemento a conjunto</b>: ∈ (pertence) ou ∉ (não pertence).</li>
+      <li>Com D = {2; 3; 5; {7}} e E = {7}: 2 ∈ D; 7 ∉ D; {7} ∈ D; 7 ∈ E; e, como E = {7}, podemos reescrever D = {2; 3; 5; E}, logo <b>E ∈ D</b>.</li>
+      <li>Regra prática do material: <b>"se está escrito, é elemento"</b>. Olhe o que aparece entre as vírgulas do conjunto.</li>
+      <li>Não se usa pertinência de <b>subconjunto para conjunto</b> (para isso existe a inclusão ⊂, tema da parte 2). Um conjunto nunca é elemento de si mesmo; só é elemento de outro quando aparece escrito dentro dele.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"{2} ∈ {1; 2; 3}": <b>ERRADO</b>.<br><b>O erro:</b> {2} não está escrito entre os elementos; só o 2 está.<br><b>O certo:</b> 2 ∈ {1; 2; 3}, e {2} ⊂ {1; 2; 3} (inclusão, não pertinência).</div>
+    <details><summary>Pergunte-se: em B = {0; {∅}; {1; 2}}, ∅ ∈ B? E C = {∅} pertence a B?</summary><div>∅ <b>não</b> pertence a B: o que está escrito é {∅}. Mas C = {∅} está escrito em B, logo <b>C ∈ B</b>. B tem 3 elementos.</div></details>
+  </div>
+
+  <h3>6. Formas de representação</h3>
+  <div class="card">
+    <div class="tbl"><table>
+      <tr><th>Forma</th><th>Como é</th><th>Exemplo</th></tr>
+      <tr><td><b>Enumeração</b> (listagem, forma tabular, extensão)</td><td>Lista todos os elementos entre o par de chaves <b>mais externo</b>.</td><td>A = {a; b; c; d; e}; B = {1; {2}; 3} tem 3 elementos.</td></tr>
+      <tr><td><b>Compreensão</b> (característica, propriedade, forma construtiva)</td><td>Dá a propriedade comum a todos os elementos; ótima para conjuntos grandes ou infinitos.</td><td>C = {x | x é vogal}; D = {x ∈ ℤ | 1 ≤ x ≤ 5} = {1; 2; 3; 4; 5}.</td></tr>
+      <tr><td><b>Diagrama de Euler-Venn</b></td><td>Elementos dentro de uma linha fechada (em regra, um círculo); quem está fora não pertence. Conjunto infinito: todos os pontos do interior.</td><td>A = {x | p(x)} desenhado como uma região.</td></tr>
+    </table></div>
+    <p>A <span class="k">propriedade coletivizante</span> permite descrever o conjunto por mais de uma propriedade ao mesmo tempo, ligadas por "e" (∧): A = {x ∈ ℕ | x é ímpar ∧ x &lt; 16} = {1; 3; 5; 7; 9; 11; 13; 15}.</p>
+    <div class="call warn"><b>Atenção a uma conta do material</b>O livro dá o exemplo B = {x ∈ ℕ | x é primo ∧ x² − 5x + 6 = 0}. As raízes da equação são 2 e 3, e ambos são primos, logo B = {2; 3}. Note que 2 é par: o texto do livro chama os elementos de "ímpares", o que não confere.</div>
+  </div>
+
+  <h3>7. Diagramas para problemas</h3>
+  <div class="card">
+    <ul>
+      <li><b>Dois, três ou quatro conjuntos</b> com interseções: preencha <b>de dentro para fora</b>, começando pela região comum a todos e descontando em cada etapa o que já foi colocado.</li>
+      <li><b>Dois grupos com duas características</b> (ex.: moças e rapazes que estudam e trabalham): use um diagrama para cada grupo ou uma tabela de dupla entrada.</li>
+      <li><b>Dois grupos com uma característica</b> (ex.: moças/rapazes × integral/não integral): diagrama <b>"campo de futebol"</b>, um retângulo dividido em quatro regiões.</li>
+    </ul>
+    <div class="call bad"><b>Pegadinha</b>"Se 22 se destacaram em A e 10 em A e B, então 22 se destacaram só em A": <b>ERRADO</b>.<br><b>O erro:</b> os 22 de A já incluem os 10 da interseção.<br><b>O certo:</b> só A = 22 − 10 = 12.</div>
+    <p class="muted">Os cinco exemplos do livro estão resolvidos passo a passo na aba <b>Exemplos resolvidos</b>.</p>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="tab" id="mapa">
+  <h2>Mapa mental: notação e conceitos básicos de conjuntos</h2>
+  <p class="lead">Leia de cima para baixo e explore cada item. Depois feche a página e tente redesenhar o mapa de memória.</p>
+  <p class="mm-hint">👆 Clique em qualquer item do mapa para ver a explicação detalhada, com exemplo, no painel logo abaixo.</p>
+  <div class="card mm" id="mmBox"></div>
+  <div class="card" id="mmPanel"><p class="muted" style="margin:0">Nenhum item selecionado. Clique no centro do mapa para começar.</p></div>
+
+  <h3>Onde este tema se encaixa em Conjuntos</h3>
+  <div class="card">
+    <div class="grid3" style="font-size:14px">
+      <div><b>Parte 1/3 (esta)</b><br><span class="muted">Simbologia · noções primitivas · conjunto, elemento e pertinência · formas de representação · diagramas.</span></div>
+      <div><b>Parte 2/3</b><br><span class="muted">Tipos de conjuntos (vazio, unitário, universo) · igualdade · inclusão e subconjuntos · conjunto das partes.</span></div>
+      <div><b>Parte 3/3</b><br><span class="muted">Operações (união, interseção, diferença, complementar) · problemas de contagem com diagramas.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESQUEMAS -->
+<section class="tab" id="esquemas">
+<h2>Esquemas para a véspera</h2>
+  <p class="lead">Tabelas curtas para revisar em 5 minutos.</p>
+
+  <h3>Pertinência × inclusão (o que liga a quê)</h3>
+  <div class="tbl"><table>
+    <tr><th>Relação</th><th>Símbolos</th><th>Liga</th><th>Exemplo com A = {1; 2; {3}}</th></tr>
+    <tr><td>Pertinência</td><td>∈, ∉</td><td>elemento → conjunto</td><td>1 ∈ A; {3} ∈ A; 3 ∉ A</td></tr>
+    <tr><td>Inclusão (parte 2)</td><td>⊂, ⊄, ⊃, ⊅</td><td>conjunto → conjunto</td><td>{1; 2} ⊂ A; {{3}} ⊂ A</td></tr>
+  </table></div>
+
+  <h3>Conta de elementos (o par de chaves mais externo manda)</h3>
+  <div class="tbl"><table>
+    <tr><th>Conjunto</th><th>Elementos</th><th>n</th></tr>
+    <tr><td>∅ = { }</td><td>nenhum</td><td>0</td></tr>
+    <tr><td>{∅}</td><td>∅</td><td>1</td></tr>
+    <tr><td>{0}</td><td>0</td><td>1</td></tr>
+    <tr><td>{1; 2; {1}; {1; 3}}</td><td>1, 2, {1}, {1; 3}</td><td>4</td></tr>
+    <tr><td>{0; {∅}; {1; 2}}</td><td>0, {∅}, {1; 2}</td><td>3</td></tr>
+  </table></div>
+
+  <h3>Três formas de representar o mesmo conjunto</h3>
+  <div class="tbl"><table>
+    <tr><th>Enumeração</th><th>Compreensão</th><th>Diagrama</th></tr>
+    <tr><td>{0; 2; 4; 6; 8}</td><td>{x ∈ ℕ | x é par ∧ x &lt; 10}</td><td>círculo com 0, 2, 4, 6, 8 dentro</td></tr>
+    <tr><td>{1; 2; 3; 4; 5; …}</td><td>{x ∈ ℕ | x ≥ 1} = ℕ*</td><td>região (conjunto infinito)</td></tr>
+    <tr><td>{…; −3; −2; −1; 0}</td><td>{x ∈ ℤ | x ≤ 0}</td><td>região (conjunto infinito)</td></tr>
+  </table></div>
+
+  <h3>Fórmulas de contagem (inclusão e exclusão)</h3>
+  <div class="tbl"><table>
+    <tr><th>Conjuntos</th><th>n(união)</th></tr>
+    <tr><td>2</td><td>n(A) + n(B) − n(A∩B)</td></tr>
+    <tr><td>3</td><td>soma dos 3 − soma das 3 interseções duplas + n(A∩B∩C)</td></tr>
+    <tr><td>4</td><td>soma dos 4 − soma das 6 duplas + soma das 4 triplas − n(A∩B∩C∩D)</td></tr>
+    <tr><td>Nenhum</td><td>total − n(união)</td></tr>
+  </table></div>
+</section>
+
+<!-- REFORMA -->
+<section class="tab" id="reforma">
+<h2>Exemplos resolvidos (diagramas do livro digital)</h2>
+  <p class="lead">Os cinco problemas que o material usa para mostrar os diagramas. Tente resolver no papel antes de abrir cada solução. As contas foram conferidas pela soma das regiões.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">1. Dois conjuntos: recrutas em Tiro (A) e Corrida (B)</h3>
+    <p>40 recrutas; 22 destaques em A, 18 em B, 10 em ambas. Determine: a) apenas uma modalidade; b) nenhuma; c) pelo menos uma.</p>
+    <details><summary>Ver solução</summary><div>
+      Interseção: 10. Só A = 22 − 10 = <b>12</b>. Só B = 18 − 10 = <b>8</b>.<br>
+      a) apenas uma: 12 + 8 = <b>20</b>.<br>
+      b) pelo menos uma = 12 + 8 + 10 = 30; nenhuma = 40 − 30 = <b>10</b>.<br>
+      c) pelo menos uma: <b>30</b> (ou 22 + 18 − 10).
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">2. Três conjuntos: Tiro (A), Corrida (B) e Natação (C)</h3>
+    <p>120 alunos; A = 60, B = 50, C = 40; A e B = 20; A e C = 15; B e C = 10; as três = 5. Determine: a) somente A; b) exatamente duas; c) nenhuma; d) pelo menos uma.</p>
+    <details><summary>Ver solução</summary><div>
+      Centro: 5. Só A e B = 20 − 5 = 15; só A e C = 15 − 5 = 10; só B e C = 10 − 5 = 5.<br>
+      Só A = 60 − 15 − 10 − 5 = 30; só B = 50 − 15 − 5 − 5 = 25; só C = 40 − 10 − 5 − 5 = 20.<br>
+      a) somente A: <b>30</b>.<br>
+      b) exatamente duas: 15 + 10 + 5 = <b>30</b>.<br>
+      d) pelo menos uma: 30 + 25 + 20 + 15 + 10 + 5 + 5 = <b>110</b> (confira: 60 + 50 + 40 − 20 − 15 − 10 + 5 = 110).<br>
+      c) nenhuma: 120 − 110 = <b>10</b>.
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">3. Quatro conjuntos: 210 cadetes em A, B, C e D</h3>
+    <p>A = 90, B = 80, C = 70, D = 60; AB = 30, AC = 25, AD = 20, BC = 15, BD = 10, CD = 12; ABC = 8, ABD = 6, ACD = 4, BCD = 3; as quatro = 2. Determine: a) somente A; b) exatamente duas; c) pelo menos uma; d) nenhuma.</p>
+    <details><summary>Ver solução</summary><div>
+      <b>Quatro:</b> 2.<br>
+      <b>Só três</b> (tira o 2): ABC 6, ABD 4, ACD 2, BCD 1.<br>
+      <b>Só duas</b> (tira as triplas que contêm o par e o 2): AB = 30 − 6 − 4 − 2 = 18; AC = 25 − 6 − 2 − 2 = 15; AD = 20 − 4 − 2 − 2 = 12; BC = 15 − 6 − 1 − 2 = 6; BD = 10 − 4 − 1 − 2 = 3; CD = 12 − 2 − 1 − 2 = 7.<br>
+      <b>Só um:</b> A = 90 − (18 + 15 + 12) − (6 + 4 + 2) − 2 = 31; B = 40; C = 31; D = 29.<br>
+      a) somente A: <b>31</b>.<br>
+      b) exatamente duas: 18 + 15 + 12 + 6 + 3 + 7 = <b>61</b>.<br>
+      c) pelo menos uma: 300 − 112 + 21 − 2 = <b>207</b> (confira: 131 + 61 + 13 + 2 = 207).<br>
+      d) nenhuma: 210 − 207 = <b>3</b>.
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">4. Dois grupos com duas características: estudar e trabalhar</h3>
+    <p>120 alunos; 70 estudam; 60 trabalham; 35 estudam e trabalham; 30 dos que estudam são moças; 40 dos que trabalham são rapazes; 15 moças estudam e trabalham; 65 rapazes. Determine: a) moças que apenas estudam; b) rapazes que apenas trabalham; c) nem estudam nem trabalham; d) total de moças.</p>
+    <details><summary>Ver solução</summary><div>
+      <div class="tbl"><table>
+        <tr><th></th><th>Só estuda</th><th>Estuda e trabalha</th><th>Só trabalha</th><th>Nenhum</th><th>Total</th></tr>
+        <tr><td>Moças</td><td>30 − 15 = 15</td><td>15</td><td>20 − 15 = 5</td><td>20</td><td>55</td></tr>
+        <tr><td>Rapazes</td><td>40 − 20 = 20</td><td>35 − 15 = 20</td><td>40 − 20 = 20</td><td>5</td><td>65</td></tr>
+      </table></div>
+      Rapazes que estudam = 70 − 30 = 40; moças que trabalham = 60 − 40 = 20.<br>
+      a) <b>15</b>. b) <b>20</b>. c) 20 + 5 = <b>25</b> (confira: 120 − (70 + 60 − 35) = 25). d) 120 − 65 = <b>55</b>.
+    </div></details>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">5. Diagrama "campo de futebol": horário integral</h3>
+    <p>80 alunos; 35 moças; 50 estudam em horário integral; entre as moças, 20 em integral; entre os rapazes, 15 não estão em integral. Determine: a) rapazes em integral; b) quantos não estão em integral; c) moças que não estão em integral; d) rapazes em integral, em % da turma.</p>
+    <details><summary>Ver solução</summary><div>
+      Rapazes = 80 − 35 = 45. Moças fora do integral = 35 − 20 = 15. Rapazes em integral = 45 − 15 = 30 (confira: 20 + 30 = 50).<br>
+      a) <b>30</b>. b) 15 + 15 = <b>30</b>. c) <b>15</b>. d) 30 ÷ 80 = <b>37,5%</b>.
+    </div></details>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="tab" id="questoes">
+  <h2>Questões do ciclo (exercícios do livro digital)</h2>
+  <p class="lead">São as 7 questões dos cadernos dos três trechos do livro digital desta tarefa, todas <b>discursivas</b> (itens a, b, c… para escrever). Escreva a sua resolução no campo, compare com a resolução do material e leve as respostas ao professor para correção. Discursivas não entram no rendimento.</p>
+  <div class="row" style="margin-bottom:10px">
+    <label class="muted" for="fTema">Tema:</label>
+    <select id="fTema"></select>
+    <label class="muted" for="fStatus">Mostrar:</label>
+    <select id="fStatus"><option value="all">Todas</option><option value="pend">Não respondidas</option><option value="bad">Erradas</option><option value="ok">Certas</option><option value="obj">Só objetivas</option><option value="disc">Só discursivas</option></select>
+  </div>
+  <div class="progress"><div id="qProg"></div></div>
+  <div class="qnav" id="qNav"></div>
+  <div class="card" id="qCard"></div>
+  <div class="row" style="justify-content:space-between">
+    <button class="btn" id="qPrev">← Anterior</button>
+    <span class="muted" style="font-size:13px">Atalhos: <kbd>A</kbd>–<kbd>E</kbd> ou <kbd>C</kbd>/<kbd>E</kbd> escolhe · <kbd>Shift</kbd>+letra descarta · <kbd>Enter</kbd> responde · <kbd>←</kbd> <kbd>→</kbd> navega</span>
+    <button class="btn pri" id="qNext">Próxima →</button>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="tab" id="flash">
+  <h2>Flashcards com repetição espaçada</h2>
+  <p class="lead">Leia a pergunta, responda <b>em voz alta</b> e só então vire o cartão (clique ou <kbd>Espaço</kbd>). Marque com sinceridade: os cartões errados voltam primeiro (sistema Leitner, caixas 1 a 5).</p>
+  <div class="row" style="justify-content:center;margin-bottom:12px">
+    <select id="fcDeck">
+      <option value="all">Todos os baralhos</option>
+      <option value="a00">Tarefa 3.2 · Notação e conceitos</option>
+      <option value="ref">Diagramas e problemas</option>
+      <option value="pan">Panorama de Conjuntos (partes 1 a 3)</option>
+    </select>
+    <button class="btn" id="fcShuffle">Embaralhar</button>
+    <button class="btn" id="fcReset">Zerar caixas</button>
+  </div>
+  <div class="fc-meta"><span id="fcPos"></span><span id="fcBox"></span></div>
+  <div class="fc" id="fc"><div class="fc-inner"><div class="fc-face front"><div class="q" id="fcQ"></div><div class="muted" style="margin-top:14px;font-size:13px">clique para virar</div></div><div class="fc-face back"><div id="fcA"></div></div></div></div>
+  <div class="row" style="justify-content:center;margin-top:16px">
+    <button class="btn bad" id="fcBad">✘ Errei (<kbd>1</kbd>)</button>
+    <button class="btn" id="fcMid">~ Hesitei (<kbd>2</kbd>)</button>
+    <button class="btn ok" id="fcOk">✔ Acertei (<kbd>3</kbd>)</button>
+  </div>
+  <div class="boxes" id="fcBoxes"></div>
+</section>
+
+<!-- RENDIMENTO -->
+<section class="tab" id="rend">
+  <h2>Rendimento</h2>
+  <div id="rendBody"></div>
+  <h3>Gerenciar dados</h3>
+  <div class="row">
+    <button class="btn" id="expBtn">Exportar respostas (.json)</button>
+    <label class="btn" for="impFile">Importar respostas</label><input type="file" id="impFile" accept=".json" hidden>
+    <button class="btn" id="redoBad">Refazer erradas</button>
+    <button class="btn" id="hlReset">Apagar marcações de texto</button>
+    <button class="btn bad" id="resetAll">Apagar todas as respostas</button>
+  </div>
+</section>
+
+</main>
+
+<div id="tip" role="tooltip"></div>
+<div id="hlBar" role="toolbar" aria-label="Marca-texto"><span class="lbl">Marcar</span><button data-c="am" title="Amarelo" aria-label="Amarelo"></button><button data-c="ro" title="Rosa" aria-label="Rosa"></button><button data-c="ve" title="Verde" aria-label="Verde"></button><button data-c="" title="Apagar marcação" aria-label="Apagar marcação">✕</button></div>
+<script>
+const QUESTOES = [{"n": 1, "fonte": "Questões Inéditas · 2025", "tema": "Notação Matemática", "tipo": "disc", "html": true, "enun": "<p>Insira, corretamente, os símbolos de parênteses, chaves e colchetes, quando necessário, com a finalidade de tornar o item verdadeiro.<\/p><p>a) <span data-type=\"katex\" value=\"4 - 1 + 3 × 2 ÷ 6 = 2\"><\/span><\/p><p>b) <span data-type=\"katex\" value=\"4 - (-1) + 3 × 2 ÷ 4 = 3\"><\/span><\/p><p>c) <span data-type=\"katex\" value=\"4 - 1 + 3 × 2 ÷ 4 = 5\"><\/span><\/p><p>d) <span data-type=\"katex\" value=\"4 × 1 + 3 × 2 ÷ 2 = 16\"><\/span><\/p>", "com": ["<p>a) {[(4 - 1) + 3] × 2} ÷ 6 = 2<br><\/p><p>b) 4 - {[(- 1 + 3) × 2] ÷ 4} = 3<\/p><p>c) 4 + {[(-1 + 3) × 2] ÷ 4} = 5<\/p><p>d) [4 × (1 + 3)] × (2 ÷ 2) = 16<\/p>"]}, {"n": 2, "fonte": "Questões Inéditas · 2025", "tema": "Notação Matemática", "tipo": "disc", "html": true, "enun": "<p>Descreva, por meio da simbologia matemática, as sentenças a seguir:<\/p><p>a) y pertence aos naturais, tal que y é menor que 5<\/p><p>b) f é uma função de reais em reais<\/p><p>c) o conjunto B está contido no conjunto C<\/p><p>d) o conjunto C contém o conjunto D<\/p><p>e) B interseção E é igual ao conjunto vazio<\/p><p>f) x e y<\/p><p>g) x ou y<\/p><p>h) qualquer x pertencente aos irracionais<\/p><p>i) existe pelo menos um x pertencente aos reais, tal que 2 é menor que x e x é menor que 6<\/p><p>j) não existe x pertencente aos reais&nbsp;<\/p><p>k) complementar do conjunto A em relação ao universo<\/p><p>l) cardinalidade do conjunto B<\/p><p>m) número de elementos do conjunto das partes de A<\/p>", "com": ["<p>a)&nbsp;<img src=\"img/21a775f2780c20e0.png\" alt=\"\"><\/p><p>b) <span data-type=\"katex\" value=\"f: \\mathbb{R}\\to\\mathbb{R}\"><\/span><br><\/p><p><img src=\"img/a7dc0e9d65752e8a.png\" alt=\"\"><br><\/p><p><img src=\"img/e6cb88002431da23.png\" alt=\"\"><br><\/p><p><img src=\"img/22a0ad77f70d4857.png\" alt=\"\"><br><\/p><p><img src=\"img/d188d8898e0a718e.png\" alt=\"\"><br><\/p><p><img src=\"img/365825c9683cef5f.png\" alt=\"\"><br><\/p><p>h) <span data-type=\"katex\" value=\"\\forall x \\in (\\mathbb{R}-\\mathbb{Q})\\text{ ou } \\forall x\\in \\mathbb{I}\"><\/span><br><\/p><p>&nbsp;i)&nbsp;&nbsp;<img src=\"img/3f1021798958c765.png\" alt=\"\"><\/p><p>j) <span data-type=\"katex\" value=\"\\nexists x \\in \\mathbb{R}\"><\/span> <\/p><p><img src=\"img/4ec0c51274900f29.png\" alt=\"\"><\/p><p><img src=\"img/bdd3b47229d5b8f9.png\" alt=\"\"><br><\/p><p><img src=\"img/755d78f67ed7e3df.png\" alt=\"\"><\/p>"]}, {"n": 3, "fonte": "Questões Inéditas · 2025", "tema": "Notação Matemática", "tipo": "disc", "html": true, "enun": "<p>Descreva, por extenso, as sentenças a seguir:<\/p><p>a) 3 &gt; 1<\/p><p>b) -1 &lt; 1<\/p><p>c) 1 ≥ 1<\/p><p>d) 0 ≤ 1<\/p><p>e) 0 ∈ A<\/p><p>f) -1 ∉ A<\/p><p>g) 𝜋 ≅ 3<\/p><p>h) 2 ∈<span data-type=\"katex\" value=\" \\mathbb{R}\"><\/span><\/p><p>i) <span data-type=\"katex\" value=\"\\mathbb{N}\"><\/span> ⊂ <span data-type=\"katex\" value=\"\\mathbb{Q}\"><\/span><\/p>", "com": ["<p>a) 3 é maior que 1.<\/p><p>b) -1 é menor que 1.<\/p><p>c) 1 é maior que ou igual a 1.<\/p><p>d) 0 é menor ou igual a 1.<\/p><p>e) 0 pertence ao conjunto A.<\/p><p>f) -1 não pertence ao conjunto A.<\/p><p>g) 𝜋 é aproximadamente igual a 3.<\/p><p>h) 2 pertence ao conjunto dos reais.<\/p><p>i) O conjunto dos naturais está contido no conjunto dos racionais.<\/p>"]}, {"n": 4, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos Básicos de Conjuntos", "tipo": "disc", "html": true, "enun": "<p>Julgue em V (verdadeiro) ou F (falso), com base nos conjuntos apresentados a seguir.<\/p><p><img src=\"img/8397cdd0cc435c2a.png\" alt=\"\">a) 𝑛(𝐴) &gt; 𝑛(𝐵)<\/p><p>b)&nbsp;<span data-type=\"katex\" value=\"\\nexists x\\in C | x\\notin B\"><\/span><\/p><p>c) ∀𝑥 ∈ 𝐶 ⇒ 𝑥 ∈ 𝐵<\/p><p>d) 𝐶 ∈ 𝐵<\/p><p>e) ∃𝑥 ∈ 𝐶 / 𝑥 ∈ 𝐴<\/p><p>f) ∃𝑥 ∈ 𝐴 / 𝑥 ∈ 𝐵 ∧ 𝑥 ∉ 𝐶<\/p>", "com": ["<p>a) V<\/p><p>b) V<\/p><p>c) V<\/p><p>d) F<\/p><p>e) V<\/p><p>f) V<\/p>"]}, {"n": 5, "fonte": "Questões Inéditas · 2025", "tema": "Conceitos Básicos de Conjuntos", "tipo": "disc", "html": true, "enun": "<p>Julgue em V (verdadeiro) ou F (falso), com base nos conjuntos apresentados a seguir.<\/p><p>𝐴 = {1; 2; {1}; {1;3}};<\/p><p>𝐵 = {0; {∅}; {1;2}}<\/p><p>𝐶 = {∅}<\/p><p>a) O conjunto A tem 5 elementos.<\/p><p>b) O conjunto B tem dois elementos.<\/p><p>c) O conjunto C não tem elementos.<\/p><p>d) C pertence ao conjunto B.&nbsp;<\/p><p>e) 3 ∈ 𝐴<\/p><p>f) 2 ∈ 𝐵<\/p><p>g) O vazio é elemento do conjunto C.<\/p><p>h) {1} ∈ 𝐴<\/p><p>i) ∅ ∈ 𝐵<\/p><p>j) 𝐶 = {&nbsp; }&nbsp;<\/p>", "com": ["<p>a) F<\/p><p>b) F<\/p><p>c) F<\/p><p>d) V<\/p><p>e) F<\/p><p>f) F<\/p><p>g)&nbsp;V<\/p><p>h) V<\/p><p>i) F<\/p><p>j) F<\/p>"]}, {"n": 6, "fonte": "Questões Inéditas · 2025", "tema": "Descrição e Formas de Representação de Conjuntos", "tipo": "disc", "html": true, "enun": "Escreva os conjuntos por compreensão.<br><div>a) 𝐴 = {0; 2; 4; 6; 8}<\/div><br><div>b) 𝐵 = {1; 2; 3; 4; 5;…}<\/div><br><div>c) 𝐶 = {norte, nordeste, sudeste, centro-oeste, sul}<\/div><br><div>d) 𝐷 = {a; b; c; d; e; f; g; …}<\/div><br><div>e) 𝐸 = {…; -3; -2; -1; 0}<\/div>", "com": ["a)  A = { x / x é par não negativo menor que 10 }<br><div>b) B = { x / x é natural não nulo }<\/div><br><div>c) C = { x / x é região do Brasil }<\/div><br><div>d) D = { x / x é letra do alfabeto }<\/div><br><div>e) E = { x / x é inteiro não positivo }<\/div>"]}, {"n": 7, "fonte": "Questões Inéditas · 2025", "tema": "Descrição e Formas de Representação de Conjuntos", "tipo": "disc", "html": true, "enun": "Escreva os conjuntos por extensão.<br><div>a) <img src=\"img/b4050e7a0bdd2bda.png\" alt=\"\"><\/div><br><div>b) <img src=\"img/95d571179852a40b.png\" alt=\"\"><\/div><br><div>c) <img src=\"img/83b31039e021c9d2.png\" alt=\"\"><\/div><br><div>d) <img src=\"img/8fba7686124bb632.png\" alt=\"\"><\/div><br><div>e) <img src=\"img/cc5d9c0dab44398b.png\" alt=\"\"><\/div><br><div>f) <img src=\"img/956fbf2606226c9b.png\" alt=\"\"><\/div>", "com": ["<div><span>a) 𝐴 = {RJ, SP, ES, MG}<\/span><br><\/div><div><span><br><\/span><\/div><div>b) 𝐵 = {amarela, branca, azul, verde}<\/div><br><div>c) 𝐶 = {2}<\/div><br><div>d) 𝐷 = {a, e, i, o, u}<\/div><br><div>e) 𝐸 = {1; 3; 5; 7; 9}<\/div><br><div>f) 𝐹 = {domingo, segunda, terça, quarta, quinta, sexta, sábado}<\/div>"]}];
+
+const FLASH = [
+ // tarefa 3.2
+ ["a00","Quais são as três noções primitivas da Teoria dos Conjuntos?","<b>Conjunto</b>, <b>elemento</b> e <b>pertinência</b>. São aceitas sem definição formal.<br><b>Exemplo:</b> você entende \"o conjunto das vogais\" sem precisar de uma definição de conjunto."],
+ ["a00","Quando uma coleção é um conjunto?","Quando é <b>bem definida</b>: dá para decidir sem dúvida se um objeto pertence ou não.<br><b>Exemplo:</b> \"torcedores de um clube\" é conjunto; \"carros bonitos\" não é (critério subjetivo)."],
+ ["a00","Quantos elementos tem D = {2; 3; 5; {7}}? 7 ∈ D?","<b>4</b> elementos: 2, 3, 5 e {7}. <b>7 ∉ D</b>; quem pertence é {7}.<br><b>Exemplo:</b> se E = {7}, então D = {2; 3; 5; E} e E ∈ D."],
+ ["a00","Qual a diferença entre ∅ e {∅}?","∅ = { } não tem elementos (n = 0). {∅} tem <b>um</b> elemento, o vazio (n = 1).<br><b>Exemplo:</b> C = {∅}: \"C não tem elementos\" é falso; \"∅ ∈ C\" é verdadeiro."],
+ ["a00","Pertinência liga o quê? E inclusão?","<b>Pertinência</b> (∈): elemento → conjunto. <b>Inclusão</b> (⊂): conjunto → conjunto.<br><b>Exemplo:</b> 2 ∈ {1; 2; 3} e {2} ⊂ {1; 2; 3}; mas {2} ∈ {1; 2; 3} é falso."],
+ ["a00","Leia: ∃ x ∈ ℝ | 2 &lt; x &lt; 6","\"Existe pelo menos um x pertencente aos reais tal que 2 é menor que x e x é menor que 6.\"<br><b>Exemplo:</b> x = 3 satisfaz, então a sentença é verdadeira."],
+ ["a00","Qual a diferença entre ∃ e ∃!?","∃ = existe <b>pelo menos um</b>; ∃! = existe <b>um único</b>.<br><b>Exemplo:</b> ∃ x ∈ ℕ | x &lt; 5 é verdadeiro; ∃! x ∈ ℕ | x &lt; 5 é falso (há 0, 1, 2, 3, 4)."],
+ ["a00","Qual a diferença entre ∨ e ⊻?","∨ é o \"ou\" inclusivo (uma, outra ou as duas). ⊻ é o \"ou… ou\" exclusivo (só uma).<br><b>Exemplo:</b> \"x é par ∨ x &gt; 3\" aceita x = 4; \"x é par ⊻ x &gt; 3\" não aceita x = 4."],
+ ["a00","Qual a ordem dos sinais de associação?","Primeiro <b>parênteses</b>, depois <b>colchetes</b>, depois <b>chaves</b>; em cada um, × e ÷ antes de + e −.<br><b>Exemplo:</b> {[(4 − 1) + 3] × 2} ÷ 6 = 2."],
+ ["a00","Como se indica a cardinalidade de A?","n(A), #A ou |A|: número de elementos de A.<br><b>Exemplo:</b> A = {1; 2; {1}; {1; 3}} tem n(A) = 4."],
+ ["a00","Quais as três formas de representar um conjunto?","<b>Enumeração</b> (listagem/extensão), <b>compreensão</b> (propriedade) e <b>diagrama de Euler-Venn</b>.<br><b>Exemplo:</b> {1; 2; 3; 4; 5} = {x ∈ ℤ | 1 ≤ x ≤ 5}."],
+ ["a00","O que é a propriedade coletivizante?","Descrever um conjunto por <b>mais de uma</b> propriedade ao mesmo tempo, ligadas por ∧.<br><b>Exemplo:</b> {x ∈ ℕ | x é ímpar ∧ x &lt; 16} = {1; 3; 5; …; 15}."],
+ ["a00","Escreva por compreensão: E = {…; −3; −2; −1; 0}","E = {x ∈ ℤ | x ≤ 0}.<br><b>Exemplo:</b> −10 ∈ E; 1 ∉ E."],
+ ["a00","Qual o símbolo de \"tal que\"? E de \"portanto\"?","\"Tal que\": | ou /. \"Portanto\": ∴.<br><b>Exemplo:</b> {x ∈ ℕ | x &lt; 3} = {0; 1; 2}."],
+ ["a00","O que significa A<sup>C</sup> (ou Ā)?","Complementar de A em relação ao universo U: os elementos de U que não estão em A.<br><b>Exemplo:</b> U = {1; 2; 3; 4} e A = {1; 2}: A<sup>C</sup> = {3; 4}."],
+ // diagramas
+ ["ref","Em 40 recrutas, 22 em A, 18 em B e 10 em ambos: quantos em nenhum?","Só A = 12, só B = 8, ambos 10; pelo menos um = 30; <b>nenhum = 10</b>.<br><b>Exemplo:</b> fórmula: 40 − (22 + 18 − 10) = 10."],
+ ["ref","Como preencher um diagrama de três conjuntos?","Do <b>centro para fora</b>: interseção tripla, depois cada dupla menos o centro, depois cada \"só\" menos tudo o que já está nele.<br><b>Exemplo:</b> A = 60, AB = 20, AC = 15, ABC = 5 ⇒ só A = 60 − 15 − 10 − 5 = 30."],
+ ["ref","Fórmula de n(A ∪ B ∪ C)","n(A) + n(B) + n(C) − n(A∩B) − n(A∩C) − n(B∩C) + n(A∩B∩C).<br><b>Exemplo:</b> 60 + 50 + 40 − 20 − 15 − 10 + 5 = 110."],
+ ["ref","Quando usar o diagrama \"campo de futebol\"?","Quando há <b>dois grupos</b> (ex.: moças e rapazes) e <b>uma característica</b> (ex.: integral ou não): um retângulo em 4 regiões.<br><b>Exemplo:</b> 80 alunos, 35 moças, 20 moças em integral, 15 rapazes fora ⇒ 30 rapazes em integral."],
+ ["ref","No problema de estudar e trabalhar (120 alunos), quantos não fazem nenhum dos dois?","70 + 60 − 35 = 95 fazem algo; <b>nenhum = 25</b> (20 moças e 5 rapazes).<br><b>Exemplo:</b> monte a tabela moças × rapazes por região antes de responder."],
+ // panorama
+ ["pan","O que é conjunto unitário? E vazio?","Unitário: exatamente <b>um</b> elemento. Vazio: <b>nenhum</b> elemento (∅ ou { }).<br><b>Exemplo:</b> {∅} é unitário; {x ∈ ℕ | x &lt; 0} = ∅."],
+ ["pan","Quando A ⊂ B?","Quando <b>todo</b> elemento de A também é elemento de B.<br><b>Exemplo:</b> ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ."],
+ ["pan","Quantos elementos tem o conjunto das partes de A, se n(A) = n?","n(𝒫(A)) = <b>2ⁿ</b>.<br><b>Exemplo:</b> A = {1; 2}: 𝒫(A) = {∅, {1}, {2}, {1; 2}}, 4 = 2² elementos."],
+ ["pan","O que são A ∪ B, A ∩ B e A − B?","União: está em A <b>ou</b> B. Interseção: está em A <b>e</b> B. Diferença: está em A e <b>não</b> em B.<br><b>Exemplo:</b> A = {1; 2; 3}, B = {3; 4}: A ∪ B = {1; 2; 3; 4}, A ∩ B = {3}, A − B = {1; 2}."],
+ ["pan","O vazio é subconjunto de qualquer conjunto?","<b>Sim</b>: ∅ ⊂ A para todo A (e A ⊂ A).<br><b>Exemplo:</b> ∅ ⊂ {1; 2}, mas ∅ ∈ {1; 2} é falso."],
+ ["pan","Quando dois conjuntos são iguais?","Quando têm exatamente os mesmos elementos; ordem e repetição não importam.<br><b>Exemplo:</b> {1; 2; 2; 3} = {3; 2; 1}."]
+];
+
+/* ---------- mapa mental: cada item tem explicação, exemplo, base legal e pegadinha ---------- */
+const MM_ROOT = {k: "root", t: "CONJUNTOS (PARTE 1/3)", s: "Linguagem dos símbolos · conjunto, elemento e pertinência<br><small>Enumeração · compreensão · diagrama de Euler-Venn</small>",
+  e: "A primeira parte de Conjuntos ensina a <b>ler</b> a Matemática: os símbolos, as três noções primitivas (conjunto, elemento e pertinência) e as três formas de escrever um conjunto. Tudo o que vem depois (inclusão, operações, funções, intervalos) usa essa linguagem.",
+  x: "O enunciado \"∃ x ∈ ℝ | 2 &lt; x &lt; 6\" só é entendido por quem lê: \"existe pelo menos um x real tal que x está entre 2 e 6\".",
+  l: "Pertinência: elemento ∈ conjunto. Representação: {lista}, {x | propriedade}, diagrama.",
+  p: "\"{7} e 7 são a mesma coisa dentro de um conjunto\": ERRADO. O que está escrito entre as vírgulas é o elemento."};
+
+const MM = [
+ {k: "sim", c: "#2f5bd3", t: "Simbologia", s: "a alfabetização matemática",
+  e: "Cada símbolo tem uma leitura em português. Conhecer a tabela evita errar a questão por não entender o que foi pedido.",
+  x: "\"∀ x ∈ 𝕀\" lê-se \"qualquer x pertencente aos irracionais\".",
+  l: "∧ e · ∨ ou · ⊻ ou… ou · → se… então · ↔ se, e somente se · ∀ para todo · ∃ existe · ∄ não existe · | tal que.",
+  p: "\"∃! x\" significa \"existe <b>um único</b> x\", e não \"existe pelo menos um\".",
+  f: [
+   {k: "sim1", t: "Lógica: ∧, ∨, ⊻, →, ↔, ~",
+    e: "Conectivos que ligam sentenças: ∧ (e), ∨ (ou inclusivo), ⊻ (ou… ou, exclusivo), → (se… então), ↔ (se, e somente se), ~ (não).",
+    x: "\"x é par ∧ x &lt; 10\" exige as duas coisas ao mesmo tempo; \"x é par ∨ x &lt; 10\" aceita qualquer uma delas.",
+    l: "∧ = e; ∨ = ou; ⊻ = ou… ou; ~ = negação.",
+    p: "\"∨ indica que só uma das condições pode ocorrer\": ERRADO. Isso é o ⊻; o ∨ aceita as duas."},
+   {k: "sim2", t: "Quantificadores: ∀, ∃, ∃!, ∄",
+    e: "Dizem <b>quantos</b> elementos satisfazem a condição: todos (∀), pelo menos um (∃), exatamente um (∃!) ou nenhum (∄).",
+    x: "\"∄ x ∈ ℝ | x² = −1\": não existe real cujo quadrado seja −1.",
+    l: "∀ para todo · ∃ existe pelo menos um · ∃! existe um único · ∄ não existe.",
+    p: "Trocar ∃ por ∃! muda a resposta: \"existe x natural menor que 5\" é verdade, mas \"existe um único\" é falso."},
+   {k: "sim3", t: "Conjuntos: ∈, ⊂, ∪, ∩, −, n(A), 𝒫(A), ∅",
+    e: "Símbolos de relação (∈ elemento-conjunto; ⊂ conjunto-conjunto), de operação (∪, ∩, −, △, ×) e de medida (n(A) = quantidade de elementos).",
+    x: "\"n(𝒫(A))\" lê-se \"número de elementos do conjunto das partes de A\".",
+    l: "∈ / ∉ pertinência · ⊂ / ⊃ inclusão · n(A), #A, |A| cardinalidade · ∅ = { } vazio.",
+    p: "\"|A|\" pode significar cardinalidade de um conjunto; \"|x|\" de um número é o módulo. O contexto decide."},
+   {k: "sim4", t: "Associação: ( ) → [ ] → { }",
+    e: "Resolve-se primeiro o que está nos parênteses, depois colchetes e por fim chaves. Dentro de cada nível: × e ÷ antes de + e −.",
+    x: "{[(4 − 1) + 3] × 2} ÷ 6 = {[3 + 3] × 2} ÷ 6 = 12 ÷ 6 = 2 (questão 1, item a).",
+    l: "Parênteses, colchetes, chaves; multiplicação/divisão antes de soma/subtração.",
+    p: "Fazer 4 − 1 + 3 × 2 ÷ 6 sem sinais dá 4 − 1 + 1 = 4, e não 2: os sinais mudam o resultado."}
+  ]},
+ {k: "pri", c: "#1f8a4c", t: "Noções primitivas", s: "aceitas sem definição",
+  e: "São ideias básicas que não se definem por conceitos mais simples. Na Teoria dos Conjuntos são três: conjunto, elemento e pertinência.",
+  x: "Ninguém define \"conjunto\" formalmente na escola: você entende por exemplos (a turma, o time, as vogais).",
+  l: "Primitivas: conjunto, elemento, pertinência.",
+  p: "\"Conjunto é definido formalmente como coleção finita de números\": ERRADO. É noção primitiva e pode ser infinito e não numérico.",
+  f: [
+   {k: "pri1", t: "Conjunto: coleção bem definida (letra maiúscula)",
+    e: "Reunião de objetos bem definidos: dá para decidir sem dúvida se um objeto está ou não nele. Nomeado por letra maiúscula e delimitado por chaves.",
+    x: "A = {1; 2; 3; 4; 5} = naturais maiores que 0 e menores que 6. O 0 e o 6 ficam de fora.",
+    l: "A = { … }",
+    p: "\"Conjunto dos carros bonitos\" não é conjunto: o critério é subjetivo."},
+   {k: "pri2", t: "Elemento: o que está entre as vírgulas",
+    e: "Objetos que compõem o conjunto, em geral letras minúsculas. Um conjunto pode ser elemento de outro quando aparece escrito dentro dele.",
+    x: "D = {2; 3; 5; {7}} tem 4 elementos: 2, 3, 5 e {7}.",
+    l: "Separação por vírgula ou ponto e vírgula.",
+    p: "Contar os \"números\" de D e responder 4 por causa do 7 está certo por acaso; em {1; {1}} são 2 elementos, não 1."},
+   {k: "pri3", t: "Conjunto bem definido × critério subjetivo",
+    e: "Só é conjunto, neste contexto, a coleção em que a pertinência não depende de opinião.",
+    x: "\"Alunos matriculados no curso X\" é conjunto; \"alunos inteligentes do curso X\" não é.",
+    l: "Critério objetivo → conjunto.",
+    p: "\"Problemas difíceis\" formam conjunto: ERRADO, depende de quem resolve."}
+  ]},
+ {k: "per", c: "#b07400", t: "Pertinência", s: "elemento ∈ conjunto",
+  e: "Relaciona <b>elemento</b> com <b>conjunto</b>. Regra prática: se está escrito entre as vírgulas, é elemento e pertence.",
+  x: "Com D = {2; 3; 5; {7}} e E = {7}: {7} ∈ D, 7 ∉ D, 7 ∈ E e E ∈ D.",
+  l: "∈ pertence · ∉ não pertence.",
+  p: "Usar ∈ entre um subconjunto e o conjunto (ex.: {2} ∈ {1; 2; 3}) está errado; o certo é {2} ⊂ {1; 2; 3}.",
+  f: [
+   {k: "per1", t: "\"Se está escrito, é elemento\"",
+    e: "Para decidir se algo pertence, procure-o escrito exatamente assim dentro do par de chaves mais externo.",
+    x: "A = {1; 2; {1}; {1; 3}}: 1 ∈ A, {1} ∈ A, {1; 3} ∈ A, mas 3 ∉ A.",
+    l: "x ∈ A ⇔ x aparece listado em A.",
+    p: "\"3 ∈ A porque está dentro de {1; 3}\": ERRADO. O 3 está dentro de um elemento, não é elemento de A."},
+   {k: "per2", t: "Conjunto como elemento: {7} ∈ D, E ∈ D",
+    e: "Quando um conjunto aparece listado dentro de outro, ele é elemento. Se E = {7}, então D = {2; 3; 5; E} e E ∈ D.",
+    x: "B = {0; {∅}; {1; 2}} e C = {∅}: C ∈ B, porque {∅} está escrito em B.",
+    l: "E = {7} e {7} ∈ D ⇒ E ∈ D.",
+    p: "\"∅ ∈ B\" é falso nesse exemplo: o que está em B é {∅}, e não ∅."},
+   {k: "per3", t: "Vazio × conjunto do vazio",
+    e: "∅ = { } não tem elementos. {∅} tem um elemento, o vazio.",
+    x: "C = {∅}: \"C não tem elementos\" é falso; \"o vazio é elemento de C\" é verdadeiro; \"C = { }\" é falso.",
+    l: "n(∅) = 0 · n({∅}) = 1.",
+    p: "Escrever o vazio como {∅} é um erro clássico de prova."}
+  ]},
+ {k: "rep", c: "#8a3ac2", t: "Representação", s: "listagem · propriedade · diagrama",
+  e: "O mesmo conjunto pode ser escrito listando os elementos, dando a propriedade comum ou desenhando um diagrama.",
+  x: "{0; 2; 4; 6; 8} = {x ∈ ℕ | x é par ∧ x &lt; 10}.",
+  l: "Extensão: { a; b; … } · Compreensão: { x | p(x) } · Diagrama de Euler-Venn.",
+  p: "Listagem e compreensão descrevem o mesmo conjunto; a banca troca \"extensão\" com \"compreensão\" no enunciado.",
+  f: [
+   {k: "rep1", t: "Enumeração (extensão, listagem, tabular)",
+    e: "Lista todos os elementos entre o par de chaves mais externo. Reticências indicam que a lista continua.",
+    x: "B = {1; {2}; 3} tem 3 elementos: 1, {2} e 3.",
+    l: "{a; b; c; …}",
+    p: "Em \"{…; −3; −2; −1; 0}\" o conjunto é infinito à esquerda: são os inteiros não positivos."},
+   {k: "rep2", t: "Compreensão (propriedade, forma construtiva)",
+    e: "Escreve a propriedade que só os elementos têm. A propriedade coletivizante junta mais de uma condição com ∧.",
+    x: "{x ∈ ℕ | x é ímpar ∧ x &lt; 16} = {1; 3; 5; 7; 9; 11; 13; 15}.",
+    l: "{x ∈ conjunto | condição}",
+    p: "{x ∈ ℕ | x primo ∧ x² − 5x + 6 = 0} = {2; 3}: o 2 é primo e par."},
+   {k: "rep3", t: "Diagrama de Euler-Venn",
+    e: "Elementos dentro de uma linha fechada pertencem; os de fora não. Conjunto infinito: todos os pontos do interior representam os elementos.",
+    x: "Um círculo A com a, b, c, d, e dentro e f, g fora: f ∉ A e g ∉ A.",
+    l: "Dentro da curva = pertence.",
+    p: "Elemento desenhado fora da curva, mas perto dela, não pertence."},
+   {k: "rep4", t: "Diagramas de problemas: 2, 3, 4 conjuntos e campo de futebol",
+    e: "Para contar, preencha do centro para fora, descontando o que já foi colocado. Grupos com características: diagrama por grupo ou \"campo de futebol\" (tabela 2 × 2).",
+    x: "Exemplo 2 da aba Exemplos resolvidos: centro 5, duplas 15, 10 e 5, só A = 30.",
+    l: "n(A∪B) = n(A) + n(B) − n(A∩B).",
+    p: "Somar n(A) + n(B) sem tirar a interseção conta duas vezes quem está nas duas."}
+  ]}
+];
+
+function mmItens(){
+  const out = [MM_ROOT];
+  MM.forEach(b => { out.push(b); b.f.forEach(f => out.push(Object.assign({c: b.c, pai: b.t}, f))); });
+  return out;
+}
+function renderMapa(){
+  $("#mmBox").innerHTML = `<div class="mm-root" data-k="root" tabindex="0"><b>${MM_ROOT.t}</b>${MM_ROOT.s}</div>
+    <div class="mm-trunk"></div>
+    <div class="mm-branches" style="--n:${MM.length}">${MM.map(b => `<div class="mm-br" style="--c:${b.c}">
+      <div class="mm-h" data-k="${b.k}" tabindex="0"><b>${b.t}</b>${b.s}</div>
+      <ul>${b.f.map(f => `<li data-k="${f.k}" tabindex="0">${f.t}</li>`).join("")}</ul></div>`).join("")}</div>`;
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => {
+    el.onclick = () => abrirItem(el.dataset.k);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); abrirItem(el.dataset.k); } };
+  });
+  abbrify($("#mmBox"));
+}
+function abrirItem(k){
+  const itens = mmItens(), i = itens.findIndex(x => x.k === k), it = itens[i];
+  $("#mmBox").querySelectorAll("[data-k]").forEach(el => el.classList.toggle("sel", el.dataset.k === k));
+  const p = $("#mmPanel");
+  p.style.setProperty("--c", it.c || "var(--accent)");
+  p.innerHTML = `<div class="muted" style="font-size:13px">${it.pai ? "Mapa › " + it.pai : "Mapa"}</div>
+    <h4>${it.t}</h4>
+    <div class="mm-sec"><span class="lbl">Explicação</span>${it.e}</div>
+    <div class="mm-sec ex"><span class="lbl">Exemplo prático</span>${it.x}</div>
+    <div class="mm-sec"><span class="lbl">Notação e regra</span>${it.l}</div>
+    <div class="mm-sec pg"><span class="lbl">Pegadinha de prova</span>${it.p}</div>
+    <div class="nav"><button class="btn" id="mmPrev" ${i === 0 ? "disabled" : ""}>← Item anterior</button>
+      <button class="btn pri" id="mmNext" ${i === itens.length - 1 ? "disabled" : ""}>Próximo item →</button></div>`;
+  abbrify(p); katexEm(p);
+  p.dataset.hl = "mm-" + k; hlAplicar(p);
+  $("#mmPrev").onclick = () => abrirItem(itens[i - 1].k);
+  $("#mmNext").onclick = () => abrirItem(itens[i + 1].k);
+  const r = p.getBoundingClientRect();
+  if (r.top < 120 || r.top > innerHeight - 160) p.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/* ---------- glossário: toda sigla ganha dica com o nome por extenso ---------- */
+const GLOSS = {
+"EsPCEx": "Escola Preparatória de Cadetes do Exército",
+"AMAN": "Academia Militar das Agulhas Negras",
+"EFOMM": "Escola de Formação de Oficiais da Marinha Mercante",
+"EPCAR": "Escola Preparatória de Cadetes do Ar",
+"EEAR": "Escola de Especialistas de Aeronáutica",
+"ESA": "Escola de Sargentos das Armas",
+"AFA": "Academia da Força Aérea",
+"CN": "Colégio Naval",
+"IME": "Instituto Militar de Engenharia",
+"ITA": "Instituto Tecnológico de Aeronáutica",
+"CFO": "Curso de Formação de Oficiais",
+"LDI": "Livro Digital Interativo (material do curso)"
+};
+const GLOSS_RE = new RegExp("(?<![\\wÀ-ÿ])(" + Object.keys(GLOSS).sort((a, b) => b.length - a.length)
+  .map(s => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&")).join("|") + ")(?![\\wÀ-ÿ])", "g");
+function abbrify(root){
+  if (!root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n =>
+    n.parentElement.closest("abbr,script,style,select,option,kbd") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => {
+    const s = n.nodeValue; GLOSS_RE.lastIndex = 0;
+    if (!GLOSS_RE.test(s)) return;
+    const frag = document.createDocumentFragment(); let last = 0; GLOSS_RE.lastIndex = 0; let m;
+    while ((m = GLOSS_RE.exec(s))){
+      frag.append(s.slice(last, m.index));
+      const a = document.createElement("abbr"); a.textContent = m[1]; a.dataset.tip = GLOSS[m[1]]; a.setAttribute("aria-label", GLOSS[m[1]]);
+      frag.append(a); last = m.index + m[1].length;
+    }
+    frag.append(s.slice(last)); n.replaceWith(frag);
+  });
+}
+/* dica posicionada acima da sigla, sem cobrir o texto nem ficar sob o cursor */
+(() => {
+  const tip = () => document.getElementById("tip");
+  function show(el){
+    const t = tip(); t.textContent = el.dataset.tip; t.classList.add("on");
+    const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+    let y = r.top - h - 8; if (y < 8) y = r.bottom + 8;
+    t.style.left = x + "px"; t.style.top = y + "px";
+  }
+  document.addEventListener("mouseover", e => { const a = e.target.closest("abbr[data-tip]"); if (a) show(a); });
+  document.addEventListener("mouseout", e => { if (e.target.closest("abbr[data-tip]")) tip().classList.remove("on"); });
+  document.addEventListener("click", e => { const a = e.target.closest("abbr[data-tip]"); if (a){ show(a); setTimeout(() => tip().classList.remove("on"), 2500); } });
+  addEventListener("scroll", () => tip().classList.remove("on"), {passive: true});
+})();
+
+const KEY = "espcex_C3_T3.2_mat1_v1";
+/* respostas já resolvidas, embutidas na publicação (usadas só se este navegador ainda não tiver dados) */
+const RESPOSTAS_INICIAIS = null;
+let S = JSON.parse(localStorage.getItem(KEY) || "null") || (RESPOSTAS_INICIAIS ? structuredClone(RESPOSTAS_INICIAIS) : null) || {answers:{}, cards:{}};
+S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.disc ||= {}; S.discVer ||= {};
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* abas */
+function showTab(t){
+  document.querySelectorAll("section.tab").forEach(s => s.classList.toggle("on", s.id === t));
+  document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("on", b.dataset.t === t));
+  if (t === "rend") renderRend();
+  if (t === "flash") renderCard();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll("#nav button").forEach(b => b.onclick = () => showTab(b.dataset.t));
+const active = () => document.querySelector("section.tab.on").id;
+
+/* questões */
+const TEMAS = [...new Set(QUESTOES.map(q => q.tema))];
+$("#fTema").innerHTML = '<option value="all">Todos os temas</option>' + TEMAS.map(t => `<option>${esc(t)}</option>`).join("");
+let cur = 0;
+
+function visible(){
+  const t = $("#fTema").value, st = $("#fStatus").value;
+  return QUESTOES.map((q, i) => i).filter(i => {
+    const q = QUESTOES[i], a = S.answers[q.n];
+    if (t !== "all" && q.tema !== t) return false;
+    if (st === "pend") return !a;
+    if (st === "bad") return a && !a.disc && !a.ok;
+    if (st === "ok") return a && !a.disc && a.ok;
+    if (st === "disc") return isDisc(q);
+    if (st === "obj") return !isDisc(q);
+    return true;
+  });
+}
+/* questões vindas do LDI trazem HTML já limpo na extração (q.html) */
+const hq = (q, s) => q.html ? s : esc(s);
+const semTag = s => String(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const OBJ = QUESTOES.filter(q => q.tipo !== "disc");
+const isDisc = q => q.tipo === "disc";
+function katexEm(root){
+  if (!root || !window.katex) return;
+  root.querySelectorAll('span[data-type="katex"]:not([data-ok])').forEach(el => {
+    try { katex.render(el.getAttribute("value") || "", el, {throwOnError: false}); } catch (e) { el.textContent = el.getAttribute("value"); }
+    el.dataset.ok = 1;
+  });
+}
+window.katexPronto = () => katexEm(document.body);
+function fmtCom(p, q){
+  if (q && q.html) return p;
+  return esc(p).replace(/^(Letra [A-E]|Item [IVX]+|Alternativa [A-E]|Assertiva [IVX]+)(:?)/, "<b>$1$2</b>");
+}
+function renderQ(){
+  const vis = visible();
+  const done = Object.keys(S.answers).length;
+  $("#qProg").style.width = (100 * done / QUESTOES.length) + "%";
+  $("#navQ").textContent = `${done}/${QUESTOES.length}`;
+  $("#qNav").innerHTML = vis.map(i => {
+    const a = S.answers[QUESTOES[i].n];
+    const c = a ? (a.disc ? "disc" : a.ok ? "ok" : "bad") : "";
+    return `<button data-i="${i}" class="${c} ${i === cur ? "cur" : ""}" title="${isDisc(QUESTOES[i]) ? "Discursiva" : ""}">${QUESTOES[i].nav || QUESTOES[i].n}</button>`;
+  }).join("");
+  $("#qNav").querySelectorAll("button").forEach(b => b.onclick = () => { cur = +b.dataset.i; renderQ(); });
+  if (!vis.length){ $("#qCard").innerHTML = '<p class="muted">Nenhuma questão neste filtro.</p>'; return; }
+  if (!vis.includes(cur)) cur = vis[0];
+  const q = QUESTOES[cur], a = S.answers[q.n];
+  const d = draft(q.n);
+  const st = v => a ? "" : (d.desc.includes(v) ? "desc" : d.sel === v ? "sel" : "");
+  let opts;
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (isDisc(q)) return renderDisc(q, vis);
+  if (q.tipo === "ce"){
+    opts = '<div class="ce">' + [["C","Certo"],["E","Errado"]].map(([v, l]) => {
+      let cls = "";
+      if (a){ if (v === q.resp) cls = "right"; else if (v === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(v)}" data-v="${v}" ${a ? "disabled" : ""}>${l}</button>`;
+    }).join("") + "</div>";
+  } else {
+    opts = q.alts.map(([l, t]) => {
+      let cls = "";
+      if (a){ if (l === q.resp) cls = "right"; else if (l === a.sel) cls = "wrong"; }
+      return `<button class="opt ${cls} ${st(l)}" data-v="${l}" ${a ? "disabled" : ""}><span class="l">${l})</span><span>${hq(q, t)}</span></button>`;
+    }).join("");
+  }
+  const pos = vis.indexOf(cur) + 1;
+  let com = "";
+  if (a){
+    const gab = q.tipo === "ce" ? (q.resp === "C" ? "Certo (verdadeiro)" : "Errado (falso)") : "Letra " + q.resp.toUpperCase();
+    com = `<div class="coment" data-hl="q${q.n}c"><div class="verdict ${a.ok ? "ok" : "bad"}">${a.ok ? "✔ Você acertou" : "✘ Você errou"} · Gabarito: ${gab}</div>
+      ${q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("")}</div>`;
+  }
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    ${a ? "" : '<div class="qhint">Clique para escolher · clique duas vezes para descartar (riscar) ou recuperar uma opção</div>'}
+    ${opts}
+    ${a ? "" : `<div class="qact"><button class="btn pri" id="qSubmit">Responder</button><div class="qmsg" id="qMsg" role="alert"></div></div>`}
+    ${com}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  let clickTimer = null;
+  $("#qCard").querySelectorAll(".opt:not(:disabled)").forEach(b => {
+    b.onclick = () => { clearTimeout(clickTimer); clickTimer = setTimeout(() => escolher(b.dataset.v), 230); };
+    b.ondblclick = e => { e.preventDefault(); clearTimeout(clickTimer); descartar(b.dataset.v); };
+  });
+  if ($("#qSubmit")) $("#qSubmit").onclick = submeter;
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function renderDisc(q, vis){
+  const a = S.answers[q.n], pos = vis.indexOf(cur) + 1;
+  S.disc ||= {};
+  const txt = S.disc[q.n] || "";
+  const res = q.com.length ? q.com.map(p => `<div>${fmtCom(p, q)}</div>`).join("") : '<p class="muted">O material não traz resolução escrita desta questão.</p>';
+  $("#qCard").innerHTML = `<div class="qhead"><span><b>${esc(q.rot || "Questão " + q.n)}</b> · ${esc(q.fonte)}</span><span><span class="pill disc">Discursiva</span> <span class="pill">${esc(q.tema)}</span> ${pos}/${vis.length}</span></div>
+    ${q.texto ? `<div class="trecho ${q.html ? "html" : ""}" data-hl="q${q.n}t"><span class="lbl">Texto de apoio</span>${hq(q, q.texto)}</div>` : ""}
+    <div class="enun ${q.html ? "html" : ""}" data-hl="q${q.n}">${hq(q, q.enun)}</div>
+    <div class="disc-box"><span class="lbl">Sua resposta (fica salva neste navegador; leve-a ao professor para correção)</span>
+      <textarea id="discTxt" placeholder="Escreva aqui a sua resolução…">${esc(txt)}</textarea></div>
+    <div class="qact"><button class="btn ${a ? "" : "pri"}" id="discOk">${a ? "✔ Marcada como feita" : "Marcar como feita"}</button>
+      <button class="btn" id="discVer">${S.discVer?.[q.n] ? "Ocultar resolução" : "Ver resolução do material"}</button>
+      <span class="muted" style="font-size:13px">Discursivas não entram no rendimento: a correção é com o professor.</span></div>
+    ${S.discVer?.[q.n] ? `<div class="coment" data-hl="q${q.n}c"><div class="verdict">Resolução do material</div>${res}</div>` : ""}`;
+  abbrify($("#qCard")); katexEm($("#qCard"));
+  $("#qCard").querySelectorAll("[data-hl]").forEach(hlAplicar);
+  $("#discTxt").oninput = e => { S.disc[q.n] = e.target.value; save(); };
+  $("#discOk").onclick = () => {
+    if (S.answers[q.n]) delete S.answers[q.n]; else S.answers[q.n] = {disc: true, ts: Date.now()};
+    save(); renderQ();
+  };
+  $("#discVer").onclick = () => { S.discVer ||= {}; S.discVer[q.n] = !S.discVer[q.n]; save(); renderQ(); };
+  $("#qPrev").disabled = pos <= 1;
+  $("#qNext").textContent = pos >= vis.length ? "Ver rendimento →" : "Próxima →";
+}
+function draft(n){
+  S.draft ||= {};
+  return S.draft[n] ||= {sel: null, desc: []};
+}
+function opcoes(q){ return q.tipo === "ce" ? ["C", "E"] : q.alts.map(x => x[0]); }
+function escolher(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)){ msg("warn", "Essa opção está descartada. Clique duas vezes nela para recuperá-la antes de escolher."); return; }
+  d.sel = d.sel === v ? null : v; save(); renderQ();
+}
+function descartar(v){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  if (d.desc.includes(v)) d.desc = d.desc.filter(x => x !== v);
+  else { d.desc.push(v); if (d.sel === v) d.sel = null; }
+  save(); renderQ();
+  if (d.desc.length === opcoes(q).length) msg("warn", "Você descartou todas as opções. Clique duas vezes em uma delas para recuperá-la e poder responder.");
+}
+function msg(tipo, texto){
+  const m = $("#qMsg"); if (!m) return;
+  m.className = "qmsg on " + tipo; m.textContent = texto;
+}
+function submeter(){
+  const q = QUESTOES[cur]; if (S.answers[q.n]) return;
+  const d = draft(q.n), todas = opcoes(q);
+  if (d.desc.length === todas.length) return msg("bad", "Você marcou todas as opções como descartadas. Recupere uma (clique duas vezes) e selecione-a antes de responder.");
+  if (!d.sel) return msg("bad", "Você não selecionou nenhuma resposta. Clique em uma opção e depois em Responder.");
+  answer(d.sel);
+}
+function answer(v){
+  const q = QUESTOES[cur];
+  if (S.answers[q.n]) return;
+  const d = draft(q.n);
+  S.answers[q.n] = {sel: v, ok: v === q.resp, desc: d.desc.slice(), ts: Date.now()};
+  delete S.draft[q.n];
+  save(); renderQ();
+  $("#qCard .coment")?.scrollIntoView({behavior: "smooth", block: "nearest"});
+  if (OBJ.length && OBJ.every(x => S.answers[x.n])){
+    setTimeout(() => { if (confirmFinish()) showTab("rend"); }, 50);
+  }
+}
+let finishedShown = false;
+function confirmFinish(){ if (finishedShown) return false; finishedShown = true; return true; }
+function step(d){
+  const vis = visible(), p = vis.indexOf(cur);
+  if (d > 0 && p >= vis.length - 1){ showTab("rend"); return; }
+  const np = Math.min(Math.max(p + d, 0), vis.length - 1);
+  cur = vis[np]; renderQ(); $("#qCard").scrollIntoView({block: "nearest"});
+}
+$("#qPrev").onclick = () => step(-1);
+$("#qNext").onclick = () => step(1);
+$("#fTema").onchange = $("#fStatus").onchange = () => { cur = -1; renderQ(); };
+
+/* flashcards */
+let deck = [], fcI = 0;
+FLASH.forEach((c, i) => c.id = "f" + i);
+function buildDeck(shuffle){
+  const d = $("#fcDeck").value;
+  deck = FLASH.filter(c => d === "all" || c[0] === d);
+  const box = c => (S.cards[c.id] || {box: 1}).box;
+  deck = deck.map(c => [c, Math.random()]).sort((x, y) => shuffle ? x[1] - y[1] : (box(x[0]) - box(y[0])) || (x[1] - y[1])).map(x => x[0]);
+  fcI = 0; renderCard();
+}
+function renderCard(){
+  if (!deck.length) buildDeck();
+  const c = deck[fcI];
+  $("#fc").classList.remove("flip");
+  $("#fcQ").innerHTML = c[1];
+  $("#fcA").innerHTML = c[2];
+  const b = (S.cards[c.id] || {box: 1}).box;
+  $("#fcPos").textContent = `Cartão ${fcI + 1} de ${deck.length}`;
+  $("#fcBox").textContent = `Caixa ${b}`;
+  const cnt = [0, 0, 0, 0, 0];
+  deck.forEach(x => cnt[((S.cards[x.id] || {box: 1}).box) - 1]++);
+  abbrify($("#fcQ")); abbrify($("#fcA")); katexEm($("#fc")); katexEm($("#fc"));
+  $("#fcBoxes").innerHTML = cnt.map((n, i) => `<span>Caixa ${i + 1}: ${n}</span>`).join("");
+}
+function grade(g){
+  const c = deck[fcI], st = S.cards[c.id] || {box: 1};
+  st.box = g === 0 ? 1 : g === 1 ? Math.max(1, st.box) : Math.min(5, st.box + 1);
+  st.seen = (st.seen || 0) + 1; S.cards[c.id] = st; save();
+  fcI = (fcI + 1) % deck.length; renderCard();
+}
+$("#fc").onclick = () => $("#fc").classList.toggle("flip");
+$("#fcBad").onclick = () => grade(0);
+$("#fcMid").onclick = () => grade(1);
+$("#fcOk").onclick = () => grade(2);
+$("#fcDeck").onchange = () => buildDeck();
+$("#fcShuffle").onclick = () => buildDeck(true);
+$("#fcReset").onclick = () => { if (confirm("Zerar as caixas de todos os flashcards?")){ S.cards = {}; save(); buildDeck(); } };
+
+/* rendimento */
+function renderRend(){
+  const ans = S.answers, n = OBJ.length, done = OBJ.filter(q => ans[q.n]);
+  const nDisc = QUESTOES.length - n, discFeitas = QUESTOES.filter(q => isDisc(q) && ans[q.n]).length;
+  const discInfo = nDisc ? `<div class="call"><b>Discursivas</b>${discFeitas} de ${nDisc} marcadas como feitas. Elas ficam fora do rendimento: leve as suas respostas ao professor para correção.</div>` : "";
+  const ok = done.filter(q => ans[q.n].ok).length;
+  if (!done.length){ $("#rendBody").innerHTML = discInfo + `<div class="card"><p class="muted">${n ? "Você ainda não respondeu nenhuma questão objetiva. Vá para a aba <b>Questões</b>." : "Esta tarefa só tem questões discursivas; não há rendimento automático."}</p></div>`; return; }
+  const pct = Math.round(100 * ok / done.length);
+  const ce = done.filter(q => q.tipo === "ce"), ceOk = ce.filter(q => ans[q.n].ok).length, ceBad = ce.length - ceOk;
+  const mc = done.filter(q => q.tipo === "mc"), mcOk = mc.filter(q => ans[q.n].ok).length;
+  const complete = done.length === n;
+  const msg = pct >= 85 ? ["ok", "Excelente! Acima da meta de 80% do seu plano."] : pct >= 70 ? ["warn", "Bom, mas abaixo da meta de 80%. Revise os temas em amarelo e vermelho."] : ["bad", "Abaixo de 70%. Releia o Resumo dos temas fracos antes de refazer as erradas."];
+  const byT = [...new Set(OBJ.map(q => q.tema))].map(t => {
+    const qs = done.filter(q => q.tema === t), o = qs.filter(q => ans[q.n].ok).length;
+    return {t, tot: OBJ.filter(q => q.tema === t).length, d: qs.length, o, p: qs.length ? Math.round(100 * o / qs.length) : null};
+  }).sort((a, b) => (a.p ?? 101) - (b.p ?? 101));
+  const wrong = done.filter(q => !ans[q.n].ok);
+  $("#rendBody").innerHTML = `
+    ${discInfo}
+    ${discInfo}
+    ${complete ? "" : `<div class="call warn"><b>Resultado parcial</b>Você respondeu ${done.length} de ${n}. O rendimento final aparece quando terminar todas.</div>`}
+    <div class="grid3">
+      <div class="card"><div class="muted">Aproveitamento</div><div class="big" style="color:var(--${pct >= 80 ? "ok" : pct >= 70 ? "warn" : "bad"})">${pct}%</div><div class="muted">${ok} certas de ${done.length}</div></div>
+      ${ce.length ? `<div class="card"><div class="muted">Verdadeiro ou falso</div><div class="big">${Math.round(100 * ceOk / ce.length)}%</div><div class="muted">${ceOk} de ${ce.length}</div></div>` : ""}
+      <div class="card"><div class="muted">Múltipla escolha</div><div class="big">${mc.length ? Math.round(100 * mcOk / mc.length) : 0}%</div><div class="muted">${mcOk} de ${mc.length}</div></div>
+    </div>
+    <div class="call ${msg[0]}"><b>Diagnóstico</b>${msg[1]}</div>
+    <h3>Desempenho por tema (do mais fraco ao mais forte)</h3>
+    <div class="card">${byT.map(r => `<div class="bar"><span>${esc(r.t)}</span><div class="t"><div class="${r.p === null ? "" : r.p < 70 ? "low" : r.p < 85 ? "mid" : ""}" style="width:${r.p ?? 0}%"></div></div><span>${r.p === null ? "—" : r.p + "%"} <small class="muted">${r.o}/${r.d}</small></span></div>`).join("")}</div>
+    <h3>Questões erradas (${wrong.length})</h3>
+    <div class="card">${wrong.length ? wrong.map(q => `<div style="margin:6px 0"><a href="#" data-n="${q.n}">Q${q.n}</a> · <span class="pill">${esc(q.tema)}</span> <span class="muted">${esc(semTag(q.enun).slice(-120).replace(/^\S*\s/, "…"))}</span></div>`).join("") : '<p class="muted">Nenhuma! 🎯</p>'}</div>`;
+  abbrify($("#rendBody"));
+  $("#rendBody").querySelectorAll("a[data-n]").forEach(a => a.onclick = e => {
+    e.preventDefault(); $("#fTema").value = "all"; $("#fStatus").value = "all";
+    cur = QUESTOES.findIndex(q => q.n === +a.dataset.n); showTab("questoes"); renderQ();
+  });
+}
+$("#expBtn").onclick = () => {
+  const blob = new Blob([JSON.stringify(S, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+  a.download = `${KEY}_${new Date().toISOString().slice(0, 10)}.json`; a.click();
+};
+$("#impFile").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  f.text().then(t => { S = JSON.parse(t); S.answers ||= {}; S.cards ||= {}; S.draft ||= {}; S.marks ||= {}; save(); renderQ(); renderRend(); hlTudo(); });
+};
+$("#redoBad").onclick = () => {
+  const bad = Object.keys(S.answers).filter(k => !S.answers[k].ok && !S.answers[k].disc);
+  if (!bad.length) return;
+  bad.forEach(k => delete S.answers[k]); save(); finishedShown = false;
+  $("#fStatus").value = "pend"; cur = -1; showTab("questoes"); renderQ();
+};
+$("#resetAll").onclick = () => { if (confirm("Apagar TODAS as respostas das questões?")){ S.answers = {}; save(); finishedShown = false; renderQ(); renderRend(); } };
+
+/* ---------- marca-texto: selecione um trecho e escolha amarelo, rosa ou verde (salvo em S.marks) ---------- */
+S.marks ||= {};
+const hlBar = $("#hlBar");
+let hlAlvo = null;  /* {root, id} quando o clique foi numa marcação já existente */
+const hlId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+const hlRaiz = n => (n.nodeType === 1 ? n : n.parentElement)?.closest("[data-hl]");
+function hlTextos(root){
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), r = [];
+  while (w.nextNode()) r.push(w.currentNode);
+  return r;
+}
+function hlOff(root, node, off){ const r = document.createRange(); r.setStart(root, 0); r.setEnd(node, off); return r.toString().length; }
+/* posições contadas no texto puro do bloco; se o texto mudar, procura o trecho guardado */
+function hlAplicar(root){
+  if (!root) return;
+  root.querySelectorAll("mark.hl").forEach(m => m.replaceWith(...m.childNodes));
+  root.normalize();
+  const full = root.textContent;
+  (S.marks[root.dataset.hl] || []).forEach(m => {
+    if (full.slice(m.s, m.e) !== m.t){ const i = full.indexOf(m.t); if (i < 0) return; m.s = i; m.e = i + m.t.length; }
+    let pos = 0;
+    hlTextos(root).forEach(t => {
+      const a = pos, b = pos + t.length; pos = b;
+      if (b <= m.s || a >= m.e) return;
+      if (!t.nodeValue.trim() && /^(TABLE|TBODY|THEAD|TR|UL|OL|SECTION|DIV|DETAILS)$/.test(t.parentNode.nodeName)) return;
+      let n = t;
+      if (m.e - a < t.length) n.splitText(m.e - a);
+      if (m.s > a) n = n.splitText(m.s - a);
+      const mk = document.createElement("mark");
+      mk.className = "hl hl-" + m.c; mk.dataset.id = m.id;
+      n.replaceWith(mk); mk.append(n);
+    });
+  });
+}
+function hlTudo(){ document.querySelectorAll("[data-hl]").forEach(hlAplicar); }
+function hlSelecao(){
+  const sel = getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return null;
+  const r = sel.getRangeAt(0), root = hlRaiz(r.startContainer);
+  if (!root || root !== hlRaiz(r.endContainer)) return null;
+  const s = hlOff(root, r.startContainer, r.startOffset), e = hlOff(root, r.endContainer, r.endOffset);
+  return e > s ? {root, s, e, rect: r.getBoundingClientRect()} : null;
+}
+/* tira o trecho [s, e) das marcações existentes (nova cor por cima ou apagar) */
+function hlCortar(lista, s, e, full){
+  const out = [];
+  lista.forEach(m => {
+    if (m.e <= s || m.s >= e) return out.push(m);
+    if (m.s < s) out.push({...m, id: hlId(), e: s, t: full.slice(m.s, s)});
+    if (m.e > e) out.push({...m, id: hlId(), s: e, t: full.slice(e, m.e)});
+  });
+  return out;
+}
+function hlSalvar(root, lista){
+  const k = root.dataset.hl;
+  if (lista.length) S.marks[k] = lista.sort((a, b) => a.s - b.s); else delete S.marks[k];
+  save(); hlAplicar(root);
+}
+const hlToque = matchMedia("(pointer:coarse)").matches;
+let hlUltima = null;  /* última seleção válida: no celular, o toque no botão pode desfazer a seleção antes do clique */
+function hlMostrar(rect){
+  hlBar.classList.add("on");
+  const w = hlBar.offsetWidth, h = hlBar.offsetHeight;
+  /* no celular a barra vai abaixo do trecho, para não ficar sob o menu nativo de copiar */
+  let y = hlToque ? rect.bottom + 14 : rect.top - h - 8;
+  if (hlToque ? y > innerHeight - h - 8 : y < 8) y = hlToque ? rect.top - h - 14 : rect.bottom + 8;
+  y = Math.min(Math.max(8, y), innerHeight - h - 8);
+  hlBar.style.left = Math.min(Math.max(8, rect.left + rect.width / 2 - w / 2), innerWidth - w - 8) + "px";
+  hlBar.style.top = y + "px";
+}
+function hlEsconder(){ hlBar.classList.remove("on"); hlAlvo = null; hlUltima = null; }
+hlBar.addEventListener("mousedown", e => e.preventDefault());
+hlBar.querySelectorAll("button").forEach(b => b.onclick = () => {
+  const c = b.dataset.c;
+  if (hlAlvo){
+    const {root, id} = hlAlvo, lista = S.marks[root.dataset.hl] || [];
+    hlSalvar(root, c ? lista.map(m => m.id === id ? {...m, c} : m) : lista.filter(m => m.id !== id));
+  } else {
+    const x = hlSelecao() || hlUltima; if (!x) return hlEsconder();
+    const full = x.root.textContent, lista = hlCortar(S.marks[x.root.dataset.hl] || [], x.s, x.e, full);
+    if (c) lista.push({id: hlId(), s: x.s, e: x.e, c, t: full.slice(x.s, x.e)});
+    getSelection().removeAllRanges();
+    hlSalvar(x.root, lista);
+  }
+  hlEsconder();
+});
+function hlChecar(e){
+  if (hlBar.contains(e.target)) return;
+  setTimeout(() => {
+    const x = hlSelecao();
+    if (x){ hlAlvo = null; hlUltima = x; return hlMostrar(x.rect); }
+    const mk = e.target.closest?.("mark.hl");
+    if (mk && getSelection().isCollapsed){ hlMostrar(mk.getBoundingClientRect()); hlAlvo = {root: hlRaiz(mk), id: mk.dataset.id}; return; }
+    hlEsconder();
+  }, 10);
+}
+document.addEventListener("mouseup", hlChecar);
+document.addEventListener("touchend", hlChecar);
+document.addEventListener("keyup", e => { if (e.shiftKey) hlChecar(e); });
+/* celular: a seleção por toque longo (e o ajuste das alças) não gera mouseup confiável; acompanha selectionchange */
+let hlTimer = 0;
+const hlRever = () => { const x = hlSelecao(); if (x){ hlAlvo = null; hlUltima = x; hlMostrar(x.rect); } };
+document.addEventListener("selectionchange", () => {
+  if (!hlToque) return;
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 350);
+});
+addEventListener("scroll", () => {
+  if (!hlBar.classList.contains("on")) return;
+  hlBar.classList.remove("on");
+  clearTimeout(hlTimer); hlTimer = setTimeout(hlRever, 250);
+}, {passive: true});
+$("#hlReset").onclick = () => { if (confirm("Apagar todas as marcações de texto desta página?")){ S.marks = {}; save(); hlTudo(); } };
+document.querySelectorAll("section.tab").forEach(s => { if (!["mapa", "questoes", "flash", "rend"].includes(s.id)) s.dataset.hl = s.id; });
+hlTudo();
+
+/* teclado */
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA" || e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key.toLowerCase(), tab = active();
+  if (tab === "questoes"){
+    const q = QUESTOES[cur];
+    if (k === "arrowright") step(1);
+    else if (k === "arrowleft") step(-1);
+    else if (q && !S.answers[q.n]){
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      if (isDisc(q) || e.target.tagName === "TEXTAREA") return;
+      const v = q.tipo === "ce" ? k.toUpperCase() : k;
+      if (k === "enter"){ e.preventDefault(); submeter(); }
+      else if (opcoes(q).includes(v)){ e.shiftKey ? descartar(v) : escolher(v); }
+    }
+  } else if (tab === "flash"){
+    if (k === " "){ e.preventDefault(); $("#fc").classList.toggle("flip"); }
+    else if (k === "1") grade(0); else if (k === "2") grade(1); else if (k === "3") grade(2);
+  }
+});
+
+renderMapa();
+["#inicio", "#resumo", "#mapa", "#esquemas", "#reforma"].forEach(s => abbrify($(s)));
+katexEm(document.body);
+katexEm(document.body);
+cur = 0; renderQ(); buildDeck();
+
+/* ---------- tamanho da fonte (70% a 200%, passo de 10%; salvo para todas as páginas) ---------- */
+function fonte(v){
+  v = Math.min(2, Math.max(0.7, Math.round(v * 10) / 10));
+  document.documentElement.style.setProperty("--fz", v);
+  localStorage.setItem("espcex_fonte", v);
+  $("#fzVal").textContent = Math.round(v * 100) + "%";
+  $("#fzMenos").disabled = v <= 0.7; $("#fzMais").disabled = v >= 2;
+}
+const fzAtual = () => parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--fz")) || 1;
+$("#fzMenos").onclick = () => fonte(fzAtual() - 0.1);
+$("#fzMais").onclick = () => fonte(fzAtual() + 0.1);
+$("#fzVal").onclick = () => fonte(1);
+fonte(fzAtual());
+
+/* ---------- tela cheia: o mesmo botão entra e sai (Esc também sai) ---------- */
+$("#telaCheia").onclick = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {});
+document.addEventListener("fullscreenchange", () => {
+  const on = !!document.fullscreenElement, b = $("#telaCheia");
+  b.textContent = on ? "✕ Sair da tela cheia" : "⛶ Tela cheia";
+  b.title = b.ariaLabel = on ? "Sair da tela cheia" : "Tela cheia";
+});
+
+/* ---------- menu retrátil no celular: mostra a aba atual e fecha ao escolher outra ---------- */
+function menuRotulo(){
+  const b = $("#nav button.on");
+  $("#menuBtn").textContent = "☰ " + (b ? b.firstChild.textContent.trim() : "Menu");
+}
+$("#menuBtn").onclick = () => {
+  const on = $("header").classList.toggle("menu-on");
+  $("#menuBtn").setAttribute("aria-expanded", on);
+};
+$("#nav").addEventListener("click", e => {
+  if (!e.target.closest("button")) return;
+  $("header").classList.remove("menu-on"); $("#menuBtn").setAttribute("aria-expanded", false); menuRotulo();
+});
+document.addEventListener("click", e => { if (!e.target.closest("header")) menuRotulo(); });
+menuRotulo();
+
+/* ---------- tema de cores (5 opções; salvo para todas as páginas do plano) ---------- */
+$("#tema").value = localStorage.getItem("espcex_tema") || (matchMedia("(prefers-color-scheme:dark)").matches ? "escuro" : "claro");
+$("#tema").onchange = e => { document.documentElement.dataset.theme = e.target.value; localStorage.setItem("espcex_tema", e.target.value); };
+</script>
+</body>
+</html>
